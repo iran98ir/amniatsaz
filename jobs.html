@@ -55,7 +55,6 @@
     overflow-x:hidden;
   }
 
-  /* ============ هدر ============ */
   .header{
     position:sticky; top:0; z-index:100;
     background:linear-gradient(140deg,#122741 0%,#1a365d 55%,#234a75 100%);
@@ -94,13 +93,11 @@
   .header-title{ font-size:var(--fs-h2); font-weight:800; letter-spacing:-.4px; line-height:1.3; }
   .header-sub{ font-size:var(--fs-small); color:#c5d1e0; font-weight:500; margin-top:3px; }
 
-  /* ============ محتوا ============ */
   .main{
     max-width:640px; margin:0 auto;
     padding:24px 18px 12px;
   }
 
-  /* ============ قالب لوکس چندخطی ============ */
   .lux-frame{
     position:relative;
     background:var(--card);
@@ -138,7 +135,6 @@
     pointer-events:none;
   }
 
-  /* ============ هرو ============ */
   .hero{
     padding:30px 26px 28px;
     margin-bottom:32px;
@@ -220,7 +216,6 @@
     position:relative; z-index:1;
   }
 
-  /* ============ آمار ============ */
   .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -248,7 +243,6 @@
     margin-top:5px;
   }
 
-  /* ============ عنوان بخش ============ */
   .section-title{
     display:flex; align-items:center; gap:12px;
     font-size:var(--fs-h3);
@@ -265,7 +259,6 @@
     box-shadow:0 2px 6px rgba(184,145,47,.35);
   }
 
-  /* ============ کارت مشاغل ============ */
   .jobs{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -310,7 +303,6 @@
     font-weight:500;
   }
 
-  /* ============ دکمه ============ */
   .cta{
     display:flex;
     align-items:center;
@@ -352,7 +344,6 @@
 
   .cta svg{ width:24px; height:24px; fill:#fff; }
 
-  /* ============ امضای طراح ============ */
   .signature{
     text-align:center;
     margin:34px 0 8px;
@@ -385,7 +376,6 @@
     box-shadow:0 2px 8px rgba(184,145,47,.12);
   }
 
-  /* ============ نویگیشن پایین ============ */
   .bottom-nav{
     position:fixed;
     bottom:0; left:0; right:0;
@@ -424,7 +414,6 @@
 
   .nav-item:active{ background:rgba(22,48,79,.06); }
 
-  /* ============ انیمیشن ============ */
   @keyframes fadeUp{
     from{ opacity:0; transform:translateY(16px); }
     to{ opacity:1; transform:translateY(0); }
@@ -439,7 +428,6 @@
 
 <body>
 
-  <!-- ====== هدر ====== -->
   <header class="header">
     <div class="header-inner">
       <div class="logo">
@@ -454,10 +442,8 @@
     </div>
   </header>
 
-  <!-- ====== محتوا ====== -->
   <main class="main">
 
-    <!-- خوش‌آمد -->
     <section class="hero lux-frame anim">
       <div class="hero-inner">
         <div class="hero-badge">
@@ -472,7 +458,6 @@
       </div>
     </section>
 
-    <!-- آمار -->
     <section class="stats anim anim-2">
       <div class="stat lux-frame">
         <div class="stat-num">۴</div>
@@ -488,7 +473,6 @@
       </div>
     </section>
 
-    <!-- مشاغل -->
     <h2 class="section-title anim anim-2">مشاغل موجود</h2>
     <section class="jobs anim anim-3">
 
@@ -534,20 +518,17 @@
 
     </section>
 
-    <!-- دکمه راهنمای انتخاب شغل -->
-    <a href="jobs.html" class="cta anim anim-4">
+    <a href="guide.html" class="cta anim anim-4">
       <svg viewBox="0 0 24 24">
-        <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
       </svg>
-      راهنمای انتخاب شغل
+      راهنمای استخدام
     </a>
 
-    <!-- امضا -->
     <div class="signature"><span>امنیت‌گستر</span></div>
 
   </main>
 
-  <!-- ====== نویگیشن پایین ====== -->
   <nav class="bottom-nav">
     <a href="index.html" class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
@@ -568,4 +549,4 @@
   </nav>
 
 </body>
-                    </html>
+</html>
