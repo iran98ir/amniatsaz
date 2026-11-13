@@ -3,1782 +3,2169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#f6f7f9">
+<meta name="theme-color" content="#F1F0E8">
 <title>ثبت درخواست استخدام | امنیت‌گستر</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --primary:#16304f;
-    --primary-dark:#0f2338;
-    --primary-light:#234a75;
-    --accent:#b8912f;
-    --accent-soft:#e4c86a;
-    --bg:#f6f7f9;
-    --card:#ffffff;
-    --text:#15202b;
-    --text-soft:#4a5866;
-    --border:#e6e9ee;
-    --success:#2f855a;
+:root{
+  --forest:#193D32;
+  --forest2:#254E40;
+  --forest3:#315B4C;
+  --olive:#89946B;
+  --lime:#D6E5A4;
+  --paper:#FAF9F4;
+  --cream:#F1F0E8;
+  --ink:#202D27;
+  --muted:#66736B;
+  --line:#E2E4D9;
+  --orange:#C8754B;
+  --orange-soft:#F2DED3;
+  --orange-deep:#A65A34;
+  --success:#2F855A;
+  --shadow:0 12px 35px rgba(25,61,50,.08);
+  --shadow2:0 20px 55px rgba(25,61,50,.14);
+}
 
-    --shadow-sm:0 2px 10px rgba(22,48,79,.06);
-    --shadow-md:0 10px 30px rgba(22,48,79,.12);
-    --shadow-lg:0 18px 44px rgba(22,48,79,.20);
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
 
-    --radius:22px;
-    --radius-sm:14px;
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:96px;
+}
 
-    --fs-body:19px;
-    --fs-small:17px;
-    --fs-tiny:15px;
-    --fs-h1:29px;
-    --fs-h2:26px;
-    --fs-h3:23px;
-    --fs-btn:21px;
-    --fs-nav:16px;
-    --fs-input:19px;
-    --fs-label:20px;
-    --fs-help:16px;
-    --fs-note-title:20px;
-    --fs-note-body:17px;
-    --fs-modal-title:27px;
-    --fs-modal-body:19px;
-  }
+body{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:2;
+  font-size:16px;
+  padding-bottom:calc(104px + env(safe-area-inset-bottom));
+  overflow-x:hidden;
+}
 
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{font-size:var(--fs-body)}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit}
+button{cursor:pointer}
 
-  body{
-    font-family:'Vazirmatn',-apple-system,BlinkMacSystemFont,'Segoe UI',Tahoma,sans-serif;
-    background:
-      radial-gradient(circle at 10% 0%, rgba(184,145,47,.06), transparent 40%),
-      radial-gradient(circle at 90% 100%, rgba(22,48,79,.05), transparent 45%),
-      var(--bg);
-    background-attachment:fixed;
-    color:var(--text);
-    line-height:1.85;
-    padding-bottom:104px;
-    overflow-x:hidden;
-  }
+/* ============ HEADER ============ */
+.header{
+  background:var(--cream);
+  padding:16px 17px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid rgba(25,61,50,.06);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  max-width:720px;
+  margin:auto;
+}
+.logo{
+  width:53px;
+  height:53px;
+  background:var(--forest);
+  color:var(--lime);
+  display:grid;
+  place-items:center;
+  border-radius:16px 5px 16px 5px;
+  box-shadow:5px 5px 0 rgba(137,148,107,.25);
+  flex-shrink:0;
+}
+.logo svg{
+  width:32px;
+  height:32px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.6;
+}
+.brand{
+  flex:1;
+  min-width:0;
+}
+.brand-name{
+  font-size:23px;
+  font-weight:900;
+  line-height:1.3;
+  color:var(--forest);
+  letter-spacing:-1px;
+}
+.brand-sub{
+  font-size:12px;
+  font-weight:600;
+  color:#7C877A;
+}
+.header-mark{
+  width:45px;
+  height:45px;
+  border:1px solid #D8DDCC;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--forest);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1px;
+  flex-shrink:0;
+}
 
-  /* ============ هدر ============ */
-  .header{
-    position:sticky;top:0;z-index:100;
-    background:linear-gradient(140deg,#0f2338 0%,#16304f 55%,#234a75 100%);
-    color:#fff;
-    padding:22px 20px 20px;
-    box-shadow:0 6px 26px rgba(15,35,56,.40);
-    border-bottom:2px solid var(--accent);
-  }
-  .header::after{
-    content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
-    background:linear-gradient(90deg,transparent,var(--accent-soft),var(--accent),var(--accent-soft),transparent);
-    opacity:.7;
-  }
-  .header-inner{
-    display:flex;align-items:center;gap:15px;
-    max-width:720px;margin:0 auto;position:relative;
-  }
-  .logo{
-    width:60px;height:60px;flex-shrink:0;
-    background:linear-gradient(145deg,var(--accent-soft),var(--accent));
-    border-radius:17px;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 5px 14px rgba(0,0,0,.30),inset 0 1px 2px rgba(255,255,255,.4);
-    border:1px solid rgba(255,255,255,.25);
-  }
-  .logo svg{width:35px;height:35px;fill:#0f2338}
-  .header-text{flex:1;min-width:0}
-  .header-title{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.4px;line-height:1.3}
-  .header-sub{font-size:var(--fs-small);color:#c5d1e0;font-weight:500;margin-top:4px}
+/* ============ MAIN ============ */
+.main{
+  max-width:720px;
+  margin:0 auto;
+  padding:20px 16px 20px;
+}
 
-  /* ============ محتوا ============ */
-  .main{max-width:720px;margin:0 auto;padding:26px 14px 14px}
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(200,117,75,.25),transparent 45%),
+    radial-gradient(circle at 0% 100%,rgba(214,229,164,.18),transparent 45%),
+    linear-gradient(150deg,#193D32,#254E40 70%);
+  color:white;
+  border-radius:26px 26px 9px 26px;
+  padding:30px 24px 26px;
+  overflow:hidden;
+  box-shadow:
+    0 8px 0 #0F2A22,
+    0 24px 55px rgba(25,61,50,.30);
+  margin-bottom:26px;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:200px;height:200px;
+  left:-70px;top:-90px;
+  border:1px solid rgba(214,229,164,.18);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 18px rgba(214,229,164,.035),
+    0 0 0 38px rgba(214,229,164,.025);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:140px;height:140px;
+  right:-50px;bottom:-60px;
+  border:1px solid rgba(200,117,75,.35);
+  border-radius:50%;
+  box-shadow:0 0 0 14px rgba(200,117,75,.06);
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--lime);
+  font-size:13.5px;
+  font-weight:900;
+  background:rgba(214,229,164,.10);
+  border:1px solid rgba(214,229,164,.30);
+  padding:6px 13px;
+  border-radius:30px;
+  position:relative;
+  z-index:2;
+}
+.hero-badge i{
+  width:8px;height:8px;
+  background:var(--lime);
+  border-radius:50%;
+  box-shadow:0 0 0 4px rgba(214,229,164,.15);
+}
+.hero h1{
+  font-size:clamp(23px,5.6vw,30px);
+  font-weight:900;
+  line-height:1.7;
+  margin-top:14px;
+  position:relative;
+  z-index:2;
+  letter-spacing:-.4px;
+}
+.hero h1 em{
+  font-style:normal;
+  color:var(--orange);
+  background:linear-gradient(transparent 62%, rgba(200,117,75,.35) 62%);
+  padding:0 3px;
+}
+.hero-sub{
+  color:rgba(255,255,255,.85);
+  font-size:15.5px;
+  line-height:2.15;
+  margin-top:10px;
+  position:relative;
+  z-index:2;
+  font-weight:500;
+}
 
-  /* ============ قالب لوکس ============ */
-  .lux-frame{
-    position:relative;background:var(--card);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-md),0 1px 0 rgba(255,255,255,.6) inset;
-  }
-  .lux-frame::before{
-    content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1.5px;
-    background:linear-gradient(140deg,
-      rgba(228,200,106,.9) 0%,
-      rgba(184,145,47,.55) 20%,
-      rgba(22,48,79,.10) 45%,
-      rgba(184,145,47,.55) 75%,
-      rgba(228,200,106,.9) 100%);
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;
-    pointer-events:none;z-index:3;
-  }
-  .lux-frame::after{
-    content:"";position:absolute;inset:6px;
-    border-radius:calc(var(--radius) - 6px);
-    border:1px solid rgba(184,145,47,.18);
-    pointer-events:none;z-index:2;
-  }
+/* ============ NOTE CARDS (3D) ============ */
+.note{
+  position:relative;
+  background:var(--paper);
+  border:1px solid #E3E5DC;
+  border-radius:19px 19px 19px 7px;
+  padding:20px 20px 20px;
+  margin-bottom:16px;
+  box-shadow:
+    0 5px 0 #E0E3D6,
+    0 10px 22px rgba(25,61,50,.07);
+  overflow:hidden;
+  font-size:15.5px;
+  line-height:2.15;
+  color:#4A564E;
+  font-weight:500;
+}
+.note:before{
+  content:"";
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:5px;
+  background:var(--orange);
+  border-radius:0 19px 19px 0;
+}
+.note-soft:before{background:var(--forest)}
+.note-gold:before{background:var(--orange)}
+.note-title{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:17px;
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:10px;
+  line-height:1.5;
+}
+.note-ico{
+  width:36px;height:36px;
+  flex-shrink:0;
+  border-radius:11px;
+  background:linear-gradient(145deg,#F2DED3,#E8C6AF);
+  display:grid;
+  place-items:center;
+  box-shadow:inset 0 -2px 0 rgba(200,117,75,.20), 0 3px 6px rgba(200,117,75,.15);
+}
+.note-ico svg{
+  width:19px;height:19px;
+  fill:var(--orange-deep);
+}
+.note-soft .note-ico{
+  background:linear-gradient(145deg,#E3E7D8,#D2D9C3);
+  box-shadow:inset 0 -2px 0 rgba(25,61,50,.10), 0 3px 6px rgba(25,61,50,.08);
+}
+.note-soft .note-ico svg{fill:var(--forest)}
+.note strong{
+  color:var(--forest);
+  font-weight:900;
+  background:linear-gradient(transparent 60%, rgba(214,229,164,.5) 60%);
+  padding:0 2px;
+}
 
-  /* ============ هرو ============ */
-  .hero{
-    padding:34px 26px 30px;margin-bottom:26px;overflow:hidden;
-    background:linear-gradient(155deg,#ffffff 0%,#f2f5fa 100%);
-  }
-  .hero-inner{position:relative;z-index:4}
-  .hero-inner::before{
-    content:"";position:absolute;left:-60px;top:-60px;
-    width:200px;height:200px;border-radius:50%;
-    background:radial-gradient(circle,rgba(184,145,47,.15),transparent 70%);
-    pointer-events:none;
-  }
-  .hero-inner::after{
-    content:"";position:absolute;right:-40px;bottom:-80px;
-    width:170px;height:170px;border-radius:50%;
-    background:radial-gradient(circle,rgba(22,48,79,.07),transparent 70%);
-    pointer-events:none;
-  }
-  .hero-badge{
-    display:inline-flex;align-items:center;gap:9px;
-    background:linear-gradient(135deg,#ffffff,#f4f0e2);
-    color:#8a6b1a;font-size:var(--fs-small);font-weight:800;
-    padding:10px 20px;border-radius:50px;margin-bottom:18px;
-    border:1px solid rgba(184,145,47,.4);
-    box-shadow:0 4px 14px rgba(184,145,47,.18);
-    position:relative;z-index:1;
-  }
-  .hero-badge svg{width:19px;height:19px;fill:var(--accent)}
-  .hero h1{
-    font-size:var(--fs-h1);font-weight:900;color:var(--primary);
-    line-height:1.55;margin-bottom:12px;position:relative;z-index:1;
-    letter-spacing:-.4px;
-  }
-  .hero h1 span{color:var(--accent)}
-  .hero-sub{
-    font-size:var(--fs-body);color:var(--text-soft);font-weight:600;
-    line-height:1.95;position:relative;z-index:1;
-    padding-right:18px;border-right:3px solid rgba(184,145,47,.55);
-  }
+/* ============ FORM CARD ============ */
+.form-card{
+  position:relative;
+  background:var(--paper);
+  border:1px solid #E3E5DC;
+  border-radius:22px 22px 8px 22px;
+  padding:26px 20px 30px;
+  box-shadow:
+    0 6px 0 #E0E3D6,
+    0 20px 40px rgba(25,61,50,.10);
+  margin-bottom:22px;
+}
 
-  /* ============ یادداشت ============ */
-  .note{
-    position:relative;border-radius:var(--radius-sm);
-    padding:20px 22px;margin-bottom:18px;
-    font-size:var(--fs-note-body);line-height:2;z-index:4;
-    background:#ffffff;border:1px solid var(--border);
-    border-right:5px solid var(--accent);
-    box-shadow:var(--shadow-sm);
-  }
-  .note-title{
-    font-size:var(--fs-note-title);font-weight:900;color:var(--primary);
-    margin-bottom:10px;display:flex;align-items:center;gap:11px;line-height:1.5;
-  }
-  .note-ico{
-    width:34px;height:34px;flex-shrink:0;border-radius:10px;
-    background:linear-gradient(145deg,#f4f0e2,#e8dfc4);
-    display:flex;align-items:center;justify-content:center;
-    border:1px solid rgba(184,145,47,.3);
-    box-shadow:0 2px 6px rgba(184,145,47,.15);
-  }
-  .note-ico svg{width:18px;height:18px;fill:#8a6b1a}
-  .note p{margin-bottom:9px;color:var(--text-soft)}
-  .note p:last-child{margin-bottom:0}
-  .note strong{color:var(--primary);font-weight:800}
-  .note-gold{background:linear-gradient(135deg,#fffdf5,#faf3e0);border-right-color:var(--accent)}
-  .note-soft{background:linear-gradient(135deg,#f6f9fd,#eef3fa);border-right-color:var(--primary-light)}
-  .note-soft .note-ico{background:linear-gradient(145deg,#e3ebf5,#d0dcea);border-color:rgba(22,48,79,.2)}
-  .note-soft .note-ico svg{fill:var(--primary)}
+.form-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:20px;
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:24px;
+  letter-spacing:-.3px;
+}
+.form-title:before{
+  content:"";
+  width:6px;
+  height:26px;
+  background:linear-gradient(var(--lime),var(--forest));
+  border-radius:4px;
+  flex-shrink:0;
+}
 
-  /* ============ فرم ============ */
-  .form-card{padding:28px 22px 32px;margin-bottom:24px;z-index:1}
-  .form-card > *{position:relative;z-index:4}
-  .form-title{
-    font-size:var(--fs-h3);font-weight:900;color:var(--primary);
-    margin-bottom:24px;display:flex;align-items:center;gap:13px;
-    letter-spacing:-.3px;
-  }
-  .form-title::before{
-    content:"";width:6px;height:28px;
-    background:linear-gradient(var(--accent-soft),var(--accent));
-    border-radius:4px;flex-shrink:0;
-  }
-  .field{margin-bottom:24px}
-  .field:last-child{margin-bottom:0}
+/* ============ FIELD ============ */
+.field{
+  margin-bottom:24px;
+}
+.field:last-child{margin-bottom:0}
 
-  .label{
-    display:block;font-size:var(--fs-label);font-weight:800;
-    color:var(--primary);margin-bottom:12px;line-height:1.6;
-    letter-spacing:-.2px;
-  }
-  .label .req{color:var(--accent);margin-right:5px;font-weight:900}
+.label{
+  display:block;
+  font-size:16.5px;
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:10px;
+  line-height:1.7;
+  letter-spacing:-.2px;
+}
+.label .req{
+  color:var(--orange);
+  margin-right:4px;
+  font-weight:900;
+}
 
-  .help{
-    font-size:var(--fs-help);color:var(--text-soft);line-height:1.95;
-    margin-bottom:14px;
-    background:linear-gradient(135deg,#fafbfd,#f1f4f9);
-    border-right:3px solid rgba(184,145,47,.5);
-    border-radius:10px;padding:13px 15px;font-weight:500;
-  }
-  .help strong{color:var(--text);font-weight:800}
+.help{
+  font-size:14.5px;
+  color:var(--muted);
+  line-height:2;
+  margin-bottom:12px;
+  background:linear-gradient(135deg,#F7F8F1,#EFF2E7);
+  border-right:3px solid rgba(200,117,75,.55);
+  border-radius:10px;
+  padding:12px 14px;
+  font-weight:600;
+}
+.help strong{
+  color:var(--forest);
+  font-weight:900;
+}
 
-  /* ============ اینپوت‌ها ============ */
-  .input,.textarea{
-    width:100%;padding:16px 18px;
-    font-family:inherit;font-size:var(--fs-input);
-    color:var(--text);background:#ffffff;
-    border:1.5px solid var(--border);
-    border-radius:var(--radius-sm);outline:none;
-    transition:border-color .2s ease,box-shadow .2s ease;
-    line-height:1.6;font-weight:500;
-  }
-  .input:focus,.textarea:focus{
-    border-color:var(--accent);
-    box-shadow:0 0 0 4px rgba(184,145,47,.15);
-  }
-  .input::placeholder,.textarea::placeholder{color:#a3adba;font-weight:500}
-  .textarea{min-height:130px;resize:vertical;line-height:2}
+/* ============ INPUTS ============ */
+.input, .textarea{
+  width:100%;
+  padding:15px 17px;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:600;
+  color:var(--ink);
+  background:#FFFFFF;
+  border:1.5px solid #E2E4D9;
+  border-radius:13px;
+  outline:none;
+  transition:border-color .2s, box-shadow .2s, transform .15s;
+  line-height:1.6;
+}
+.input::placeholder, .textarea::placeholder{
+  color:#9AA39C;
+  font-weight:500;
+}
+.input:focus, .textarea:focus{
+  border-color:var(--olive);
+  box-shadow:0 0 0 4px rgba(137,148,107,.15);
+}
+.textarea{
+  min-height:120px;
+  resize:vertical;
+  line-height:2;
+}
 
-  /* ============ سلکت ============ */
-  .custom-select{position:relative}
-  .custom-select-trigger{
-    width:100%;padding:16px 18px;padding-left:52px;
-    font-family:inherit;font-size:var(--fs-input);font-weight:700;
-    color:var(--text);background:#ffffff;
-    border:1.5px solid var(--border);
-    border-radius:var(--radius-sm);cursor:pointer;
-    text-align:right;transition:border-color .2s ease,box-shadow .2s ease;
-    line-height:1.6;position:relative;min-height:60px;
-    display:flex;align-items:center;
-  }
-  .custom-select-trigger.placeholder{color:#a3adba;font-weight:500}
-  .custom-select-trigger:focus,
-  .custom-select.open .custom-select-trigger{
-    border-color:var(--accent);
-    box-shadow:0 0 0 4px rgba(184,145,47,.15);
-    outline:none;
-  }
-  .custom-select-arrow{
-    position:absolute;left:16px;top:50%;
-    transform:translateY(-50%);
-    width:22px;height:22px;fill:var(--primary);
-    transition:transform .3s cubic-bezier(.4,0,.2,1);
-    pointer-events:none;
-  }
-  .custom-select.open .custom-select-arrow{transform:translateY(-50%) rotate(180deg)}
+/* ============ CUSTOM SELECT ============ */
+.custom-select{position:relative}
+.custom-select-trigger{
+  width:100%;
+  padding:15px 17px;
+  padding-left:48px;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:700;
+  color:var(--ink);
+  background:#FFFFFF;
+  border:1.5px solid #E2E4D9;
+  border-radius:13px;
+  text-align:right;
+  cursor:pointer;
+  transition:border-color .2s, box-shadow .2s;
+  line-height:1.6;
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+.custom-select-trigger.placeholder{color:#9AA39C;font-weight:500}
+.custom-select-trigger:focus,
+.custom-select.open .custom-select-trigger{
+  border-color:var(--olive);
+  box-shadow:0 0 0 4px rgba(137,148,107,.15);
+  outline:none;
+}
+.custom-select-arrow{
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  width:20px;
+  height:20px;
+  fill:var(--forest);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+}
+.custom-select.open .custom-select-arrow{
+  transform:translateY(-50%) rotate(180deg);
+}
 
-  .custom-select-menu{
-    position:absolute;top:calc(100% + 8px);left:0;right:0;
-    background:#ffffff;
-    border:1.5px solid rgba(184,145,47,.55);
-    border-radius:var(--radius-sm);
-    box-shadow:0 16px 40px rgba(22,48,79,.20);
-    z-index:50;
-    max-height:0;overflow:hidden;opacity:0;
-    transform:translateY(-6px);
-    transition:max-height .35s cubic-bezier(.4,0,.2,1),
-               opacity .25s ease,
-               transform .25s ease;
-    pointer-events:none;
-    padding:0;
-  }
-  .custom-select.open .custom-select-menu{
-    max-height:600px;opacity:1;transform:translateY(0);
-    pointer-events:auto;
-    padding:6px 0;
-    overflow:visible;
-  }
-  .custom-select-option{
-    padding:14px 18px;
-    font-size:var(--fs-input);font-weight:600;color:var(--text);
-    cursor:pointer;
-    transition:background .15s ease,color .15s ease;
-    line-height:1.7;
-    display:flex;align-items:center;gap:10px;
-    margin:0 6px;
-    border-radius:10px;
-  }
-  .custom-select-option:hover,
-  .custom-select-option:active{
-    background:linear-gradient(90deg,#f0f4fa,#e6edf7);
-    color:var(--primary);
-  }
-  .custom-select-option.selected{
-    background:linear-gradient(90deg,#eef3fa,#e0e9f5);
-    color:var(--primary);
-    font-weight:800;
-  }
-  .custom-select-option.selected::before{
-    content:"";width:6px;height:6px;border-radius:50%;
-    background:var(--primary);flex-shrink:0;
-  }
+.custom-select-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;right:0;
+  background:#FFFFFF;
+  border:1.5px solid rgba(137,148,107,.55);
+  border-radius:13px;
+  box-shadow:0 16px 40px rgba(25,61,50,.20);
+  z-index:50;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(-6px);
+  transition:max-height .35s cubic-bezier(.4,0,.2,1), opacity .25s ease, transform .25s ease;
+  pointer-events:none;
+  padding:0;
+}
+.custom-select.open .custom-select-menu{
+  max-height:600px;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+  padding:6px 0;
+  overflow-y:auto;
+}
+.custom-select-option{
+  padding:13px 17px;
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--ink);
+  cursor:pointer;
+  transition:background .15s, color .15s;
+  line-height:1.8;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin:0 6px;
+  border-radius:9px;
+}
+.custom-select-option:hover,
+.custom-select-option:active{
+  background:linear-gradient(90deg,#F1F3E9,#E5E9DA);
+  color:var(--forest);
+}
+.custom-select-option.selected{
+  background:linear-gradient(90deg,#E8ECDF,#DCE3D1);
+  color:var(--forest);
+  font-weight:900;
+}
+.custom-select-option.selected::before{
+  content:"";
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--forest);
+  flex-shrink:0;
+}
 
-  /* ============ رادیو ============ */
-  .radio-group{display:flex;flex-direction:column;gap:11px}
-  .radio-card{
-    display:flex;align-items:flex-start;gap:14px;
-    padding:16px 18px;background:#ffffff;
-    border:1.5px solid var(--border);
-    border-radius:var(--radius-sm);cursor:pointer;
-    transition:all .2s ease;line-height:1.75;
-    font-size:var(--fs-input);position:relative;font-weight:500;
-  }
-  .radio-card:active{transform:scale(.99)}
-  .radio-card input{position:absolute;opacity:0;pointer-events:none}
-  .radio-mark{
-    flex-shrink:0;width:24px;height:24px;border-radius:50%;
-    border:2px solid #c4ccd6;background:#fff;
-    margin-top:2px;position:relative;
-    transition:all .2s ease;
-  }
-  .radio-mark::after{
-    content:"";position:absolute;inset:3px;border-radius:50%;
-    background:var(--primary);transform:scale(0);
-    transition:transform .22s cubic-bezier(.4,0,.2,1);
-  }
-  .radio-card input:checked ~ .radio-mark{
-    border-color:var(--primary);
-    box-shadow:0 0 0 4px rgba(22,48,79,.12);
-  }
-  .radio-card input:checked ~ .radio-mark::after{transform:scale(1)}
-  .radio-card:has(input:checked){
-    border-color:var(--primary);
-    background:linear-gradient(135deg,#f5f8fc,#eaf0f7);
-    box-shadow:0 4px 14px rgba(22,48,79,.10);
-  }
-  .radio-text{flex:1;color:var(--text)}
-  .radio-card:has(input:checked) .radio-text{color:var(--primary);font-weight:800}
+/* ============ RADIO (3D) ============ */
+.radio-group{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.radio-card{
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  padding:15px 17px;
+  background:#FFFFFF;
+  border:1.5px solid #E2E4D9;
+  border-radius:13px;
+  cursor:pointer;
+  transition:all .2s ease;
+  line-height:1.8;
+  font-size:16px;
+  position:relative;
+  font-weight:600;
+  box-shadow:0 2px 0 #E2E4D9;
+}
+.radio-card:active{transform:translateY(2px);box-shadow:0 0 0 #E2E4D9}
+.radio-card input{position:absolute;opacity:0;pointer-events:none}
+.radio-mark{
+  flex-shrink:0;
+  width:23px;
+  height:23px;
+  border-radius:50%;
+  border:2px solid #C4CCD6;
+  background:#fff;
+  margin-top:2px;
+  position:relative;
+  transition:all .2s ease;
+}
+.radio-mark::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  background:var(--forest);
+  transform:scale(0);
+  transition:transform .22s cubic-bezier(.4,0,.2,1);
+}
+.radio-card input:checked ~ .radio-mark{
+  border-color:var(--forest);
+  box-shadow:0 0 0 4px rgba(25,61,50,.12);
+}
+.radio-card input:checked ~ .radio-mark::after{transform:scale(1)}
+.radio-card:has(input:checked){
+  border-color:var(--forest);
+  background:linear-gradient(135deg,#F5F8F3,#E8EDDC);
+  box-shadow:
+    0 4px 0 #C8D2B4,
+    0 8px 18px rgba(25,61,50,.12);
+  transform:translateY(-1px);
+}
+.radio-text{flex:1;color:var(--ink);font-weight:600}
+.radio-card:has(input:checked) .radio-text{color:var(--forest);font-weight:900}
 
-  /* ============ آپلود ============ */
-  .upload-box{
-    border:2px dashed rgba(184,145,47,.5);
-    border-radius:var(--radius-sm);
-    padding:26px 20px;text-align:center;
-    background:linear-gradient(155deg,#fffdf5,#faf3e0);
-    cursor:pointer;transition:all .2s ease;
-    display:block;position:relative;
-  }
-  .upload-box:active{transform:scale(.99)}
-  .upload-box:hover{border-color:var(--accent)}
-  .upload-box input{position:absolute;opacity:0;pointer-events:none}
-  .upload-icon{
-    width:54px;height:54px;margin:0 auto 12px;
-    border-radius:15px;
-    background:linear-gradient(145deg,var(--primary),var(--primary-dark));
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 12px rgba(22,48,79,.30);
-  }
-  .upload-icon svg{width:28px;height:28px;fill:#fff}
-  .upload-label{
-    font-size:var(--fs-label);font-weight:800;
-    color:var(--primary);margin-bottom:5px;
-  }
-  .upload-hint{font-size:var(--fs-help);color:var(--text-soft);font-weight:600;line-height:1.7}
+/* ============ FEMALE MSG ============ */
+.female-msg{
+  display:none;
+  padding:22px 20px;
+  background:linear-gradient(135deg,#FFF6EE,#FBE9DC);
+  border:1.5px solid rgba(200,117,75,.35);
+  border-right:5px solid var(--orange);
+  border-radius:13px;
+  color:var(--ink);
+  font-size:15.5px;
+  line-height:2.1;
+  font-weight:600;
+  margin-bottom:22px;
+  box-shadow:0 4px 0 #E8C6AF, 0 10px 22px rgba(200,117,75,.10);
+}
+.female-msg.show{display:block;animation:fadeUp .4s ease both}
+.female-msg-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:17px;
+  font-weight:900;
+  color:var(--orange-deep);
+  margin-bottom:10px;
+}
+.female-msg-title svg{width:22px;height:22px;fill:var(--orange-deep)}
+.female-msg strong{
+  color:var(--forest);
+  font-weight:900;
+  background:linear-gradient(transparent 60%, rgba(214,229,164,.5) 60%);
+  padding:0 2px;
+}
 
-  .upload-preview{
-    display:none;margin-top:14px;
-    align-items:center;gap:13px;padding:13px 15px;
-    background:#ffffff;border:1.5px solid rgba(47,133,90,.35);
-    border-radius:var(--radius-sm);text-align:right;
-    box-shadow:0 4px 12px rgba(47,133,90,.10);
-  }
-  .upload-preview.show{display:flex;animation:fadeUp .4s ease both}
-  .upload-preview img{
-    width:60px;height:60px;object-fit:cover;
-    border-radius:11px;border:1px solid var(--border);flex-shrink:0;
-  }
-  .upload-preview-text{flex:1;min-width:0}
-  .upload-preview-name{
-    font-size:var(--fs-small);font-weight:800;color:var(--success);
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  }
-  .upload-preview-status{font-size:var(--fs-tiny);color:var(--text-soft);font-weight:600;margin-top:3px}
+/* ============ UPLOAD ============ */
+.upload-box{
+  display:block;
+  border:2px dashed rgba(200,117,75,.5);
+  border-radius:13px;
+  padding:22px 18px;
+  text-align:center;
+  background:linear-gradient(155deg,#FFFDF8,#FAF3E4);
+  cursor:pointer;
+  transition:all .2s ease;
+  position:relative;
+}
+.upload-box:hover{
+  border-color:var(--orange);
+  background:linear-gradient(155deg,#FFF8ED,#F8EDD6);
+}
+.upload-box:active{transform:scale(.99)}
+.upload-box input{position:absolute;opacity:0;pointer-events:none}
+.upload-icon{
+  width:50px;height:50px;
+  margin:0 auto 10px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#234A3C,var(--forest));
+  display:grid;
+  place-items:center;
+  box-shadow:0 4px 0 #0F2A22, 0 8px 16px rgba(25,61,50,.25);
+}
+.upload-icon svg{width:26px;height:26px;fill:var(--lime)}
+.upload-label{
+  font-size:15.5px;
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:4px;
+  line-height:1.7;
+}
+.upload-hint{
+  font-size:13.5px;
+  color:var(--muted);
+  font-weight:600;
+  line-height:1.7;
+}
 
-  .loading{
-    display:none;align-items:center;justify-content:center;
-    gap:11px;padding:13px;font-size:var(--fs-small);
-    font-weight:700;color:var(--primary);margin-top:12px;
-  }
-  .loading.show{display:flex}
-  .spinner{
-    width:22px;height:22px;
-    border:3px solid rgba(22,48,79,.2);
-    border-top-color:var(--primary);
-    border-radius:50%;
-    animation:spin .8s linear infinite;
-  }
-  @keyframes spin{to{transform:rotate(360deg)}}
+.upload-preview{
+  display:none;
+  margin-top:12px;
+  align-items:center;
+  gap:12px;
+  padding:12px 14px;
+  background:#FFFFFF;
+  border:1.5px solid rgba(47,133,90,.35);
+  border-radius:12px;
+  text-align:right;
+  box-shadow:0 3px 0 #B7DCC3, 0 8px 18px rgba(47,133,90,.10);
+}
+.upload-preview.show{display:flex;animation:fadeUp .4s ease both}
+.upload-preview img{
+  width:56px;height:56px;
+  object-fit:cover;
+  border-radius:10px;
+  border:1px solid #E2E4D9;
+  flex-shrink:0;
+}
+.upload-preview-text{flex:1;min-width:0}
+.upload-preview-name{
+  font-size:14px;
+  font-weight:900;
+  color:var(--success);
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.upload-preview-status{
+  font-size:12.5px;
+  color:var(--muted);
+  font-weight:600;
+  margin-top:2px;
+}
 
-  /* ============ کارت بانکی مشکی ============ */
-  .pay-card{
-    background:linear-gradient(135deg,#0a0a0f 0%,#15161e 50%,#1e1f2b 100%);
-    border-radius:18px;
-    padding:26px 22px 22px;
-    color:#fff;
-    margin:18px 0;
-    box-shadow:0 12px 34px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.08);
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.08);
-  }
-  .pay-card::before{
-    content:"";position:absolute;top:-50px;left:-50px;
-    width:180px;height:180px;border-radius:50%;
-    background:radial-gradient(circle,rgba(228,200,106,.15),transparent 70%);
-    pointer-events:none;
-  }
-  .pay-card::after{
-    content:"";position:absolute;bottom:-40px;right:-40px;
-    width:150px;height:150px;border-radius:50%;
-    background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);
-    pointer-events:none;
-  }
-  .pay-card-bank{
-    display:flex;align-items:center;gap:8px;
-    font-size:var(--fs-small);font-weight:800;color:#e4c86a;
-    margin-bottom:22px;letter-spacing:.5px;
-    position:relative;z-index:1;
-  }
-  .pay-card-bank svg{width:20px;height:20px;fill:#e4c86a}
-  .pay-card-chip{
-    position:absolute;top:24px;left:22px;
-    width:42px;height:32px;border-radius:6px;
-    background:linear-gradient(135deg,#e4c86a,#b8912f);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
-    z-index:1;overflow:hidden;
-  }
-  .pay-card-chip::before{
-    content:"";position:absolute;top:50%;left:0;right:0;height:1px;
-    background:rgba(10,10,15,.4);
-  }
-  .pay-card-chip::after{
-    content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;
-    background:rgba(10,10,15,.4);
-  }
-  .pay-card-label{
-    font-size:var(--fs-tiny);color:#a5a8b5;font-weight:600;
-    margin-bottom:10px;position:relative;z-index:1;
-  }
-  .pay-card-number{
-    font-size:23px;font-weight:900;color:#ffffff;
-    letter-spacing:2.5px;direction:ltr;text-align:center;
-    font-family:'Courier New',monospace;
-    position:relative;z-index:1;
-    user-select:all;-webkit-user-select:all;
-    padding:10px 0;text-shadow:0 1px 4px rgba(0,0,0,.5);
-  }
-  .pay-card-footer{
-    display:flex;align-items:center;justify-content:space-between;
-    margin-top:14px;padding-top:14px;
-    border-top:1px solid rgba(255,255,255,.08);
-    position:relative;z-index:1;gap:12px;
-  }
-  .pay-card-holder{
-    font-size:var(--fs-small);color:#e4e6ec;font-weight:700;
-  }
-  .pay-card-holder small{
-    display:block;font-size:11px;color:#8b8f9d;
-    font-weight:500;letter-spacing:.5px;margin-bottom:2px;
-  }
-  .pay-card-logo{display:flex;align-items:center;gap:4px}
-  .pay-card-logo .circle{width:22px;height:22px;border-radius:50%}
-  .pay-card-logo .c1{background:#c9a227}
-  .pay-card-logo .c2{background:#a5a8b5;margin-right:-8px}
+.loading{
+  display:none;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px;
+  font-size:14px;
+  font-weight:800;
+  color:var(--forest);
+  margin-top:10px;
+}
+.loading.show{display:flex}
+.spinner{
+  width:20px;height:20px;
+  border:3px solid rgba(25,61,50,.2);
+  border-top-color:var(--forest);
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-  .pay-amount{
-    background:linear-gradient(135deg,#ffffff,#f2f5fa);
-    border:1.5px solid rgba(22,48,79,.15);
-    border-radius:var(--radius-sm);
-    padding:22px;margin:16px 0;text-align:center;
-    box-shadow:0 4px 16px rgba(22,48,79,.10);
-  }
-  .pay-amount-label{font-size:var(--fs-small);color:var(--primary-light);font-weight:700;margin-bottom:6px}
-  .pay-amount-value{
-    font-size:30px;font-weight:900;color:var(--primary);
-    letter-spacing:-.5px;line-height:1.2;
-  }
-  .pay-amount-value small{font-size:var(--fs-small);font-weight:700;color:var(--text-soft);margin-right:8px}
+/* ============ PAY CARD (3D BLACK) ============ */
+.pay-amount{
+  background:linear-gradient(135deg,#FFFFFF,#F2F4E9);
+  border:1.5px solid rgba(25,61,50,.15);
+  border-radius:13px;
+  padding:20px;
+  margin:16px 0;
+  text-align:center;
+  box-shadow:0 4px 0 #DCE3D1, 0 10px 22px rgba(25,61,50,.08);
+}
+.pay-amount-label{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:6px;
+}
+.pay-amount-value{
+  font-size:28px;
+  font-weight:900;
+  color:var(--forest);
+  letter-spacing:-.5px;
+  line-height:1.2;
+}
+.pay-amount-value small{
+  font-size:14px;
+  font-weight:700;
+  color:var(--muted);
+  margin-right:8px;
+}
 
-  /* ============ دکمه ثبت ============ */
-  .submit-btn{
-    display:flex;align-items:center;justify-content:center;gap:13px;
-    width:100%;padding:22px;
-    background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);
-    color:#fff;font-family:inherit;
-    font-size:var(--fs-btn);font-weight:800;
-    border:none;border-radius:18px;cursor:pointer;
-    box-shadow:0 12px 30px rgba(22,48,79,.32),inset 0 1px 0 rgba(255,255,255,.15);
-    transition:transform .18s ease,box-shadow .18s ease;
-    margin-top:28px;text-decoration:none;position:relative;overflow:hidden;
-    border:1px solid rgba(255,255,255,.15);
-    letter-spacing:-.2px;
-  }
-  .submit-btn::before{
-    content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
-    transition:left .6s ease;
-  }
-  .submit-btn:active{transform:scale(.97);box-shadow:0 6px 18px rgba(22,48,79,.28)}
-  .submit-btn:active::before{left:100%}
-  .submit-btn svg{width:25px;height:25px;fill:#fff}
+.pay-card{
+  position:relative;
+  background:linear-gradient(135deg,#0A0A0F 0%,#15161E 50%,#1E1F2B 100%);
+  border-radius:18px;
+  padding:24px 20px 20px;
+  color:#fff;
+  margin:16px 0;
+  box-shadow:
+    0 8px 0 #000,
+    0 18px 40px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+}
+.pay-card::before{
+  content:"";
+  position:absolute;
+  top:-50px;left:-50px;
+  width:180px;height:180px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,117,75,.20),transparent 70%);
+  pointer-events:none;
+}
+.pay-card::after{
+  content:"";
+  position:absolute;
+  bottom:-40px;right:-40px;
+  width:150px;height:150px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);
+  pointer-events:none;
+}
+.pay-card-bank{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  font-weight:900;
+  color:var(--orange);
+  margin-bottom:20px;
+  letter-spacing:.5px;
+  position:relative;
+  z-index:1;
+}
+.pay-card-bank svg{width:20px;height:20px;fill:var(--orange)}
+.pay-card-chip{
+  position:absolute;
+  top:22px;left:20px;
+  width:42px;height:32px;
+  border-radius:6px;
+  background:linear-gradient(135deg,#E8C6AF,#C8754B);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+  z-index:1;
+  overflow:hidden;
+}
+.pay-card-chip::before{
+  content:"";
+  position:absolute;
+  top:50%;left:0;right:0;
+  height:1px;
+  background:rgba(10,10,15,.4);
+}
+.pay-card-chip::after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;left:50%;
+  width:1px;
+  background:rgba(10,10,15,.4);
+}
+.pay-card-label{
+  font-size:12.5px;
+  color:#A5A8B5;
+  font-weight:600;
+  margin-bottom:8px;
+  position:relative;
+  z-index:1;
+}
+.pay-card-number{
+  font-size:22px;
+  font-weight:900;
+  color:#FFFFFF;
+  letter-spacing:2.5px;
+  direction:ltr;
+  text-align:center;
+  font-family:'Courier New',monospace;
+  position:relative;
+  z-index:1;
+  user-select:all;
+  -webkit-user-select:all;
+  padding:10px 0;
+  text-shadow:0 1px 4px rgba(0,0,0,.5);
+}
+.pay-card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.08);
+  position:relative;
+  z-index:1;
+  gap:12px;
+}
+.pay-card-holder{
+  font-size:14px;
+  color:#E4E6EC;
+  font-weight:800;
+}
+.pay-card-holder small{
+  display:block;
+  font-size:11px;
+  color:#8B8F9D;
+  font-weight:500;
+  letter-spacing:.5px;
+  margin-bottom:2px;
+}
+.pay-card-logo{display:flex;align-items:center;gap:0}
+.pay-card-logo .circle{width:22px;height:22px;border-radius:50%}
+.pay-card-logo .c1{background:var(--orange)}
+.pay-card-logo .c2{background:#A5A8B5;margin-right:-8px}
 
-  /* ============ پیام بانوان ============ */
-  .female-msg{
-    display:none;padding:26px 22px;
-    background:linear-gradient(135deg,#f5f8fc,#eaf0f7);
-    border:1.5px solid rgba(22,48,79,.20);
-    border-right:5px solid var(--primary-light);
-    border-radius:var(--radius-sm);
-    color:var(--text);font-size:var(--fs-body);
-    line-height:2;font-weight:600;margin-bottom:22px;
-    box-shadow:var(--shadow-sm);
-  }
-  .female-msg.show{display:block;animation:fadeUp .4s ease both}
-  .female-msg-title{
-    font-size:var(--fs-h3);font-weight:900;color:var(--primary);
-    margin-bottom:10px;display:flex;align-items:center;gap:10px;
-  }
-  .female-msg-title svg{width:22px;height:22px;fill:var(--primary)}
-  .female-msg strong{color:var(--primary);font-weight:800}
+/* ============ SUBMIT BUTTON (3D) ============ */
+.submit-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+  padding:20px;
+  background:linear-gradient(145deg,#234A3C,var(--forest));
+  color:var(--lime);
+  font-family:inherit;
+  font-size:17px;
+  font-weight:900;
+  border:none;
+  border-radius:16px;
+  cursor:pointer;
+  box-shadow:
+    0 6px 0 #0F2A22,
+    0 16px 32px rgba(25,61,50,.28);
+  transition:transform .12s ease, box-shadow .18s;
+  margin-top:26px;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  letter-spacing:-.2px;
+}
+.submit-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 8px 0 #0F2A22,
+    0 20px 38px rgba(25,61,50,.30);
+}
+.submit-btn:active{
+  transform:translateY(4px);
+  box-shadow:
+    0 2px 0 #0F2A22,
+    0 8px 18px rgba(25,61,50,.25);
+}
+.submit-btn svg{width:24px;height:24px;fill:var(--lime)}
 
-  /* ============ مودال تأیید نهایی ============ */
-  .modal-overlay{
-    position:fixed;inset:0;
-    background:rgba(15,35,56,.65);
-    backdrop-filter:blur(8px);
-    z-index:999;display:none;
-    align-items:center;justify-content:center;
-    padding:18px;
-    overflow-y:auto;
-  }
-  .modal-overlay.show{display:flex;animation:fadeIn .3s ease both}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  .modal{
-    background:#ffffff;border-radius:24px;
-    padding:34px 24px 28px;
-    max-width:520px;width:100%;
-    text-align:center;
-    box-shadow:0 24px 70px rgba(15,35,56,.45);
-    position:relative;
-    animation:popIn .45s cubic-bezier(.4,0,.2,1) both;
-    overflow:hidden;
-    max-height:calc(100vh - 36px);
-    overflow-y:auto;
-  }
-  .modal::before{
-    content:"";position:absolute;top:-80px;left:50%;
-    transform:translateX(-50%);
-    width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle,rgba(184,145,47,.12),transparent 70%);
-    pointer-events:none;
-  }
-  .modal::after{
-    content:"";position:absolute;inset:0;border-radius:24px;padding:2px;
-    background:linear-gradient(140deg,rgba(228,200,106,.9),rgba(184,145,47,.6),rgba(22,48,79,.15),rgba(184,145,47,.6),rgba(228,200,106,.9));
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;
-    pointer-events:none;
-  }
-  @keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+/* ============ SIGNATURE ============ */
+.signature{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  margin:32px 0 10px;
+  color:#8A9488;
+  font-size:13px;
+  font-weight:700;
+}
+.signature:before,
+.signature:after{
+  content:"";
+  width:28px;
+  height:1px;
+  background:#C8CEC0;
+}
+.signature span{
+  color:var(--forest);
+  font-weight:900;
+  padding:6px 14px;
+  border:1px solid rgba(200,117,75,.35);
+  border-radius:30px;
+  background:linear-gradient(135deg,#FFFDF8,#F7F0DF);
+  box-shadow:0 2px 8px rgba(200,117,75,.12);
+}
 
-  .modal-icon{
-    width:80px;height:80px;margin:0 auto 18px;border-radius:50%;
-    background:linear-gradient(145deg,#e8f5ec,#c6e6d2);
-    display:flex;align-items:center;justify-content:center;
-    border:2px solid rgba(47,133,90,.3);
-    box-shadow:0 8px 24px rgba(47,133,90,.25);
-    position:relative;z-index:1;
-    animation:bounce 1s ease 0.3s both;
-  }
-  @keyframes bounce{
-    0%{transform:scale(0)}
-    60%{transform:scale(1.12)}
-    100%{transform:scale(1)}
-  }
-  .modal-icon svg{width:42px;height:42px;fill:var(--success)}
+/* ============ BOTTOM NAV ============ */
+.bottom-nav{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:200;
+  display:flex;
+  align-items:stretch;
+  background:rgba(250,249,244,.97);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-top:1px solid rgba(25,61,50,.11);
+  padding:9px 8px calc(9px + env(safe-area-inset-bottom));
+  box-shadow:0 -8px 28px rgba(25,61,50,.08);
+}
+.nav-item{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  color:#879187;
+  font-size:13px;
+  font-weight:900;
+  padding:8px 2px;
+  border-radius:14px;
+  transition:background .2s, color .2s, transform .15s;
+  position:relative;
+}
+.nav-item svg{
+  width:25px;height:25px;
+  fill:#879187;
+  transition:transform .2s, fill .2s;
+}
+.nav-item.active{color:var(--forest);background:#E8ECDF}
+.nav-item.active svg{fill:var(--forest);transform:translateY(-1px)}
+.nav-item.active:before{
+  content:"";
+  position:absolute;
+  top:-9px;
+  width:28px;
+  height:3px;
+  background:var(--orange);
+  border-radius:0 0 4px 4px;
+}
+.nav-item:active{transform:scale(.96)}
 
-  .modal h2{
-    font-size:var(--fs-modal-title);font-weight:900;color:var(--primary);
-    margin-bottom:8px;line-height:1.4;letter-spacing:-.3px;
-    position:relative;z-index:1;
-  }
-  .modal-sub{
-    font-size:var(--fs-small);color:var(--text-soft);
-    font-weight:600;margin-bottom:20px;
-    position:relative;z-index:1;
-  }
+/* ============ MODAL ============ */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,35,30,.65);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  z-index:999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  overflow-y:auto;
+}
+.modal-overlay.show{display:flex;animation:fadeIn .3s ease both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-  /* متن درخواست */
-  .summary-text{
-    text-align:justify;
-    font-size:var(--fs-small);
-    line-height:2.15;
-    color:var(--text);
-    background:linear-gradient(135deg,#fafbfd,#f1f4f9);
-    border:1px dashed rgba(184,145,47,.45);
-    border-radius:14px;
-    padding:20px 18px;
-    margin-bottom:20px;
-    position:relative;z-index:1;
-    font-weight:500;
-  }
-  .summary-text strong{
-    color:var(--primary);
-    font-weight:800;
-  }
-  .summary-text .hl{
-    background:linear-gradient(180deg,transparent 60%,rgba(228,200,106,.4) 60%);
-    padding:0 2px;
-    font-weight:800;
-    color:var(--primary);
-  }
+.modal{
+  background:var(--paper);
+  border-radius:24px;
+  padding:32px 22px 26px;
+  max-width:520px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 24px 70px rgba(15,35,30,.45);
+  position:relative;
+  animation:popIn .45s cubic-bezier(.4,0,.2,1) both;
+  overflow:hidden;
+  max-height:calc(100vh - 36px);
+  overflow-y:auto;
+  border:1px solid #E3E5DC;
+}
+.modal:before{
+  content:"";
+  position:absolute;
+  top:-80px;left:50%;
+  transform:translateX(-50%);
+  width:220px;height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,117,75,.15),transparent 70%);
+  pointer-events:none;
+}
+@keyframes popIn{
+  from{opacity:0;transform:scale(.85)}
+  to{opacity:1;transform:scale(1)}
+}
 
-  .confirm-check{
-    display:flex;align-items:flex-start;gap:12px;
-    padding:15px 16px;
-    background:linear-gradient(135deg,#fffdf5,#faf3e0);
-    border:1.5px solid rgba(184,145,47,.4);
-    border-radius:14px;
-    cursor:pointer;
-    text-align:right;
-    margin-bottom:18px;
-    position:relative;z-index:1;
-    transition:all .2s ease;
-  }
-  .confirm-check input{position:absolute;opacity:0;pointer-events:none}
-  .confirm-mark{
-    flex-shrink:0;width:24px;height:24px;
-    border-radius:7px;
-    border:2px solid #c4ccd6;background:#fff;
-    margin-top:1px;position:relative;
-    transition:all .2s ease;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .confirm-mark svg{
-    width:15px;height:15px;fill:#fff;opacity:0;
-    transform:scale(.5);transition:all .2s ease;
-  }
-  .confirm-check input:checked ~ .confirm-mark{
-    background:var(--accent);
-    border-color:var(--accent);
-    box-shadow:0 0 0 4px rgba(184,145,47,.18);
-  }
-  .confirm-check input:checked ~ .confirm-mark svg{opacity:1;transform:scale(1)}
-  .confirm-text{
-    flex:1;font-size:var(--fs-small);font-weight:800;
-    color:var(--primary);line-height:1.7;
-  }
+.modal-icon{
+  width:80px;height:80px;
+  margin:0 auto 16px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#E8F5EC,#C6E6D2);
+  display:grid;
+  place-items:center;
+  border:2px solid rgba(47,133,90,.3);
+  box-shadow:
+    0 6px 0 #A5D0B5,
+    0 12px 28px rgba(47,133,90,.25);
+  position:relative;
+  z-index:1;
+  animation:bounce 1s ease .3s both;
+}
+@keyframes bounce{
+  0%{transform:scale(0)}
+  60%{transform:scale(1.12)}
+  100%{transform:scale(1)}
+}
+.modal-icon svg{width:42px;height:42px;fill:var(--success)}
 
-  .modal-actions{
-    display:flex;gap:10px;
-    position:relative;z-index:1;
-  }
-  .modal-btn{
-    flex:1;
-    padding:15px 20px;
-    font-family:inherit;font-size:var(--fs-small);font-weight:800;
-    border-radius:13px;cursor:pointer;
-    transition:transform .18s ease;
-    border:none;
-    letter-spacing:-.2px;
-  }
-  .modal-btn:active{transform:scale(.97)}
-  .modal-btn.secondary{
-    background:#f1f4f9;color:var(--text-soft);
-    border:1.5px solid var(--border);
-    box-shadow:none;
-  }
-  .modal-btn.primary{
-    background:linear-gradient(135deg,var(--primary),var(--primary-light));
-    color:#fff;
-    box-shadow:0 6px 18px rgba(22,48,79,.28);
-    border:1px solid rgba(255,255,255,.15);
-  }
-  .modal-btn.primary:disabled{
-    opacity:.5;cursor:not-allowed;
-    box-shadow:none;
-  }
+.modal h2{
+  font-size:24px;
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:6px;
+  line-height:1.5;
+  letter-spacing:-.3px;
+  position:relative;
+  z-index:1;
+}
+.modal-sub{
+  font-size:14.5px;
+  color:var(--muted);
+  font-weight:700;
+  margin-bottom:20px;
+  position:relative;
+  z-index:1;
+}
 
-  /* ============ مودال موفقیت ============ */
-  .success-icon{
-    width:90px;height:90px;margin:0 auto 20px;border-radius:50%;
-    background:linear-gradient(145deg,#e8f5ec,#c6e6d2);
-    display:flex;align-items:center;justify-content:center;
-    border:2px solid rgba(47,133,90,.3);
-    box-shadow:0 8px 24px rgba(47,133,90,.25);
-    position:relative;z-index:1;
-    animation:bounce 1s ease 0.3s both;
-  }
-  .success-icon svg{width:46px;height:46px;fill:var(--success)}
+.summary-text{
+  text-align:justify;
+  font-size:15px;
+  line-height:2.15;
+  color:var(--ink);
+  background:linear-gradient(135deg,#FAFBF4,#EFF2E7);
+  border:1px dashed rgba(200,117,75,.45);
+  border-radius:14px;
+  padding:18px 17px;
+  margin-bottom:18px;
+  position:relative;
+  z-index:1;
+  font-weight:500;
+}
+.summary-text strong{
+  color:var(--forest);
+  font-weight:900;
+}
+.summary-text .hl{
+  background:linear-gradient(180deg,transparent 60%,rgba(214,229,164,.55) 60%);
+  padding:0 2px;
+  font-weight:900;
+  color:var(--forest);
+}
 
-  /* ============ امضا ============ */
-  .signature{
-    text-align:center;margin:40px 0 8px;
-    font-size:var(--fs-tiny);font-weight:700;letter-spacing:1px;color:#8a94a3;
-    display:flex;align-items:center;justify-content:center;gap:12px;
-  }
-  .signature::before,.signature::after{
-    content:"";flex:1;max-width:60px;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(184,145,47,.5),transparent);
-  }
-  .signature span{
-    color:var(--primary);font-weight:800;padding:5px 14px;
-    border:1px solid rgba(184,145,47,.4);border-radius:50px;
-    background:linear-gradient(135deg,#ffffff,#f6efd9);
-    box-shadow:0 2px 8px rgba(184,145,47,.12);
-  }
+.confirm-check{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:15px 16px;
+  background:linear-gradient(135deg,#FFFDF8,#F8EDD6);
+  border:1.5px solid rgba(200,117,75,.4);
+  border-radius:13px;
+  cursor:pointer;
+  text-align:right;
+  margin-bottom:16px;
+  position:relative;
+  z-index:1;
+  transition:all .2s ease;
+}
+.confirm-check input{position:absolute;opacity:0;pointer-events:none}
+.confirm-mark{
+  flex-shrink:0;
+  width:24px;height:24px;
+  border-radius:7px;
+  border:2px solid #C4CCD6;
+  background:#fff;
+  margin-top:1px;
+  position:relative;
+  transition:all .2s ease;
+  display:grid;
+  place-items:center;
+}
+.confirm-mark svg{
+  width:15px;height:15px;
+  fill:#fff;
+  opacity:0;
+  transform:scale(.5);
+  transition:all .2s ease;
+}
+.confirm-check input:checked ~ .confirm-mark{
+  background:var(--orange);
+  border-color:var(--orange);
+  box-shadow:0 0 0 4px rgba(200,117,75,.18);
+}
+.confirm-check input:checked ~ .confirm-mark svg{opacity:1;transform:scale(1)}
+.confirm-text{
+  flex:1;
+  font-size:14.5px;
+  font-weight:900;
+  color:var(--forest);
+  line-height:1.8;
+}
 
-  /* ============ نویگیشن پایین ============ */
-  .bottom-nav{
-    position:fixed;bottom:0;left:0;right:0;z-index:200;
-    background:#ffffff;border-top:1px solid var(--border);
-    box-shadow:0 -8px 30px rgba(22,48,79,.12);
-    display:flex;justify-content:space-around;
-    padding:10px 6px 14px;
-  }
-  .nav-item{
-    flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
-    padding:8px 2px;color:#8a94a3;text-decoration:none;
-    font-size:var(--fs-nav);font-weight:700;border-radius:14px;
-    transition:color .18s ease,background .18s ease;
-  }
-  .nav-item svg{width:27px;height:27px;fill:#8a94a3;transition:fill .18s ease,transform .18s ease}
-  .nav-item.active{color:var(--primary)}
-  .nav-item.active svg{fill:var(--primary);transform:translateY(-1px)}
-  .nav-item:active{background:rgba(22,48,79,.06)}
+.modal-actions{
+  display:flex;
+  gap:10px;
+  position:relative;
+  z-index:1;
+}
+.modal-btn{
+  flex:1;
+  padding:14px 18px;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:900;
+  border-radius:13px;
+  cursor:pointer;
+  transition:transform .15s ease;
+  border:none;
+  letter-spacing:-.2px;
+}
+.modal-btn:active{transform:scale(.97)}
+.modal-btn.secondary{
+  background:#F0F1E9;
+  color:var(--muted);
+  border:1.5px solid #E2E4D9;
+  box-shadow:0 3px 0 #D8DACD;
+}
+.modal-btn.primary{
+  background:linear-gradient(145deg,#234A3C,var(--forest));
+  color:var(--lime);
+  box-shadow:0 5px 0 #0F2A22, 0 10px 22px rgba(25,61,50,.22);
+}
+.modal-btn.primary:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+  box-shadow:none;
+}
 
-  /* ============ کمکی ============ */
-  .hidden{display:none !important}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-  .fade-in{animation:fadeUp .45s ease both}
+/* ============ TOAST ============ */
+.toast-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(15,35,30,.55);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  z-index:1000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.toast-overlay.show{display:flex;animation:fadeIn .25s ease both}
+.toast{
+  background:var(--paper);
+  border-radius:22px;
+  padding:28px 24px 24px;
+  max-width:400px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 24px 70px rgba(15,35,30,.40);
+  position:relative;
+  animation:popIn .35s cubic-bezier(.4,0,.2,1) both;
+  border:1px solid #E3E5DC;
+}
+.toast-icon{
+  width:66px;height:66px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#FFF8ED,#F8EDD6);
+  display:grid;
+  place-items:center;
+  border:2px solid rgba(200,117,75,.4);
+  box-shadow:
+    0 5px 0 #E8C6AF,
+    0 10px 24px rgba(200,117,75,.25);
+  position:relative;
+  z-index:1;
+}
+.toast-icon svg{width:34px;height:34px;fill:var(--orange-deep)}
+.toast h3{
+  font-size:20px;
+  font-weight:900;
+  color:var(--forest);
+  margin-bottom:10px;
+  line-height:1.5;
+  position:relative;
+  z-index:1;
+}
+.toast p{
+  font-size:15px;
+  color:var(--muted);
+  line-height:2;
+  font-weight:600;
+  position:relative;
+  z-index:1;
+}
+.toast-btn{
+  margin-top:20px;
+  padding:12px 36px;
+  background:linear-gradient(145deg,#234A3C,var(--forest));
+  color:var(--lime);
+  font-family:inherit;
+  font-size:15px;
+  font-weight:900;
+  border:none;
+  border-radius:13px;
+  cursor:pointer;
+  box-shadow:0 4px 0 #0F2A22, 0 8px 18px rgba(25,61,50,.25);
+  transition:transform .15s ease;
+  position:relative;
+  z-index:1;
+}
+.toast-btn:active{transform:translateY(2px)}
 
-  /* ============ توست ============ */
-  .toast-overlay{
-    position:fixed;inset:0;
-    background:rgba(15,35,56,.45);
-    backdrop-filter:blur(4px);
-    z-index:1000;display:none;
-    align-items:center;justify-content:center;padding:24px;
-  }
-  .toast-overlay.show{display:flex;animation:fadeIn .25s ease both}
-  .toast{
-    background:#ffffff;border-radius:22px;
-    padding:30px 26px 26px;
-    max-width:400px;width:100%;text-align:center;
-    box-shadow:0 24px 70px rgba(15,35,56,.35);
-    position:relative;
-    animation:popIn .35s cubic-bezier(.4,0,.2,1) both;
-    overflow:hidden;
-  }
-  .toast::before{
-    content:"";position:absolute;inset:0;border-radius:22px;padding:1.5px;
-    background:linear-gradient(140deg,rgba(228,200,106,.9),rgba(184,145,47,.55),rgba(22,48,79,.10),rgba(184,145,47,.55),rgba(228,200,106,.9));
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;
-    pointer-events:none;
-  }
-  .toast-icon{
-    width:68px;height:68px;margin:0 auto 16px;border-radius:50%;
-    background:linear-gradient(145deg,#fdf8e7,#f3e6b8);
-    display:flex;align-items:center;justify-content:center;
-    border:2px solid rgba(184,145,47,.4);
-    box-shadow:0 6px 20px rgba(184,145,47,.25);
-    position:relative;z-index:1;
-  }
-  .toast-icon svg{width:36px;height:36px;fill:#8a6b1a}
-  .toast h3{
-    font-size:22px;font-weight:900;color:var(--primary);
-    margin-bottom:10px;line-height:1.4;letter-spacing:-.2px;
-    position:relative;z-index:1;
-  }
-  .toast p{
-    font-size:var(--fs-small);color:var(--text-soft);
-    line-height:1.95;margin-bottom:0;
-    position:relative;z-index:1;
-  }
-  .toast-btn{
-    margin-top:22px;padding:13px 36px;
-    background:linear-gradient(135deg,var(--primary),var(--primary-light));
-    color:#fff;font-family:inherit;font-size:var(--fs-small);font-weight:800;
-    border:none;border-radius:12px;cursor:pointer;
-    box-shadow:0 6px 18px rgba(22,48,79,.28);
-    transition:transform .18s ease;
-    position:relative;z-index:1;
-  }
-  .toast-btn:active{transform:scale(.97)}
+/* ============ HELPERS ============ */
+.hidden{display:none!important}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.fade-in{animation:fadeUp .45s ease both}
 
-  /* اسکرول */
-  .modal::-webkit-scrollbar{width:5px}
-  .modal::-webkit-scrollbar-thumb{background:rgba(184,145,47,.3);border-radius:3px}
+.modal::-webkit-scrollbar{width:5px}
+.modal::-webkit-scrollbar-thumb{background:rgba(200,117,75,.3);border-radius:3px}
+
+/* ============ MEDIA ============ */
+@media(min-width:760px){
+  .main{padding:26px 30px 30px}
+  .header{padding:14px 30px}
+  .header-inner{max-width:720px}
+  .hero{padding:40px 40px 34px}
+  .hero h1{font-size:32px}
+  .form-card{padding:32px 30px 36px}
+}
+
+@media(max-width:380px){
+  .hero{padding:24px 20px 22px}
+  .hero h1{font-size:22px}
+  .form-card{padding:22px 16px 26px}
+  .label{font-size:16px}
+  .pay-card-number{font-size:19px;letter-spacing:2px}
+  .brand-name{font-size:21px}
+  .brand-sub{font-size:11px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{
+    scroll-behavior:auto!important;
+    transition:none!important;
+    animation:none!important;
+  }
+}
 </style>
 </head>
 
 <body>
 
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
-        </svg>
-      </div>
-      <div class="header-text">
-        <div class="header-title">امنیت‌گستر</div>
-        <div class="header-sub">ثبت درخواست استخدام</div>
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2 3.5 5.5v5.2c0 5.2 3.4 9.4 8.5 11.3 5.1-1.9 8.5-6.1 8.5-11.3V5.5L12 2Z"/>
+        <path d="m8.5 12 2.2 2.2 4.8-5"/>
+      </svg>
+    </div>
+    <div class="brand">
+      <div class="brand-name">امنیت‌گستر</div>
+      <div class="brand-sub">ثبت درخواست استخدام</div>
+    </div>
+    <div class="header-mark">SG / 01</div>
+  </div>
+</header>
+
+<main class="main">
+
+  <section class="hero">
+    <div class="hero-badge"><i></i> سایت فعال — در حال پذیرش نیرو</div>
+    <h1>قدم اول را بردار؛ ما بقیه مسیر را <em>همراهت</em> می‌آییم.</h1>
+    <p class="hero-sub">
+      یک فرم کوتاه، یک آیندهٔ روشن. پرونده‌ات را امروز باز کن و در صف اولین فرصت‌های شغلی با حقوق بالای ۶۰ میلیون تومان قرار بگیر.
+    </p>
+  </section>
+
+  <div class="note note-gold">
+    <div class="note-title">
+      <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+      یک قدم تا تشکیل پرونده
+    </div>
+    <p>عکس <strong>روی و پشت کارت ملی</strong> را بارگذاری کن و مبلغ <strong>۱۴۵ هزار تومان</strong> (پوشه، قرارداد و سوءپیشینه) را واریز کن. بعد از این، پرونده‌ات مستقیماً وارد صف بررسی می‌شود.</p>
+  </div>
+
+  <div class="note">
+    <div class="note-title">
+      <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+      چرا این هزینه اصلاً به ضررت نیست؟
+    </div>
+    <p>هزینهٔ <strong>۱۵ میلیون تومان</strong> فقط از حقوق ماه اول کسر می‌شود. یعنی اگر حقوقت ۶۰ میلیون تومان باشد، ماه اول <strong>۴۵ میلیون</strong> دستت را می‌گیرد. ریسکی برای تو وجود ندارد.</p>
+  </div>
+
+  <div class="note note-soft">
+    <div class="note-title">
+      <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+      قبل از هر چیز، شرط مهم را بدان
+    </div>
+    <p>پر کردن و ارسال فرم یعنی <strong>پذیرش کامل شرایط و ضوابط امنیت‌گستر</strong>. تعهد ما هم بر همین مبناست. مطمئن شو همه‌چیز را دقیق خوانده‌ای.</p>
+  </div>
+
+  <form class="form-card" id="jobForm" novalidate>
+
+    <div class="field">
+      <label class="label" for="fullname">نام و نام خانوادگی <span class="req">*</span></label>
+      <input class="input" type="text" id="fullname" placeholder="مثال: علی محمدی" required>
+    </div>
+
+    <div class="field">
+      <label class="label" for="phone">شماره تماس <span class="req">*</span></label>
+      <input class="input" type="tel" id="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" inputmode="numeric" required>
+    </div>
+
+    <div class="field">
+      <label class="label">جنسیت <span class="req">*</span></label>
+      <div class="radio-group">
+        <label class="radio-card">
+          <input type="radio" name="gender" value="male" required>
+          <span class="radio-mark"></span>
+          <span class="radio-text">آقا</span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="gender" value="female">
+          <span class="radio-mark"></span>
+          <span class="radio-text">خانم</span>
+        </label>
       </div>
     </div>
-  </header>
 
-  <main class="main">
+    <div class="female-msg" id="femaleMsg">
+      <div class="female-msg-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+        احتراماً خدمت شما
+      </div>
+      <p>در حال حاضر برای بانوان محترم شغلی موجود نیست، مگر آنکه <strong>متأهل</strong> باشند و همسر ایشان فرم را تکمیل و درخواست خود را ثبت نمایند.</p>
+    </div>
 
-    <section class="hero lux-frame">
-      <div class="hero-inner">
-        <div class="hero-badge">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          سایت فعال و در حال پذیرش
+    <div id="maleSection" class="hidden">
+
+      <div class="field">
+        <label class="label">وضعیت نظام وظیفه <span class="req">*</span></label>
+        <div class="custom-select" id="militarySelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً یکی از موارد را انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="پایان خدمت">دارای کارت پایان خدمت</div>
+            <div class="custom-select-option" data-value="معافیت غیر پزشکی">دارای کارت معافیت غیر پزشکی</div>
+            <div class="custom-select-option" data-value="معافیت پزشکی">دارای معافیت خدمت پزشکی</div>
+            <div class="custom-select-option" data-value="غایب">غایب از خدمت</div>
+          </div>
+          <input type="hidden" name="military" required>
         </div>
-        <h1>فرم را با <span>دقت</span> تکمیل کنید و ارسال نمایید</h1>
-        <p class="hero-sub">سایت به‌روز و فعال است — پیش از ارسال، تمامی بخش‌ها را با دقت تکمیل کنید.</p>
-      </div>
-    </section>
-
-    <div class="note note-gold">
-      <div class="note-title">
-        <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-        همراهی با شما در مسیر استخدام
-      </div>
-      <p>برای اینکه پرونده شما به‌درستی تشکیل شود، لطفاً <strong>از پشت و روی کارت ملی خود عکس تهیه و ارسال نمایید</strong>. همچنین مبلغ <strong>۱۴۵ هزار تومان</strong> برای خرید پوشه، تشکیل پرونده، فرم قرارداد و اخذ سوءپیشینه واریز نمایید تا درخواست شما به مرحله بررسی وارد شود.</p>
-    </div>
-
-    <div class="note">
-      <div class="note-title">
-        <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
-        هزینه معرفی شغل
-      </div>
-      <p>هزینه معرفی تا <strong>۳ شغل</strong> طبق شرایط اعلامی، <strong>۱۵ میلیون تومان</strong> است که پس از استخدام از حقوق ماه اول شما کسر می‌شود. بنابراین اگر حقوق شما حداقل حقوق اعلامی یعنی <strong>۶۰ میلیون تومان</strong> باشد، ماه اول <strong>۴۵ میلیون تومان</strong> دریافت خواهید کرد.</p>
-    </div>
-
-    <div class="note note-soft">
-      <div class="note-title">
-        <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
-        پذیرش شرایط
-      </div>
-      <p>پیش از تکمیل فرم، <strong>مطالعه دقیق شرایط و ضوابط الزامی است</strong>. پر کردن و ارسال فرم به معنای پذیرش کلیه موارد ذکر شده می‌باشد و تعهد ما نیز بر مبنای همین موارد خواهد بود.</p>
-    </div>
-
-    <!-- ============ فرم ============ -->
-    <form class="form-card lux-frame" id="jobForm" novalidate>
-
-      <div class="field">
-        <label class="label" for="fullname">نام و نام خانوادگی <span class="req">*</span></label>
-        <input class="input" type="text" id="fullname" placeholder="مثال: علی محمدی" required>
       </div>
 
       <div class="field">
-        <label class="label" for="phone">شماره تماس <span class="req">*</span></label>
-        <input class="input" type="tel" id="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" inputmode="numeric" required>
-      </div>
-
-      <div class="field">
-        <label class="label">جنسیت <span class="req">*</span></label>
+        <label class="label">وضعیت تأهل <span class="req">*</span></label>
         <div class="radio-group">
           <label class="radio-card">
-            <input type="radio" name="gender" value="male" required>
+            <input type="radio" name="marital" value="single" required>
             <span class="radio-mark"></span>
-            <span class="radio-text">آقا</span>
+            <span class="radio-text">مجرد</span>
           </label>
           <label class="radio-card">
-            <input type="radio" name="gender" value="female">
+            <input type="radio" name="marital" value="married">
             <span class="radio-mark"></span>
-            <span class="radio-text">خانم</span>
+            <span class="radio-text">متأهل</span>
+          </label>
+        </div>
+        <div class="help">
+          برخی مشاغل مخصوص مجردها و برخی مخصوص متأهل‌هاست. از نظر حقوق و مزایا تفاوتی ندارند؛ اما برای مجردها موقعیت‌های سرایداری کمتر و برای متأهل‌ها موقعیت‌های امنیتی کمتر موجود است.
+        </div>
+      </div>
+
+      <div class="field hidden" id="childrenField">
+        <label class="label">تعداد فرزندان <span class="req">*</span></label>
+        <div class="custom-select" id="childrenSelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="فاقد فرزند">فاقد فرزند</div>
+            <div class="custom-select-option" data-value="یک فرزند">یک فرزند</div>
+            <div class="custom-select-option" data-value="دو فرزند">دو فرزند</div>
+            <div class="custom-select-option" data-value="سه یا بیشتر">سه یا بیشتر از سه فرزند</div>
+          </div>
+          <input type="hidden" name="children">
+        </div>
+      </div>
+
+      <div class="field hidden" id="cooperationField">
+        <label class="label">نوع همکاری <span class="req">*</span></label>
+        <div class="custom-select" id="cooperationSelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="تنها">خودم به تنهایی فعالیت می‌کنم</div>
+            <div class="custom-select-option" data-value="همسر و فرزندان در منزل">در جای دیگر کار می‌کنم و همسر یا فرزندان در منزل فعالیت می‌کنند</div>
+            <div class="custom-select-option" data-value="همه با هم">تمایل دارم هم خودم و هم همسر و یا فرزندان فعالیت کنیم</div>
+          </div>
+          <input type="hidden" name="cooperation">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="age">سن <span class="req">*</span></label>
+        <input class="input" type="number" id="age" placeholder="سن دقیق خود را ذکر کنید" inputmode="numeric" min="17" max="70" required>
+        <div class="help">
+          لطفاً سن دقیق خود را ذکر کنید. بازه سنی قابل پذیرش <strong>۱۷ تا ۷۰ سال</strong> است.
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="location">محل سکونت <span class="req">*</span></label>
+        <input class="input" type="text" id="location" placeholder="شهر / منطقه محل سکونت" required>
+        <div class="help">
+          برای سه دسته از مشاغل دارای محل اقامت، محل سکونت فعلی شما اهمیتی ندارد. اما برای دسته <strong>نیروی امنیتی حفاظتی</strong>، باید ساکن تهران و نزدیک به محل کار باشید؛ چرا که این مشاغل محل اقامت ندارند.
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">یک دسته را انتخاب کنید <span class="req">*</span></label>
+        <div class="custom-select" id="jobCategorySelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً یک دسته را انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="نگهبان">استخدام به عنوان نگهبان</div>
+            <div class="custom-select-option" data-value="نیروی حفاظتی و امنیتی">استخدام به عنوان نیروی حفاظتی و امنیتی</div>
+            <div class="custom-select-option" data-value="سرایدار">استخدام به عنوان سرایدار</div>
+            <div class="custom-select-option" data-value="بادیگارد یا محافظ شخصی">استخدام به عنوان بادیگارد یا محافظ شخصی</div>
+            <div class="custom-select-option" data-value="مشاغل دارای ۲ وعده غذا و محل اقامت">استخدام فقط در مشاغلی که ۲ وعده غذا و محل اقامت دارند (همه دسته‌ها بجز حفاظتی)</div>
+            <div class="custom-select-option" data-value="هر شغلی با حقوق و مزایای بهتر">هر شغلی که حقوق و مزایای بهتری دارد در تمامی دسته‌ها</div>
+          </div>
+          <input type="hidden" name="jobCategory" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">استخدام در کدام شهر؟ <span class="req">*</span></label>
+        <div class="help">
+          هم‌اکنون در شهرهای زیر فرصت‌های شغلی موجود است.
+        </div>
+        <div class="custom-select" id="citySelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً شهر مورد نظر را انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="تهران">تهران</div>
+            <div class="custom-select-option" data-value="شمال">شمال</div>
+            <div class="custom-select-option" data-value="اصفهان">اصفهان</div>
+            <div class="custom-select-option" data-value="مشهد مقدس">مشهد مقدس</div>
+            <div class="custom-select-option" data-value="کیش">کیش</div>
+          </div>
+          <input type="hidden" name="city" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label" for="height">قد (سانتی‌متر) <span class="req">*</span></label>
+        <input class="input" type="number" id="height" placeholder="مثال: ۱۸۰" inputmode="numeric" min="140" max="220" required>
+      </div>
+
+      <div class="field">
+        <label class="label" for="weight">وزن (کیلوگرم) <span class="req">*</span></label>
+        <input class="input" type="number" id="weight" placeholder="مثال: ۸۵" inputmode="numeric" min="40" max="200" required>
+      </div>
+
+      <div class="field">
+        <label class="label">وضعیت تناسب اندام <span class="req">*</span></label>
+        <div class="help">
+          با احترام به شما، برخی از معدود موقعیت‌ها به ظاهر آراسته و قد و وزن متناسب نیاز دارند. لطفاً گزینه‌ای که به شما نزدیک‌تر است را انتخاب کنید.
+        </div>
+        <div class="custom-select" id="bodySelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="استایل معمولی">استایل معمولی</div>
+            <div class="custom-select-option" data-value="چابک و متناسب">درشت نیستم اما چابک و سریع و قد و وزن متناسب</div>
+            <div class="custom-select-option" data-value="درشت‌هیکل">درشت‌هیکل بدون ورزش</div>
+            <div class="custom-select-option" data-value="قد بلند و ورزشکار">قد بلند و ورزشکار</div>
+            <div class="custom-select-option" data-value="ورزشکار حرفه‌ای">ورزشکار حرفه‌ای، ظاهر بسیار نیرومند</div>
+          </div>
+          <input type="hidden" name="body" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">میزان تحصیلات <span class="req">*</span></label>
+        <div class="custom-select" id="educationSelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="دیپلم و کمتر از آن">دیپلم و کمتر از آن</div>
+            <div class="custom-select-option" data-value="فوق دیپلم و کاردانی">فوق دیپلم و کاردانی</div>
+            <div class="custom-select-option" data-value="کارشناسی">کارشناسی</div>
+            <div class="custom-select-option" data-value="کارشناسی ارشد و بالاتر">کارشناسی ارشد و بالاتر / دارای چند مدرک</div>
+          </div>
+          <input type="hidden" name="education" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">آیا حاضر به مطالعه دقیق جزوه آموزش و رعایت کلیه مفاد آن هستید؟ <span class="req">*</span></label>
+        <div class="help">
+          برخی مشاغل نیازمند رعایت شئونات اسلامی، اخلاقی و حرفه‌ای هستند که در بخش راهنما ذکر شده است. در صورت عدم امکان مطالعه و رعایت دستورالعمل‌ها، مشاغل فاقد دستورالعمل به شما ارائه می‌گردد.
+        </div>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="manual" value="بلی" required>
+            <span class="radio-mark"></span>
+            <span class="radio-text">بلی</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="manual" value="خیر">
+            <span class="radio-mark"></span>
+            <span class="radio-text">خیر</span>
           </label>
         </div>
       </div>
 
-      <div class="female-msg" id="femaleMsg">
-        <div class="female-msg-title">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
-          احتراماً خدمت شما
+      <div class="field">
+        <label class="label">وضعیت گواهینامه رانندگی <span class="req">*</span></label>
+        <div class="custom-select" id="licenseSelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="فاقد گواهینامه">فاقد گواهینامه</div>
+            <div class="custom-select-option" data-value="دارای گواهینامه معتبر">دارای گواهینامه معتبر رانندگی</div>
+            <div class="custom-select-option" data-value="تسلط حرفه‌ای بر رانندگی">دارای گواهینامه + تسلط حرفه‌ای بر رانندگی، سرعت عمل و چابکی</div>
+            <div class="custom-select-option" data-value="سابقه رانندگی با انواع خودرو">دارای گواهینامه + سابقه رانندگی با انواع خودروهای دنده‌ای و اتوماتیک</div>
+            <div class="custom-select-option" data-value="آشنایی با نگهداری خودرو">دارای گواهینامه + آشنایی با نگهداری خودرو (نظافت، چکاب، آب و روغن و ...)</div>
+          </div>
+          <input type="hidden" name="license" required>
         </div>
-        <p>در حال حاضر برای بانوان محترم شغلی موجود نیست، مگر آنکه <strong>متأهل</strong> باشند و همسر ایشان فرم را تکمیل و درخواست خود را ثبت نمایند.</p>
       </div>
 
-      <div id="maleSection" class="hidden">
-
-        <!-- نظام وظیفه -->
-        <div class="field">
-          <label class="label">وضعیت نظام وظیفه <span class="req">*</span></label>
-          <div class="custom-select" id="militarySelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً یکی از موارد را انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="پایان خدمت">دارای کارت پایان خدمت</div>
-              <div class="custom-select-option" data-value="معافیت غیر پزشکی">دارای کارت معافیت غیر پزشکی</div>
-              <div class="custom-select-option" data-value="معافیت پزشکی">دارای معافیت خدمت پزشکی</div>
-              <div class="custom-select-option" data-value="غایب">غایب از خدمت</div>
-            </div>
-            <input type="hidden" name="military" required>
-          </div>
+      <div class="field">
+        <label class="label">آیا پوشیدن یونیفرم رسمی امنیت‌گستر یا کارفرما را می‌پذیرید؟ <span class="req">*</span></label>
+        <div class="help">
+          در برخی مشاغل، پوشش توسط کارفرما تعیین می‌شود و در برخی موارد باید مشخص باشد شما نیروی حافظ امنیت هستید. لباس‌ها عموماً دو دست کت و شلوار متناسب و پیراهن است و در زمستان یک عدد کاور گرمکن تخصیص می‌یابد. تهیه کفش مناسب به عهده خودتان است.
         </div>
-
-        <!-- تأهل -->
-        <div class="field">
-          <label class="label">وضعیت تأهل <span class="req">*</span></label>
-          <div class="radio-group">
-            <label class="radio-card">
-              <input type="radio" name="marital" value="single" required>
-              <span class="radio-mark"></span>
-              <span class="radio-text">مجرد</span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="marital" value="married">
-              <span class="radio-mark"></span>
-              <span class="radio-text">متأهل</span>
-            </label>
-          </div>
-          <div class="help">
-            برخی مشاغل مخصوص مجردها و برخی مخصوص متأهل‌هاست. از نظر حقوق و مزایا تفاوتی ندارند؛ اما برای مجردها موقعیت‌های سرایداری کمتر و برای متأهل‌ها موقعیت‌های امنیتی کمتر موجود است.
-          </div>
-        </div>
-
-        <!-- تعداد فرزندان -->
-        <div class="field hidden" id="childrenField">
-          <label class="label">تعداد فرزندان <span class="req">*</span></label>
-          <div class="custom-select" id="childrenSelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="فاقد فرزند">فاقد فرزند</div>
-              <div class="custom-select-option" data-value="یک فرزند">یک فرزند</div>
-              <div class="custom-select-option" data-value="دو فرزند">دو فرزند</div>
-              <div class="custom-select-option" data-value="سه یا بیشتر">سه یا بیشتر از سه فرزند</div>
-            </div>
-            <input type="hidden" name="children">
-          </div>
-        </div>
-
-        <!-- نوع همکاری -->
-        <div class="field hidden" id="cooperationField">
-          <label class="label">نوع همکاری <span class="req">*</span></label>
-          <div class="custom-select" id="cooperationSelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="تنها">خودم به تنهایی فعالیت می‌کنم</div>
-              <div class="custom-select-option" data-value="همسر و فرزندان در منزل">در جای دیگر کار می‌کنم و همسر یا فرزندان در منزل فعالیت می‌کنند</div>
-              <div class="custom-select-option" data-value="همه با هم">تمایل دارم هم خودم و هم همسر و یا فرزندان فعالیت کنیم</div>
-            </div>
-            <input type="hidden" name="cooperation">
-          </div>
-        </div>
-
-        <!-- سن (جدید) -->
-        <div class="field">
-          <label class="label" for="age">سن <span class="req">*</span></label>
-          <input class="input" type="number" id="age" placeholder="سن دقیق خود را ذکر کنید" inputmode="numeric" min="17" max="70" required>
-          <div class="help">
-            لطفاً سن دقیق خود را ذکر کنید. بازه سنی قابل پذیرش <strong>۱۷ تا ۷۰ سال</strong> است.
-          </div>
-        </div>
-
-        <!-- محل سکونت -->
-        <div class="field">
-          <label class="label" for="location">محل سکونت <span class="req">*</span></label>
-          <input class="input" type="text" id="location" placeholder="شهر / منطقه محل سکونت" required>
-          <div class="help">
-            برای سه دسته از مشاغل دارای محل اقامت، محل سکونت فعلی شما اهمیتی ندارد. اما برای دسته <strong>نیروی امنیتی حفاظتی</strong>، باید ساکن تهران و نزدیک به محل کار باشید؛ چرا که این مشاغل محل اقامت ندارند.
-          </div>
-        </div>
-
-        <!-- دسته شغلی درخواستی (جدید) -->
-        <div class="field">
-          <label class="label">یک دسته را انتخاب کنید <span class="req">*</span></label>
-          <div class="custom-select" id="jobCategorySelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً یک دسته را انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="نگهبان">استخدام به عنوان نگهبان</div>
-              <div class="custom-select-option" data-value="نیروی حفاظتی و امنیتی">استخدام به عنوان نیروی حفاظتی و امنیتی</div>
-              <div class="custom-select-option" data-value="سرایدار">استخدام به عنوان سرایدار</div>
-              <div class="custom-select-option" data-value="بادیگارد یا محافظ شخصی">استخدام به عنوان بادیگارد یا محافظ شخصی</div>
-              <div class="custom-select-option" data-value="مشاغل دارای ۲ وعده غذا و محل اقامت">استخدام فقط در مشاغلی که ۲ وعده غذا و محل اقامت دارند (همه دسته‌ها بجز حفاظتی)</div>
-              <div class="custom-select-option" data-value="هر شغلی با حقوق و مزایای بهتر">هر شغلی که حقوق و مزایای بهتری دارد در تمامی دسته‌ها</div>
-            </div>
-            <input type="hidden" name="jobCategory" required>
-          </div>
-        </div>
-
-        <!-- شهر (جدید) -->
-        <div class="field">
-          <label class="label">استخدام در کدام شهر؟ <span class="req">*</span></label>
-          <div class="help">
-            هم‌اکنون در شهرهای زیر فرصت‌های شغلی موجود است.
-          </div>
-          <div class="custom-select" id="citySelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً شهر مورد نظر را انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="تهران">تهران</div>
-              <div class="custom-select-option" data-value="شمال">شمال</div>
-              <div class="custom-select-option" data-value="اصفهان">اصفهان</div>
-              <div class="custom-select-option" data-value="مشهد مقدس">مشهد مقدس</div>
-              <div class="custom-select-option" data-value="کیش">کیش</div>
-            </div>
-            <input type="hidden" name="city" required>
-          </div>
-        </div>
-
-        <!-- قد -->
-        <div class="field">
-          <label class="label" for="height">قد (سانتی‌متر) <span class="req">*</span></label>
-          <input class="input" type="number" id="height" placeholder="مثال: ۱۸۰" inputmode="numeric" min="140" max="220" required>
-        </div>
-
-        <!-- وزن -->
-        <div class="field">
-          <label class="label" for="weight">وزن (کیلوگرم) <span class="req">*</span></label>
-          <input class="input" type="number" id="weight" placeholder="مثال: ۸۵" inputmode="numeric" min="40" max="200" required>
-        </div>
-
-        <!-- تناسب اندام -->
-        <div class="field">
-          <label class="label">وضعیت تناسب اندام <span class="req">*</span></label>
-          <div class="help">
-            با احترام به شما، برخی از معدود موقعیت‌ها به ظاهر آراسته و قد و وزن متناسب نیاز دارند. لطفاً گزینه‌ای که به شما نزدیک‌تر است را انتخاب کنید.
-          </div>
-          <div class="custom-select" id="bodySelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="استایل معمولی">استایل معمولی</div>
-              <div class="custom-select-option" data-value="چابک و متناسب">درشت نیستم اما چابک و سریع و قد و وزن متناسب</div>
-              <div class="custom-select-option" data-value="درشت‌هیکل">درشت‌هیکل بدون ورزش</div>
-              <div class="custom-select-option" data-value="قد بلند و ورزشکار">قد بلند و ورزشکار</div>
-              <div class="custom-select-option" data-value="ورزشکار حرفه‌ای">ورزشکار حرفه‌ای، ظاهر بسیار نیرومند</div>
-            </div>
-            <input type="hidden" name="body" required>
-          </div>
-        </div>
-
-        <!-- تحصیلات -->
-        <div class="field">
-          <label class="label">میزان تحصیلات <span class="req">*</span></label>
-          <div class="custom-select" id="educationSelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="دیپلم و کمتر از آن">دیپلم و کمتر از آن</div>
-              <div class="custom-select-option" data-value="فوق دیپلم و کاردانی">فوق دیپلم و کاردانی</div>
-              <div class="custom-select-option" data-value="کارشناسی">کارشناسی</div>
-              <div class="custom-select-option" data-value="کارشناسی ارشد و بالاتر">کارشناسی ارشد و بالاتر / دارای چند مدرک</div>
-            </div>
-            <input type="hidden" name="education" required>
-          </div>
-        </div>
-
-        <!-- مطالعه جزوه -->
-        <div class="field">
-          <label class="label">آیا حاضر به مطالعه دقیق جزوه آموزش و رعایت کلیه مفاد آن هستید؟ <span class="req">*</span></label>
-          <div class="help">
-            برخی مشاغل نیازمند رعایت شئونات اسلامی، اخلاقی و حرفه‌ای هستند که در بخش راهنما ذکر شده است. در صورت عدم امکان مطالعه و رعایت دستورالعمل‌ها، مشاغل فاقد دستورالعمل به شما ارائه می‌گردد.
-          </div>
-          <div class="radio-group">
-            <label class="radio-card">
-              <input type="radio" name="manual" value="بلی" required>
-              <span class="radio-mark"></span>
-              <span class="radio-text">بلی</span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="manual" value="خیر">
-              <span class="radio-mark"></span>
-              <span class="radio-text">خیر</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- گواهینامه -->
-        <div class="field">
-          <label class="label">وضعیت گواهینامه رانندگی <span class="req">*</span></label>
-          <div class="custom-select" id="licenseSelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="فاقد گواهینامه">فاقد گواهینامه</div>
-              <div class="custom-select-option" data-value="دارای گواهینامه معتبر">دارای گواهینامه معتبر رانندگی</div>
-              <div class="custom-select-option" data-value="تسلط حرفه‌ای بر رانندگی">دارای گواهینامه + تسلط حرفه‌ای بر رانندگی، سرعت عمل و چابکی</div>
-              <div class="custom-select-option" data-value="سابقه رانندگی با انواع خودرو">دارای گواهینامه + سابقه رانندگی با انواع خودروهای دنده‌ای و اتوماتیک</div>
-              <div class="custom-select-option" data-value="آشنایی با نگهداری خودرو">دارای گواهینامه + آشنایی با نگهداری خودرو (نظافت، چکاب، آب و روغن و ...)</div>
-            </div>
-            <input type="hidden" name="license" required>
-          </div>
-        </div>
-
-        <!-- یونیفرم -->
-        <div class="field">
-          <label class="label">آیا پوشیدن یونیفرم رسمی امنیت‌گستر یا کارفرما را می‌پذیرید؟ <span class="req">*</span></label>
-          <div class="help">
-            در برخی مشاغل، پوشش توسط کارفرما تعیین می‌شود و در برخی موارد باید مشخص باشد شما نیروی حافظ امنیت هستید. لباس‌ها عموماً دو دست کت و شلوار متناسب و پیراهن است و در زمستان یک عدد کاور گرمکن تخصیص می‌یابد. تهیه کفش مناسب به عهده خودتان است.
-          </div>
-          <div class="radio-group">
-            <label class="radio-card">
-              <input type="radio" name="uniform" value="بلی" required>
-              <span class="radio-mark"></span>
-              <span class="radio-text">بلی، می‌پذیرم</span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="uniform" value="خیر">
-              <span class="radio-mark"></span>
-              <span class="radio-text">خیر</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- تجهیزات -->
-        <div class="field">
-          <label class="label">آیا در صورت ارائه تجهیزاتی مانند شوکر، دستبند یا اسپری فلفل، تعهد حفظ، نگهداری، امانت‌داری و استفاده بجا از این موارد را می‌پذیرید؟ <span class="req">*</span></label>
-          <div class="radio-group">
-            <label class="radio-card">
-              <input type="radio" name="equipment" value="بلی" required>
-              <span class="radio-mark"></span>
-              <span class="radio-text">بلی، می‌پذیرم</span>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="equipment" value="خیر">
-              <span class="radio-mark"></span>
-              <span class="radio-text">خیر</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- تخصص -->
-        <div class="field">
-          <label class="label">تخصص شما <span class="req">*</span></label>
-          <div class="help">
-            آیا تخصص خاصی دارید؟ برای انجام این موارد دستمزد جداگانه‌ای تعریف شده و ممکن است مورد نیاز باشد.
-          </div>
-          <div class="custom-select" id="skillSelect">
-            <button type="button" class="custom-select-trigger placeholder">
-              <span class="custom-select-value">لطفاً انتخاب کنید</span>
-              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-            </button>
-            <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="فاقد تخصص">فاقد تخصص</div>
-              <div class="custom-select-option" data-value="فنی مبتدی">فنی مبتدی — آشنایی با لوله‌کشی، تعمیرات شیرآلات، برقکاری، جوشکاری و تعمیرات جزئی</div>
-              <div class="custom-select-option" data-value="فنی حرفه‌ای">فنی حرفه‌ای</div>
-              <div class="custom-select-option" data-value="تخصص غیر فنی">دارای تخصص غیر فنی</div>
-            </div>
-            <input type="hidden" name="skill" required>
-          </div>
-
-          <div class="hidden" id="proSkillField" style="margin-top:16px;">
-            <label class="label">نوع تخصص فنی حرفه‌ای <span class="req">*</span></label>
-            <div class="custom-select" id="proSkillSelect">
-              <button type="button" class="custom-select-trigger placeholder">
-                <span class="custom-select-value">لطفاً انتخاب کنید</span>
-                <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
-              </button>
-              <div class="custom-select-menu">
-                <div class="custom-select-option" data-value="لوله‌کشی حرفه‌ای">لوله‌کشی حرفه‌ای</div>
-                <div class="custom-select-option" data-value="برقکاری حرفه‌ای یا تکنسین برق">برقکاری حرفه‌ای یا تکنسین برق</div>
-                <div class="custom-select-option" data-value="نگهداری و سرویس تأسیسات">نگهداری و سرویس حرفه‌ای تأسیسات مجتمع‌ها</div>
-              </div>
-              <input type="hidden" name="proSkill">
-            </div>
-          </div>
-
-          <div class="hidden" id="otherSkillField" style="margin-top:16px;">
-            <label class="label" for="otherSkillText">شرح کوتاه تخصص غیر فنی</label>
-            <textarea class="textarea" id="otherSkillText" placeholder="تخصص غیر فنی خود را به طور مختصر شرح دهید"></textarea>
-          </div>
-        </div>
-
-        <div class="note note-soft" style="margin-bottom:24px;">
-          <div class="note-title">
-            <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
-            یک نکته دوستانه
-          </div>
-          <p>بیش از <strong>۹۰٪ مشاغل فعلی</strong> نیازی به تخصص، آموزش یا تحصیلات خاصی ندارند. این بخش صرفاً برای تکمیل رزومه شما و اخذ امتیاز بیشتر از کارفرما در نظر گرفته شده است.</p>
-        </div>
-
-        <div class="field">
-          <label class="label" for="notes">توضیحات درباره علایق شغلی، ملاک‌ها و اهداف یا شرایط خاص</label>
-          <textarea class="textarea" id="notes" placeholder="ملاک‌ها، علایق و شرایط خاص خود را اینجا بنویسید..."></textarea>
-        </div>
-
-        <!-- مدارک -->
-        <div class="note note-gold" style="margin-bottom:20px;">
-          <div class="note-title">
-            <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
-            بارگذاری مدارک هویتی
-          </div>
-          <p>لطفاً عکس <strong>روی و پشت کارت ملی</strong> خود را بارگذاری کنید. در صورت نداشتن کارت ملی، <strong>صفحه اول و دوم شناسنامه</strong> را ارسال نمایید.</p>
-        </div>
-
-        <!-- روی کارت ملی -->
-        <div class="field">
-          <label class="label">عکس روی کارت ملی <span class="req">*</span></label>
-          <label class="upload-box" for="idFront">
-            <input type="file" id="idFront" accept="image/*" required>
-            <div class="upload-icon">
-              <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
-            </div>
-            <div class="upload-label">لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید</div>
-            <div class="upload-hint">از گالری انتخاب کنید</div>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="uniform" value="بلی" required>
+            <span class="radio-mark"></span>
+            <span class="radio-text">بلی، می‌پذیرم</span>
           </label>
-          <div class="upload-preview" id="prev-idFront">
-            <img src="" alt="">
-            <div class="upload-preview-text">
-              <div class="upload-preview-name"></div>
-              <div class="upload-preview-status">با موفقیت انتخاب شد</div>
-            </div>
-          </div>
-          <div class="loading" id="load-idFront"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
-        </div>
-
-        <!-- پشت کارت ملی -->
-        <div class="field">
-          <label class="label">عکس پشت کارت ملی <span class="req">*</span></label>
-          <label class="upload-box" for="idBack">
-            <input type="file" id="idBack" accept="image/*" required>
-            <div class="upload-icon">
-              <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
-            </div>
-            <div class="upload-label">لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید</div>
-            <div class="upload-hint">از گالری انتخاب کنید</div>
+          <label class="radio-card">
+            <input type="radio" name="uniform" value="خیر">
+            <span class="radio-mark"></span>
+            <span class="radio-text">خیر</span>
           </label>
-          <div class="upload-preview" id="prev-idBack">
-            <img src="" alt="">
-            <div class="upload-preview-text">
-              <div class="upload-preview-name"></div>
-              <div class="upload-preview-status">با موفقیت انتخاب شد</div>
-            </div>
-          </div>
-          <div class="loading" id="load-idBack"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
         </div>
-
-        <!-- رسید واریز -->
-        <div class="note note-gold" style="margin-top:22px;">
-          <div class="note-title">
-            <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></span>
-            بارگذاری رسید واریز
-          </div>
-          <p>این مبلغ صرفاً برای پرینت مدارک هویتی (هر صفحه ۳,۵۰۰ تومان)، هزینه پوشه (۴۰ هزار تومان) و اخذ گواهی سوءپیشینه (۷۹ هزار تومان) است و به عهده شما می‌باشد.</p>
-
-          <div class="pay-amount">
-            <div class="pay-amount-label">مبلغ قابل واریز</div>
-            <div class="pay-amount-value">۱۴۵,۰۰۰ <small>تومان</small></div>
-          </div>
-
-          <div class="pay-card">
-            <div class="pay-card-bank">
-              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-              بانک پاسارگاد
-            </div>
-            <div class="pay-card-chip"></div>
-            <div class="pay-card-label">شماره کارت</div>
-            <div class="pay-card-number">5022 2910 9895 3209</div>
-            <div class="pay-card-footer">
-              <div class="pay-card-holder">
-                <small>به نام</small>
-                حمیدرضا سلیمی
-              </div>
-              <div class="pay-card-logo">
-                <div class="circle c1"></div>
-                <div class="circle c2"></div>
-              </div>
-            </div>
-          </div>
-
-          <p>پس از واریز، رسید آن را در بخش زیر بارگذاری نمایید.</p>
-        </div>
-
-        <!-- فایل رسید -->
-        <div class="field">
-          <label class="label">رسید واریز <span class="req">*</span></label>
-          <label class="upload-box" for="receipt">
-            <input type="file" id="receipt" accept="image/*" required>
-            <div class="upload-icon">
-              <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
-            </div>
-            <div class="upload-label">لطفاً پیامک و یا رسید واریز حاوی کد رهگیری و تاریخ و ساعت واریز را ارسال فرمایید</div>
-            <div class="upload-hint">از گالری انتخاب کنید</div>
-          </label>
-          <div class="upload-preview" id="prev-receipt">
-            <img src="" alt="">
-            <div class="upload-preview-text">
-              <div class="upload-preview-name"></div>
-              <div class="upload-preview-status">با موفقیت انتخاب شد</div>
-            </div>
-          </div>
-          <div class="loading" id="load-receipt"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          ثبت درخواست
-        </button>
-
       </div>
 
-    </form>
+      <div class="field">
+        <label class="label">آیا در صورت ارائه تجهیزاتی مانند شوکر، دستبند یا اسپری فلفل، تعهد حفظ، نگهداری، امانت‌داری و استفاده بجا از این موارد را می‌پذیرید؟ <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="equipment" value="بلی" required>
+            <span class="radio-mark"></span>
+            <span class="radio-text">بلی، می‌پذیرم</span>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="equipment" value="خیر">
+            <span class="radio-mark"></span>
+            <span class="radio-text">خیر</span>
+          </label>
+        </div>
+      </div>
 
-    <div class="signature"><span>امنیت‌گستر</span></div>
+      <div class="field">
+        <label class="label">تخصص شما <span class="req">*</span></label>
+        <div class="help">
+          آیا تخصص خاصی دارید؟ برای انجام این موارد دستمزد جداگانه‌ای تعریف شده و ممکن است مورد نیاز باشد.
+        </div>
+        <div class="custom-select" id="skillSelect">
+          <button type="button" class="custom-select-trigger placeholder">
+            <span class="custom-select-value">لطفاً انتخاب کنید</span>
+            <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+          </button>
+          <div class="custom-select-menu">
+            <div class="custom-select-option" data-value="فاقد تخصص">فاقد تخصص</div>
+            <div class="custom-select-option" data-value="فنی مبتدی">فنی مبتدی — آشنایی با لوله‌کشی، تعمیرات شیرآلات، برقکاری، جوشکاری و تعمیرات جزئی</div>
+            <div class="custom-select-option" data-value="فنی حرفه‌ای">فنی حرفه‌ای</div>
+            <div class="custom-select-option" data-value="تخصص غیر فنی">دارای تخصص غیر فنی</div>
+          </div>
+          <input type="hidden" name="skill" required>
+        </div>
 
-  </main>
+        <div class="hidden" id="proSkillField" style="margin-top:16px;">
+          <label class="label">نوع تخصص فنی حرفه‌ای <span class="req">*</span></label>
+          <div class="custom-select" id="proSkillSelect">
+            <button type="button" class="custom-select-trigger placeholder">
+              <span class="custom-select-value">لطفاً انتخاب کنید</span>
+              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </button>
+            <div class="custom-select-menu">
+              <div class="custom-select-option" data-value="لوله‌کشی حرفه‌ای">لوله‌کشی حرفه‌ای</div>
+              <div class="custom-select-option" data-value="برقکاری حرفه‌ای یا تکنسین برق">برقکاری حرفه‌ای یا تکنسین برق</div>
+              <div class="custom-select-option" data-value="نگهداری و سرویس تأسیسات">نگهداری و سرویس حرفه‌ای تأسیسات مجتمع‌ها</div>
+            </div>
+            <input type="hidden" name="proSkill">
+          </div>
+        </div>
 
-  <!-- نویگیشن -->
-  <nav class="bottom-nav">
-    <a href="index.html" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-      <span>صفحه اصلی</span>
-    </a>
-    <a href="jobs.html" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-      <span>مشاغل</span>
-    </a>
-    <a href="guide.html" class="nav-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
-      <span>راهنما</span>
-    </a>
-    <a href="request.html" class="nav-item active">
-      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
-      <span>درخواست</span>
-    </a>
-  </nav>
+        <div class="hidden" id="otherSkillField" style="margin-top:16px;">
+          <label class="label" for="otherSkillText">شرح کوتاه تخصص غیر فنی</label>
+          <textarea class="textarea" id="otherSkillText" placeholder="تخصص غیر فنی خود را به طور مختصر شرح دهید"></textarea>
+        </div>
+      </div>
 
-  <!-- ====== مودال تأیید نهایی ====== -->
-  <div class="modal-overlay" id="confirmModal">
-    <div class="modal">
-      <div class="modal-icon">
+      <div class="note note-soft" style="margin-bottom:24px;">
+        <div class="note-title">
+          <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg></span>
+          یک نکته دوستانه
+        </div>
+        <p>بیش از <strong>۹۰٪ مشاغل فعلی</strong> نیازی به تخصص، آموزش یا تحصیلات خاصی ندارند. این بخش صرفاً برای تکمیل رزومه شما و اخذ امتیاز بیشتر از کارفرما در نظر گرفته شده است.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="notes">توضیحات درباره علایق شغلی، ملاک‌ها و اهداف یا شرایط خاص</label>
+        <textarea class="textarea" id="notes" placeholder="ملاک‌ها، علایق و شرایط خاص خود را اینجا بنویسید..."></textarea>
+      </div>
+
+      <div class="note note-gold" style="margin-bottom:20px;">
+        <div class="note-title">
+          <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
+          بارگذاری مدارک هویتی
+        </div>
+        <p>عکس <strong>روی و پشت کارت ملی</strong> را بارگذاری کن. اگر کارت ملی نداری، <strong>صفحه اول و دوم شناسنامه</strong> را بفرست.</p>
+      </div>
+
+      <div class="field">
+        <label class="label">عکس روی کارت ملی <span class="req">*</span></label>
+        <label class="upload-box" for="idFront">
+          <input type="file" id="idFront" accept="image/*" required>
+          <div class="upload-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
+          </div>
+          <div class="upload-label">لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید</div>
+          <div class="upload-hint">از گالری انتخاب کنید</div>
+        </label>
+        <div class="upload-preview" id="prev-idFront">
+          <img src="" alt="">
+          <div class="upload-preview-text">
+            <div class="upload-preview-name"></div>
+            <div class="upload-preview-status">با موفقیت انتخاب شد</div>
+          </div>
+        </div>
+        <div class="loading" id="load-idFront"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
+      </div>
+
+      <div class="field">
+        <label class="label">عکس پشت کارت ملی <span class="req">*</span></label>
+        <label class="upload-box" for="idBack">
+          <input type="file" id="idBack" accept="image/*" required>
+          <div class="upload-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
+          </div>
+          <div class="upload-label">لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید</div>
+          <div class="upload-hint">از گالری انتخاب کنید</div>
+        </label>
+        <div class="upload-preview" id="prev-idBack">
+          <img src="" alt="">
+          <div class="upload-preview-text">
+            <div class="upload-preview-name"></div>
+            <div class="upload-preview-status">با موفقیت انتخاب شد</div>
+          </div>
+        </div>
+        <div class="loading" id="load-idBack"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
+      </div>
+
+      <div class="note note-gold" style="margin-top:22px;">
+        <div class="note-title">
+          <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></span>
+          بارگذاری رسید واریز
+        </div>
+        <p>این مبلغ صرفاً برای پرینت مدارک هویتی (هر صفحه ۳,۵۰۰ تومان)، هزینه پوشه (۴۰ هزار تومان) و اخذ گواهی سوءپیشینه (۷۹ هزار تومان) است و به عهده شما می‌باشد.</p>
+
+        <div class="pay-amount">
+          <div class="pay-amount-label">مبلغ قابل واریز</div>
+          <div class="pay-amount-value">۱۴۵,۰۰۰ <small>تومان</small></div>
+        </div>
+
+        <div class="pay-card">
+          <div class="pay-card-bank">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+            بانک پاسارگاد
+          </div>
+          <div class="pay-card-chip"></div>
+          <div class="pay-card-label">شماره کارت</div>
+          <div class="pay-card-number">5022 2910 9895 3209</div>
+          <div class="pay-card-footer">
+            <div class="pay-card-holder">
+              <small>به نام</small>
+              حمیدرضا سلیمی
+            </div>
+            <div class="pay-card-logo">
+              <div class="circle c1"></div>
+              <div class="circle c2"></div>
+            </div>
+          </div>
+        </div>
+
+        <p>پس از واریز، رسید آن را در بخش زیر بارگذاری نمایید.</p>
+      </div>
+
+      <div class="field">
+        <label class="label">رسید واریز <span class="req">*</span></label>
+        <label class="upload-box" for="receipt">
+          <input type="file" id="receipt" accept="image/*" required>
+          <div class="upload-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
+          </div>
+          <div class="upload-label">پیامک یا رسید واریز را با کد رهگیری و تاریخ و ساعت بفرست</div>
+          <div class="upload-hint">از گالری انتخاب کنید</div>
+        </label>
+        <div class="upload-preview" id="prev-receipt">
+          <img src="" alt="">
+          <div class="upload-preview-text">
+            <div class="upload-preview-name"></div>
+            <div class="upload-preview-status">با موفقیت انتخاب شد</div>
+          </div>
+        </div>
+        <div class="loading" id="load-receipt"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        ثبت و ارسال درخواست
+      </button>
+
+    </div>
+
+  </form>
+
+  <div class="signature"><span>امنیت‌گستر</span></div>
+
+</main>
+
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item">
+    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <span>خانه</span>
+  </a>
+  <a href="jobs.html" class="nav-item">
+    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+    <span>مشاغل</span>
+  </a>
+  <a href="guide.html" class="nav-item">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+    <span>راهنما</span>
+  </a>
+  <a href="request.html" class="nav-item active">
+    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+    <span>درخواست</span>
+  </a>
+</nav>
+
+<div class="modal-overlay" id="confirmModal">
+  <div class="modal">
+    <div class="modal-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+    <h2>یک قدم تا ارسال نهایی</h2>
+    <p class="modal-sub">پیش‌نویس درخواستت را با دقت بخوان</p>
+    <div class="summary-text" id="summaryText"></div>
+    <label class="confirm-check" id="confirmCheckWrap">
+      <input type="checkbox" id="confirmCheckbox">
+      <span class="confirm-mark">
         <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-      </div>
-      <h2>پیش‌نویس درخواست شما</h2>
-      <p class="modal-sub">لطفاً متن زیر را با دقت مطالعه و تأیید نمایید</p>
-      <div class="summary-text" id="summaryText"></div>
-      <label class="confirm-check" id="confirmCheckWrap">
-        <input type="checkbox" id="confirmCheckbox">
-        <span class="confirm-mark">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        </span>
-        <span class="confirm-text">اطلاعات فوق را تأیید می‌کنم</span>
-      </label>
-      <div class="modal-actions">
-        <button class="modal-btn secondary" id="btnEdit">ویرایش</button>
-        <button class="modal-btn primary" id="btnConfirm" disabled>تأیید نهایی و ارسال</button>
-      </div>
+      </span>
+      <span class="confirm-text">اطلاعات فوق را مطالعه کردم و تأیید می‌کنم</span>
+    </label>
+    <div class="modal-actions">
+      <button class="modal-btn secondary" id="btnEdit">ویرایش</button>
+      <button class="modal-btn primary" id="btnConfirm" disabled>تأیید و ارسال</button>
     </div>
   </div>
+</div>
 
-  <!-- ====== مودال موفقیت ====== -->
-  <div class="modal-overlay" id="successModal">
-    <div class="modal">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-      </div>
-      <h2>درخواست شما با موفقیت ثبت شد</h2>
-      <p class="modal-sub">از اعتماد شما سپاسگزاریم</p>
-      <div class="summary-text" id="successText" style="margin-bottom:14px;"></div>
-      <p style="font-size:var(--fs-small);color:var(--text-soft);line-height:2;margin-bottom:20px;position:relative;z-index:1;">همکاران ما در <strong style="color:var(--primary)">امنیت‌گستر</strong> درخواست شما را با دقت بررسی خواهند کرد و به‌زودی با شماره تماس اعلامی شما تماس می‌گیرند. لطفاً شماره خود را در دسترس نگه دارید.</p>
-      <button class="modal-btn primary" id="modalClose" style="width:100%;">متوجه شدم</button>
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-icon" style="background:linear-gradient(145deg,#E8F5EC,#C6E6D2);border-color:rgba(47,133,90,.3);box-shadow:0 6px 0 #A5D0B5,0 12px 28px rgba(47,133,90,.25);">
+      <svg viewBox="0 0 24 24" style="fill:var(--success)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
     </div>
+    <h2>درخواستت با موفقیت ثبت شد</h2>
+    <p class="modal-sub">از اعتمادت سپاسگزاریم</p>
+    <div class="summary-text" id="successText" style="margin-bottom:14px;"></div>
+    <p style="font-size:15px;color:var(--muted);line-height:2.1;margin-bottom:20px;position:relative;z-index:1;font-weight:600;">تیم <strong style="color:var(--forest)">امنیت‌گستر</strong> درخواستت را با دقت بررسی می‌کند و به‌زودی با شماره‌ات تماس می‌گیرد. گوشی‌ات را در دسترس نگه دار.</p>
+    <button class="modal-btn primary" id="modalClose" style="width:100%;">متوجه شدم</button>
   </div>
+</div>
 
-  <!-- ====== توست ====== -->
-  <div class="toast-overlay" id="toastOverlay">
-    <div class="toast">
-      <div class="toast-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-      </div>
-      <h3 id="toastTitle">توجه</h3>
-      <p id="toastText"></p>
-      <button class="toast-btn" id="toastBtn">متوجه شدم</button>
+<div class="toast-overlay" id="toastOverlay">
+  <div class="toast">
+    <div class="toast-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
     </div>
+    <h3 id="toastTitle">توجه</h3>
+    <p id="toastText"></p>
+    <button class="toast-btn" id="toastBtn">متوجه شدم</button>
   </div>
+</div>
 
-  <script>
-    const $ = (s) => document.querySelector(s);
-    const $$ = (s) => document.querySelectorAll(s);
+<script>
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
 
-    /* ===== توست ===== */
-    function showToast(title, text) {
-      $('#toastTitle').textContent = title;
-      $('#toastText').textContent = text;
-      $('#toastOverlay').classList.add('show');
-      document.body.style.overflow = 'hidden';
+function showToast(title, text) {
+  $('#toastTitle').textContent = title;
+  $('#toastText').textContent = text;
+  $('#toastOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function hideToast() {
+  $('#toastOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+$('#toastBtn').addEventListener('click', hideToast);
+$('#toastOverlay').addEventListener('click', (e) => {
+  if (e.target.id === 'toastOverlay') hideToast();
+});
+
+function initCustomSelect(selectId) {
+  const select = document.getElementById(selectId);
+  if (!select) return;
+  const trigger = select.querySelector('.custom-select-trigger');
+  const valueSpan = select.querySelector('.custom-select-value');
+  const hiddenInput = select.querySelector('input[type="hidden"]');
+  const options = select.querySelectorAll('.custom-select-option');
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    $$('.custom-select').forEach(s => {
+      if (s !== select) s.classList.remove('open');
+    });
+    select.classList.toggle('open');
+  });
+
+  options.forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      valueSpan.textContent = opt.textContent.trim();
+      trigger.classList.remove('placeholder');
+      hiddenInput.value = opt.dataset.value;
+      options.forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      select.classList.remove('open');
+      hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  });
+}
+
+document.addEventListener('click', () => {
+  $$('.custom-select').forEach(s => s.classList.remove('open'));
+});
+
+['militarySelect','childrenSelect','cooperationSelect','jobCategorySelect','citySelect','bodySelect','educationSelect','licenseSelect','skillSelect','proSkillSelect'].forEach(initCustomSelect);
+
+const maleSection = $('#maleSection');
+const femaleMsg = $('#femaleMsg');
+
+$$('input[name="gender"]').forEach(r => {
+  r.addEventListener('change', () => {
+    if (r.value === 'male' && r.checked) {
+      maleSection.classList.remove('hidden');
+      femaleMsg.classList.remove('show');
+      maleSection.classList.add('fade-in');
+      setTimeout(() => maleSection.classList.remove('fade-in'), 500);
+    } else if (r.value === 'female' && r.checked) {
+      maleSection.classList.add('hidden');
+      femaleMsg.classList.add('show');
     }
-    function hideToast() {
-      $('#toastOverlay').classList.remove('show');
-      document.body.style.overflow = '';
+  });
+});
+
+const childrenField = $('#childrenField');
+const cooperationField = $('#cooperationField');
+const childrenHidden = childrenField.querySelector('input[type="hidden"]');
+const childrenTrigger = childrenField.querySelector('.custom-select-trigger');
+const childrenValue = childrenField.querySelector('.custom-select-value');
+const coopHidden = cooperationField.querySelector('input[type="hidden"]');
+const coopTrigger = cooperationField.querySelector('.custom-select-trigger');
+const coopValue = cooperationField.querySelector('.custom-select-value');
+
+$$('input[name="marital"]').forEach(r => {
+  r.addEventListener('change', () => {
+    if (r.value === 'married' && r.checked) {
+      childrenField.classList.remove('hidden');
+      childrenField.classList.add('fade-in');
+      cooperationField.classList.remove('hidden');
+      cooperationField.classList.add('fade-in');
+    } else {
+      childrenField.classList.add('hidden');
+      childrenHidden.value = '';
+      childrenValue.textContent = 'لطفاً انتخاب کنید';
+      childrenTrigger.classList.add('placeholder');
+      childrenField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+
+      cooperationField.classList.add('hidden');
+      coopHidden.value = '';
+      coopValue.textContent = 'لطفاً انتخاب کنید';
+      coopTrigger.classList.add('placeholder');
+      cooperationField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
     }
-    $('#toastBtn').addEventListener('click', hideToast);
-    $('#toastOverlay').addEventListener('click', (e) => {
-      if (e.target.id === 'toastOverlay') hideToast();
-    });
+  });
+});
 
-    /* ===== سلکت ===== */
-    function initCustomSelect(selectId) {
-      const select = document.getElementById(selectId);
-      if (!select) return;
-      const trigger = select.querySelector('.custom-select-trigger');
-      const valueSpan = select.querySelector('.custom-select-value');
-      const hiddenInput = select.querySelector('input[type="hidden"]');
-      const options = select.querySelectorAll('.custom-select-option');
+const proSkillField = $('#proSkillField');
+const otherSkillField = $('#otherSkillField');
+const skillHidden = $('#skillSelect input[type="hidden"]');
+const proSkillHidden = $('#proSkillSelect input[type="hidden"]');
+const proSkillTrigger = $('#proSkillSelect .custom-select-trigger');
+const proSkillValue = $('#proSkillSelect .custom-select-value');
 
-      trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        $$('.custom-select').forEach(s => {
-          if (s !== select) s.classList.remove('open');
-        });
-        select.classList.toggle('open');
-      });
+skillHidden.addEventListener('change', () => {
+  const val = skillHidden.value;
+  if (val === 'فنی حرفه‌ای') {
+    proSkillField.classList.remove('hidden');
+    proSkillField.classList.add('fade-in');
+    otherSkillField.classList.add('hidden');
+    $('#otherSkillText').value = '';
+  } else if (val === 'تخصص غیر فنی') {
+    otherSkillField.classList.remove('hidden');
+    otherSkillField.classList.add('fade-in');
+    proSkillField.classList.add('hidden');
+    proSkillHidden.value = '';
+    proSkillValue.textContent = 'لطفاً انتخاب کنید';
+    proSkillTrigger.classList.add('placeholder');
+    $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  } else {
+    proSkillField.classList.add('hidden');
+    otherSkillField.classList.add('hidden');
+    $('#otherSkillText').value = '';
+    proSkillHidden.value = '';
+    proSkillValue.textContent = 'لطفاً انتخاب کنید';
+    proSkillTrigger.classList.add('placeholder');
+    $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  }
+});
 
-      options.forEach(opt => {
-        opt.addEventListener('click', (e) => {
-          e.stopPropagation();
-          valueSpan.textContent = opt.textContent.trim();
-          trigger.classList.remove('placeholder');
-          hiddenInput.value = opt.dataset.value;
-          options.forEach(o => o.classList.remove('selected'));
-          opt.classList.add('selected');
-          select.classList.remove('open');
-          hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
-        });
-      });
+function setupUpload(inputId, previewId, loadingId) {
+  const input = document.getElementById(inputId);
+  const preview = document.getElementById(previewId);
+  const loading = document.getElementById(loadingId);
+  const img = preview.querySelector('img');
+  const name = preview.querySelector('.upload-preview-name');
+
+  input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (!file) {
+      preview.classList.remove('show');
+      return;
     }
+    preview.classList.remove('show');
+    loading.classList.add('show');
 
-    document.addEventListener('click', () => {
-      $$('.custom-select').forEach(s => s.classList.remove('open'));
-    });
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setTimeout(() => {
+        img.src = e.target.result;
+        name.textContent = file.name;
+        loading.classList.remove('show');
+        preview.classList.add('show');
+      }, 700);
+    };
+    reader.readAsDataURL(file);
+  });
+}
 
-    ['militarySelect','childrenSelect','cooperationSelect','jobCategorySelect','citySelect','bodySelect','educationSelect','licenseSelect','skillSelect','proSkillSelect'].forEach(initCustomSelect);
+setupUpload('idFront', 'prev-idFront', 'load-idFront');
+setupUpload('idBack', 'prev-idBack', 'load-idBack');
+setupUpload('receipt', 'prev-receipt', 'load-receipt');
 
-    /* ===== جنسیت ===== */
-    const maleSection = $('#maleSection');
-    const femaleMsg = $('#femaleMsg');
+function buildSummaryText() {
+  const fullname = $('#fullname').value.trim();
+  const phone = $('#phone').value.trim();
+  const age = $('#age').value.trim();
+  const location = $('#location').value.trim();
+  const height = $('#height').value.trim();
+  const weight = $('#weight').value.trim();
+  const notes = $('#notes').value.trim();
+  const otherSkillText = $('#otherSkillText').value.trim();
 
-    $$('input[name="gender"]').forEach(r => {
-      r.addEventListener('change', () => {
-        if (r.value === 'male' && r.checked) {
-          maleSection.classList.remove('hidden');
-          femaleMsg.classList.remove('show');
-          maleSection.classList.add('fade-in');
-          setTimeout(() => maleSection.classList.remove('fade-in'), 500);
-        } else if (r.value === 'female' && r.checked) {
-          maleSection.classList.add('hidden');
-          femaleMsg.classList.add('show');
-        }
-      });
-    });
+  const military = $('input[name="military"]').value;
+  const marital = $('input[name="marital"]:checked')?.value || '';
+  const children = $('input[name="children"]').value;
+  const cooperation = $('input[name="cooperation"]').value;
+  const jobCategory = $('input[name="jobCategory"]').value;
+  const city = $('input[name="city"]').value;
+  const body = $('input[name="body"]').value;
+  const education = $('input[name="education"]').value;
+  const license = $('input[name="license"]').value;
+  const manual = $('input[name="manual"]:checked')?.value || '';
+  const uniform = $('input[name="uniform"]:checked')?.value || '';
+  const equipment = $('input[name="equipment"]:checked')?.value || '';
+  const skill = $('input[name="skill"]').value;
+  const proSkill = $('input[name="proSkill"]').value;
 
-    /* ===== تأهل ===== */
-    const childrenField = $('#childrenField');
-    const cooperationField = $('#cooperationField');
-    const childrenHidden = childrenField.querySelector('input[type="hidden"]');
-    const childrenTrigger = childrenField.querySelector('.custom-select-trigger');
-    const childrenValue = childrenField.querySelector('.custom-select-value');
-    const coopHidden = cooperationField.querySelector('input[type="hidden"]');
-    const coopTrigger = cooperationField.querySelector('.custom-select-trigger');
-    const coopValue = cooperationField.querySelector('.custom-select-value');
+  const maritalText = marital === 'married' ? 'متأهل' : 'مجرد';
+  let familyText = '';
+  if (marital === 'married') {
+    if (children) familyText += ` و دارای ${children}`;
+    if (cooperation) familyText += ` (نوع همکاری: ${cooperation})`;
+  }
 
-    $$('input[name="marital"]').forEach(r => {
-      r.addEventListener('change', () => {
-        if (r.value === 'married' && r.checked) {
-          childrenField.classList.remove('hidden');
-          childrenField.classList.add('fade-in');
-          cooperationField.classList.remove('hidden');
-          cooperationField.classList.add('fade-in');
-        } else {
-          childrenField.classList.add('hidden');
-          childrenHidden.value = '';
-          childrenValue.textContent = 'لطفاً انتخاب کنید';
-          childrenTrigger.classList.add('placeholder');
-          childrenField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  let skillText = '';
+  if (skill === 'فنی حرفه‌ای' && proSkill) {
+    skillText = `دارای تخصص فنی حرفه‌ای در زمینه ${proSkill}`;
+  } else if (skill === 'تخصص غیر فنی' && otherSkillText) {
+    skillText = `دارای تخصص غیر فنی: ${otherSkillText}`;
+  } else if (skill) {
+    skillText = skill;
+  }
 
-          cooperationField.classList.add('hidden');
-          coopHidden.value = '';
-          coopValue.textContent = 'لطفاً انتخاب کنید';
-          coopTrigger.classList.add('placeholder');
-          cooperationField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-        }
-      });
-    });
+  const licenseText = license === 'فاقد گواهینامه' ? 'فاقد گواهینامه رانندگی' : license;
 
-    /* ===== تخصص ===== */
-    const proSkillField = $('#proSkillField');
-    const otherSkillField = $('#otherSkillField');
-    const skillHidden = $('#skillSelect input[type="hidden"]');
-    const proSkillHidden = $('#proSkillSelect input[type="hidden"]');
-    const proSkillTrigger = $('#proSkillSelect .custom-select-trigger');
-    const proSkillValue = $('#proSkillSelect .custom-select-value');
+  let requestText = '';
+  requestText += `اینجانب <span class="hl">${fullname}</span>، `;
+  requestText += `${age} ساله، ساکن <span class="hl">${location}</span>، `;
+  requestText += `دارای مدرک <span class="hl">${education}</span>، `;
+  requestText += `وضعیت نظام وظیفه: <strong>${military}</strong>، `;
+  requestText += `وضعیت تأهل: <strong>${maritalText}${familyText}</strong>، `;
+  requestText += `وضعیت تناسب اندام: <strong>${body}</strong> `;
+  if (height) requestText += `(قد ${height} سانتی‌متر`;
+  if (weight) requestText += `، وزن ${weight} کیلوگرم)`;
+  else if (height) requestText += `)`;
+  requestText += `، `;
+  requestText += `گواهینامه: <strong>${licenseText}</strong>، `;
+  if (skillText) requestText += `تخصص: <strong>${skillText}</strong>، `;
+  if (manual) requestText += `مطالعه جزوه آموزشی: <strong>${manual}</strong>، `;
+  if (uniform) requestText += `پذیرش یونیفرم: <strong>${uniform}</strong>، `;
+  if (equipment) requestText += `تعهد تجهیزات: <strong>${equipment}</strong>، `;
+  requestText += `. `;
 
-    skillHidden.addEventListener('change', () => {
-      const val = skillHidden.value;
-      if (val === 'فنی حرفه‌ای') {
-        proSkillField.classList.remove('hidden');
-        proSkillField.classList.add('fade-in');
-        otherSkillField.classList.add('hidden');
-        $('#otherSkillText').value = '';
-      } else if (val === 'تخصص غیر فنی') {
-        otherSkillField.classList.remove('hidden');
-        otherSkillField.classList.add('fade-in');
-        proSkillField.classList.add('hidden');
-        proSkillHidden.value = '';
-        proSkillValue.textContent = 'لطفاً انتخاب کنید';
-        proSkillTrigger.classList.add('placeholder');
-        $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-      } else {
-        proSkillField.classList.add('hidden');
-        otherSkillField.classList.add('hidden');
-        $('#otherSkillText').value = '';
-        proSkillHidden.value = '';
-        proSkillValue.textContent = 'لطفاً انتخاب کنید';
-        proSkillTrigger.classList.add('placeholder');
-        $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-      }
-    });
+  requestText += `تقاضای <span class="hl">مشاوره کامل</span> و <span class="hl">اشتغال فوری</span> `;
+  requestText += `با حقوق و شرایط اعلام شده در اپلیکیشن `;
+  requestText += `در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را دارم. `;
+  requestText += `لطفاً لیست فرصت‌های شغلی متناسب با شرایط من را ارائه دهید `;
+  requestText += `و منتظر تماس کارشناسان شما با شماره <strong>${phone}</strong> هستم.`;
+  if (notes) {
+    requestText += `<br><br><span style="color:var(--muted);font-size:14px;">توضیحات تکمیلی شما: ${notes}</span>`;
+  }
 
-    /* ===== آپلود ===== */
-    function setupUpload(inputId, previewId, loadingId) {
-      const input = document.getElementById(inputId);
-      const preview = document.getElementById(previewId);
-      const loading = document.getElementById(loadingId);
-      const img = preview.querySelector('img');
-      const name = preview.querySelector('.upload-preview-name');
+  return requestText;
+}
 
-      input.addEventListener('change', () => {
-        const file = input.files[0];
-        if (!file) {
-          preview.classList.remove('show');
-          return;
-        }
-        preview.classList.remove('show');
-        loading.classList.add('show');
+$('#jobForm').addEventListener('submit', (e) => {
+  e.preventDefault();
 
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setTimeout(() => {
-            img.src = e.target.result;
-            name.textContent = file.name;
-            loading.classList.remove('show');
-            preview.classList.add('show');
-          }, 700);
-        };
-        reader.readAsDataURL(file);
-      });
+  const fullname = $('#fullname').value.trim();
+  const phone = $('#phone').value.trim();
+  const gender = $('input[name="gender"]:checked');
+
+  if (!fullname) {
+    showToast('نام و نام خانوادگی', 'لطفاً نام و نام خانوادگی خود را وارد کنید.');
+    $('#fullname').focus();
+    return;
+  }
+  if (!phone || phone.replace(/\D/g,'').length < 10) {
+    showToast('شماره تماس', 'لطفاً شماره تماس معتبر وارد کنید.');
+    $('#phone').focus();
+    return;
+  }
+  if (!gender) {
+    showToast('جنسیت', 'لطفاً جنسیت خود را انتخاب کنید.');
+    return;
+  }
+  if (gender.value === 'female') {
+    femaleMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const age = $('#age').value.trim();
+  const ageNum = parseInt(age);
+  if (!age || isNaN(ageNum) || ageNum < 17 || ageNum > 70) {
+    showToast('سن', 'لطفاً سن دقیق خود را بین ۱۷ تا ۷۰ سال وارد کنید.');
+    $('#age').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    $('#age').focus();
+    return;
+  }
+
+  const idFront = $('#idFront');
+  const idBack = $('#idBack');
+  const receipt = $('#receipt');
+
+  if (!idFront.files[0]) {
+    showToast('بارگذاری مدارک', 'لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید.');
+    idFront.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (!idBack.files[0]) {
+    showToast('بارگذاری مدارک', 'لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید.');
+    idBack.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (!receipt.files[0]) {
+    showToast('رسید واریز', 'لطفاً پیامک و یا رسید واریز حاوی کد رهگیری و تاریخ و ساعت واریز را ارسال فرمایید.');
+    receipt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  $('#summaryText').innerHTML = buildSummaryText();
+  $('#confirmCheckbox').checked = false;
+  $('#btnConfirm').disabled = true;
+  $('#confirmModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+});
+
+$('#confirmCheckbox').addEventListener('change', (e) => {
+  $('#btnConfirm').disabled = !e.target.checked;
+});
+
+$('#btnEdit').addEventListener('click', () => {
+  $('#confirmModal').classList.remove('show');
+  document.body.style.overflow = '';
+});
+
+$('#btnConfirm').addEventListener('click', () => {
+  const fullname = $('#fullname').value.trim();
+  const phone = $('#phone').value.trim();
+  const age = $('#age').value.trim();
+  const location = $('#location').value.trim();
+  const jobCategory = $('input[name="jobCategory"]').value;
+  const city = $('input[name="city"]').value;
+
+  let successText = '';
+  successText += `اینجانب <span class="hl">${fullname}</span>، ${age} ساله، ساکن ${location}، `;
+  successText += `درخواست استخدام در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را با موفقیت ثبت نمودم. `;
+  successText += `منتظر تماس کارشناسان امنیت‌گستر با شماره <strong>${phone}</strong> هستم.`;
+
+  $('#successText').innerHTML = successText;
+  $('#confirmModal').classList.remove('show');
+  $('#successModal').classList.add('show');
+});
+
+$('#modalClose').addEventListener('click', () => {
+  $('#successModal').classList.remove('show');
+  document.body.style.overflow = '';
+  $('#jobForm').reset();
+  $$('.custom-select').forEach(sel => {
+    const hidden = sel.querySelector('input[type="hidden"]');
+    const trigger = sel.querySelector('.custom-select-trigger');
+    const value = sel.querySelector('.custom-select-value');
+    if (hidden) hidden.value = '';
+    if (trigger) trigger.classList.add('placeholder');
+    if (value) {
+      value.textContent = value.textContent.includes('شهر') ? 'لطفاً شهر مورد نظر را انتخاب کنید' :
+                         value.textContent.includes('دسته') ? 'لطفاً یک دسته را انتخاب کنید' :
+                         'لطفاً انتخاب کنید';
     }
-
-    setupUpload('idFront', 'prev-idFront', 'load-idFront');
-    setupUpload('idBack', 'prev-idBack', 'load-idBack');
-    setupUpload('receipt', 'prev-receipt', 'load-receipt');
-
-    /* ===== ساخت متن درخواست ===== */
-    function buildSummaryText(isSuccess) {
-      const fullname = $('#fullname').value.trim();
-      const phone = $('#phone').value.trim();
-      const age = $('#age').value.trim();
-      const location = $('#location').value.trim();
-      const height = $('#height').value.trim();
-      const weight = $('#weight').value.trim();
-      const notes = $('#notes').value.trim();
-      const otherSkillText = $('#otherSkillText').value.trim();
-
-      const military = $('input[name="military"]').value;
-      const marital = $('input[name="marital"]:checked')?.value || '';
-      const children = $('input[name="children"]').value;
-      const cooperation = $('input[name="cooperation"]').value;
-      const jobCategory = $('input[name="jobCategory"]').value;
-      const city = $('input[name="city"]').value;
-      const body = $('input[name="body"]').value;
-      const education = $('input[name="education"]').value;
-      const license = $('input[name="license"]').value;
-      const manual = $('input[name="manual"]:checked')?.value || '';
-      const uniform = $('input[name="uniform"]:checked')?.value || '';
-      const equipment = $('input[name="equipment"]:checked')?.value || '';
-      const skill = $('input[name="skill"]').value;
-      const proSkill = $('input[name="proSkill"]').value;
-
-      const maritalText = marital === 'married' ? 'متأهل' : 'مجرد';
-      let familyText = '';
-      if (marital === 'married') {
-        if (children) familyText += ` و دارای ${children}`;
-        if (cooperation) familyText += ` (نوع همکاری: ${cooperation})`;
-      }
-
-      let skillText = '';
-      if (skill === 'فنی حرفه‌ای' && proSkill) {
-        skillText = `دارای تخصص فنی حرفه‌ای در زمینه ${proSkill}`;
-      } else if (skill === 'تخصص غیر فنی' && otherSkillText) {
-        skillText = `دارای تخصص غیر فنی: ${otherSkillText}`;
-      } else if (skill) {
-        skillText = skill;
-      }
-
-      const licenseText = license === 'فاقد گواهینامه' ? 'فاقد گواهینامه رانندگی' : license;
-
-      // متن درخواست
-      let requestText = '';
-      requestText += `اینجانب <span class="hl">${fullname}</span>، `;
-      requestText += `${age} ساله، ساکن <span class="hl">${location}</span>، `;
-      requestText += `دارای مدرک <span class="hl">${education}</span>، `;
-      requestText += `وضعیت نظام وظیفه: <strong>${military}</strong>، `;
-      requestText += `وضعیت تأهل: <strong>${maritalText}${familyText}</strong>، `;
-      requestText += `وضعیت تناسب اندام: <strong>${body}</strong> `;
-      if (height) requestText += `(قد ${height} سانتی‌متر`;
-      if (weight) requestText += `، وزن ${weight} کیلوگرم)`;
-      else if (height) requestText += `)`;
-      requestText += `، `;
-      requestText += `گواهینامه: <strong>${licenseText}</strong>، `;
-      if (skillText) requestText += `تخصص: <strong>${skillText}</strong>، `;
-      if (manual) requestText += `مطالعه جزوه آموزشی: <strong>${manual}</strong>، `;
-      if (uniform) requestText += `پذیرش یونیفرم: <strong>${uniform}</strong>، `;
-      if (equipment) requestText += `تعهد تجهیزات: <strong>${equipment}</strong>، `;
-      requestText += `. `;
-
-      requestText += `تقاضای <span class="hl">مشاوره کامل</span> و <span class="hl">اشتغال فوری</span> `;
-      requestText += `با حقوق و شرایط اعلام شده در اپلیکیشن `;
-      requestText += `در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را دارم. `;
-      requestText += `لطفاً لیست فرصت‌های شغلی متناسب با شرایط من را ارائه دهید `;
-      requestText += `و منتظر تماس کارشناسان شما با شماره <strong>${phone}</strong> هستم.`;
-      if (notes) {
-        requestText += `<br><br><span style="color:var(--text-soft);font-size:14px;">توضیحات تکمیلی شما: ${notes}</span>`;
-      }
-
-      return requestText;
-    }
-
-    /* ===== ارسال فرم ===== */
-    $('#jobForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const fullname = $('#fullname').value.trim();
-      const phone = $('#phone').value.trim();
-      const gender = $('input[name="gender"]:checked');
-
-      if (!fullname) {
-        showToast('نام و نام خانوادگی', 'لطفاً نام و نام خانوادگی خود را وارد کنید.');
-        $('#fullname').focus();
-        return;
-      }
-      if (!phone || phone.replace(/\D/g,'').length < 10) {
-        showToast('شماره تماس', 'لطفاً شماره تماس معتبر وارد کنید.');
-        $('#phone').focus();
-        return;
-      }
-      if (!gender) {
-        showToast('جنسیت', 'لطفاً جنسیت خود را انتخاب کنید.');
-        return;
-      }
-      if (gender.value === 'female') {
-        femaleMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-
-      // بررسی سن
-      const age = $('#age').value.trim();
-      const ageNum = parseInt(age);
-      if (!age || isNaN(ageNum) || ageNum < 17 || ageNum > 70) {
-        showToast('سن', 'لطفاً سن دقیق خود را بین ۱۷ تا ۷۰ سال وارد کنید.');
-        $('#age').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        $('#age').focus();
-        return;
-      }
-
-      // بررسی فایل‌ها
-      const idFront = $('#idFront');
-      const idBack = $('#idBack');
-      const receipt = $('#receipt');
-
-      if (!idFront.files[0]) {
-        showToast('بارگذاری مدارک', 'لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید.');
-        idFront.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      if (!idBack.files[0]) {
-        showToast('بارگذاری مدارک', 'لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید.');
-        idBack.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      if (!receipt.files[0]) {
-        showToast('رسید واریز', 'لطفاً پیامک و یا رسید واریز حاوی کد رهگیری و تاریخ و ساعت واریز را ارسال فرمایید.');
-        receipt.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-
-      // ساخت متن پیش‌نویس
-      $('#summaryText').innerHTML = buildSummaryText(false);
-      $('#confirmCheckbox').checked = false;
-      $('#btnConfirm').disabled = true;
-      $('#confirmModal').classList.add('show');
-      document.body.style.overflow = 'hidden';
-    });
-
-    /* ===== تأیید نهایی ===== */
-    $('#confirmCheckbox').addEventListener('change', (e) => {
-      $('#btnConfirm').disabled = !e.target.checked;
-    });
-
-    $('#btnEdit').addEventListener('click', () => {
-      $('#confirmModal').classList.remove('show');
-      document.body.style.overflow = '';
-    });
-
-    $('#btnConfirm').addEventListener('click', () => {
-      // نمایش متن موفقیت
-      const fullname = $('#fullname').value.trim();
-      const phone = $('#phone').value.trim();
-      const age = $('#age').value.trim();
-      const location = $('#location').value.trim();
-      const jobCategory = $('input[name="jobCategory"]').value;
-      const city = $('input[name="city"]').value;
-
-      let successText = '';
-      successText += `اینجانب <span class="hl">${fullname}</span>، ${age} ساله، ساکن ${location}، `;
-      successText += `درخواست استخدام در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را با موفقیت ثبت نمودم. `;
-      successText += `منتظر تماس کارشناسان امنیت‌گستر با شماره <strong>${phone}</strong> هستم.`;
-
-      $('#successText').innerHTML = successText;
-      $('#confirmModal').classList.remove('show');
-      $('#successModal').classList.add('show');
-    });
-
-    $('#modalClose').addEventListener('click', () => {
-      $('#successModal').classList.remove('show');
-      document.body.style.overflow = '';
-      // ریست فرم
-      $('#jobForm').reset();
-      // ریست سلکت‌ها
-      $$('.custom-select').forEach(sel => {
-        const hidden = sel.querySelector('input[type="hidden"]');
-        const trigger = sel.querySelector('.custom-select-trigger');
-        const value = sel.querySelector('.custom-select-value');
-        if (hidden) hidden.value = '';
-        if (trigger) trigger.classList.add('placeholder');
-        if (value) {
-          const firstOpt = sel.querySelector('.custom-select-option');
-          value.textContent = value.textContent.includes('شهر') ? 'لطفاً شهر مورد نظر را انتخاب کنید' :
-                             value.textContent.includes('دسته') ? 'لطفاً یک دسته را انتخاب کنید' :
-                             'لطفاً انتخاب کنید';
-        }
-        sel.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-      });
-      // پاک کردن پیش‌نمایش‌ها
-      $$('.upload-preview').forEach(p => p.classList.remove('show'));
-    });
-  </script>
+    sel.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  });
+  $$('.upload-preview').forEach(p => p.classList.remove('show'));
+});
+</script>
 
 </body>
   </html>
