@@ -26,6 +26,7 @@
   --orange-soft:#F2DED3;
   --orange-deep:#A65A34;
   --success:#2F855A;
+  --error:#C74234;
 }
 
 *{
@@ -305,8 +306,55 @@ button{cursor:pointer}
 /* ============ FIELD ============ */
 .field{
   margin-bottom:24px;
+  position:relative;
+  border-radius:15px;
+  transition:background .3s;
 }
 .field:last-child{margin-bottom:0}
+
+/* فیلد خطادار */
+.field.field-error{
+  animation:shake .4s ease;
+}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-6px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+}
+.field.field-error .label{
+  color:var(--error);
+}
+.field.field-error .input,
+.field.field-error .textarea,
+.field.field-error .custom-select-trigger{
+  border-color:var(--error);
+  box-shadow:0 0 0 4px rgba(199,66,52,.15);
+  background:#FFF9F8;
+}
+.field.field-error .upload-box{
+  border-color:var(--error);
+  background:#FFF9F8;
+}
+
+.error-msg{
+  display:none;
+  align-items:center;
+  gap:7px;
+  margin-top:8px;
+  font-size:13.5px;
+  font-weight:800;
+  color:var(--error);
+  line-height:1.7;
+}
+.error-msg.show{display:flex}
+.error-msg svg{
+  width:16px;
+  height:16px;
+  fill:var(--error);
+  flex-shrink:0;
+}
 
 .label{
   display:block;
@@ -316,6 +364,7 @@ button{cursor:pointer}
   margin-bottom:10px;
   line-height:1.7;
   letter-spacing:-.2px;
+  transition:color .3s;
 }
 .label .req{
   color:var(--orange);
@@ -926,7 +975,7 @@ button{cursor:pointer}
 }
 .nav-item:active{transform:scale(.96)}
 
-/* ============ MODAL + TOAST (بدون پرش افقی) ============ */
+/* ============ MODAL + TOAST ============ */
 .modal-overlay,
 .toast-overlay{
   position:fixed;
@@ -938,6 +987,7 @@ button{cursor:pointer}
   padding:18px;
   overflow-y:auto;
   overflow-x:hidden;
+  background:rgba(15,35,30,.65);
 }
 
 .modal-overlay.show,
@@ -1287,17 +1337,19 @@ button{cursor:pointer}
 
   <form class="form-card" id="jobForm" novalidate>
 
-    <div class="field">
+    <div class="field" data-field="fullname">
       <label class="label" for="fullname">نام و نام خانوادگی <span class="req">*</span></label>
       <input class="input" type="text" id="fullname" placeholder="مثال: علی محمدی" required>
+      <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً نام و نام خانوادگی خود را وارد کنید.</span></div>
     </div>
 
-    <div class="field">
+    <div class="field" data-field="phone">
       <label class="label" for="phone">شماره تماس <span class="req">*</span></label>
       <input class="input" type="tel" id="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹" inputmode="numeric" required>
+      <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً شماره تماس معتبر وارد کنید.</span></div>
     </div>
 
-    <div class="field">
+    <div class="field" data-field="gender">
       <label class="label">جنسیت <span class="req">*</span></label>
       <div class="radio-group">
         <label class="radio-card">
@@ -1311,6 +1363,7 @@ button{cursor:pointer}
           <span class="radio-text">خانم</span>
         </label>
       </div>
+      <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً جنسیت خود را انتخاب کنید.</span></div>
     </div>
 
     <div class="female-msg" id="femaleMsg">
@@ -1323,7 +1376,7 @@ button{cursor:pointer}
 
     <div id="maleSection" class="hidden">
 
-      <div class="field">
+      <div class="field" data-field="military">
         <label class="label">وضعیت نظام وظیفه <span class="req">*</span></label>
         <div class="custom-select" id="militarySelect">
           <button type="button" class="custom-select-trigger placeholder">
@@ -1338,9 +1391,10 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="military" required>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً وضعیت نظام وظیفه را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="marital">
         <label class="label">وضعیت تأهل <span class="req">*</span></label>
         <div class="radio-group">
           <label class="radio-card">
@@ -1357,9 +1411,10 @@ button{cursor:pointer}
         <div class="help">
           برخی مشاغل مخصوص مجردها و برخی مخصوص متأهل‌هاست. از نظر حقوق و مزایا تفاوتی ندارند؛ اما برای مجردها موقعیت‌های سرایداری کمتر و برای متأهل‌ها موقعیت‌های امنیتی کمتر موجود است.
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً وضعیت تأهل را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field hidden" id="childrenField">
+      <div class="field hidden" id="childrenField" data-field="children">
         <label class="label">تعداد فرزندان <span class="req">*</span></label>
         <div class="custom-select" id="childrenSelect">
           <button type="button" class="custom-select-trigger placeholder">
@@ -1374,9 +1429,10 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="children">
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً تعداد فرزندان را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field hidden" id="cooperationField">
+      <div class="field hidden" id="cooperationField" data-field="cooperation">
         <label class="label">نوع همکاری <span class="req">*</span></label>
         <div class="custom-select" id="cooperationSelect">
           <button type="button" class="custom-select-trigger placeholder">
@@ -1390,25 +1446,28 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="cooperation">
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً نوع همکاری را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="age">
         <label class="label" for="age">سن <span class="req">*</span></label>
         <input class="input" type="number" id="age" placeholder="سن دقیق خود را ذکر کنید" inputmode="numeric" min="17" max="70" required>
         <div class="help">
           لطفاً سن دقیق خود را ذکر کنید. بازه سنی قابل پذیرش <strong>۱۷ تا ۷۰ سال</strong> است.
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً سن دقیق خود را بین ۱۷ تا ۷۰ سال وارد کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="location">
         <label class="label" for="location">محل سکونت <span class="req">*</span></label>
         <input class="input" type="text" id="location" placeholder="شهر / منطقه محل سکونت" required>
         <div class="help">
           برای سه دسته از مشاغل دارای محل اقامت، محل سکونت فعلی شما اهمیتی ندارد. اما برای دسته <strong>نیروی امنیتی حفاظتی</strong>، باید ساکن تهران و نزدیک به محل کار باشید؛ چرا که این مشاغل محل اقامت ندارند.
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً محل سکونت خود را وارد کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="jobCategory">
         <label class="label">یک دسته را انتخاب کنید <span class="req">*</span></label>
         <div class="custom-select" id="jobCategorySelect">
           <button type="button" class="custom-select-trigger placeholder">
@@ -1425,9 +1484,10 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="jobCategory" required>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً یک دسته شغلی را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="city">
         <label class="label">استخدام در کدام شهر؟ <span class="req">*</span></label>
         <div class="help">
           هم‌اکنون در شهرهای زیر فرصت‌های شغلی موجود است.
@@ -1446,19 +1506,22 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="city" required>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً شهر مورد نظر را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="height">
         <label class="label" for="height">قد (سانتی‌متر) <span class="req">*</span></label>
         <input class="input" type="number" id="height" placeholder="مثال: ۱۸۰" inputmode="numeric" min="140" max="220" required>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً قد خود را وارد کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="weight">
         <label class="label" for="weight">وزن (کیلوگرم) <span class="req">*</span></label>
         <input class="input" type="number" id="weight" placeholder="مثال: ۸۵" inputmode="numeric" min="40" max="200" required>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً وزن خود را وارد کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="body">
         <label class="label">وضعیت تناسب اندام <span class="req">*</span></label>
         <div class="help">
           با احترام به شما، برخی از معدود موقعیت‌ها به ظاهر آراسته و قد و وزن متناسب نیاز دارند. لطفاً گزینه‌ای که به شما نزدیک‌تر است را انتخاب کنید.
@@ -1477,9 +1540,10 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="body" required>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً وضعیت تناسب اندام را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="education">
         <label class="label">میزان تحصیلات <span class="req">*</span></label>
         <div class="custom-select" id="educationSelect">
           <button type="button" class="custom-select-trigger placeholder">
@@ -1494,9 +1558,10 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="education" required>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً میزان تحصیلات را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="manual">
         <label class="label">آیا حاضر به مطالعه دقیق جزوه آموزش و رعایت کلیه مفاد آن هستید؟ <span class="req">*</span></label>
         <div class="help">
           برخی مشاغل نیازمند رعایت شئونات اسلامی، اخلاقی و حرفه‌ای هستند که در بخش راهنما ذکر شده است. در صورت عدم امکان مطالعه و رعایت دستورالعمل‌ها، مشاغل فاقد دستورالعمل به شما ارائه می‌گردد.
@@ -1513,9 +1578,10 @@ button{cursor:pointer}
             <span class="radio-text">خیر</span>
           </label>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً پاسخ دهید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="license">
         <label class="label">وضعیت گواهینامه رانندگی <span class="req">*</span></label>
         <div class="custom-select" id="licenseSelect">
           <button type="button" class="custom-select-trigger placeholder">
@@ -1531,9 +1597,10 @@ button{cursor:pointer}
           </div>
           <input type="hidden" name="license" required>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً وضعیت گواهینامه را انتخاب کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="uniform">
         <label class="label">آیا پوشیدن یونیفرم رسمی امنیت‌گستر یا کارفرما را می‌پذیرید؟ <span class="req">*</span></label>
         <div class="help">
           در برخی مشاغل، پوشش توسط کارفرما تعیین می‌شود و در برخی موارد باید مشخص باشد شما نیروی حافظ امنیت هستید. لباس‌ها عموماً دو دست کت و شلوار متناسب و پیراهن است و در زمستان یک عدد کاور گرمکن تخصیص می‌یابد. تهیه کفش مناسب به عهده خودتان است.
@@ -1550,9 +1617,10 @@ button{cursor:pointer}
             <span class="radio-text">خیر</span>
           </label>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً پاسخ دهید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="equipment">
         <label class="label">آیا در صورت ارائه تجهیزاتی مانند شوکر، دستبند یا اسپری فلفل، تعهد حفظ، نگهداری، امانت‌داری و استفاده بجا از این موارد را می‌پذیرید؟ <span class="req">*</span></label>
         <div class="radio-group">
           <label class="radio-card">
@@ -1566,9 +1634,10 @@ button{cursor:pointer}
             <span class="radio-text">خیر</span>
           </label>
         </div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً پاسخ دهید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="skill">
         <label class="label">تخصص شما <span class="req">*</span></label>
         <div class="help">
           آیا تخصص خاصی دارید؟ برای انجام این موارد دستمزد جداگانه‌ای تعریف شده و ممکن است مورد نیاز باشد.
@@ -1587,7 +1656,7 @@ button{cursor:pointer}
           <input type="hidden" name="skill" required>
         </div>
 
-        <div class="hidden" id="proSkillField" style="margin-top:16px;">
+        <div class="hidden" id="proSkillField" data-field="proSkill" style="margin-top:16px;">
           <label class="label">نوع تخصص فنی حرفه‌ای <span class="req">*</span></label>
           <div class="custom-select" id="proSkillSelect">
             <button type="button" class="custom-select-trigger placeholder">
@@ -1601,12 +1670,15 @@ button{cursor:pointer}
             </div>
             <input type="hidden" name="proSkill">
           </div>
+          <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً نوع تخصص را انتخاب کنید.</span></div>
         </div>
 
-        <div class="hidden" id="otherSkillField" style="margin-top:16px;">
+        <div class="hidden" id="otherSkillField" data-field="otherSkillText" style="margin-top:16px;">
           <label class="label" for="otherSkillText">شرح کوتاه تخصص غیر فنی</label>
           <textarea class="textarea" id="otherSkillText" placeholder="تخصص غیر فنی خود را به طور مختصر شرح دهید"></textarea>
         </div>
+
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً تخصص خود را انتخاب کنید.</span></div>
       </div>
 
       <div class="note note-soft" style="margin-bottom:24px;">
@@ -1617,7 +1689,7 @@ button{cursor:pointer}
         <p>بیش از <strong>۹۰٪ مشاغل فعلی</strong> نیازی به تخصص، آموزش یا تحصیلات خاصی ندارند. این بخش صرفاً برای تکمیل رزومه شما و اخذ امتیاز بیشتر از کارفرما در نظر گرفته شده است.</p>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="notes">
         <label class="label" for="notes">توضیحات درباره علایق شغلی، ملاک‌ها و اهداف یا شرایط خاص</label>
         <textarea class="textarea" id="notes" placeholder="ملاک‌ها، علایق و شرایط خاص خود را اینجا بنویسید..."></textarea>
       </div>
@@ -1630,7 +1702,7 @@ button{cursor:pointer}
         <p>عکس <strong>روی و پشت کارت ملی</strong> را بارگذاری کن. اگر کارت ملی نداری، <strong>صفحه اول و دوم شناسنامه</strong> را بفرست.</p>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="idFront">
         <label class="label">عکس روی کارت ملی <span class="req">*</span></label>
         <label class="upload-box" for="idFront">
           <input type="file" id="idFront" accept="image/*" required>
@@ -1648,9 +1720,10 @@ button{cursor:pointer}
           </div>
         </div>
         <div class="loading" id="load-idFront"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً کارت ملی یا صفحه اول شناسنامه را بارگذاری کنید.</span></div>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="idBack">
         <label class="label">عکس پشت کارت ملی <span class="req">*</span></label>
         <label class="upload-box" for="idBack">
           <input type="file" id="idBack" accept="image/*" required>
@@ -1668,6 +1741,7 @@ button{cursor:pointer}
           </div>
         </div>
         <div class="loading" id="load-idBack"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً پشت کارت ملی یا صفحه دوم شناسنامه را بارگذاری کنید.</span></div>
       </div>
 
       <div class="note note-gold" style="margin-top:22px;">
@@ -1705,7 +1779,7 @@ button{cursor:pointer}
         <p>پس از واریز، رسید آن را در بخش زیر بارگذاری نمایید.</p>
       </div>
 
-      <div class="field">
+      <div class="field" data-field="receipt">
         <label class="label">رسید واریز <span class="req">*</span></label>
         <label class="upload-box" for="receipt">
           <input type="file" id="receipt" accept="image/*" required>
@@ -1723,6 +1797,7 @@ button{cursor:pointer}
           </div>
         </div>
         <div class="loading" id="load-receipt"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
+        <div class="error-msg"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>لطفاً رسید واریز را بارگذاری کنید.</span></div>
       </div>
 
       <button type="submit" class="submit-btn">
@@ -1824,6 +1899,83 @@ function unlockScroll(){
   document.body.style.right = '';
   document.body.style.width = '';
   window.scrollTo(0, scrollLockY);
+}
+
+/* ============ اسکرول نرم به فیلد ============ */
+function scrollToField(fieldName){
+  const field = document.querySelector(`.field[data-field="${fieldName}"]`);
+  if(!field) return;
+  const headerOffset = 90;
+  const elTop = field.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+  window.scrollTo({ top: elTop, behavior: 'smooth' });
+}
+
+/* ============ نمایش خطا روی فیلد ============ */
+function showFieldError(fieldName){
+  const field = document.querySelector(`.field[data-field="${fieldName}"]`);
+  if(!field) return;
+  
+  // پاک کردن خطاهای قبلی
+  $$('.field.field-error').forEach(f => {
+    f.classList.remove('field-error');
+    f.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+  });
+  
+  // اضافه کردن خطا
+  field.classList.add('field-error');
+  const errorMsg = field.querySelector('.error-msg');
+  if(errorMsg) errorMsg.classList.add('show');
+  
+  // اسکرول نرم
+  setTimeout(() => {
+    scrollToField(fieldName);
+  }, 50);
+}
+
+/* ============ پاک کردن خطا هنگام تغییر ============ */
+function clearFieldErrorOnChange(){
+  $$('input, textarea, select').forEach(el => {
+    el.addEventListener('input', clearErrorOnElement);
+    el.addEventListener('change', clearErrorOnElement);
+  });
+  
+  $$('.custom-select-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const parentField = opt.closest('.field');
+      if(parentField){
+        parentField.classList.remove('field-error');
+        parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+      }
+    });
+  });
+  
+  $$('input[type="radio"]').forEach(r => {
+    r.addEventListener('change', () => {
+      const parentField = r.closest('.field');
+      if(parentField){
+        parentField.classList.remove('field-error');
+        parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+      }
+    });
+  });
+  
+  $$('input[type="file"]').forEach(f => {
+    f.addEventListener('change', () => {
+      const parentField = f.closest('.field');
+      if(parentField){
+        parentField.classList.remove('field-error');
+        parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+      }
+    });
+  });
+}
+
+function clearErrorOnElement(e){
+  const parentField = e.target.closest('.field');
+  if(parentField){
+    parentField.classList.remove('field-error');
+    parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+  }
 }
 
 /* ============ توست ============ */
@@ -2072,59 +2224,94 @@ function buildSummaryText() {
   return requestText;
 }
 
+/* ============ اعتبارسنجی فیلد به فیلد ============ */
+function validateField(fieldName){
+  switch(fieldName){
+    case 'fullname':
+      return $('#fullname').value.trim().length > 0 ? null : 'fullname';
+    case 'phone': {
+      const phoneVal = $('#phone').value.trim();
+      return (phoneVal && phoneVal.replace(/\D/g,'').length >= 10) ? null : 'phone';
+    }
+    case 'gender':
+      return $('input[name="gender"]:checked') ? null : 'gender';
+    case 'military':
+      return $('input[name="military"]').value ? null : 'military';
+    case 'marital':
+      return $('input[name="marital"]:checked') ? null : 'marital';
+    case 'children':
+      if ($('#childrenField').classList.contains('hidden')) return null;
+      return $('input[name="children"]').value ? null : 'children';
+    case 'cooperation':
+      if ($('#cooperationField').classList.contains('hidden')) return null;
+      return $('input[name="cooperation"]').value ? null : 'cooperation';
+    case 'age': {
+      const ageVal = $('#age').value.trim();
+      const ageNum = parseInt(ageVal);
+      return (ageVal && !isNaN(ageNum) && ageNum >= 17 && ageNum <= 70) ? null : 'age';
+    }
+    case 'location':
+      return $('#location').value.trim().length > 0 ? null : 'location';
+    case 'jobCategory':
+      return $('input[name="jobCategory"]').value ? null : 'jobCategory';
+    case 'city':
+      return $('input[name="city"]').value ? null : 'city';
+    case 'height':
+      return $('#height').value.trim().length > 0 ? null : 'height';
+    case 'weight':
+      return $('#weight').value.trim().length > 0 ? null : 'weight';
+    case 'body':
+      return $('input[name="body"]').value ? null : 'body';
+    case 'education':
+      return $('input[name="education"]').value ? null : 'education';
+    case 'manual':
+      return $('input[name="manual"]:checked') ? null : 'manual';
+    case 'license':
+      return $('input[name="license"]').value ? null : 'license';
+    case 'uniform':
+      return $('input[name="uniform"]:checked') ? null : 'uniform';
+    case 'equipment':
+      return $('input[name="equipment"]:checked') ? null : 'equipment';
+    case 'skill':
+      return $('input[name="skill"]').value ? null : 'skill';
+    case 'proSkill':
+      if ($('#proSkillField').classList.contains('hidden')) return null;
+      return $('input[name="proSkill"]').value ? null : 'proSkill';
+    case 'idFront':
+      return $('#idFront').files[0] ? null : 'idFront';
+    case 'idBack':
+      return $('#idBack').files[0] ? null : 'idBack';
+    case 'receipt':
+      return $('#receipt').files[0] ? null : 'receipt';
+    default:
+      return null;
+  }
+}
+
+/* ============ بررسی کامل و برگرداندن اولین خطا ============ */
+function validateAll(){
+  const fieldsToCheck = [
+    'fullname','phone','gender','military','marital',
+    'children','cooperation','age','location',
+    'jobCategory','city','height','weight','body',
+    'education','manual','license','uniform','equipment',
+    'skill','proSkill','idFront','idBack','receipt'
+  ];
+  
+  for(const fieldName of fieldsToCheck){
+    const error = validateField(fieldName);
+    if(error) return error;
+  }
+  return null;
+}
+
 /* ============ ارسال فرم ============ */
 $('#jobForm').addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const fullname = $('#fullname').value.trim();
-  const phone = $('#phone').value.trim();
-  const gender = $('input[name="gender"]:checked');
-
-  if (!fullname) {
-    showToast('نام و نام خانوادگی', 'لطفاً نام و نام خانوادگی خود را وارد کنید.');
-    $('#fullname').focus();
-    return;
-  }
-  if (!phone || phone.replace(/\D/g,'').length < 10) {
-    showToast('شماره تماس', 'لطفاً شماره تماس معتبر وارد کنید.');
-    $('#phone').focus();
-    return;
-  }
-  if (!gender) {
-    showToast('جنسیت', 'لطفاً جنسیت خود را انتخاب کنید.');
-    return;
-  }
-  if (gender.value === 'female') {
-    femaleMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-
-  const age = $('#age').value.trim();
-  const ageNum = parseInt(age);
-  if (!age || isNaN(ageNum) || ageNum < 17 || ageNum > 70) {
-    showToast('سن', 'لطفاً سن دقیق خود را بین ۱۷ تا ۷۰ سال وارد کنید.');
-    $('#age').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    $('#age').focus();
-    return;
-  }
-
-  const idFront = $('#idFront');
-  const idBack = $('#idBack');
-  const receipt = $('#receipt');
-
-  if (!idFront.files[0]) {
-    showToast('بارگذاری مدارک', 'لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید.');
-    idFront.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-  if (!idBack.files[0]) {
-    showToast('بارگذاری مدارک', 'لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید.');
-    idBack.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
-  }
-  if (!receipt.files[0]) {
-    showToast('رسید واریز', 'لطفاً پیامک و یا رسید واریز حاوی کد رهگیری و تاریخ و ساعت واریز را ارسال فرمایید.');
-    receipt.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const firstError = validateAll();
+  if(firstError){
+    showFieldError(firstError);
     return;
   }
 
@@ -2182,6 +2369,9 @@ $('#modalClose').addEventListener('click', () => {
   });
   $$('.upload-preview').forEach(p => p.classList.remove('show'));
 });
+
+/* ============ فعال‌سازی پاک‌سازی خطا ============ */
+clearFieldErrorOnChange();
 </script>
 
 </body>
