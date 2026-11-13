@@ -36,26 +36,25 @@ body{
   background:var(--cream);
   color:var(--ink);
   line-height:1.9;
-  padding-bottom:110px;
+  padding-bottom:112px;
   overflow-x:hidden;
 }
+a{text-decoration:none;color:inherit}
 button,input{font-family:inherit}
 button{cursor:pointer}
-a{text-decoration:none;color:inherit}
 
-/* HEADER */
 .header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(250,249,244,.94);
+  background:rgba(250,249,244,.95);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
   border-bottom:1px solid rgba(25,61,50,.09);
 }
 .header-inner{
   width:100%;
-  padding:13px 20px;
+  padding:13px 19px;
   display:flex;
   align-items:center;
   gap:13px;
@@ -80,7 +79,7 @@ a{text-decoration:none;color:inherit}
   transform:translate(15px,-14px);
 }
 .brand-mark svg{width:27px;height:27px;fill:var(--lime);position:relative}
-.brand-copy{flex:1}
+.brand-copy{flex:1;min-width:0}
 .brand-name{font-size:20px;font-weight:900;color:var(--forest);line-height:1.3}
 .brand-caption{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px}
 .header-index{
@@ -90,12 +89,12 @@ a{text-decoration:none;color:inherit}
   border-radius:30px;
   padding:7px 12px;
   font-weight:800;
+  white-space:nowrap;
 }
 
-/* MAIN */
 .main{
   width:100%;
-  padding:20px 17px 30px;
+  padding:19px 16px 30px;
   margin:0 auto;
 }
 
@@ -104,144 +103,143 @@ a{text-decoration:none;color:inherit}
   position:relative;
   background:var(--forest);
   color:white;
-  border-radius:28px 28px 8px 28px;
-  padding:28px 24px 25px;
+  border-radius:29px 29px 9px 29px;
+  padding:27px 23px 25px;
   overflow:hidden;
-  min-height:270px;
   box-shadow:0 17px 40px rgba(25,61,50,.18);
-  margin-bottom:27px;
+  margin-bottom:26px;
 }
 .hero:before{
   content:"";
   position:absolute;
-  width:260px;height:260px;
-  border:1px solid rgba(214,229,164,.14);
+  width:270px;height:270px;
+  border:1px solid rgba(214,229,164,.15);
   border-radius:50%;
-  left:-95px;top:-115px;
-  box-shadow:0 0 0 22px rgba(214,229,164,.025),0 0 0 46px rgba(214,229,164,.025);
+  left:-105px;top:-125px;
+  box-shadow:0 0 0 23px rgba(214,229,164,.025),0 0 0 48px rgba(214,229,164,.025);
 }
 .hero:after{
   content:"";
   position:absolute;
-  width:180px;height:180px;
+  width:190px;height:190px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(214,229,164,.15),transparent 70%);
-  right:-80px;bottom:-85px;
+  background:radial-gradient(circle,rgba(214,229,164,.16),transparent 70%);
+  right:-90px;bottom:-95px;
 }
 .hero-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
   position:relative;
   z-index:2;
   margin-bottom:22px;
 }
 .hero-label{
-  display:inline-flex;
+  display:flex;
   align-items:center;
-  gap:8px;
+  gap:9px;
   color:var(--lime);
   font-size:13px;
   font-weight:800;
-  letter-spacing:.2px;
 }
 .hero-label i{
-  width:7px;height:7px;
+  width:8px;height:8px;
   background:var(--lime);
   border-radius:50%;
   box-shadow:0 0 0 5px rgba(214,229,164,.12);
+  flex-shrink:0;
 }
 .hero-count{
   font-size:12px;
-  font-weight:700;
-  color:rgba(255,255,255,.75);
-  border:1px solid rgba(255,255,255,.2);
+  font-weight:800;
+  color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.22);
   padding:5px 11px;
   border-radius:30px;
+  white-space:nowrap;
 }
 .hero h1{
   position:relative;
   z-index:2;
-  font-size:clamp(26px,7vw,34px);
-  line-height:1.55;
+  font-size:clamp(27px,7.2vw,37px);
+  line-height:1.6;
   font-weight:900;
-  max-width:520px;
   letter-spacing:-1px;
 }
 .hero h1 span{color:var(--lime)}
 .hero-description{
   position:relative;
   z-index:2;
-  color:rgba(255,255,255,.78);
+  color:rgba(255,255,255,.83);
   font-size:15px;
-  line-height:2;
+  line-height:2.1;
   margin-top:12px;
-  max-width:560px;
 }
 .hero-bottom{
   position:relative;
   z-index:2;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   gap:9px;
-  margin-top:22px;
+  margin-top:21px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,.15);
   color:var(--lime);
   font-size:13px;
-  font-weight:700;
+  font-weight:800;
+  line-height:1.8;
 }
-.hero-bottom svg{width:17px;height:17px;fill:var(--lime)}
+.hero-bottom svg{width:19px;height:19px;fill:var(--lime);flex-shrink:0;margin-top:3px}
 
 /* INTRO */
 .intro{
   display:flex;
   align-items:flex-start;
   gap:13px;
-  margin:0 3px 24px;
+  margin:0 3px 21px;
 }
 .intro-symbol{
-  width:38px;height:38px;
+  width:43px;height:43px;
   flex-shrink:0;
   background:#E3E7D8;
-  border-radius:13px 13px 13px 4px;
+  border-radius:14px 14px 14px 5px;
   display:grid;
   place-items:center;
 }
-.intro-symbol svg{width:19px;height:19px;fill:var(--forest)}
+.intro-symbol svg{width:21px;height:21px;fill:var(--forest)}
 .intro-text strong{
   display:block;
   color:var(--forest);
-  font-size:16px;
+  font-size:17px;
   font-weight:900;
 }
 .intro-text p{
   color:var(--muted);
   font-size:14px;
-  line-height:1.9;
-  margin-top:2px;
+  line-height:2;
+  margin-top:3px;
 }
 
 /* SEARCH */
-.search-box{
-  position:relative;
-  margin-bottom:18px;
-}
+.search-box{position:relative;margin-bottom:22px}
 .search-box svg{
   position:absolute;
   right:17px;
   top:50%;
   transform:translateY(-50%);
-  width:21px;height:21px;
+  width:22px;height:22px;
   fill:#849087;
   pointer-events:none;
 }
 .search-input{
   width:100%;
-  height:57px;
+  height:59px;
   border:1px solid #E0E4D9;
   outline:none;
   border-radius:17px;
   background:var(--paper);
-  padding:0 49px 0 15px;
+  padding:0 50px 0 15px;
   font-size:15px;
   color:var(--ink);
   box-shadow:0 4px 15px rgba(25,61,50,.035);
@@ -260,11 +258,7 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   margin:0 2px 12px;
 }
-.filter-title strong{
-  font-size:15px;
-  font-weight:900;
-  color:var(--forest);
-}
+.filter-title strong{font-size:16px;font-weight:900;color:var(--forest)}
 .filter-title span{font-size:12px;color:var(--muted)}
 .filters{
   display:flex;
@@ -278,10 +272,10 @@ a{text-decoration:none;color:inherit}
 .filter-btn{
   flex-shrink:0;
   border:1px solid #DDE2D7;
-  background:rgba(250,249,244,.8);
+  background:rgba(250,249,244,.9);
   color:#657168;
   border-radius:30px;
-  padding:9px 15px;
+  padding:10px 16px;
   font-size:13px;
   font-weight:800;
   transition:.2s;
@@ -294,28 +288,25 @@ a{text-decoration:none;color:inherit}
 }
 .filter-btn:active{transform:scale(.96)}
 
-/* ACCORDION SECTION */
+/* SECTION */
 .section-heading{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin:12px 2px 13px;
+  margin:13px 2px 14px;
 }
-.section-heading h2{
-  font-size:19px;
-  color:var(--forest);
-  font-weight:900;
-}
+.section-heading h2{font-size:20px;color:var(--forest);font-weight:900}
 .section-heading span{
   font-size:12px;
-  color:var(--muted);
-  font-weight:700;
+  color:var(--forest);
+  background:#E5E9DC;
+  padding:5px 11px;
+  border-radius:30px;
+  font-weight:900;
 }
-.faq-list{
-  display:flex;
-  flex-direction:column;
-  gap:11px;
-}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:12px}
 .faq-card{
   background:var(--paper);
   border:1px solid #E3E5DC;
@@ -333,48 +324,45 @@ a{text-decoration:none;color:inherit}
 .faq-toggle{
   display:flex;
   width:100%;
-  min-height:76px;
+  min-height:82px;
   align-items:center;
   gap:13px;
   border:0;
   background:transparent;
   text-align:right;
-  padding:14px 15px;
+  padding:15px;
   color:var(--ink);
 }
 .faq-num{
-  width:39px;height:39px;
+  width:42px;height:42px;
   flex-shrink:0;
   display:grid;
   place-items:center;
-  border-radius:13px 13px 13px 4px;
+  border-radius:14px 14px 14px 5px;
   background:#E9ECDF;
   color:var(--forest);
-  font-size:13px;
+  font-size:14px;
   font-weight:900;
   transition:.25s;
 }
-.faq-card.open .faq-num{
-  background:var(--forest);
-  color:var(--lime);
-}
+.faq-card.open .faq-num{background:var(--forest);color:var(--lime)}
 .faq-question-wrap{flex:1;min-width:0}
 .faq-category{
   display:block;
-  font-size:11px;
+  font-size:12px;
   color:#87917E;
   font-weight:800;
-  margin-bottom:2px;
+  margin-bottom:3px;
 }
 .faq-q{
   display:block;
   font-size:15px;
   font-weight:900;
-  line-height:1.75;
+  line-height:1.85;
   color:var(--forest);
 }
 .faq-chevron{
-  width:31px;height:31px;
+  width:33px;height:33px;
   flex-shrink:0;
   display:grid;
   place-items:center;
@@ -382,17 +370,10 @@ a{text-decoration:none;color:inherit}
   background:#F0F1E9;
   transition:transform .3s,background .3s;
 }
-.faq-chevron svg{
-  width:17px;height:17px;
-  fill:#667568;
-}
-.faq-card.open .faq-chevron{
-  transform:rotate(180deg);
-  background:#DDE5D1;
-}
+.faq-chevron svg{width:18px;height:18px;fill:#667568}
+.faq-card.open .faq-chevron{transform:rotate(180deg);background:#DDE5D1}
 .faq-card.open .faq-chevron svg{fill:var(--forest)}
 
-/* ANSWER ANIMATION */
 .faq-panel{
   display:grid;
   grid-template-rows:0fr;
@@ -403,24 +384,14 @@ a{text-decoration:none;color:inherit}
 .faq-answer{
   border-top:1px solid #E8E9E1;
   margin:0 16px;
-  padding:15px 0 19px;
+  padding:16px 0 20px;
   color:#59665D;
   font-size:15px;
-  line-height:2.15;
+  line-height:2.2;
 }
-.faq-answer strong{
-  color:var(--forest);
-  font-weight:900;
-}
+.faq-answer strong{color:var(--forest);font-weight:900}
 .faq-answer p+p{margin-top:10px}
-.answer-mark{
-  display:inline-block;
-  width:5px;height:5px;
-  border-radius:50%;
-  background:var(--olive);
-  margin-left:6px;
-  vertical-align:middle;
-}
+.faq-answer br{line-height:2.5}
 
 /* EMPTY */
 .empty-state{
@@ -429,61 +400,62 @@ a{text-decoration:none;color:inherit}
   background:var(--paper);
   border:1px dashed #C8D0C1;
   border-radius:20px;
-  padding:28px 18px;
+  padding:30px 18px;
   color:var(--muted);
+  font-size:14px;
 }
 .empty-state.show{display:block}
 .empty-state strong{
   display:block;
   color:var(--forest);
-  font-size:17px;
-  margin-bottom:5px;
+  font-size:18px;
+  margin-bottom:6px;
 }
 
-/* QUICK NOTE */
+/* NOTE */
 .brand-note{
   position:relative;
   overflow:hidden;
-  margin-top:27px;
-  padding:22px 20px;
-  border-radius:8px 22px 22px 22px;
+  margin-top:28px;
+  padding:23px 20px;
+  border-radius:8px 23px 23px 23px;
   background:#E7EBDD;
   border:1px solid #D9E0D0;
 }
 .brand-note:after{
   content:"";
   position:absolute;
-  width:105px;height:105px;
-  left:-32px;bottom:-47px;
+  width:110px;height:110px;
+  left:-35px;bottom:-50px;
   border:1px solid rgba(25,61,50,.12);
   border-radius:50%;
-  box-shadow:0 0 0 13px rgba(25,61,50,.025),0 0 0 26px rgba(25,61,50,.025);
+  box-shadow:0 0 0 14px rgba(25,61,50,.025),0 0 0 28px rgba(25,61,50,.025);
 }
 .note-top{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:10px;
   color:var(--forest);
-  font-size:15px;
+  font-size:16px;
   font-weight:900;
   position:relative;
   z-index:1;
 }
-.note-top svg{width:19px;height:19px;fill:var(--forest)}
+.note-top svg{width:21px;height:21px;fill:var(--forest)}
 .brand-note p{
   position:relative;
   z-index:1;
-  margin-top:8px;
+  margin-top:9px;
   font-size:14px;
   color:#5E6C60;
-  line-height:2;
+  line-height:2.15;
 }
 
 /* CTA */
 .final-cta{
   margin-top:23px;
-  padding:25px 22px;
-  border-radius:23px;
+  padding:26px 22px;
+  border-radius:24px 24px 8px 24px;
   background:var(--forest);
   color:white;
   position:relative;
@@ -493,37 +465,37 @@ a{text-decoration:none;color:inherit}
 .final-cta:before{
   content:"";
   position:absolute;
-  width:150px;height:150px;
-  left:-55px;top:-65px;
+  width:160px;height:160px;
+  left:-60px;top:-70px;
   border:1px solid rgba(214,229,164,.18);
   border-radius:50%;
-  box-shadow:0 0 0 17px rgba(214,229,164,.035);
+  box-shadow:0 0 0 18px rgba(214,229,164,.035),0 0 0 38px rgba(214,229,164,.025);
 }
 .cta-kicker{
   color:var(--lime);
-  font-size:12px;
-  font-weight:800;
+  font-size:13px;
+  font-weight:900;
   position:relative;
   z-index:1;
 }
 .final-cta h2{
-  font-size:22px;
+  font-size:23px;
   font-weight:900;
-  line-height:1.65;
-  margin-top:7px;
+  line-height:1.75;
+  margin-top:8px;
   position:relative;
   z-index:1;
 }
 .final-cta p{
-  color:rgba(255,255,255,.73);
+  color:rgba(255,255,255,.8);
   font-size:14px;
-  line-height:1.95;
-  margin-top:6px;
+  line-height:2.1;
+  margin-top:8px;
   position:relative;
   z-index:1;
 }
 .cta-button{
-  margin-top:18px;
+  margin-top:19px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -531,8 +503,8 @@ a{text-decoration:none;color:inherit}
   width:100%;
   background:var(--lime);
   color:var(--forest);
-  border-radius:14px;
-  padding:14px 17px;
+  border-radius:15px;
+  padding:15px 17px;
   font-size:15px;
   font-weight:900;
   position:relative;
@@ -540,14 +512,15 @@ a{text-decoration:none;color:inherit}
   transition:.2s;
 }
 .cta-button:active{transform:scale(.98)}
-.cta-button svg{width:19px;height:19px;fill:var(--forest)}
+.cta-button svg{width:20px;height:20px;fill:var(--forest)}
 
 /* SIGNATURE */
 .signature{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:11px;
+  flex-wrap:wrap;
+  gap:10px;
   margin:30px 0 10px;
   color:#8A9488;
   font-size:12px;
@@ -555,16 +528,12 @@ a{text-decoration:none;color:inherit}
 }
 .signature:before,.signature:after{
   content:"";
-  width:38px;
+  width:27px;
   height:1px;
   background:#C8CEC0;
 }
-.signature-mark{
-  display:flex;
-  align-items:center;
-  gap:7px;
-}
-.signature-mark svg{width:17px;height:17px;fill:var(--forest)}
+.signature-mark{display:flex;align-items:center;gap:7px}
+.signature-mark svg{width:18px;height:18px;fill:var(--forest)}
 .signature-mark b{color:var(--forest);font-weight:900}
 
 /* BOTTOM NAV */
@@ -574,7 +543,7 @@ a{text-decoration:none;color:inherit}
   bottom:0;left:0;right:0;
   display:flex;
   align-items:stretch;
-  background:rgba(250,249,244,.96);
+  background:rgba(250,249,244,.97);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
   border-top:1px solid rgba(25,61,50,.11);
@@ -589,46 +558,44 @@ a{text-decoration:none;color:inherit}
   justify-content:center;
   gap:3px;
   color:#879187;
-  font-size:11px;
+  font-size:12px;
   font-weight:800;
   padding:7px 2px;
   border-radius:13px;
   transition:.2s;
 }
-.nav-item svg{
-  width:23px;height:23px;
-  fill:#879187;
-  transition:.2s;
-}
-.nav-item.active{
-  color:var(--forest);
-  background:#E8ECDF;
-}
+.nav-item svg{width:24px;height:24px;fill:#879187;transition:.2s}
+.nav-item.active{color:var(--forest);background:#E8ECDF}
 .nav-item.active svg{fill:var(--forest);transform:translateY(-1px)}
 .nav-item:active{transform:scale(.95)}
 
 /* DESKTOP */
 @media(min-width:760px){
-  .main{max-width:920px;padding:30px 28px 45px}
-  .header-inner{max-width:920px;margin:auto;padding:14px 28px}
-  .hero{padding:38px 38px 34px;min-height:300px}
-  .hero h1{font-size:38px;max-width:650px}
-  .hero-description{font-size:16px;max-width:650px}
-  .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+  .main{max-width:1050px;padding:30px 30px 45px}
+  .header-inner{max-width:1050px;margin:auto;padding:14px 30px}
+  .hero{padding:40px 40px 35px}
+  .hero h1{font-size:40px;max-width:700px}
+  .hero-description{font-size:16px;max-width:700px}
+  .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .faq-card{align-self:start}
-  .faq-toggle{min-height:88px}
+  .faq-toggle{min-height:91px}
   .faq-q{font-size:15px}
+  .faq-answer{font-size:15px}
   .bottom-nav{justify-content:center;gap:15px}
   .nav-item{max-width:145px}
-  .final-cta{padding:30px}
-  .cta-button{max-width:390px}
+  .final-cta{padding:34px}
+  .cta-button{max-width:420px}
 }
-@media(max-width:360px){
+@media(max-width:380px){
   .main{padding-left:12px;padding-right:12px}
-  .hero{padding:24px 19px}
+  .hero{padding:24px 18px}
+  .hero h1{font-size:27px}
+  .hero-count{font-size:11px;padding:5px 8px}
   .faq-toggle{gap:9px;padding:12px}
   .faq-q{font-size:14px}
-  .faq-num{width:35px;height:35px}
+  .faq-num{width:37px;height:37px}
+  .faq-answer{font-size:14px}
+  .final-cta h2{font-size:21px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
@@ -658,20 +625,19 @@ a{text-decoration:none;color:inherit}
 
   <section class="hero">
     <div class="hero-top">
-      <div class="hero-label"><i></i> قبل از تصمیم، آگاهانه بخوانید</div>
-      <div class="hero-count">۱۹ پاسخ کاربردی</div>
+      <div class="hero-label"><i></i> پیش از تصمیم‌گیری بخوانید</div>
+      <div class="hero-count">۱۹ پرسش و پاسخ</div>
     </div>
 
-    <h1>قبل از شروع همکاری،<br><span>همه‌چیز را شفاف بدانید.</span></h1>
+    <h1>همکاری حرفه‌ای،<br><span>با آگاهی و شفافیت آغاز می‌شود.</span></h1>
 
     <p class="hero-description">
-      شرایط مالی، مدارک، مراحل استخدام و تعهدات طرفین را یک‌جا مرور کنید.
-      تصمیم درست، از شناخت دقیق شرایط شروع می‌شود.
+      هزینه‌ها، درآمد، مدارک، مراحل استخدام و تعهدات مجموعه را با دقت مرور کنید. اینجا پاسخ پرسش‌هایی را می‌خوانید که پیش از شروع همکاری باید بدانید.
     </p>
 
     <div class="hero-bottom">
       <svg viewBox="0 0 24 24"><path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm-1 14-4-4 1.4-1.4 2.6 2.6 5.6-5.6L18 9z"/></svg>
-      مطالعه این راهنما پیش از ثبت درخواست ضروری است
+      پیش از ثبت درخواست، این راهنما را کامل مطالعه کنید.
     </div>
   </section>
 
@@ -681,27 +647,27 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="intro-text">
       <strong>پاسخ پرسش‌های مهم شما</strong>
-      <p>موضوع موردنظرتان را انتخاب کنید یا در کادر جست‌وجو بنویسید تا سریع‌تر به پاسخ برسید.</p>
+      <p>موضوع موردنظرتان را انتخاب کنید یا کلمه‌ای مانند حقوق، هزینه، قرارداد یا مدارک را جست‌وجو کنید.</p>
     </div>
   </div>
 
   <div class="search-box">
     <svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/></svg>
-    <input class="search-input" id="faqSearch" type="search" placeholder="مثلاً هزینه، حقوق، قرارداد، مدارک..." autocomplete="off">
+    <input class="search-input" id="faqSearch" type="search" placeholder="جست‌وجو در پرسش‌ها..." autocomplete="off" aria-label="جست‌وجو در پرسش‌های راهنما">
   </div>
 
   <div class="filter-title">
-    <strong>دسته‌بندی موضوعات</strong>
-    <span>برای دسترسی سریع‌تر</span>
+    <strong>موضوع موردنظر شما</strong>
+    <span>دسته‌بندی پرسش‌ها</span>
   </div>
 
   <div class="filters" id="filters">
-    <button class="filter-btn active" data-filter="all">همه پرسش‌ها</button>
-    <button class="filter-btn" data-filter="money">هزینه و درآمد</button>
-    <button class="filter-btn" data-filter="employment">استخدام و قرارداد</button>
-    <button class="filter-btn" data-filter="conditions">شرایط و مدارک</button>
-    <button class="filter-btn" data-filter="process">مراحل و پیگیری</button>
-    <button class="filter-btn" data-filter="jobs">نوع مشاغل</button>
+    <button type="button" class="filter-btn active" data-filter="all">همه پرسش‌ها</button>
+    <button type="button" class="filter-btn" data-filter="money">هزینه و درآمد</button>
+    <button type="button" class="filter-btn" data-filter="employment">استخدام و قرارداد</button>
+    <button type="button" class="filter-btn" data-filter="conditions">شرایط و مدارک</button>
+    <button type="button" class="filter-btn" data-filter="process">مراحل و پیگیری</button>
+    <button type="button" class="filter-btn" data-filter="jobs">نوع مشاغل</button>
   </div>
 
   <div class="section-heading">
@@ -712,7 +678,7 @@ a{text-decoration:none;color:inherit}
   <section class="faq-list" id="faqList">
 
     <article class="faq-card" data-category="money">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۱</span>
         <span class="faq-question-wrap">
           <span class="faq-category">هزینه و درآمد</span>
@@ -728,7 +694,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۲</span>
         <span class="faq-question-wrap">
           <span class="faq-category">هزینه و مدارک</span>
@@ -746,7 +712,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۳</span>
         <span class="faq-question-wrap">
           <span class="faq-category">استخدام و تعهدات</span>
@@ -762,7 +728,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="money">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۴</span>
         <span class="faq-question-wrap">
           <span class="faq-category">حقوق و مزایا</span>
@@ -778,7 +744,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۵</span>
         <span class="faq-question-wrap">
           <span class="faq-category">پشتیبانی و معرفی مجدد</span>
@@ -794,7 +760,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۶</span>
         <span class="faq-question-wrap">
           <span class="faq-category">قرارداد کاری</span>
@@ -810,7 +776,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="jobs">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۷</span>
         <span class="faq-question-wrap">
           <span class="faq-category">نوع مشاغل و امکانات</span>
@@ -826,7 +792,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="process">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۸</span>
         <span class="faq-question-wrap">
           <span class="faq-category">زمان‌بندی مراحل</span>
@@ -842,7 +808,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۹</span>
         <span class="faq-question-wrap">
           <span class="faq-category">شرایط خانوادگی</span>
@@ -858,7 +824,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="money">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۰</span>
         <span class="faq-question-wrap">
           <span class="faq-category">حقوق و بیمه</span>
@@ -874,7 +840,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="process">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۱</span>
         <span class="faq-question-wrap">
           <span class="faq-category">مراجعه و پیگیری</span>
@@ -892,7 +858,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="jobs">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۲</span>
         <span class="faq-question-wrap">
           <span class="faq-category">محدوده جغرافیایی</span>
@@ -908,7 +874,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="jobs">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۳</span>
         <span class="faq-question-wrap">
           <span class="faq-category">ماهیت و دشواری کار</span>
@@ -924,7 +890,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="process">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۴</span>
         <span class="faq-question-wrap">
           <span class="faq-category">معرفی فرصت شغلی</span>
@@ -940,7 +906,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۵</span>
         <span class="faq-question-wrap">
           <span class="faq-category">مسئولیت متقاضی</span>
@@ -956,7 +922,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۶</span>
         <span class="faq-question-wrap">
           <span class="faq-category">خدمات مجموعه</span>
@@ -974,7 +940,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="jobs">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۷</span>
         <span class="faq-question-wrap">
           <span class="faq-category">شرایط مشاغل ویژه</span>
@@ -990,7 +956,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="process">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۸</span>
         <span class="faq-question-wrap">
           <span class="faq-category">تکمیل فرم</span>
@@ -1006,7 +972,7 @@ a{text-decoration:none;color:inherit}
     </article>
 
     <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" aria-expanded="false">
+      <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۹</span>
         <span class="faq-question-wrap">
           <span class="faq-category">مدارک و ضمانت</span>
@@ -1039,11 +1005,13 @@ a{text-decoration:none;color:inherit}
   </section>
 
   <section class="final-cta">
-    <div class="cta-kicker">قدم بعدی را آگاهانه بردارید</div>
-    <h2>حالا که شرایط را می‌دانید، فرصت مناسب خودتان را انتخاب کنید.</h2>
-    <p>در صفحه مشاغل، گروه‌های شغلی و ویژگی‌های هرکدام را با دقت بررسی کنید؛ انتخاب درست از همین‌جا آغاز می‌شود.</p>
+    <div class="cta-kicker">حالا نوبت انتخاب شماست</div>
+    <h2>فرصتی را انتخاب کنید که با شرایط و توانایی‌های شما هماهنگ باشد.</h2>
+    <p>
+      در صفحه مشاغل، چهار گروه شغلی را با دقت بررسی کنید. ویژگی‌ها، محدودیت‌ها و شرایط هر گروه را بشناسید و بعد برای شروع مسیر همکاری تصمیم بگیرید.
+    </p>
     <a class="cta-button" href="jobs.html">
-      <span>مشاهده فرصت‌های شغلی</span>
+      <span>بررسی گروه‌های شغلی</span>
       <svg viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg>
     </a>
   </section>
@@ -1087,11 +1055,10 @@ a{text-decoration:none;color:inherit}
 
   let activeFilter = 'all';
 
-  // آکاردئون تک‌انتخابی؛ باز شدن یک پاسخ، پاسخ قبلی را می‌بندد.
   cards.forEach(function(card){
     const button = card.querySelector('.faq-toggle');
 
-    button.addEventListener('click', function(){
+    button.addEventListener('click',function(){
       const wasOpen = card.classList.contains('open');
 
       cards.forEach(function(other){
@@ -1111,7 +1078,10 @@ a{text-decoration:none;color:inherit}
       .toString()
       .replace(/[يى]/g,'ی')
       .replace(/ك/g,'ک')
-      .replace(/[۰-۹]/g,function(d){return '۰۱۲۳۴۵۶۷۸۹'.indexOf(d);})
+      .replace(/[۰-۹]/g,function(d){
+        return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+      })
+      .replace(/\s+/g,' ')
       .toLowerCase()
       .trim();
   }
@@ -1154,6 +1124,9 @@ a{text-decoration:none;color:inherit}
   });
 
   searchInput.addEventListener('input',updateResults);
+
+  /* جلوگیری از باز ماندن پاسخ‌های مخفی پس از جست‌وجو */
+  updateResults();
 })();
 </script>
 
