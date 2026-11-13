@@ -3,7 +3,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F1F0E8">
 <title>راهنمای همکاری | امنیت‌گستر</title>
 
@@ -20,7 +20,6 @@
   --lime:#D6E5A4;
   --paper:#FAF9F4;
   --cream:#F1F0E8;
-  --white:#FFFFFF;
   --ink:#202D27;
   --muted:#66736B;
   --line:#E2E4D9;
@@ -29,191 +28,284 @@
   --shadow2:0 20px 55px rgba(25,61,50,.14);
 }
 
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
 body{
   font-family:'Vazirmatn',Tahoma,sans-serif;
   background:var(--cream);
   color:var(--ink);
   line-height:1.9;
-  padding-bottom:112px;
+  padding-bottom:calc(100px + env(safe-area-inset-bottom));
   overflow-x:hidden;
 }
-a{text-decoration:none;color:inherit}
-button,input{font-family:inherit}
-button{cursor:pointer}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* HEADER */
 
 .header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(250,249,244,.95);
+  background:rgba(250,249,244,.97);
+  border-bottom:1px solid rgba(25,61,50,.09);
+  box-shadow:0 4px 18px rgba(25,61,50,.035);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(25,61,50,.09);
 }
+
 .header-inner{
   width:100%;
-  padding:13px 19px;
+  padding:12px 17px;
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:12px;
 }
+
 .brand-mark{
-  width:49px;height:49px;
+  width:48px;
+  height:48px;
   flex-shrink:0;
   border-radius:16px 16px 16px 5px;
   background:var(--forest);
   display:grid;
   place-items:center;
   position:relative;
-  box-shadow:0 7px 16px rgba(25,61,50,.19);
   overflow:hidden;
+  box-shadow:0 7px 16px rgba(25,61,50,.19);
 }
+
 .brand-mark:before{
   content:"";
   position:absolute;
-  width:55px;height:55px;
+  width:55px;
+  height:55px;
   border:1px solid rgba(214,229,164,.28);
   border-radius:50%;
   transform:translate(15px,-14px);
 }
-.brand-mark svg{width:27px;height:27px;fill:var(--lime);position:relative}
-.brand-copy{flex:1;min-width:0}
-.brand-name{font-size:20px;font-weight:900;color:var(--forest);line-height:1.3}
-.brand-caption{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px}
+
+.brand-mark svg{
+  width:27px;
+  height:27px;
+  fill:var(--lime);
+  position:relative;
+}
+
+.brand-copy{
+  flex:1;
+  min-width:0;
+}
+
+.brand-name{
+  font-size:20px;
+  font-weight:900;
+  color:var(--forest);
+  line-height:1.3;
+}
+
+.brand-caption{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:600;
+  margin-top:3px;
+}
+
 .header-index{
   font-size:12px;
   color:var(--forest);
   background:#E8EBDD;
   border-radius:30px;
-  padding:7px 12px;
-  font-weight:800;
+  padding:7px 11px;
+  font-weight:900;
   white-space:nowrap;
 }
 
+/* MAIN */
+
 .main{
   width:100%;
-  padding:19px 16px 30px;
+  padding:18px 15px 28px;
   margin:0 auto;
 }
 
 /* HERO */
+
 .hero{
   position:relative;
-  background:var(--forest);
+  background:
+    radial-gradient(circle at 90% 100%,rgba(137,148,107,.22),transparent 35%),
+    linear-gradient(145deg,#193D32,#254E40);
   color:white;
-  border-radius:29px 29px 9px 29px;
-  padding:27px 23px 25px;
+  border-radius:28px 28px 8px 28px;
+  padding:26px 21px 23px;
   overflow:hidden;
-  box-shadow:0 17px 40px rgba(25,61,50,.18);
-  margin-bottom:26px;
+  box-shadow:0 17px 40px rgba(25,61,50,.17);
+  margin-bottom:27px;
 }
+
 .hero:before{
   content:"";
   position:absolute;
-  width:270px;height:270px;
+  width:250px;
+  height:250px;
   border:1px solid rgba(214,229,164,.15);
   border-radius:50%;
-  left:-105px;top:-125px;
-  box-shadow:0 0 0 23px rgba(214,229,164,.025),0 0 0 48px rgba(214,229,164,.025);
+  left:-110px;
+  top:-130px;
+  box-shadow:
+    0 0 0 23px rgba(214,229,164,.025),
+    0 0 0 48px rgba(214,229,164,.025);
 }
+
 .hero:after{
   content:"";
   position:absolute;
-  width:190px;height:190px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   background:radial-gradient(circle,rgba(214,229,164,.16),transparent 70%);
-  right:-90px;bottom:-95px;
+  right:-90px;
+  bottom:-100px;
 }
+
 .hero-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:8px;
   position:relative;
   z-index:2;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
+
 .hero-label{
   display:flex;
   align-items:center;
   gap:9px;
   color:var(--lime);
   font-size:13px;
-  font-weight:800;
+  font-weight:900;
 }
+
 .hero-label i{
-  width:8px;height:8px;
+  width:8px;
+  height:8px;
   background:var(--lime);
   border-radius:50%;
   box-shadow:0 0 0 5px rgba(214,229,164,.12);
   flex-shrink:0;
 }
+
 .hero-count{
   font-size:12px;
-  font-weight:800;
-  color:rgba(255,255,255,.85);
-  border:1px solid rgba(255,255,255,.22);
-  padding:5px 11px;
+  font-weight:900;
+  color:rgba(255,255,255,.9);
+  border:1px solid rgba(255,255,255,.23);
+  background:rgba(255,255,255,.06);
+  padding:5px 10px;
   border-radius:30px;
   white-space:nowrap;
 }
+
 .hero h1{
   position:relative;
   z-index:2;
-  font-size:clamp(27px,7.2vw,37px);
-  line-height:1.6;
+  font-size:clamp(27px,7.2vw,38px);
+  line-height:1.65;
   font-weight:900;
-  letter-spacing:-1px;
+  letter-spacing:-.7px;
 }
-.hero h1 span{color:var(--lime)}
+
+.hero h1 span{
+  color:var(--lime);
+}
+
 .hero-description{
   position:relative;
   z-index:2;
-  color:rgba(255,255,255,.83);
+  color:rgba(255,255,255,.85);
   font-size:15px;
-  line-height:2.1;
+  line-height:2.15;
   margin-top:12px;
 }
+
 .hero-bottom{
   position:relative;
   z-index:2;
   display:flex;
   align-items:flex-start;
-  gap:9px;
-  margin-top:21px;
+  gap:10px;
+  margin-top:20px;
   padding-top:15px;
-  border-top:1px solid rgba(255,255,255,.15);
+  border-top:1px solid rgba(255,255,255,.16);
   color:var(--lime);
   font-size:13px;
-  font-weight:800;
-  line-height:1.8;
+  font-weight:900;
+  line-height:1.9;
 }
-.hero-bottom svg{width:19px;height:19px;fill:var(--lime);flex-shrink:0;margin-top:3px}
+
+.hero-bottom svg{
+  width:20px;
+  height:20px;
+  fill:var(--lime);
+  flex-shrink:0;
+  margin-top:4px;
+}
 
 /* INTRO */
+
 .intro{
   display:flex;
   align-items:flex-start;
-  gap:13px;
-  margin:0 3px 21px;
+  gap:12px;
+  margin:0 3px 19px;
 }
+
 .intro-symbol{
-  width:43px;height:43px;
+  width:45px;
+  height:45px;
   flex-shrink:0;
   background:#E3E7D8;
-  border-radius:14px 14px 14px 5px;
+  border-radius:15px 15px 15px 5px;
   display:grid;
   place-items:center;
 }
-.intro-symbol svg{width:21px;height:21px;fill:var(--forest)}
+
+.intro-symbol svg{
+  width:22px;
+  height:22px;
+  fill:var(--forest);
+}
+
 .intro-text strong{
   display:block;
   color:var(--forest);
   font-size:17px;
   font-weight:900;
 }
+
 .intro-text p{
   color:var(--muted);
   font-size:14px;
@@ -222,80 +314,120 @@ button{cursor:pointer}
 }
 
 /* SEARCH */
-.search-box{position:relative;margin-bottom:22px}
+
+.search-box{
+  position:relative;
+  margin-bottom:23px;
+}
+
 .search-box svg{
   position:absolute;
   right:17px;
   top:50%;
   transform:translateY(-50%);
-  width:22px;height:22px;
+  width:22px;
+  height:22px;
   fill:#849087;
   pointer-events:none;
 }
+
 .search-input{
   width:100%;
-  height:59px;
-  border:1px solid #E0E4D9;
+  height:60px;
+  border:1px solid #DDE2D7;
   outline:none;
   border-radius:17px;
   background:var(--paper);
-  padding:0 50px 0 15px;
+  padding:0 51px 0 16px;
   font-size:15px;
   color:var(--ink);
   box-shadow:0 4px 15px rgba(25,61,50,.035);
-  transition:.2s;
+  transition:border-color .2s,box-shadow .2s;
 }
-.search-input::placeholder{color:#89948B}
+
+.search-input::placeholder{
+  color:#89948B;
+}
+
 .search-input:focus{
   border-color:var(--olive);
   box-shadow:0 0 0 4px rgba(137,148,107,.13);
 }
 
 /* FILTERS */
+
 .filter-title{
   display:flex;
   justify-content:space-between;
   align-items:center;
   margin:0 2px 12px;
 }
-.filter-title strong{font-size:16px;font-weight:900;color:var(--forest)}
-.filter-title span{font-size:12px;color:var(--muted)}
+
+.filter-title strong{
+  font-size:16px;
+  font-weight:900;
+  color:var(--forest);
+}
+
+.filter-title span{
+  font-size:12px;
+  color:var(--muted);
+}
+
 .filters{
   display:flex;
   gap:9px;
   overflow-x:auto;
-  padding:2px 1px 13px;
+  padding:3px 1px 13px;
   scrollbar-width:none;
-  margin-bottom:14px;
+  margin-bottom:12px;
+  -webkit-overflow-scrolling:touch;
 }
-.filters::-webkit-scrollbar{display:none}
+
+.filters::-webkit-scrollbar{
+  display:none;
+}
+
 .filter-btn{
   flex-shrink:0;
   border:1px solid #DDE2D7;
-  background:rgba(250,249,244,.9);
+  background:rgba(250,249,244,.95);
   color:#657168;
   border-radius:30px;
   padding:10px 16px;
   font-size:13px;
-  font-weight:800;
-  transition:.2s;
+  font-weight:900;
+  transition:background .2s,color .2s,border-color .2s;
+  white-space:nowrap;
 }
+
 .filter-btn.active{
   background:var(--forest);
   color:var(--lime);
   border-color:var(--forest);
   box-shadow:0 5px 13px rgba(25,61,50,.15);
 }
-.filter-btn:active{transform:scale(.96)}
+
+.filter-btn:active{
+  transform:scale(.97);
+}
 
 /* SECTION */
+
 .section-heading{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
   margin:13px 2px 14px;
 }
-.section-heading h2{font-size:20px;color:var(--forest);font-weight:900}
+
+.section-heading h2{
+  font-size:20px;
+  color:var(--forest);
+  font-weight:900;
+}
+
 .section-heading span{
   font-size:12px;
   color:var(--forest);
@@ -303,38 +435,51 @@ button{cursor:pointer}
   padding:5px 11px;
   border-radius:30px;
   font-weight:900;
+  white-space:nowrap;
 }
 
 /* FAQ */
-.faq-list{display:flex;flex-direction:column;gap:12px}
+
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
 .faq-card{
   background:var(--paper);
   border:1px solid #E3E5DC;
   border-radius:19px 19px 19px 7px;
   overflow:hidden;
   box-shadow:0 5px 16px rgba(25,61,50,.035);
-  transition:border-color .25s,box-shadow .25s,transform .25s;
+  transition:border-color .2s,box-shadow .2s;
 }
+
 .faq-card.open{
   border-color:#AAB59A;
   box-shadow:var(--shadow);
-  transform:translateY(-1px);
 }
-.faq-card[hidden]{display:none}
+
+.faq-card[hidden]{
+  display:none!important;
+}
+
 .faq-toggle{
   display:flex;
   width:100%;
   min-height:82px;
   align-items:center;
-  gap:13px;
+  gap:12px;
   border:0;
   background:transparent;
   text-align:right;
   padding:15px;
   color:var(--ink);
 }
+
 .faq-num{
-  width:42px;height:42px;
+  width:42px;
+  height:42px;
   flex-shrink:0;
   display:grid;
   place-items:center;
@@ -343,57 +488,95 @@ button{cursor:pointer}
   color:var(--forest);
   font-size:14px;
   font-weight:900;
-  transition:.25s;
+  transition:background .2s,color .2s;
 }
-.faq-card.open .faq-num{background:var(--forest);color:var(--lime)}
-.faq-question-wrap{flex:1;min-width:0}
+
+.faq-card.open .faq-num{
+  background:var(--forest);
+  color:var(--lime);
+}
+
+.faq-question-wrap{
+  flex:1;
+  min-width:0;
+}
+
 .faq-category{
   display:block;
   font-size:12px;
   color:#87917E;
-  font-weight:800;
+  font-weight:900;
   margin-bottom:3px;
 }
+
 .faq-q{
   display:block;
   font-size:15px;
   font-weight:900;
-  line-height:1.85;
+  line-height:1.9;
   color:var(--forest);
 }
+
 .faq-chevron{
-  width:33px;height:33px;
+  width:34px;
+  height:34px;
   flex-shrink:0;
   display:grid;
   place-items:center;
   border-radius:50%;
   background:#F0F1E9;
-  transition:transform .3s,background .3s;
+  transition:transform .25s,background .25s;
 }
-.faq-chevron svg{width:18px;height:18px;fill:#667568}
-.faq-card.open .faq-chevron{transform:rotate(180deg);background:#DDE5D1}
-.faq-card.open .faq-chevron svg{fill:var(--forest)}
+
+.faq-chevron svg{
+  width:19px;
+  height:19px;
+  fill:#667568;
+}
+
+.faq-card.open .faq-chevron{
+  transform:rotate(180deg);
+  background:#DDE5D1;
+}
+
+.faq-card.open .faq-chevron svg{
+  fill:var(--forest);
+}
+
+/* Stable accordion for Android WebView */
 
 .faq-panel{
-  display:grid;
-  grid-template-rows:0fr;
-  transition:grid-template-rows .35s ease;
+  display:none;
 }
-.faq-card.open .faq-panel{grid-template-rows:1fr}
-.faq-panel-inner{overflow:hidden;min-height:0}
+
+.faq-card.open .faq-panel{
+  display:block;
+}
+
 .faq-answer{
   border-top:1px solid #E8E9E1;
   margin:0 16px;
   padding:16px 0 20px;
   color:#59665D;
   font-size:15px;
-  line-height:2.2;
+  line-height:2.25;
 }
-.faq-answer strong{color:var(--forest);font-weight:900}
-.faq-answer p+p{margin-top:10px}
-.faq-answer br{line-height:2.5}
+
+.faq-answer strong{
+  color:var(--forest);
+  font-weight:900;
+}
+
+.faq-answer p+p{
+  margin-top:10px;
+}
+
+.faq-answer br{
+  line-height:2.5;
+}
 
 /* EMPTY */
+
 .empty-state{
   display:none;
   text-align:center;
@@ -403,8 +586,13 @@ button{cursor:pointer}
   padding:30px 18px;
   color:var(--muted);
   font-size:14px;
+  line-height:2;
 }
-.empty-state.show{display:block}
+
+.empty-state.show{
+  display:block;
+}
+
 .empty-state strong{
   display:block;
   color:var(--forest);
@@ -412,25 +600,46 @@ button{cursor:pointer}
   margin-bottom:6px;
 }
 
+.clear-search{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:15px;
+  border:0;
+  border-radius:12px;
+  background:var(--forest);
+  color:var(--lime);
+  padding:10px 18px;
+  font-size:13px;
+  font-weight:900;
+}
+
 /* NOTE */
+
 .brand-note{
   position:relative;
   overflow:hidden;
-  margin-top:28px;
-  padding:23px 20px;
+  margin-top:27px;
+  padding:22px 19px;
   border-radius:8px 23px 23px 23px;
   background:#E7EBDD;
   border:1px solid #D9E0D0;
 }
+
 .brand-note:after{
   content:"";
   position:absolute;
-  width:110px;height:110px;
-  left:-35px;bottom:-50px;
+  width:110px;
+  height:110px;
+  left:-35px;
+  bottom:-50px;
   border:1px solid rgba(25,61,50,.12);
   border-radius:50%;
-  box-shadow:0 0 0 14px rgba(25,61,50,.025),0 0 0 28px rgba(25,61,50,.025);
+  box-shadow:
+    0 0 0 14px rgba(25,61,50,.025),
+    0 0 0 28px rgba(25,61,50,.025);
 }
+
 .note-top{
   display:flex;
   align-items:center;
@@ -441,20 +650,27 @@ button{cursor:pointer}
   position:relative;
   z-index:1;
 }
-.note-top svg{width:21px;height:21px;fill:var(--forest)}
+
+.note-top svg{
+  width:22px;
+  height:22px;
+  fill:var(--forest);
+}
+
 .brand-note p{
   position:relative;
   z-index:1;
   margin-top:9px;
   font-size:14px;
   color:#5E6C60;
-  line-height:2.15;
+  line-height:2.2;
 }
 
 /* CTA */
+
 .final-cta{
   margin-top:23px;
-  padding:26px 22px;
+  padding:25px 20px;
   border-radius:24px 24px 8px 24px;
   background:var(--forest);
   color:white;
@@ -462,15 +678,21 @@ button{cursor:pointer}
   overflow:hidden;
   box-shadow:0 14px 30px rgba(25,61,50,.16);
 }
+
 .final-cta:before{
   content:"";
   position:absolute;
-  width:160px;height:160px;
-  left:-60px;top:-70px;
+  width:160px;
+  height:160px;
+  left:-60px;
+  top:-70px;
   border:1px solid rgba(214,229,164,.18);
   border-radius:50%;
-  box-shadow:0 0 0 18px rgba(214,229,164,.035),0 0 0 38px rgba(214,229,164,.025);
+  box-shadow:
+    0 0 0 18px rgba(214,229,164,.035),
+    0 0 0 38px rgba(214,229,164,.025);
 }
+
 .cta-kicker{
   color:var(--lime);
   font-size:13px;
@@ -478,22 +700,25 @@ button{cursor:pointer}
   position:relative;
   z-index:1;
 }
+
 .final-cta h2{
   font-size:23px;
   font-weight:900;
-  line-height:1.75;
+  line-height:1.8;
   margin-top:8px;
   position:relative;
   z-index:1;
 }
+
 .final-cta p{
-  color:rgba(255,255,255,.8);
+  color:rgba(255,255,255,.82);
   font-size:14px;
-  line-height:2.1;
+  line-height:2.2;
   margin-top:8px;
   position:relative;
   z-index:1;
 }
+
 .cta-button{
   margin-top:19px;
   display:flex;
@@ -509,47 +734,76 @@ button{cursor:pointer}
   font-weight:900;
   position:relative;
   z-index:1;
-  transition:.2s;
+  transition:transform .2s;
 }
-.cta-button:active{transform:scale(.98)}
-.cta-button svg{width:20px;height:20px;fill:var(--forest)}
+
+.cta-button:active{
+  transform:scale(.98);
+}
+
+.cta-button svg{
+  width:21px;
+  height:21px;
+  fill:var(--forest);
+}
 
 /* SIGNATURE */
+
 .signature{
   display:flex;
   align-items:center;
   justify-content:center;
   flex-wrap:wrap;
   gap:10px;
-  margin:30px 0 10px;
+  margin:29px 0 10px;
   color:#8A9488;
   font-size:12px;
   font-weight:700;
 }
-.signature:before,.signature:after{
+
+.signature:before,
+.signature:after{
   content:"";
   width:27px;
   height:1px;
   background:#C8CEC0;
 }
-.signature-mark{display:flex;align-items:center;gap:7px}
-.signature-mark svg{width:18px;height:18px;fill:var(--forest)}
-.signature-mark b{color:var(--forest);font-weight:900}
+
+.signature-mark{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.signature-mark svg{
+  width:18px;
+  height:18px;
+  fill:var(--forest);
+}
+
+.signature-mark b{
+  color:var(--forest);
+  font-weight:900;
+}
 
 /* BOTTOM NAV */
+
 .bottom-nav{
   position:fixed;
   z-index:200;
-  bottom:0;left:0;right:0;
+  bottom:0;
+  left:0;
+  right:0;
   display:flex;
   align-items:stretch;
-  background:rgba(250,249,244,.97);
+  background:rgba(250,249,244,.98);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
   border-top:1px solid rgba(25,61,50,.11);
-  padding:8px 7px calc(9px + env(safe-area-inset-bottom));
+  padding:8px 7px calc(8px + env(safe-area-inset-bottom));
   box-shadow:0 -8px 28px rgba(25,61,50,.08);
 }
+
 .nav-item{
   flex:1;
   display:flex;
@@ -559,46 +813,150 @@ button{cursor:pointer}
   gap:3px;
   color:#879187;
   font-size:12px;
-  font-weight:800;
+  font-weight:900;
   padding:7px 2px;
   border-radius:13px;
-  transition:.2s;
+  transition:background .2s,color .2s;
 }
-.nav-item svg{width:24px;height:24px;fill:#879187;transition:.2s}
-.nav-item.active{color:var(--forest);background:#E8ECDF}
-.nav-item.active svg{fill:var(--forest);transform:translateY(-1px)}
-.nav-item:active{transform:scale(.95)}
+
+.nav-item svg{
+  width:24px;
+  height:24px;
+  fill:#879187;
+  transition:transform .2s,fill .2s;
+}
+
+.nav-item.active{
+  color:var(--forest);
+  background:#E8ECDF;
+}
+
+.nav-item.active svg{
+  fill:var(--forest);
+  transform:translateY(-1px);
+}
+
+.nav-item:active{
+  transform:scale(.96);
+}
 
 /* DESKTOP */
+
 @media(min-width:760px){
-  .main{max-width:1050px;padding:30px 30px 45px}
-  .header-inner{max-width:1050px;margin:auto;padding:14px 30px}
-  .hero{padding:40px 40px 35px}
-  .hero h1{font-size:40px;max-width:700px}
-  .hero-description{font-size:16px;max-width:700px}
-  .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .faq-card{align-self:start}
-  .faq-toggle{min-height:91px}
-  .faq-q{font-size:15px}
-  .faq-answer{font-size:15px}
-  .bottom-nav{justify-content:center;gap:15px}
-  .nav-item{max-width:145px}
-  .final-cta{padding:34px}
-  .cta-button{max-width:420px}
+  .main{
+    max-width:1050px;
+    padding:30px 30px 45px;
+  }
+
+  .header-inner{
+    max-width:1050px;
+    margin:auto;
+    padding:14px 30px;
+  }
+
+  .hero{
+    padding:40px 40px 35px;
+  }
+
+  .hero h1{
+    font-size:40px;
+    max-width:700px;
+  }
+
+  .hero-description{
+    font-size:16px;
+    max-width:700px;
+  }
+
+  .faq-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+
+  .faq-card{
+    align-self:start;
+  }
+
+  .faq-toggle{
+    min-height:91px;
+  }
+
+  .faq-q{
+    font-size:15px;
+  }
+
+  .faq-answer{
+    font-size:15px;
+  }
+
+  .bottom-nav{
+    justify-content:center;
+    gap:15px;
+  }
+
+  .nav-item{
+    max-width:145px;
+  }
+
+  .final-cta{
+    padding:34px;
+  }
+
+  .cta-button{
+    max-width:420px;
+  }
 }
+
 @media(max-width:380px){
-  .main{padding-left:12px;padding-right:12px}
-  .hero{padding:24px 18px}
-  .hero h1{font-size:27px}
-  .hero-count{font-size:11px;padding:5px 8px}
-  .faq-toggle{gap:9px;padding:12px}
-  .faq-q{font-size:14px}
-  .faq-num{width:37px;height:37px}
-  .faq-answer{font-size:14px}
-  .final-cta h2{font-size:21px}
+  .main{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .hero{
+    padding:23px 17px;
+  }
+
+  .hero h1{
+    font-size:27px;
+  }
+
+  .hero-count{
+    font-size:11px;
+    padding:5px 8px;
+  }
+
+  .faq-toggle{
+    gap:9px;
+    padding:12px;
+  }
+
+  .faq-q{
+    font-size:14px;
+  }
+
+  .faq-num{
+    width:37px;
+    height:37px;
+  }
+
+  .faq-answer{
+    font-size:14px;
+  }
+
+  .final-cta h2{
+    font-size:21px;
+  }
 }
+
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important}
+  *,
+  *:before,
+  *:after{
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
@@ -613,10 +971,12 @@ button{cursor:pointer}
         <path d="m10.8 14.8-2.3-2.3 1.4-1.4 1 1 3.3-3.3 1.4 1.4z"/>
       </svg>
     </div>
+
     <div class="brand-copy">
       <div class="brand-name">امنیت‌گستر</div>
       <div class="brand-caption">راهنمای همکاری و شرایط استخدام</div>
     </div>
+
     <div class="header-index">راهنمای رسمی</div>
   </div>
 </header>
@@ -636,15 +996,20 @@ button{cursor:pointer}
     </p>
 
     <div class="hero-bottom">
-      <svg viewBox="0 0 24 24"><path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm-1 14-4-4 1.4-1.4 2.6 2.6 5.6-5.6L18 9z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm-1 14-4-4 1.4-1.4 2.6 2.6 5.6-5.6L18 9z"/>
+      </svg>
       پیش از ثبت درخواست، این راهنما را کامل مطالعه کنید.
     </div>
   </section>
 
   <div class="intro">
     <div class="intro-symbol">
-      <svg viewBox="0 0 24 24"><path d="M4 3h16v2H4zm0 5h16v2H4zm0 5h10v2H4zm0 5h10v2H4zm13-2 3 3-3 3v-2h-3v-2h3z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M4 3h16v2H4zm0 5h16v2H4zm0 5h10v2H4zm0 5h10v2H4zm13-2 3 3-3 3v-2h-3v-2h3z"/>
+      </svg>
     </div>
+
     <div class="intro-text">
       <strong>پاسخ پرسش‌های مهم شما</strong>
       <p>موضوع موردنظرتان را انتخاب کنید یا کلمه‌ای مانند حقوق، هزینه، قرارداد یا مدارک را جست‌وجو کنید.</p>
@@ -652,8 +1017,17 @@ button{cursor:pointer}
   </div>
 
   <div class="search-box">
-    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/></svg>
-    <input class="search-input" id="faqSearch" type="search" placeholder="جست‌وجو در پرسش‌ها..." autocomplete="off" aria-label="جست‌وجو در پرسش‌های راهنما">
+    <svg viewBox="0 0 24 24">
+      <path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/>
+    </svg>
+    <input
+      class="search-input"
+      id="faqSearch"
+      type="search"
+      placeholder="جست‌وجو در پرسش‌ها..."
+      autocomplete="off"
+      aria-label="جست‌وجو در پرسش‌های راهنما"
+    >
   </div>
 
   <div class="filter-title">
@@ -672,7 +1046,7 @@ button{cursor:pointer}
 
   <div class="section-heading">
     <h2>پرسش‌های پرتکرار</h2>
-    <span id="resultCount">۱۹ پرسش</span>
+    <span id="resultCount" aria-live="polite">۱۹ پرسش</span>
   </div>
 
   <section class="faq-list" id="faqList">
@@ -686,11 +1060,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           هزینه استخدام مبلغ <strong>۱۵ میلیون تومان</strong> است که از حقوق ماه اول شما کسر خواهد شد.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="conditions">
@@ -702,13 +1076,13 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           تمامی اعضا باید مدارکی همچون کپی کارت ملی، شناسنامه، مدارک احراز سکونت، عدم سوءپیشینه و عدم اعتیاد ارائه دهند. در برخی موارد خاص، نیاز به <strong>سفته ضمانت</strong> یا <strong>ضامن معتبر</strong> است که تهیه، ارسال و پرداخت هزینه‌های آن به عهده متقاضی است.
           <br><br>
           استعلام سوءپیشینه الزامی است و توسط ما انجام می‌گردد و هزینه آن <strong>۷۹ هزار تومان</strong> است. مدارک ارسالی شما شامل کارت ملی و شناسنامه پرینت گرفته می‌شود و با انضمام هزینه پوشه، مبلغ <strong>۱۴۰ هزار تومان</strong> باید در ابتدا پرداخت نمایید.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="employment">
@@ -720,11 +1094,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           بله. پس از تشکیل پرونده، <strong>استخدام شما قطعی</strong> خواهد بود. در حال حاضر کارفرمایان بسیاری نیاز به نیروی کار دارند و روزانه موارد متعددی توسط بازاریابان مجموعه اضافه می‌شود که درج همه موارد در اپلیکیشن ممکن نیست؛ اما فرصت‌های شغلی بسیارند.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="money">
@@ -736,11 +1110,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           بله. ما در امنیت‌گستر هرگز مشاغلی که حقوق کمتر از <strong>۶۰ میلیون تومان</strong> پرداخت می‌کنند ارائه نمی‌دهیم. وظیفه ما تأمین امنیت در سطح اول است و صرفاً مشاغل دارای <strong>۲ وعده غذایی</strong>، <strong>حقوق بالای ۶۰ میلیون تومان</strong> و <strong>دارای بیمه</strong> ارائه می‌گردد.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="employment">
@@ -752,11 +1126,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           <strong>ریسک مالی با ماست، نه با شما.</strong> اگر به هر دلیلی از شغل ارائه شده توسط ما رضایت نداشتید، تا ۲ شغل دیگر — جمعاً ۳ شغل — به شما معرفی خواهد شد. اما اگر کارفرما شما را بیرون کرد، این مورد محاسبه نخواهد شد و تا ۳ شغل دیگر به شما معرفی می‌گردد.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="employment">
@@ -768,11 +1142,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           بله. شما <strong>۲ قرارداد کاری معتبر</strong> که بسیار منصفانه نگارش شده است را با کارفرما و با شرکت <strong>امنیت‌گستر تهران (اوما)</strong> رسماً امضا خواهید کرد. تعهد ما به شما ارائه نهایتاً ۳ شغل با شرایط اعلامی است و کارفرما نیز معمولاً بعد از یک هفته موظف به بستن قرارداد با شما خواهد بود؛ از این بابت نگرانی نداشته باشید.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="jobs">
@@ -784,11 +1158,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           همان‌طور که در بخش‌های دیگر ذکر شد، به‌طور کلی ۴ گروه شغلی داریم شامل <strong>نگهبانی، سرایداری، بادیگارد و نیروی خدماتی امنیتی</strong>. دسته مشاغل امنیتی به‌طور شیفتی ۲۴-۲۴ یا ۴۸-۲۴ یا شیفت کاری ۸ ساعته است و محل اقامت ندارد، یا اگر دارد برای استراحت کوتاه است نه اقامت. وعده‌های غذایی فقط در روزهای کاری ۱ وعده داده می‌شود یا داده نمی‌شود. همچنین نزدیکی به محل کار اهمیت فراوانی دارد.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="process">
@@ -800,11 +1174,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           به‌طور معمول نهایتاً <strong>۱۰ روز</strong> زمان خواهد برد. شما مستقیماً به استخدام کارفرما در نخواهید آمد؛ کارفرمایان جهت تأمین امنیت به ما مراجعه می‌کنند و ما شما را به‌عنوان نیرو اعزام خواهیم کرد. این دوره ۱۰ روزه جهت تکمیل و بررسی مدارک، سوءپیشینه، تشکیل پرونده، بررسی جایگاه مناسب شما و ارائه توضیحات و آموزش شغلی است.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="conditions">
@@ -816,11 +1190,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           فقط برای <strong>مشاغل سرایداری</strong>، بله. همان‌طور که قبلاً ذکر شد، ما در این مجموعه هر شغلی را ارائه نمی‌کنیم؛ بلکه مشاغلی که دارای شرایط بسیار مناسب باشند ارائه می‌شود. کلیه مشاغل سرایداری دارای محل اقامت برای همسر و فرزندان است و در بسیاری از موارد، مرد می‌تواند تا ۵ عصر بیرون از منزل فعالیت نماید. شرایط تمامی مشاغل یکسان نیست؛ بنابراین در بخش فرم، تمامی موارد را بررسی نمایید.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="money">
@@ -832,11 +1206,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           بله. کارفرمایان فقط با شما طرف حساب نیستند؛ بلکه وقتی کاری را به ما می‌سپارند، ما نیز پیگیر مطالبات شما خواهیم بود. همه چیز در چارچوب قانون است و تعهدات کارفرمایان مکتوب شده و به امضای آن‌ها رسیده، سپس فایل آگهی آن‌ها ارائه شده است.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="process">
@@ -848,13 +1222,13 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           بله، بدون شک. اپلیکیشن تنها جهت سهولت طی کردن مراحل اولیه است و پس از آن حتماً متقاضی باید حضوراً مراجعه نماید. آدرس و شماره تماس پس از آنکه شما مورد تأیید قرار گرفتید و دسته شغلی مورد نظر خود را انتخاب کردید، در اختیار شما قرار خواهد گرفت تا پیش از استخدام، لیست فرصت‌های شغلی مناسب شما به شما ارائه شود و از بین موارد یکی را انتخاب نمایید و فوراً مشغول شوید.
           <br><br>
           اما در حال حاضر، امکان گفتگو و ارائه مشاوره به افرادی که قصد جدی برای استخدام ندارند مقدور نیست؛ زیرا همکاران ما بیشتر زمان خود را صرف شناسایی فرصت‌های شغلی جدید، ارائه خدمات بهتر، بالاتر بردن سطح حقوق و به‌روزرسانی اپلیکیشن و ... می‌نمایند.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="jobs">
@@ -866,11 +1240,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           خیر. ما از طریق ارتباط نزدیک و بازاریابی حضوری و تلفنی با افراد سرشناس، سلبریتی‌ها، صاحبان مجموعه‌های بزرگ تجاری و برندهای معروف، کارفرمایان را انتخاب می‌نماییم. عموم این افراد در سه شهر بزرگ <strong>تهران، اصفهان و مشهد</strong> و همچنین <strong>شمال و کیش</strong> فرصت‌های شغلی خود را به ما می‌سپارند؛ بنابراین ما در تمامی کشور شغل نداریم.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="jobs">
@@ -882,11 +1256,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           دسته <strong>نگهبانی</strong> از جمله موارد سخت است و محل اقامت مناسب یا شیکی ندارد و همان‌طور که پیش‌تر گفته شد، اتباع محترم برای این مشاغل مناسب‌تر هستند. اما سایر دسته‌ها از جمله بادیگارد، محافظ شخصی، راننده شخصی، سرایدار، نیروی امنیتی پاساژ و اماکن عمومی، مجموعه‌های بزرگ، پارکینگ‌ها، گیت‌های ورود و خروج و ... سختی به لحاظ کار جسمانی ندارند. ساده‌ترین این دسته <strong>سرایداری</strong> است؛ اما تمامی موارد ذکر شده دارای <strong>مسئولیت بسیار سنگین</strong> خواهد بود.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="process">
@@ -898,11 +1272,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           شما در اپلیکیشن تنها یک <strong>ثبت‌نام اولیه</strong> دارید تا ما بدانیم شما قصد جدی برای شروع فعالیت کاری دارید و در اپلیکیشن تنها دسته شغلی خود را مشخص می‌نمایید و توضیحاتی درباره ملاک‌های شغلی خود ارائه می‌دهید. اپلیکیشن فقط تا این مرحله کارآمد است؛ پس از آن ما از طریق شماره تماس اعلامی شما، لیست مشاغل و فرصت‌های شغلی را به شما اعلام می‌کنیم و هماهنگی‌های لازم برای ملاقات حضوری و شروع به کار را انجام خواهیم داد.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="conditions">
@@ -914,11 +1288,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           مسئولیت شما محدود است. انتظار ما از شما <strong>ارائه اطلاعات درست</strong> است تا بتوانیم بر مبنای آن، بهترین فرصت‌های شغلی را به شما معرفی نماییم.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="employment">
@@ -930,13 +1304,13 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           خیر. ما <strong>شرکت تأمین امنیت</strong> هستیم و خودمان تأمین‌کننده امنیت هستیم و گاهاً شما به استخدام مجموعه در خواهید آمد، نه کارفرما. وظیفه ما ارائه بهترین خدمات به کارفرمایان است؛ لذا از پذیرش افراد دارای سوءپیشینه و اعتیاد معذوریم و پیش از استخدام موارد بسیاری را درباره شما بررسی خواهیم کرد.
           <br><br>
           سایر خدمات ما شامل ارائه آموزش جامع مشاغل، جزوه آموزشی، دستورالعمل و وظایف شما، شامل نحوه برخورد، آداب و حفظ پرستیژ کاری مجموعه، ارائه لباس کار مناسب (عموماً کت و شلوارهای رسمی یا پالتوها و پوشش هم‌رنگ متناسب با شما با برند مجموعه یا با ذکر «نیروی سیکوریتی» یا «امنیت‌گستر»)، دست و همراهی تا محل کار و معارفه برای برخی مشاغل حساس مانند بادیگارد افراد سرشناس و ...، و حل مشکلات فیمابین شما و کارفرما خواهد بود.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="jobs">
@@ -948,11 +1322,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           خیر. این دو مورد عموماً نیاز به <strong>ضامن شناخته‌شده</strong> و مستندات و سوابق شغلی یا معرف دارد و مدارکی همانند سفته و تعهدنامه را نیازمند است و پذیرش در این بخش بسیار سخت است. همچنین عموماً به ظاهر آراسته، اندام ورزشکاری، قدرت بدنی و چابکی و برخی خصوصیات اخلاقی نیازمند است و برخی کارفرمایان موارد دیگری از جمله اصالت فرد، گویش، آداب معاشرت و دوره‌دیده بودن را نیز مطالبه می‌کنند. حقوق این دسته از مشاغل بسیار بالاتر است اما برای هر کس مناسب نیست.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="process">
@@ -964,11 +1338,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           خواهشمندم در زمان پر کردن فرم <strong>دقت بسیار بالا</strong> داشته باشید، شرایط فعلی خود را ذکر کنید و اطلاعات درست و دقیق بدهید. حتماً در بخش توضیحات، <strong>ملاک‌های شغلی خود</strong> را ذکر کنید؛ معیار معرفی مشاغل بر اساس درخواست شماست.
         </div>
-      </div></div>
+      </div>
     </article>
 
     <article class="faq-card" data-category="conditions">
@@ -980,11 +1354,11 @@ button{cursor:pointer}
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
-      <div class="faq-panel"><div class="faq-panel-inner">
+      <div class="faq-panel">
         <div class="faq-answer">
           ارائه ضامن یا ضمانت برای <strong>بیش از ۹۰٪ مشاغل الزامی نیست</strong>. اگر برخی موارد را ندارید به هیچ‌وجه نگران نباشید؛ همان‌طور که گفته شد، فرصت‌های شغلی همگی <strong>حقوقی بالاتر از ۶۰ میلیون تومان</strong> دارند.
         </div>
-      </div></div>
+      </div>
     </article>
 
   </section>
@@ -992,11 +1366,15 @@ button{cursor:pointer}
   <div class="empty-state" id="emptyState">
     <strong>پرسشی پیدا نشد!</strong>
     عبارت دیگری جست‌وجو کنید یا دسته‌بندی را روی «همه پرسش‌ها» قرار دهید.
+    <br>
+    <button type="button" class="clear-search" id="clearSearch">پاک کردن جست‌وجو و فیلتر</button>
   </div>
 
   <section class="brand-note">
     <div class="note-top">
-      <svg viewBox="0 0 24 24"><path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V7.7L12 5z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V7.7L12 5z"/>
+      </svg>
       یک نکته مهم از امنیت‌گستر
     </div>
     <p>
@@ -1018,7 +1396,9 @@ button{cursor:pointer}
 
   <div class="signature">
     <div class="signature-mark">
-      <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.4 3.7 10.4 9 12 5.3-1.6 9-6.6 9-12V5l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V6.7L12 4z"/></svg>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 1 3 5v6c0 5.4 3.7 10.4 9 12 5.3-1.6 9-6.6 9-12V5l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V6.7L12 4z"/>
+      </svg>
       <b>امنیت‌گستر</b>
     </div>
     <span>اعتماد، مسئولیت، حرفه‌ای‌گری</span>
@@ -1026,19 +1406,24 @@ button{cursor:pointer}
 
 </main>
 
-<nav class="bottom-nav">
+<nav class="bottom-nav" aria-label="ناوبری اصلی">
   <a href="index.html" class="nav-item">
     <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
     <span>خانه</span>
   </a>
+
   <a href="jobs.html" class="nav-item">
     <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4C8.9 2 8 2.9 8 4v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10-2h4v2h-4V4z"/></svg>
     <span>مشاغل</span>
   </a>
+
   <a href="guide.html" class="nav-item active" aria-current="page">
-    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 17h-2v-2h2v2zm2.1-7.7-.9.9c-.7.7-1.2 1.3-1.2 2.8h-2v-.5c0-1.1.5-2.1 1.2-2.8l1.2-1.2c.4-.4.6-.9.6-1.5a2 2 0 1 0-4 0H8a4 4 0 1 1 8 0c0 .9-.4 1.7-.9 2.3z"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 17h-2v-2h2v2zm2.1-7.7-.9.9c-.7.7-1.2 1.3-1.2 2.8h-2v-.5c0-1.1.5-2.1 1.2-2.8l1.2-1.2c.4-.4.6-.9.6-1.5a2 2 0 1 0-4 0H8a4 4 0 1 1 8 0c0 .9-.4 1.7-.9 2.3z"/>
+    </svg>
     <span>راهنما</span>
   </a>
+
   <a href="request.html" class="nav-item">
     <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
     <span>درخواست</span>
@@ -1047,13 +1432,51 @@ button{cursor:pointer}
 
 <script>
 (function(){
+  'use strict';
+
   const cards = Array.from(document.querySelectorAll('.faq-card'));
   const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
   const searchInput = document.getElementById('faqSearch');
   const resultCount = document.getElementById('resultCount');
   const emptyState = document.getElementById('emptyState');
+  const clearSearch = document.getElementById('clearSearch');
 
   let activeFilter = 'all';
+
+  function toPersianNumber(value){
+    return String(value).replace(/\d/g,function(number){
+      return '۰۱۲۳۴۵۶۷۸۹'[Number(number)];
+    });
+  }
+
+  function normalizeText(value){
+    return String(value || '')
+      .replace(/[يى]/g,'ی')
+      .replace(/ك/g,'ک')
+      .replace(/ۀ/g,'ه')
+      .replace(/ة/g,'ه')
+      .replace(/[\u064B-\u065F\u0670]/g,'')
+      .replace(/[۰-۹]/g,function(number){
+        return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(number));
+      })
+      .replace(/[٠-٩]/g,function(number){
+        return String('٠١٢٣٤٥٦٧٨٩'.indexOf(number));
+      })
+      .replace(/[\u200c\u200e\u200f]/g,' ')
+      .replace(/[ـ،؛؟!.,:()[\]{}«»"']/g,' ')
+      .replace(/\s+/g,' ')
+      .toLowerCase()
+      .trim();
+  }
+
+  function closeCard(card){
+    card.classList.remove('open');
+    card.querySelector('.faq-toggle').setAttribute('aria-expanded','false');
+  }
+
+  function closeAll(){
+    cards.forEach(closeCard);
+  }
 
   cards.forEach(function(card){
     const button = card.querySelector('.faq-toggle');
@@ -1061,10 +1484,7 @@ button{cursor:pointer}
     button.addEventListener('click',function(){
       const wasOpen = card.classList.contains('open');
 
-      cards.forEach(function(other){
-        other.classList.remove('open');
-        other.querySelector('.faq-toggle').setAttribute('aria-expanded','false');
-      });
+      closeAll();
 
       if(!wasOpen){
         card.classList.add('open');
@@ -1073,19 +1493,6 @@ button{cursor:pointer}
     });
   });
 
-  function normalizeText(value){
-    return (value || '')
-      .toString()
-      .replace(/[يى]/g,'ی')
-      .replace(/ك/g,'ک')
-      .replace(/[۰-۹]/g,function(d){
-        return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
-      })
-      .replace(/\s+/g,' ')
-      .toLowerCase()
-      .trim();
-  }
-
   function updateResults(){
     const query = normalizeText(searchInput.value);
     let visible = 0;
@@ -1093,21 +1500,25 @@ button{cursor:pointer}
     cards.forEach(function(card){
       const category = card.dataset.category;
       const content = normalizeText(card.innerText);
-      const matchesCategory = activeFilter === 'all' || category === activeFilter;
-      const matchesSearch = !query || content.includes(query);
+
+      const matchesCategory =
+        activeFilter === 'all' || category === activeFilter;
+
+      const matchesSearch =
+        !query || content.includes(query);
+
       const show = matchesCategory && matchesSearch;
 
       card.hidden = !show;
 
       if(!show){
-        card.classList.remove('open');
-        card.querySelector('.faq-toggle').setAttribute('aria-expanded','false');
+        closeCard(card);
       }else{
         visible++;
       }
     });
 
-    resultCount.textContent = visible + ' پرسش';
+    resultCount.textContent = toPersianNumber(visible) + ' پرسش';
     emptyState.classList.toggle('show',visible === 0);
   }
 
@@ -1116,16 +1527,37 @@ button{cursor:pointer}
       activeFilter = button.dataset.filter;
 
       filterButtons.forEach(function(item){
-        item.classList.toggle('active',item === button);
+        const selected = item === button;
+        item.classList.toggle('active',selected);
+        item.setAttribute('aria-pressed',selected ? 'true' : 'false');
       });
 
       updateResults();
     });
+
+    button.setAttribute(
+      'aria-pressed',
+      button.classList.contains('active') ? 'true' : 'false'
+    );
   });
 
   searchInput.addEventListener('input',updateResults);
 
-  /* جلوگیری از باز ماندن پاسخ‌های مخفی پس از جست‌وجو */
+  clearSearch.addEventListener('click',function(){
+    searchInput.value = '';
+    activeFilter = 'all';
+
+    filterButtons.forEach(function(button){
+      const selected = button.dataset.filter === 'all';
+      button.classList.toggle('active',selected);
+      button.setAttribute('aria-pressed',selected ? 'true' : 'false');
+    });
+
+    closeAll();
+    updateResults();
+    searchInput.focus();
+  });
+
   updateResults();
 })();
 </script>
