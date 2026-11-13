@@ -47,7 +47,7 @@ body{
   color:var(--ink);
   line-height:2;
   font-size:16px;
-  padding-bottom:calc(104px + env(safe-area-inset-bottom));
+  padding-bottom:105px;
   overflow-x:hidden;
 }
 
@@ -307,12 +307,9 @@ button{cursor:pointer}
 .field{
   margin-bottom:24px;
   position:relative;
-  border-radius:15px;
-  transition:background .3s;
 }
 .field:last-child{margin-bottom:0}
 
-/* فیلد خطادار */
 .field.field-error{
   animation:shake .4s ease;
 }
@@ -323,9 +320,7 @@ button{cursor:pointer}
   60%{transform:translateX(-4px)}
   80%{transform:translateX(4px)}
 }
-.field.field-error .label{
-  color:var(--error);
-}
+.field.field-error .label{color:var(--error)}
 .field.field-error .input,
 .field.field-error .textarea,
 .field.field-error .custom-select-trigger{
@@ -364,7 +359,6 @@ button{cursor:pointer}
   margin-bottom:10px;
   line-height:1.7;
   letter-spacing:-.2px;
-  transition:color .3s;
 }
 .label .req{
   color:var(--orange);
@@ -383,10 +377,7 @@ button{cursor:pointer}
   padding:12px 14px;
   font-weight:600;
 }
-.help strong{
-  color:var(--forest);
-  font-weight:900;
-}
+.help strong{color:var(--forest);font-weight:900}
 
 /* ============ INPUTS ============ */
 .input, .textarea{
@@ -403,10 +394,7 @@ button{cursor:pointer}
   transition:border-color .2s, box-shadow .2s, transform .15s;
   line-height:1.6;
 }
-.input::placeholder, .textarea::placeholder{
-  color:#9AA39C;
-  font-weight:500;
-}
+.input::placeholder, .textarea::placeholder{color:#9AA39C;font-weight:500}
 .input:focus, .textarea:focus{
   border-color:var(--olive);
   box-shadow:0 0 0 4px rgba(137,148,107,.15);
@@ -928,52 +916,68 @@ button{cursor:pointer}
   box-shadow:0 2px 8px rgba(200,117,75,.12);
 }
 
-/* ============ BOTTOM NAV ============ */
+/* ============ BOTTOM NAV — دقیقاً مثل صفحه اصلی ============ */
 .bottom-nav{
   position:fixed;
-  bottom:0;left:0;right:0;
-  z-index:200;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:100;
   display:flex;
-  align-items:stretch;
+  justify-content:space-around;
+  padding:9px 7px calc(9px + env(safe-area-inset-bottom));
   background:rgba(250,249,244,.97);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border-top:1px solid rgba(25,61,50,.11);
-  padding:9px 8px calc(9px + env(safe-area-inset-bottom));
-  box-shadow:0 -8px 28px rgba(25,61,50,.08);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-top:1px solid #DDE1D5;
+  box-shadow:0 -5px 25px rgba(25,61,50,.08);
 }
+
 .nav-item{
   flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
-  gap:3px;
-  color:#879187;
-  font-size:13px;
-  font-weight:900;
-  padding:8px 2px;
-  border-radius:14px;
-  transition:background .2s, color .2s, transform .15s;
+  gap:4px;
+  padding:6px 2px;
+  color:#929A8D;
+  font-size:12px;
+  font-weight:800;
   position:relative;
+  transition:.2s;
 }
+
 .nav-item svg{
-  width:25px;height:25px;
-  fill:#879187;
-  transition:transform .2s, fill .2s;
+  width:25px;
+  height:25px;
+  stroke:currentColor;
+  fill:none;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
-.nav-item.active{color:var(--forest);background:#E8ECDF}
-.nav-item.active svg{fill:var(--forest);transform:translateY(-1px)}
+
+.nav-item.active{
+  color:var(--forest);
+}
+
 .nav-item.active:before{
   content:"";
   position:absolute;
-  top:-9px;
+  top:-10px;
   width:28px;
   height:3px;
   background:var(--orange);
-  border-radius:0 0 4px 4px;
+  border-radius:4px;
 }
-.nav-item:active{transform:scale(.96)}
+
+.nav-item.active svg{
+  stroke-width:2.3;
+}
+
+.nav-item:active{
+  opacity:.7;
+}
 
 /* ============ MODAL + TOAST ============ */
 .modal-overlay,
@@ -1813,21 +1817,40 @@ button{cursor:pointer}
 
 </main>
 
+<!-- BOTTOM NAV دقیقاً مثل صفحه اصلی -->
 <nav class="bottom-nav">
   <a href="index.html" class="nav-item">
-    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="m3 10 9-7 9 7"/>
+      <path d="M5 9v11h14V9"/>
+      <path d="M9 20v-6h6v6"/>
+    </svg>
     <span>خانه</span>
   </a>
+
   <a href="jobs.html" class="nav-item">
-    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+    <svg viewBox="0 0 24 24">
+      <rect x="3" y="7" width="18" height="14" rx="2"/>
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      <path d="M3 12h18"/>
+    </svg>
     <span>مشاغل</span>
   </a>
+
   <a href="guide.html" class="nav-item">
-    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>
+      <path d="M12 17h.01"/>
+    </svg>
     <span>راهنما</span>
   </a>
+
   <a href="request.html" class="nav-item active">
-    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l-2 2v-7.5A7.5 7.5 0 0 1 10.5 6H13a7 7 0 0 1 7 5.5Z"/>
+      <path d="M9 12h6m-3-3v6"/>
+    </svg>
     <span>درخواست</span>
   </a>
 </nav>
@@ -1882,7 +1905,6 @@ button{cursor:pointer}
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
-/* ============ قفل اسکرول بدون پرش ============ */
 let scrollLockY = 0;
 function lockScroll(){
   scrollLockY = window.scrollY;
@@ -1901,7 +1923,6 @@ function unlockScroll(){
   window.scrollTo(0, scrollLockY);
 }
 
-/* ============ اسکرول نرم به فیلد ============ */
 function scrollToField(fieldName){
   const field = document.querySelector(`.field[data-field="${fieldName}"]`);
   if(!field) return;
@@ -1910,75 +1931,19 @@ function scrollToField(fieldName){
   window.scrollTo({ top: elTop, behavior: 'smooth' });
 }
 
-/* ============ نمایش خطا روی فیلد ============ */
 function showFieldError(fieldName){
   const field = document.querySelector(`.field[data-field="${fieldName}"]`);
   if(!field) return;
-  
-  // پاک کردن خطاهای قبلی
   $$('.field.field-error').forEach(f => {
     f.classList.remove('field-error');
     f.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
   });
-  
-  // اضافه کردن خطا
   field.classList.add('field-error');
   const errorMsg = field.querySelector('.error-msg');
   if(errorMsg) errorMsg.classList.add('show');
-  
-  // اسکرول نرم
-  setTimeout(() => {
-    scrollToField(fieldName);
-  }, 50);
+  setTimeout(() => { scrollToField(fieldName); }, 50);
 }
 
-/* ============ پاک کردن خطا هنگام تغییر ============ */
-function clearFieldErrorOnChange(){
-  $$('input, textarea, select').forEach(el => {
-    el.addEventListener('input', clearErrorOnElement);
-    el.addEventListener('change', clearErrorOnElement);
-  });
-  
-  $$('.custom-select-option').forEach(opt => {
-    opt.addEventListener('click', () => {
-      const parentField = opt.closest('.field');
-      if(parentField){
-        parentField.classList.remove('field-error');
-        parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
-      }
-    });
-  });
-  
-  $$('input[type="radio"]').forEach(r => {
-    r.addEventListener('change', () => {
-      const parentField = r.closest('.field');
-      if(parentField){
-        parentField.classList.remove('field-error');
-        parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
-      }
-    });
-  });
-  
-  $$('input[type="file"]').forEach(f => {
-    f.addEventListener('change', () => {
-      const parentField = f.closest('.field');
-      if(parentField){
-        parentField.classList.remove('field-error');
-        parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
-      }
-    });
-  });
-}
-
-function clearErrorOnElement(e){
-  const parentField = e.target.closest('.field');
-  if(parentField){
-    parentField.classList.remove('field-error');
-    parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
-  }
-}
-
-/* ============ توست ============ */
 function showToast(title, text) {
   $('#toastTitle').textContent = title;
   $('#toastText').textContent = text;
@@ -1994,7 +1959,6 @@ $('#toastOverlay').addEventListener('click', (e) => {
   if (e.target.id === 'toastOverlay') hideToast();
 });
 
-/* ============ سلکت ============ */
 function initCustomSelect(selectId) {
   const select = document.getElementById(selectId);
   if (!select) return;
@@ -2031,7 +1995,6 @@ document.addEventListener('click', () => {
 
 ['militarySelect','childrenSelect','cooperationSelect','jobCategorySelect','citySelect','bodySelect','educationSelect','licenseSelect','skillSelect','proSkillSelect'].forEach(initCustomSelect);
 
-/* ============ جنسیت ============ */
 const maleSection = $('#maleSection');
 const femaleMsg = $('#femaleMsg');
 
@@ -2049,7 +2012,6 @@ $$('input[name="gender"]').forEach(r => {
   });
 });
 
-/* ============ تأهل ============ */
 const childrenField = $('#childrenField');
 const cooperationField = $('#cooperationField');
 const childrenHidden = childrenField.querySelector('input[type="hidden"]');
@@ -2065,314 +2027,4 @@ $$('input[name="marital"]').forEach(r => {
       childrenField.classList.remove('hidden');
       childrenField.classList.add('fade-in');
       cooperationField.classList.remove('hidden');
-      cooperationField.classList.add('fade-in');
-    } else {
-      childrenField.classList.add('hidden');
-      childrenHidden.value = '';
-      childrenValue.textContent = 'لطفاً انتخاب کنید';
-      childrenTrigger.classList.add('placeholder');
-      childrenField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-
-      cooperationField.classList.add('hidden');
-      coopHidden.value = '';
-      coopValue.textContent = 'لطفاً انتخاب کنید';
-      coopTrigger.classList.add('placeholder');
-      cooperationField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-    }
-  });
-});
-
-/* ============ تخصص ============ */
-const proSkillField = $('#proSkillField');
-const otherSkillField = $('#otherSkillField');
-const skillHidden = $('#skillSelect input[type="hidden"]');
-const proSkillHidden = $('#proSkillSelect input[type="hidden"]');
-const proSkillTrigger = $('#proSkillSelect .custom-select-trigger');
-const proSkillValue = $('#proSkillSelect .custom-select-value');
-
-skillHidden.addEventListener('change', () => {
-  const val = skillHidden.value;
-  if (val === 'فنی حرفه‌ای') {
-    proSkillField.classList.remove('hidden');
-    proSkillField.classList.add('fade-in');
-    otherSkillField.classList.add('hidden');
-    $('#otherSkillText').value = '';
-  } else if (val === 'تخصص غیر فنی') {
-    otherSkillField.classList.remove('hidden');
-    otherSkillField.classList.add('fade-in');
-    proSkillField.classList.add('hidden');
-    proSkillHidden.value = '';
-    proSkillValue.textContent = 'لطفاً انتخاب کنید';
-    proSkillTrigger.classList.add('placeholder');
-    $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-  } else {
-    proSkillField.classList.add('hidden');
-    otherSkillField.classList.add('hidden');
-    $('#otherSkillText').value = '';
-    proSkillHidden.value = '';
-    proSkillValue.textContent = 'لطفاً انتخاب کنید';
-    proSkillTrigger.classList.add('placeholder');
-    $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-  }
-});
-
-/* ============ آپلود ============ */
-function setupUpload(inputId, previewId, loadingId) {
-  const input = document.getElementById(inputId);
-  const preview = document.getElementById(previewId);
-  const loading = document.getElementById(loadingId);
-  const img = preview.querySelector('img');
-  const name = preview.querySelector('.upload-preview-name');
-
-  input.addEventListener('change', () => {
-    const file = input.files[0];
-    if (!file) {
-      preview.classList.remove('show');
-      return;
-    }
-    preview.classList.remove('show');
-    loading.classList.add('show');
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setTimeout(() => {
-        img.src = e.target.result;
-        name.textContent = file.name;
-        loading.classList.remove('show');
-        preview.classList.add('show');
-      }, 700);
-    };
-    reader.readAsDataURL(file);
-  });
-}
-
-setupUpload('idFront', 'prev-idFront', 'load-idFront');
-setupUpload('idBack', 'prev-idBack', 'load-idBack');
-setupUpload('receipt', 'prev-receipt', 'load-receipt');
-
-/* ============ ساخت متن ============ */
-function buildSummaryText() {
-  const fullname = $('#fullname').value.trim();
-  const phone = $('#phone').value.trim();
-  const age = $('#age').value.trim();
-  const location = $('#location').value.trim();
-  const height = $('#height').value.trim();
-  const weight = $('#weight').value.trim();
-  const notes = $('#notes').value.trim();
-  const otherSkillText = $('#otherSkillText').value.trim();
-
-  const military = $('input[name="military"]').value;
-  const marital = $('input[name="marital"]:checked')?.value || '';
-  const children = $('input[name="children"]').value;
-  const cooperation = $('input[name="cooperation"]').value;
-  const jobCategory = $('input[name="jobCategory"]').value;
-  const city = $('input[name="city"]').value;
-  const body = $('input[name="body"]').value;
-  const education = $('input[name="education"]').value;
-  const license = $('input[name="license"]').value;
-  const manual = $('input[name="manual"]:checked')?.value || '';
-  const uniform = $('input[name="uniform"]:checked')?.value || '';
-  const equipment = $('input[name="equipment"]:checked')?.value || '';
-  const skill = $('input[name="skill"]').value;
-  const proSkill = $('input[name="proSkill"]').value;
-
-  const maritalText = marital === 'married' ? 'متأهل' : 'مجرد';
-  let familyText = '';
-  if (marital === 'married') {
-    if (children) familyText += ` و دارای ${children}`;
-    if (cooperation) familyText += ` (نوع همکاری: ${cooperation})`;
-  }
-
-  let skillText = '';
-  if (skill === 'فنی حرفه‌ای' && proSkill) {
-    skillText = `دارای تخصص فنی حرفه‌ای در زمینه ${proSkill}`;
-  } else if (skill === 'تخصص غیر فنی' && otherSkillText) {
-    skillText = `دارای تخصص غیر فنی: ${otherSkillText}`;
-  } else if (skill) {
-    skillText = skill;
-  }
-
-  const licenseText = license === 'فاقد گواهینامه' ? 'فاقد گواهینامه رانندگی' : license;
-
-  let requestText = '';
-  requestText += `اینجانب <span class="hl">${fullname}</span>، `;
-  requestText += `${age} ساله، ساکن <span class="hl">${location}</span>، `;
-  requestText += `دارای مدرک <span class="hl">${education}</span>، `;
-  requestText += `وضعیت نظام وظیفه: <strong>${military}</strong>، `;
-  requestText += `وضعیت تأهل: <strong>${maritalText}${familyText}</strong>، `;
-  requestText += `وضعیت تناسب اندام: <strong>${body}</strong> `;
-  if (height) requestText += `(قد ${height} سانتی‌متر`;
-  if (weight) requestText += `، وزن ${weight} کیلوگرم)`;
-  else if (height) requestText += `)`;
-  requestText += `، `;
-  requestText += `گواهینامه: <strong>${licenseText}</strong>، `;
-  if (skillText) requestText += `تخصص: <strong>${skillText}</strong>، `;
-  if (manual) requestText += `مطالعه جزوه آموزشی: <strong>${manual}</strong>، `;
-  if (uniform) requestText += `پذیرش یونیفرم: <strong>${uniform}</strong>، `;
-  if (equipment) requestText += `تعهد تجهیزات: <strong>${equipment}</strong>، `;
-  requestText += `. `;
-
-  requestText += `تقاضای <span class="hl">مشاوره کامل</span> و <span class="hl">اشتغال فوری</span> `;
-  requestText += `با حقوق و شرایط اعلام شده در اپلیکیشن `;
-  requestText += `در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را دارم. `;
-  requestText += `لطفاً لیست فرصت‌های شغلی متناسب با شرایط من را ارائه دهید `;
-  requestText += `و منتظر تماس کارشناسان شما با شماره <strong>${phone}</strong> هستم.`;
-  if (notes) {
-    requestText += `<br><br><span style="color:var(--muted);font-size:14px;">توضیحات تکمیلی شما: ${notes}</span>`;
-  }
-
-  return requestText;
-}
-
-/* ============ اعتبارسنجی فیلد به فیلد ============ */
-function validateField(fieldName){
-  switch(fieldName){
-    case 'fullname':
-      return $('#fullname').value.trim().length > 0 ? null : 'fullname';
-    case 'phone': {
-      const phoneVal = $('#phone').value.trim();
-      return (phoneVal && phoneVal.replace(/\D/g,'').length >= 10) ? null : 'phone';
-    }
-    case 'gender':
-      return $('input[name="gender"]:checked') ? null : 'gender';
-    case 'military':
-      return $('input[name="military"]').value ? null : 'military';
-    case 'marital':
-      return $('input[name="marital"]:checked') ? null : 'marital';
-    case 'children':
-      if ($('#childrenField').classList.contains('hidden')) return null;
-      return $('input[name="children"]').value ? null : 'children';
-    case 'cooperation':
-      if ($('#cooperationField').classList.contains('hidden')) return null;
-      return $('input[name="cooperation"]').value ? null : 'cooperation';
-    case 'age': {
-      const ageVal = $('#age').value.trim();
-      const ageNum = parseInt(ageVal);
-      return (ageVal && !isNaN(ageNum) && ageNum >= 17 && ageNum <= 70) ? null : 'age';
-    }
-    case 'location':
-      return $('#location').value.trim().length > 0 ? null : 'location';
-    case 'jobCategory':
-      return $('input[name="jobCategory"]').value ? null : 'jobCategory';
-    case 'city':
-      return $('input[name="city"]').value ? null : 'city';
-    case 'height':
-      return $('#height').value.trim().length > 0 ? null : 'height';
-    case 'weight':
-      return $('#weight').value.trim().length > 0 ? null : 'weight';
-    case 'body':
-      return $('input[name="body"]').value ? null : 'body';
-    case 'education':
-      return $('input[name="education"]').value ? null : 'education';
-    case 'manual':
-      return $('input[name="manual"]:checked') ? null : 'manual';
-    case 'license':
-      return $('input[name="license"]').value ? null : 'license';
-    case 'uniform':
-      return $('input[name="uniform"]:checked') ? null : 'uniform';
-    case 'equipment':
-      return $('input[name="equipment"]:checked') ? null : 'equipment';
-    case 'skill':
-      return $('input[name="skill"]').value ? null : 'skill';
-    case 'proSkill':
-      if ($('#proSkillField').classList.contains('hidden')) return null;
-      return $('input[name="proSkill"]').value ? null : 'proSkill';
-    case 'idFront':
-      return $('#idFront').files[0] ? null : 'idFront';
-    case 'idBack':
-      return $('#idBack').files[0] ? null : 'idBack';
-    case 'receipt':
-      return $('#receipt').files[0] ? null : 'receipt';
-    default:
-      return null;
-  }
-}
-
-/* ============ بررسی کامل و برگرداندن اولین خطا ============ */
-function validateAll(){
-  const fieldsToCheck = [
-    'fullname','phone','gender','military','marital',
-    'children','cooperation','age','location',
-    'jobCategory','city','height','weight','body',
-    'education','manual','license','uniform','equipment',
-    'skill','proSkill','idFront','idBack','receipt'
-  ];
-  
-  for(const fieldName of fieldsToCheck){
-    const error = validateField(fieldName);
-    if(error) return error;
-  }
-  return null;
-}
-
-/* ============ ارسال فرم ============ */
-$('#jobForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const firstError = validateAll();
-  if(firstError){
-    showFieldError(firstError);
-    return;
-  }
-
-  $('#summaryText').innerHTML = buildSummaryText();
-  $('#confirmCheckbox').checked = false;
-  $('#btnConfirm').disabled = true;
-  $('#confirmModal').classList.add('show');
-  lockScroll();
-});
-
-/* ============ تأیید نهایی ============ */
-$('#confirmCheckbox').addEventListener('change', (e) => {
-  $('#btnConfirm').disabled = !e.target.checked;
-});
-
-$('#btnEdit').addEventListener('click', () => {
-  $('#confirmModal').classList.remove('show');
-  unlockScroll();
-});
-
-$('#btnConfirm').addEventListener('click', () => {
-  const fullname = $('#fullname').value.trim();
-  const phone = $('#phone').value.trim();
-  const age = $('#age').value.trim();
-  const location = $('#location').value.trim();
-  const jobCategory = $('input[name="jobCategory"]').value;
-  const city = $('input[name="city"]').value;
-
-  let successText = '';
-  successText += `اینجانب <span class="hl">${fullname}</span>، ${age} ساله، ساکن ${location}، `;
-  successText += `درخواست استخدام در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را با موفقیت ثبت نمودم. `;
-  successText += `منتظر تماس کارشناسان امنیت‌گستر با شماره <strong>${phone}</strong> هستم.`;
-
-  $('#successText').innerHTML = successText;
-  $('#confirmModal').classList.remove('show');
-  $('#successModal').classList.add('show');
-});
-
-$('#modalClose').addEventListener('click', () => {
-  $('#successModal').classList.remove('show');
-  unlockScroll();
-  $('#jobForm').reset();
-  $$('.custom-select').forEach(sel => {
-    const hidden = sel.querySelector('input[type="hidden"]');
-    const trigger = sel.querySelector('.custom-select-trigger');
-    const value = sel.querySelector('.custom-select-value');
-    if (hidden) hidden.value = '';
-    if (trigger) trigger.classList.add('placeholder');
-    if (value) {
-      value.textContent = value.textContent.includes('شهر') ? 'لطفاً شهر مورد نظر را انتخاب کنید' :
-                         value.textContent.includes('دسته') ? 'لطفاً یک دسته را انتخاب کنید' :
-                         'لطفاً انتخاب کنید';
-    }
-    sel.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
-  });
-  $$('.upload-preview').forEach(p => p.classList.remove('show'));
-});
-
-/* ============ فعال‌سازی پاک‌سازی خطا ============ */
-clearFieldErrorOnChange();
-</script>
-
-</body>
-  </html>
+      cooperationField.classList.add('fade-in
