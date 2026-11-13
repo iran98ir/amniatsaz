@@ -26,8 +26,6 @@
   --orange-soft:#F2DED3;
   --orange-deep:#A65A34;
   --success:#2F855A;
-  --shadow:0 12px 35px rgba(25,61,50,.08);
-  --shadow2:0 20px 55px rgba(25,61,50,.14);
 }
 
 *{
@@ -210,7 +208,7 @@ button{cursor:pointer}
   font-weight:500;
 }
 
-/* ============ NOTE CARDS (3D) ============ */
+/* ============ NOTE CARDS ============ */
 .note{
   position:relative;
   background:var(--paper);
@@ -471,7 +469,7 @@ button{cursor:pointer}
   flex-shrink:0;
 }
 
-/* ============ RADIO (3D) ============ */
+/* ============ RADIO ============ */
 .radio-group{
   display:flex;
   flex-direction:column;
@@ -663,7 +661,7 @@ button{cursor:pointer}
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ============ PAY CARD (3D BLACK) ============ */
+/* ============ PAY ============ */
 .pay-amount{
   background:linear-gradient(135deg,#FFFFFF,#F2F4E9);
   border:1.5px solid rgba(25,61,50,.15);
@@ -814,7 +812,7 @@ button{cursor:pointer}
 .pay-card-logo .c1{background:var(--orange)}
 .pay-card-logo .c2{background:#A5A8B5;margin-right:-8px}
 
-/* ============ SUBMIT BUTTON (3D) ============ */
+/* ============ SUBMIT ============ */
 .submit-btn{
   display:flex;
   align-items:center;
@@ -835,7 +833,6 @@ button{cursor:pointer}
     0 16px 32px rgba(25,61,50,.28);
   transition:transform .12s ease, box-shadow .18s;
   margin-top:26px;
-  text-decoration:none;
   position:relative;
   overflow:hidden;
   letter-spacing:-.2px;
@@ -929,21 +926,26 @@ button{cursor:pointer}
 }
 .nav-item:active{transform:scale(.96)}
 
-/* ============ MODAL ============ */
-.modal-overlay{
+/* ============ MODAL + TOAST (بدون پرش افقی) ============ */
+.modal-overlay,
+.toast-overlay{
   position:fixed;
   inset:0;
-  background:rgba(15,35,30,.65);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
   z-index:999;
   display:none;
   align-items:center;
   justify-content:center;
   padding:18px;
   overflow-y:auto;
+  overflow-x:hidden;
 }
-.modal-overlay.show{display:flex;animation:fadeIn .3s ease both}
+
+.modal-overlay.show,
+.toast-overlay.show{
+  display:flex;
+  animation:fadeIn .3s ease both;
+}
+
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 .modal{
@@ -1128,19 +1130,6 @@ button{cursor:pointer}
 }
 
 /* ============ TOAST ============ */
-.toast-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(15,35,30,.55);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  z-index:1000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-}
-.toast-overlay.show{display:flex;animation:fadeIn .25s ease both}
 .toast{
   background:var(--paper);
   border-radius:22px;
@@ -1818,21 +1807,42 @@ button{cursor:pointer}
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 
+/* ============ قفل اسکرول بدون پرش ============ */
+let scrollLockY = 0;
+function lockScroll(){
+  scrollLockY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollLockY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+}
+function unlockScroll(){
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  window.scrollTo(0, scrollLockY);
+}
+
+/* ============ توست ============ */
 function showToast(title, text) {
   $('#toastTitle').textContent = title;
   $('#toastText').textContent = text;
   $('#toastOverlay').classList.add('show');
-  document.body.style.overflow = 'hidden';
+  lockScroll();
 }
 function hideToast() {
   $('#toastOverlay').classList.remove('show');
-  document.body.style.overflow = '';
+  unlockScroll();
 }
 $('#toastBtn').addEventListener('click', hideToast);
 $('#toastOverlay').addEventListener('click', (e) => {
   if (e.target.id === 'toastOverlay') hideToast();
 });
 
+/* ============ سلکت ============ */
 function initCustomSelect(selectId) {
   const select = document.getElementById(selectId);
   if (!select) return;
@@ -1869,6 +1879,7 @@ document.addEventListener('click', () => {
 
 ['militarySelect','childrenSelect','cooperationSelect','jobCategorySelect','citySelect','bodySelect','educationSelect','licenseSelect','skillSelect','proSkillSelect'].forEach(initCustomSelect);
 
+/* ============ جنسیت ============ */
 const maleSection = $('#maleSection');
 const femaleMsg = $('#femaleMsg');
 
@@ -1886,6 +1897,7 @@ $$('input[name="gender"]').forEach(r => {
   });
 });
 
+/* ============ تأهل ============ */
 const childrenField = $('#childrenField');
 const cooperationField = $('#cooperationField');
 const childrenHidden = childrenField.querySelector('input[type="hidden"]');
@@ -1918,6 +1930,7 @@ $$('input[name="marital"]').forEach(r => {
   });
 });
 
+/* ============ تخصص ============ */
 const proSkillField = $('#proSkillField');
 const otherSkillField = $('#otherSkillField');
 const skillHidden = $('#skillSelect input[type="hidden"]');
@@ -1951,6 +1964,7 @@ skillHidden.addEventListener('change', () => {
   }
 });
 
+/* ============ آپلود ============ */
 function setupUpload(inputId, previewId, loadingId) {
   const input = document.getElementById(inputId);
   const preview = document.getElementById(previewId);
@@ -1984,6 +1998,7 @@ setupUpload('idFront', 'prev-idFront', 'load-idFront');
 setupUpload('idBack', 'prev-idBack', 'load-idBack');
 setupUpload('receipt', 'prev-receipt', 'load-receipt');
 
+/* ============ ساخت متن ============ */
 function buildSummaryText() {
   const fullname = $('#fullname').value.trim();
   const phone = $('#phone').value.trim();
@@ -2057,6 +2072,7 @@ function buildSummaryText() {
   return requestText;
 }
 
+/* ============ ارسال فرم ============ */
 $('#jobForm').addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -2116,16 +2132,17 @@ $('#jobForm').addEventListener('submit', (e) => {
   $('#confirmCheckbox').checked = false;
   $('#btnConfirm').disabled = true;
   $('#confirmModal').classList.add('show');
-  document.body.style.overflow = 'hidden';
+  lockScroll();
 });
 
+/* ============ تأیید نهایی ============ */
 $('#confirmCheckbox').addEventListener('change', (e) => {
   $('#btnConfirm').disabled = !e.target.checked;
 });
 
 $('#btnEdit').addEventListener('click', () => {
   $('#confirmModal').classList.remove('show');
-  document.body.style.overflow = '';
+  unlockScroll();
 });
 
 $('#btnConfirm').addEventListener('click', () => {
@@ -2148,7 +2165,7 @@ $('#btnConfirm').addEventListener('click', () => {
 
 $('#modalClose').addEventListener('click', () => {
   $('#successModal').classList.remove('show');
-  document.body.style.overflow = '';
+  unlockScroll();
   $('#jobForm').reset();
   $$('.custom-select').forEach(sel => {
     const hidden = sel.querySelector('input[type="hidden"]');
