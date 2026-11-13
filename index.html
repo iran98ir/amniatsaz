@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#F1F0E8">
-<title>فرصت‌های شغلی | امنیت‌گستر</title>
+<title>خانه | امنیت‌گستر</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -526,7 +526,7 @@ button{
   --job-bg:#E9ECDD;
 }
 
-/* DIFFERENT VISUAL STATEMENT */
+/* MANIFESTO */
 
 .manifesto{
   background:#E9E7D9;
@@ -580,7 +580,7 @@ button{
   z-index:1;
 }
 
-/* PROCESS CTA */
+/* APPLICATION - GO TO JOBS */
 
 .application{
   padding:30px 16px;
@@ -641,7 +641,7 @@ button{
   padding:15px 17px;
   border-radius:4px 13px 4px 13px;
   margin-top:21px;
-  font-size:17px;
+  font-size:16px;
   font-weight:900;
   position:relative;
   transition:.2s;
@@ -655,7 +655,7 @@ button{
   font-size:23px;
 }
 
-/* GUIDE */
+/* GUIDE LINK - GO TO JOBS */
 
 .guide{
   margin:0 16px;
@@ -666,6 +666,11 @@ button{
   align-items:center;
   gap:13px;
   border-radius:5px 17px 5px 17px;
+  transition:.2s;
+}
+
+.guide:active{
+  transform:scale(.985);
 }
 
 .guide-icon{
@@ -692,9 +697,10 @@ button{
 
 .guide-text strong{
   display:block;
-  font-size:16px;
+  font-size:15px;
   color:var(--forest);
   font-weight:900;
+  line-height:1.8;
 }
 
 .guide-text small{
@@ -702,6 +708,7 @@ button{
   color:#778176;
   font-size:12px;
   margin-top:3px;
+  line-height:1.8;
 }
 
 .guide-arrow{
@@ -1099,24 +1106,24 @@ button{
 </section>
 
 
-<!-- APPLICATION -->
+<!-- JOBS CALL TO ACTION -->
 
 <section class="application">
 
   <div class="application-inner">
 
-    <div class="application-label">NEXT STEP / شروع همکاری</div>
+    <div class="application-label">BEFORE YOU APPLY / پیش از ثبت درخواست</div>
 
     <h2>
-      فرصت‌ها منتظر تصمیم تو نمی‌مانند.
+      اول جایگاهت را بشناس؛ بعد تصمیم بگیر.
     </h2>
 
     <p>
-      اگر موقعیت شغلی متناسب با خودت را پیدا کرده‌ای، اولین قدم را بردار و درخواست همکاری‌ات را ثبت کن.
+      فرصت‌های شغلی، شرایط و مسئولیت‌های هر موقعیت و تعهدات امنیت‌گستر را با دقت بررسی کن. انتخاب آگاهانه، نخستین قدم یک همکاری حرفه‌ای است.
     </p>
 
-    <a href="request.html" class="application-button">
-      <span>شروع ثبت درخواست همکاری</span>
+    <a href="jobs.html" class="application-button">
+      <span>مشاهده فرصت‌های شغلی و شرایط همکاری</span>
       <span>←</span>
     </a>
 
@@ -1125,21 +1132,20 @@ button{
 </section>
 
 
-<!-- GUIDE -->
+<!-- SECOND JOBS LINK -->
 
-<a href="guide.html" class="guide">
+<a href="jobs.html" class="guide">
 
   <div class="guide-icon">
     <svg viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9"/>
-      <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>
-      <path d="M12 17h.01"/>
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/>
+      <path d="M4 6h13M8 9h8m-8 3h8"/>
     </svg>
   </div>
 
   <div class="guide-text">
-    <strong>قبل از اقدام، این یک نکته را بدان.</strong>
-    <small>راهنمای مراحل و شرایط ثبت درخواست</small>
+    <strong>پیش از انتخاب، همه‌چیز را بدان.</strong>
+    <small>جزئیات فرصت‌ها و تعهدات همکاری را در صفحه مشاغل بخوان.</small>
   </div>
 
   <div class="guide-arrow">←</div>
@@ -1158,7 +1164,7 @@ button{
 
 <nav class="bottom-nav">
 
-  <a href="index.html" class="nav-item">
+  <a href="index.html" class="nav-item active">
     <svg viewBox="0 0 24 24">
       <path d="m3 10 9-7 9 7"/>
       <path d="M5 9v11h14V9"/>
@@ -1167,7 +1173,7 @@ button{
     <span>خانه</span>
   </a>
 
-  <a href="jobs.html" class="nav-item active">
+  <a href="jobs.html" class="nav-item">
     <svg viewBox="0 0 24 24">
       <rect x="3" y="7" width="18" height="14" rx="2"/>
       <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
