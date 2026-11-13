@@ -55,7 +55,6 @@ a{color:inherit;text-decoration:none}
 button,input,textarea,select{font-family:inherit;font-size:inherit}
 button{cursor:pointer}
 
-/* ============ HEADER ============ */
 .header{
   background:var(--cream);
   padding:16px 17px;
@@ -121,14 +120,12 @@ button{cursor:pointer}
   flex-shrink:0;
 }
 
-/* ============ MAIN ============ */
 .main{
   max-width:720px;
   margin:0 auto;
   padding:20px 16px 20px;
 }
 
-/* ============ HERO ============ */
 .hero{
   position:relative;
   background:
@@ -209,7 +206,6 @@ button{cursor:pointer}
   font-weight:500;
 }
 
-/* ============ NOTE CARDS ============ */
 .note{
   position:relative;
   background:var(--paper);
@@ -271,7 +267,6 @@ button{cursor:pointer}
   padding:0 2px;
 }
 
-/* ============ FORM CARD ============ */
 .form-card{
   position:relative;
   background:var(--paper);
@@ -303,7 +298,6 @@ button{cursor:pointer}
   flex-shrink:0;
 }
 
-/* ============ FIELD ============ */
 .field{
   margin-bottom:24px;
   position:relative;
@@ -379,7 +373,6 @@ button{cursor:pointer}
 }
 .help strong{color:var(--forest);font-weight:900}
 
-/* ============ INPUTS ============ */
 .input, .textarea{
   width:100%;
   padding:15px 17px;
@@ -405,7 +398,6 @@ button{cursor:pointer}
   line-height:2;
 }
 
-/* ============ CUSTOM SELECT ============ */
 .custom-select{position:relative}
 .custom-select-trigger{
   width:100%;
@@ -506,7 +498,6 @@ button{cursor:pointer}
   flex-shrink:0;
 }
 
-/* ============ RADIO ============ */
 .radio-group{
   display:flex;
   flex-direction:column;
@@ -566,7 +557,6 @@ button{cursor:pointer}
 .radio-text{flex:1;color:var(--ink);font-weight:600}
 .radio-card:has(input:checked) .radio-text{color:var(--forest);font-weight:900}
 
-/* ============ FEMALE MSG ============ */
 .female-msg{
   display:none;
   padding:22px 20px;
@@ -599,7 +589,6 @@ button{cursor:pointer}
   padding:0 2px;
 }
 
-/* ============ UPLOAD ============ */
 .upload-box{
   display:block;
   border:2px dashed rgba(200,117,75,.5);
@@ -698,7 +687,6 @@ button{cursor:pointer}
 }
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ============ PAY ============ */
 .pay-amount{
   background:linear-gradient(135deg,#FFFFFF,#F2F4E9);
   border:1.5px solid rgba(25,61,50,.15);
@@ -849,7 +837,6 @@ button{cursor:pointer}
 .pay-card-logo .c1{background:var(--orange)}
 .pay-card-logo .c2{background:#A5A8B5;margin-right:-8px}
 
-/* ============ SUBMIT ============ */
 .submit-btn{
   display:flex;
   align-items:center;
@@ -888,7 +875,6 @@ button{cursor:pointer}
 }
 .submit-btn svg{width:24px;height:24px;fill:var(--lime)}
 
-/* ============ SIGNATURE ============ */
 .signature{
   display:flex;
   align-items:center;
@@ -916,7 +902,7 @@ button{cursor:pointer}
   box-shadow:0 2px 8px rgba(200,117,75,.12);
 }
 
-/* ============ BOTTOM NAV — دقیقاً مثل صفحه اصلی ============ */
+/* ============ BOTTOM NAV — کپی دقیق از صفحه اصلی ============ */
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -979,7 +965,6 @@ button{cursor:pointer}
   opacity:.7;
 }
 
-/* ============ MODAL + TOAST ============ */
 .modal-overlay,
 .toast-overlay{
   position:fixed;
@@ -1183,7 +1168,6 @@ button{cursor:pointer}
   box-shadow:none;
 }
 
-/* ============ TOAST ============ */
 .toast{
   background:var(--paper);
   border-radius:22px;
@@ -1246,7 +1230,6 @@ button{cursor:pointer}
 }
 .toast-btn:active{transform:translateY(2px)}
 
-/* ============ HELPERS ============ */
 .hidden{display:none!important}
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(14px)}
@@ -1257,7 +1240,6 @@ button{cursor:pointer}
 .modal::-webkit-scrollbar{width:5px}
 .modal::-webkit-scrollbar-thumb{background:rgba(200,117,75,.3);border-radius:3px}
 
-/* ============ MEDIA ============ */
 @media(min-width:760px){
   .main{padding:26px 30px 30px}
   .header{padding:14px 30px}
@@ -1817,7 +1799,7 @@ button{cursor:pointer}
 
 </main>
 
-<!-- BOTTOM NAV دقیقاً مثل صفحه اصلی -->
+<!-- ============ BOTTOM NAV — کپی دقیق از صفحه اصلی ============ -->
 <nav class="bottom-nav">
   <a href="index.html" class="nav-item">
     <svg viewBox="0 0 24 24">
@@ -2027,4 +2009,345 @@ $$('input[name="marital"]').forEach(r => {
       childrenField.classList.remove('hidden');
       childrenField.classList.add('fade-in');
       cooperationField.classList.remove('hidden');
-      cooperationField.classList.add('fade-in
+      cooperationField.classList.add('fade-in');
+    } else {
+      childrenField.classList.add('hidden');
+      childrenHidden.value = '';
+      childrenValue.textContent = 'لطفاً انتخاب کنید';
+      childrenTrigger.classList.add('placeholder');
+      childrenField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+
+      cooperationField.classList.add('hidden');
+      coopHidden.value = '';
+      coopValue.textContent = 'لطفاً انتخاب کنید';
+      coopTrigger.classList.add('placeholder');
+      cooperationField.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+    }
+  });
+});
+
+const proSkillField = $('#proSkillField');
+const otherSkillField = $('#otherSkillField');
+const skillHidden = $('#skillSelect input[type="hidden"]');
+const proSkillHidden = $('#proSkillSelect input[type="hidden"]');
+const proSkillTrigger = $('#proSkillSelect .custom-select-trigger');
+const proSkillValue = $('#proSkillSelect .custom-select-value');
+
+skillHidden.addEventListener('change', () => {
+  const val = skillHidden.value;
+  if (val === 'فنی حرفه‌ای') {
+    proSkillField.classList.remove('hidden');
+    proSkillField.classList.add('fade-in');
+    otherSkillField.classList.add('hidden');
+    $('#otherSkillText').value = '';
+  } else if (val === 'تخصص غیر فنی') {
+    otherSkillField.classList.remove('hidden');
+    otherSkillField.classList.add('fade-in');
+    proSkillField.classList.add('hidden');
+    proSkillHidden.value = '';
+    proSkillValue.textContent = 'لطفاً انتخاب کنید';
+    proSkillTrigger.classList.add('placeholder');
+    $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  } else {
+    proSkillField.classList.add('hidden');
+    otherSkillField.classList.add('hidden');
+    $('#otherSkillText').value = '';
+    proSkillHidden.value = '';
+    proSkillValue.textContent = 'لطفاً انتخاب کنید';
+    proSkillTrigger.classList.add('placeholder');
+    $('#proSkillSelect').querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  }
+});
+
+function setupUpload(inputId, previewId, loadingId) {
+  const input = document.getElementById(inputId);
+  const preview = document.getElementById(previewId);
+  const loading = document.getElementById(loadingId);
+  const img = preview.querySelector('img');
+  const name = preview.querySelector('.upload-preview-name');
+
+  input.addEventListener('change', () => {
+    const file = input.files[0];
+    if (!file) {
+      preview.classList.remove('show');
+      return;
+    }
+    preview.classList.remove('show');
+    loading.classList.add('show');
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setTimeout(() => {
+        img.src = e.target.result;
+        name.textContent = file.name;
+        loading.classList.remove('show');
+        preview.classList.add('show');
+      }, 700);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+setupUpload('idFront', 'prev-idFront', 'load-idFront');
+setupUpload('idBack', 'prev-idBack', 'load-idBack');
+setupUpload('receipt', 'prev-receipt', 'load-receipt');
+
+function buildSummaryText() {
+  const fullname = $('#fullname').value.trim();
+  const phone = $('#phone').value.trim();
+  const age = $('#age').value.trim();
+  const location = $('#location').value.trim();
+  const height = $('#height').value.trim();
+  const weight = $('#weight').value.trim();
+  const notes = $('#notes').value.trim();
+  const otherSkillText = $('#otherSkillText').value.trim();
+
+  const military = $('input[name="military"]').value;
+  const marital = $('input[name="marital"]:checked')?.value || '';
+  const children = $('input[name="children"]').value;
+  const cooperation = $('input[name="cooperation"]').value;
+  const jobCategory = $('input[name="jobCategory"]').value;
+  const city = $('input[name="city"]').value;
+  const body = $('input[name="body"]').value;
+  const education = $('input[name="education"]').value;
+  const license = $('input[name="license"]').value;
+  const manual = $('input[name="manual"]:checked')?.value || '';
+  const uniform = $('input[name="uniform"]:checked')?.value || '';
+  const equipment = $('input[name="equipment"]:checked')?.value || '';
+  const skill = $('input[name="skill"]').value;
+  const proSkill = $('input[name="proSkill"]').value;
+
+  const maritalText = marital === 'married' ? 'متأهل' : 'مجرد';
+  let familyText = '';
+  if (marital === 'married') {
+    if (children) familyText += ` و دارای ${children}`;
+    if (cooperation) familyText += ` (نوع همکاری: ${cooperation})`;
+  }
+
+  let skillText = '';
+  if (skill === 'فنی حرفه‌ای' && proSkill) {
+    skillText = `دارای تخصص فنی حرفه‌ای در زمینه ${proSkill}`;
+  } else if (skill === 'تخصص غیر فنی' && otherSkillText) {
+    skillText = `دارای تخصص غیر فنی: ${otherSkillText}`;
+  } else if (skill) {
+    skillText = skill;
+  }
+
+  const licenseText = license === 'فاقد گواهینامه' ? 'فاقد گواهینامه رانندگی' : license;
+
+  let requestText = '';
+  requestText += `اینجانب <span class="hl">${fullname}</span>، `;
+  requestText += `${age} ساله، ساکن <span class="hl">${location}</span>، `;
+  requestText += `دارای مدرک <span class="hl">${education}</span>، `;
+  requestText += `وضعیت نظام وظیفه: <strong>${military}</strong>، `;
+  requestText += `وضعیت تأهل: <strong>${maritalText}${familyText}</strong>، `;
+  requestText += `وضعیت تناسب اندام: <strong>${body}</strong> `;
+  if (height) requestText += `(قد ${height} سانتی‌متر`;
+  if (weight) requestText += `، وزن ${weight} کیلوگرم)`;
+  else if (height) requestText += `)`;
+  requestText += `، `;
+  requestText += `گواهینامه: <strong>${licenseText}</strong>، `;
+  if (skillText) requestText += `تخصص: <strong>${skillText}</strong>، `;
+  if (manual) requestText += `مطالعه جزوه آموزشی: <strong>${manual}</strong>، `;
+  if (uniform) requestText += `پذیرش یونیفرم: <strong>${uniform}</strong>، `;
+  if (equipment) requestText += `تعهد تجهیزات: <strong>${equipment}</strong>، `;
+  requestText += `. `;
+
+  requestText += `تقاضای <span class="hl">مشاوره کامل</span> و <span class="hl">اشتغال فوری</span> `;
+  requestText += `با حقوق و شرایط اعلام شده در اپلیکیشن `;
+  requestText += `در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را دارم. `;
+  requestText += `لطفاً لیست فرصت‌های شغلی متناسب با شرایط من را ارائه دهید `;
+  requestText += `و منتظر تماس کارشناسان شما با شماره <strong>${phone}</strong> هستم.`;
+  if (notes) {
+    requestText += `<br><br><span style="color:var(--muted);font-size:14px;">توضیحات تکمیلی شما: ${notes}</span>`;
+  }
+
+  return requestText;
+}
+
+function validateField(fieldName){
+  switch(fieldName){
+    case 'fullname':
+      return $('#fullname').value.trim().length > 0 ? null : 'fullname';
+    case 'phone': {
+      const phoneVal = $('#phone').value.trim();
+      return (phoneVal && phoneVal.replace(/\D/g,'').length >= 10) ? null : 'phone';
+    }
+    case 'gender':
+      return $('input[name="gender"]:checked') ? null : 'gender';
+    case 'military':
+      return $('input[name="military"]').value ? null : 'military';
+    case 'marital':
+      return $('input[name="marital"]:checked') ? null : 'marital';
+    case 'children':
+      if ($('#childrenField').classList.contains('hidden')) return null;
+      return $('input[name="children"]').value ? null : 'children';
+    case 'cooperation':
+      if ($('#cooperationField').classList.contains('hidden')) return null;
+      return $('input[name="cooperation"]').value ? null : 'cooperation';
+    case 'age': {
+      const ageVal = $('#age').value.trim();
+      const ageNum = parseInt(ageVal);
+      return (ageVal && !isNaN(ageNum) && ageNum >= 17 && ageNum <= 70) ? null : 'age';
+    }
+    case 'location':
+      return $('#location').value.trim().length > 0 ? null : 'location';
+    case 'jobCategory':
+      return $('input[name="jobCategory"]').value ? null : 'jobCategory';
+    case 'city':
+      return $('input[name="city"]').value ? null : 'city';
+    case 'height':
+      return $('#height').value.trim().length > 0 ? null : 'height';
+    case 'weight':
+      return $('#weight').value.trim().length > 0 ? null : 'weight';
+    case 'body':
+      return $('input[name="body"]').value ? null : 'body';
+    case 'education':
+      return $('input[name="education"]').value ? null : 'education';
+    case 'manual':
+      return $('input[name="manual"]:checked') ? null : 'manual';
+    case 'license':
+      return $('input[name="license"]').value ? null : 'license';
+    case 'uniform':
+      return $('input[name="uniform"]:checked') ? null : 'uniform';
+    case 'equipment':
+      return $('input[name="equipment"]:checked') ? null : 'equipment';
+    case 'skill':
+      return $('input[name="skill"]').value ? null : 'skill';
+    case 'proSkill':
+      if ($('#proSkillField').classList.contains('hidden')) return null;
+      return $('input[name="proSkill"]').value ? null : 'proSkill';
+    case 'idFront':
+      return $('#idFront').files[0] ? null : 'idFront';
+    case 'idBack':
+      return $('#idBack').files[0] ? null : 'idBack';
+    case 'receipt':
+      return $('#receipt').files[0] ? null : 'receipt';
+    default:
+      return null;
+  }
+}
+
+function validateAll(){
+  const fieldsToCheck = [
+    'fullname','phone','gender','military','marital',
+    'children','cooperation','age','location',
+    'jobCategory','city','height','weight','body',
+    'education','manual','license','uniform','equipment',
+    'skill','proSkill','idFront','idBack','receipt'
+  ];
+  for(const fieldName of fieldsToCheck){
+    const error = validateField(fieldName);
+    if(error) return error;
+  }
+  return null;
+}
+
+$('#jobForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const firstError = validateAll();
+  if(firstError){
+    showFieldError(firstError);
+    return;
+  }
+
+  $('#summaryText').innerHTML = buildSummaryText();
+  $('#confirmCheckbox').checked = false;
+  $('#btnConfirm').disabled = true;
+  $('#confirmModal').classList.add('show');
+  lockScroll();
+});
+
+$('#confirmCheckbox').addEventListener('change', (e) => {
+  $('#btnConfirm').disabled = !e.target.checked;
+});
+
+$('#btnEdit').addEventListener('click', () => {
+  $('#confirmModal').classList.remove('show');
+  unlockScroll();
+});
+
+$('#btnConfirm').addEventListener('click', () => {
+  const fullname = $('#fullname').value.trim();
+  const phone = $('#phone').value.trim();
+  const age = $('#age').value.trim();
+  const location = $('#location').value.trim();
+  const jobCategory = $('input[name="jobCategory"]').value;
+  const city = $('input[name="city"]').value;
+
+  let successText = '';
+  successText += `اینجانب <span class="hl">${fullname}</span>، ${age} ساله، ساکن ${location}، `;
+  successText += `درخواست استخدام در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را با موفقیت ثبت نمودم. `;
+  successText += `منتظر تماس کارشناسان امنیت‌گستر با شماره <strong>${phone}</strong> هستم.`;
+
+  $('#successText').innerHTML = successText;
+  $('#confirmModal').classList.remove('show');
+  $('#successModal').classList.add('show');
+});
+
+$('#modalClose').addEventListener('click', () => {
+  $('#successModal').classList.remove('show');
+  unlockScroll();
+  $('#jobForm').reset();
+  $$('.custom-select').forEach(sel => {
+    const hidden = sel.querySelector('input[type="hidden"]');
+    const trigger = sel.querySelector('.custom-select-trigger');
+    const value = sel.querySelector('.custom-select-value');
+    if (hidden) hidden.value = '';
+    if (trigger) trigger.classList.add('placeholder');
+    if (value) {
+      value.textContent = value.textContent.includes('شهر') ? 'لطفاً شهر مورد نظر را انتخاب کنید' :
+                         value.textContent.includes('دسته') ? 'لطفاً یک دسته را انتخاب کنید' :
+                         'لطفاً انتخاب کنید';
+    }
+    sel.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+  });
+  $$('.upload-preview').forEach(p => p.classList.remove('show'));
+});
+
+function clearErrorOnElement(e){
+  const parentField = e.target.closest('.field');
+  if(parentField){
+    parentField.classList.remove('field-error');
+    parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+  }
+}
+
+$$('input, textarea, select').forEach(el => {
+  el.addEventListener('input', clearErrorOnElement);
+  el.addEventListener('change', clearErrorOnElement);
+});
+
+$$('.custom-select-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const parentField = opt.closest('.field');
+    if(parentField){
+      parentField.classList.remove('field-error');
+      parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+    }
+  });
+});
+
+$$('input[type="radio"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const parentField = r.closest('.field');
+    if(parentField){
+      parentField.classList.remove('field-error');
+      parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+    }
+  });
+});
+
+$$('input[type="file"]').forEach(f => {
+  f.addEventListener('change', () => {
+    const parentField = f.closest('field') || f.closest('.field');
+    if(parentField){
+      parentField.classList.remove('field-error');
+      parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
+    }
+  });
+});
+</script>
+
+</body>
+      </html>
