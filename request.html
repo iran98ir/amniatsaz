@@ -23,7 +23,6 @@
     --shadow-sm:0 2px 10px rgba(22,48,79,.06);
     --shadow-md:0 10px 30px rgba(22,48,79,.12);
     --shadow-lg:0 18px 44px rgba(22,48,79,.20);
-    --shadow-focus:0 0 0 4px rgba(22,48,79,.12);
 
     --radius:22px;
     --radius-sm:14px;
@@ -77,7 +76,7 @@
   }
   .header-inner{
     display:flex;align-items:center;gap:15px;
-    max-width:680px;margin:0 auto;position:relative;
+    max-width:720px;margin:0 auto;position:relative;
   }
   .logo{
     width:60px;height:60px;flex-shrink:0;
@@ -93,7 +92,7 @@
   .header-sub{font-size:var(--fs-small);color:#c5d1e0;font-weight:500;margin-top:4px}
 
   /* ============ محتوا ============ */
-  .main{max-width:680px;margin:0 auto;padding:26px 18px 14px}
+  .main{max-width:720px;margin:0 auto;padding:26px 14px 14px}
 
   /* ============ قالب لوکس ============ */
   .lux-frame{
@@ -238,7 +237,7 @@
   .input::placeholder,.textarea::placeholder{color:#a3adba;font-weight:500}
   .textarea{min-height:130px;resize:vertical;line-height:2}
 
-  /* ============ سلکت سفارشی (بدون اسکرول) ============ */
+  /* ============ سلکت ============ */
   .custom-select{position:relative}
   .custom-select-trigger{
     width:100%;padding:16px 18px;padding-left:52px;
@@ -282,7 +281,7 @@
     padding:0;
   }
   .custom-select.open .custom-select-menu{
-    max-height:500px;opacity:1;transform:translateY(0);
+    max-height:600px;opacity:1;transform:translateY(0);
     pointer-events:auto;
     padding:6px 0;
     overflow:visible;
@@ -312,7 +311,7 @@
     background:var(--primary);flex-shrink:0;
   }
 
-  /* ============ رادیو کارتی ============ */
+  /* ============ رادیو ============ */
   .radio-group{display:flex;flex-direction:column;gap:11px}
   .radio-card{
     display:flex;align-items:flex-start;gap:14px;
@@ -348,7 +347,7 @@
   .radio-text{flex:1;color:var(--text)}
   .radio-card:has(input:checked) .radio-text{color:var(--primary);font-weight:800}
 
-  /* ============ بارگذاری ============ */
+  /* ============ آپلود ============ */
   .upload-box{
     border:2px dashed rgba(184,145,47,.5);
     border-radius:var(--radius-sm);
@@ -372,7 +371,7 @@
     font-size:var(--fs-label);font-weight:800;
     color:var(--primary);margin-bottom:5px;
   }
-  .upload-hint{font-size:var(--fs-help);color:var(--text-soft);font-weight:600}
+  .upload-hint{font-size:var(--fs-help);color:var(--text-soft);font-weight:600;line-height:1.7}
 
   .upload-preview{
     display:none;margin-top:14px;
@@ -393,7 +392,6 @@
   }
   .upload-preview-status{font-size:var(--fs-tiny);color:var(--text-soft);font-weight:600;margin-top:3px}
 
-  /* ============ لودینگ ============ */
   .loading{
     display:none;align-items:center;justify-content:center;
     gap:11px;padding:13px;font-size:var(--fs-small);
@@ -422,109 +420,69 @@
     border:1px solid rgba(255,255,255,.08);
   }
   .pay-card::before{
-    content:"";
-    position:absolute;
-    top:-50px; left:-50px;
-    width:180px; height:180px; border-radius:50%;
+    content:"";position:absolute;top:-50px;left:-50px;
+    width:180px;height:180px;border-radius:50%;
     background:radial-gradient(circle,rgba(228,200,106,.15),transparent 70%);
     pointer-events:none;
   }
   .pay-card::after{
-    content:"";
-    position:absolute;
-    bottom:-40px; right:-40px;
-    width:150px; height:150px; border-radius:50%;
+    content:"";position:absolute;bottom:-40px;right:-40px;
+    width:150px;height:150px;border-radius:50%;
     background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);
     pointer-events:none;
   }
   .pay-card-bank{
-    display:flex; align-items:center; gap:8px;
-    font-size:var(--fs-small);
-    font-weight:800;
-    color:#e4c86a;
-    margin-bottom:22px;
-    letter-spacing:.5px;
-    position:relative; z-index:1;
+    display:flex;align-items:center;gap:8px;
+    font-size:var(--fs-small);font-weight:800;color:#e4c86a;
+    margin-bottom:22px;letter-spacing:.5px;
+    position:relative;z-index:1;
   }
-  .pay-card-bank svg{
-    width:20px; height:20px; fill:#e4c86a;
-  }
+  .pay-card-bank svg{width:20px;height:20px;fill:#e4c86a}
   .pay-card-chip{
-    position:absolute;
-    top:24px; left:22px;
-    width:42px; height:32px;
-    border-radius:6px;
+    position:absolute;top:24px;left:22px;
+    width:42px;height:32px;border-radius:6px;
     background:linear-gradient(135deg,#e4c86a,#b8912f);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
-    z-index:1;
-    overflow:hidden;
+    z-index:1;overflow:hidden;
   }
   .pay-card-chip::before{
-    content:"";
-    position:absolute;
-    top:50%; left:0; right:0;
-    height:1px;
+    content:"";position:absolute;top:50%;left:0;right:0;height:1px;
     background:rgba(10,10,15,.4);
   }
   .pay-card-chip::after{
-    content:"";
-    position:absolute;
-    top:0; bottom:0; left:50%;
-    width:1px;
+    content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;
     background:rgba(10,10,15,.4);
   }
   .pay-card-label{
-    font-size:var(--fs-tiny);
-    color:#a5a8b5;
-    font-weight:600;
-    margin-bottom:10px;
-    position:relative; z-index:1;
+    font-size:var(--fs-tiny);color:#a5a8b5;font-weight:600;
+    margin-bottom:10px;position:relative;z-index:1;
   }
   .pay-card-number{
-    font-size:23px;
-    font-weight:900;
-    color:#ffffff;
-    letter-spacing:2.5px;
-    direction:ltr;
-    text-align:center;
+    font-size:23px;font-weight:900;color:#ffffff;
+    letter-spacing:2.5px;direction:ltr;text-align:center;
     font-family:'Courier New',monospace;
-    position:relative; z-index:1;
-    user-select:all;
-    -webkit-user-select:all;
-    padding:10px 0;
-    text-shadow:0 1px 4px rgba(0,0,0,.5);
+    position:relative;z-index:1;
+    user-select:all;-webkit-user-select:all;
+    padding:10px 0;text-shadow:0 1px 4px rgba(0,0,0,.5);
   }
   .pay-card-footer{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-top:14px;
-    padding-top:14px;
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:14px;padding-top:14px;
     border-top:1px solid rgba(255,255,255,.08);
-    position:relative; z-index:1;
-    gap:12px;
+    position:relative;z-index:1;gap:12px;
   }
   .pay-card-holder{
-    font-size:var(--fs-small);
-    color:#e4e6ec;
-    font-weight:700;
+    font-size:var(--fs-small);color:#e4e6ec;font-weight:700;
   }
   .pay-card-holder small{
-    display:block;
-    font-size:11px;
-    color:#8b8f9d;
-    font-weight:500;
-    letter-spacing:.5px;
-    margin-bottom:2px;
+    display:block;font-size:11px;color:#8b8f9d;
+    font-weight:500;letter-spacing:.5px;margin-bottom:2px;
   }
-  .pay-card-logo{
-    display:flex; align-items:center; gap:4px;
-  }
-  .pay-card-logo .circle{
-    width:22px; height:22px; border-radius:50%;
-  }
-  .pay-card-logo .c1{ background:#c9a227; }
-  .pay-card-logo .c2{ background:#a5a8b5; margin-right:-8px; }
+  .pay-card-logo{display:flex;align-items:center;gap:4px}
+  .pay-card-logo .circle{width:22px;height:22px;border-radius:50%}
+  .pay-card-logo .c1{background:#c9a227}
+  .pay-card-logo .c2{background:#a5a8b5;margin-right:-8px}
 
-  /* ============ مبلغ ============ */
   .pay-amount{
     background:linear-gradient(135deg,#ffffff,#f2f5fa);
     border:1.5px solid rgba(22,48,79,.15);
@@ -581,24 +539,29 @@
   .female-msg-title svg{width:22px;height:22px;fill:var(--primary)}
   .female-msg strong{color:var(--primary);font-weight:800}
 
-  /* ============ مودال موفقیت ============ */
+  /* ============ مودال تأیید نهایی ============ */
   .modal-overlay{
     position:fixed;inset:0;
     background:rgba(15,35,56,.65);
     backdrop-filter:blur(8px);
     z-index:999;display:none;
-    align-items:center;justify-content:center;padding:22px;
+    align-items:center;justify-content:center;
+    padding:18px;
+    overflow-y:auto;
   }
   .modal-overlay.show{display:flex;animation:fadeIn .3s ease both}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
   .modal{
     background:#ffffff;border-radius:24px;
-    padding:38px 26px 32px;max-width:460px;width:100%;
+    padding:34px 24px 28px;
+    max-width:520px;width:100%;
     text-align:center;
     box-shadow:0 24px 70px rgba(15,35,56,.45);
     position:relative;
     animation:popIn .45s cubic-bezier(.4,0,.2,1) both;
     overflow:hidden;
+    max-height:calc(100vh - 36px);
+    overflow-y:auto;
   }
   .modal::before{
     content:"";position:absolute;top:-80px;left:50%;
@@ -615,8 +578,9 @@
     pointer-events:none;
   }
   @keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+
   .modal-icon{
-    width:88px;height:88px;margin:0 auto 20px;border-radius:50%;
+    width:80px;height:80px;margin:0 auto 18px;border-radius:50%;
     background:linear-gradient(145deg,#e8f5ec,#c6e6d2);
     display:flex;align-items:center;justify-content:center;
     border:2px solid rgba(47,133,90,.3);
@@ -629,47 +593,121 @@
     60%{transform:scale(1.12)}
     100%{transform:scale(1)}
   }
-  .modal-icon svg{width:46px;height:46px;fill:var(--success)}
+  .modal-icon svg{width:42px;height:42px;fill:var(--success)}
+
   .modal h2{
     font-size:var(--fs-modal-title);font-weight:900;color:var(--primary);
-    margin-bottom:14px;line-height:1.4;letter-spacing:-.3px;
+    margin-bottom:8px;line-height:1.4;letter-spacing:-.3px;
     position:relative;z-index:1;
   }
-  .modal p{
-    font-size:var(--fs-modal-body);color:var(--text-soft);
-    line-height:2;margin-bottom:10px;position:relative;z-index:1;
-  }
-  .modal p strong{color:var(--primary);font-weight:800}
-  .modal-files{
-    margin-top:22px;padding:18px 16px;
-    background:linear-gradient(135deg,#f6f9fd,#eef3fa);
-    border:1px dashed rgba(184,145,47,.4);
-    border-radius:14px;text-align:right;
-    font-size:var(--fs-small);line-height:1.95;
+  .modal-sub{
+    font-size:var(--fs-small);color:var(--text-soft);
+    font-weight:600;margin-bottom:20px;
     position:relative;z-index:1;
   }
-  .modal-files-title{
-    font-size:var(--fs-small);font-weight:900;color:var(--primary);
-    margin-bottom:10px;display:flex;align-items:center;gap:8px;
+
+  /* متن درخواست */
+  .summary-text{
+    text-align:justify;
+    font-size:var(--fs-small);
+    line-height:2.15;
+    color:var(--text);
+    background:linear-gradient(135deg,#fafbfd,#f1f4f9);
+    border:1px dashed rgba(184,145,47,.45);
+    border-radius:14px;
+    padding:20px 18px;
+    margin-bottom:20px;
+    position:relative;z-index:1;
+    font-weight:500;
   }
-  .modal-files-title svg{width:18px;height:18px;fill:var(--accent)}
-  .file-line{
-    display:flex;align-items:center;gap:10px;
-    padding:7px 0;font-weight:600;color:var(--text-soft);
-    font-size:var(--fs-tiny);
+  .summary-text strong{
+    color:var(--primary);
+    font-weight:800;
   }
-  .file-line svg{width:16px;height:16px;fill:var(--success);flex-shrink:0}
-  .file-line span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
-  .modal-close{
-    margin-top:24px;padding:15px 40px;
-    background:linear-gradient(135deg,var(--primary),var(--primary-light));
-    color:#fff;font-family:inherit;font-size:var(--fs-small);font-weight:800;
-    border:none;border-radius:13px;cursor:pointer;
-    box-shadow:0 6px 18px rgba(22,48,79,.28);
+  .summary-text .hl{
+    background:linear-gradient(180deg,transparent 60%,rgba(228,200,106,.4) 60%);
+    padding:0 2px;
+    font-weight:800;
+    color:var(--primary);
+  }
+
+  .confirm-check{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:15px 16px;
+    background:linear-gradient(135deg,#fffdf5,#faf3e0);
+    border:1.5px solid rgba(184,145,47,.4);
+    border-radius:14px;
+    cursor:pointer;
+    text-align:right;
+    margin-bottom:18px;
+    position:relative;z-index:1;
+    transition:all .2s ease;
+  }
+  .confirm-check input{position:absolute;opacity:0;pointer-events:none}
+  .confirm-mark{
+    flex-shrink:0;width:24px;height:24px;
+    border-radius:7px;
+    border:2px solid #c4ccd6;background:#fff;
+    margin-top:1px;position:relative;
+    transition:all .2s ease;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .confirm-mark svg{
+    width:15px;height:15px;fill:#fff;opacity:0;
+    transform:scale(.5);transition:all .2s ease;
+  }
+  .confirm-check input:checked ~ .confirm-mark{
+    background:var(--accent);
+    border-color:var(--accent);
+    box-shadow:0 0 0 4px rgba(184,145,47,.18);
+  }
+  .confirm-check input:checked ~ .confirm-mark svg{opacity:1;transform:scale(1)}
+  .confirm-text{
+    flex:1;font-size:var(--fs-small);font-weight:800;
+    color:var(--primary);line-height:1.7;
+  }
+
+  .modal-actions{
+    display:flex;gap:10px;
+    position:relative;z-index:1;
+  }
+  .modal-btn{
+    flex:1;
+    padding:15px 20px;
+    font-family:inherit;font-size:var(--fs-small);font-weight:800;
+    border-radius:13px;cursor:pointer;
     transition:transform .18s ease;
-    position:relative;z-index:1;letter-spacing:-.2px;
+    border:none;
+    letter-spacing:-.2px;
   }
-  .modal-close:active{transform:scale(.97)}
+  .modal-btn:active{transform:scale(.97)}
+  .modal-btn.secondary{
+    background:#f1f4f9;color:var(--text-soft);
+    border:1.5px solid var(--border);
+    box-shadow:none;
+  }
+  .modal-btn.primary{
+    background:linear-gradient(135deg,var(--primary),var(--primary-light));
+    color:#fff;
+    box-shadow:0 6px 18px rgba(22,48,79,.28);
+    border:1px solid rgba(255,255,255,.15);
+  }
+  .modal-btn.primary:disabled{
+    opacity:.5;cursor:not-allowed;
+    box-shadow:none;
+  }
+
+  /* ============ مودال موفقیت ============ */
+  .success-icon{
+    width:90px;height:90px;margin:0 auto 20px;border-radius:50%;
+    background:linear-gradient(145deg,#e8f5ec,#c6e6d2);
+    display:flex;align-items:center;justify-content:center;
+    border:2px solid rgba(47,133,90,.3);
+    box-shadow:0 8px 24px rgba(47,133,90,.25);
+    position:relative;z-index:1;
+    animation:bounce 1s ease 0.3s both;
+  }
+  .success-icon svg{width:46px;height:46px;fill:var(--success)}
 
   /* ============ امضا ============ */
   .signature{
@@ -712,24 +750,19 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
   .fade-in{animation:fadeUp .45s ease both}
 
-  /* ============ توست اخطار (جایگزین alert) ============ */
+  /* ============ توست ============ */
   .toast-overlay{
     position:fixed;inset:0;
     background:rgba(15,35,56,.45);
     backdrop-filter:blur(4px);
-    z-index:1000;
-    display:none;
-    align-items:center;justify-content:center;
-    padding:24px;
+    z-index:1000;display:none;
+    align-items:center;justify-content:center;padding:24px;
   }
   .toast-overlay.show{display:flex;animation:fadeIn .25s ease both}
   .toast{
-    background:#ffffff;
-    border-radius:22px;
+    background:#ffffff;border-radius:22px;
     padding:30px 26px 26px;
-    max-width:400px;
-    width:100%;
-    text-align:center;
+    max-width:400px;width:100%;text-align:center;
     box-shadow:0 24px 70px rgba(15,35,56,.35);
     position:relative;
     animation:popIn .35s cubic-bezier(.4,0,.2,1) both;
@@ -771,12 +804,15 @@
     position:relative;z-index:1;
   }
   .toast-btn:active{transform:scale(.97)}
+
+  /* اسکرول */
+  .modal::-webkit-scrollbar{width:5px}
+  .modal::-webkit-scrollbar-thumb{background:rgba(184,145,47,.3);border-radius:3px}
 </style>
 </head>
 
 <body>
 
-  <!-- ====== هدر ====== -->
   <header class="header">
     <div class="header-inner">
       <div class="logo">
@@ -791,7 +827,6 @@
     </div>
   </header>
 
-  <!-- ====== محتوا ====== -->
   <main class="main">
 
     <section class="hero lux-frame">
@@ -924,7 +959,7 @@
           </div>
         </div>
 
-        <!-- نوع همکاری (متأهل) -->
+        <!-- نوع همکاری -->
         <div class="field hidden" id="cooperationField">
           <label class="label">نوع همکاری <span class="req">*</span></label>
           <div class="custom-select" id="cooperationSelect">
@@ -941,12 +976,63 @@
           </div>
         </div>
 
+        <!-- سن (جدید) -->
+        <div class="field">
+          <label class="label" for="age">سن <span class="req">*</span></label>
+          <input class="input" type="number" id="age" placeholder="سن دقیق خود را ذکر کنید" inputmode="numeric" min="17" max="70" required>
+          <div class="help">
+            لطفاً سن دقیق خود را ذکر کنید. بازه سنی قابل پذیرش <strong>۱۷ تا ۷۰ سال</strong> است.
+          </div>
+        </div>
+
         <!-- محل سکونت -->
         <div class="field">
           <label class="label" for="location">محل سکونت <span class="req">*</span></label>
           <input class="input" type="text" id="location" placeholder="شهر / منطقه محل سکونت" required>
           <div class="help">
             برای سه دسته از مشاغل دارای محل اقامت، محل سکونت فعلی شما اهمیتی ندارد. اما برای دسته <strong>نیروی امنیتی حفاظتی</strong>، باید ساکن تهران و نزدیک به محل کار باشید؛ چرا که این مشاغل محل اقامت ندارند.
+          </div>
+        </div>
+
+        <!-- دسته شغلی درخواستی (جدید) -->
+        <div class="field">
+          <label class="label">یک دسته را انتخاب کنید <span class="req">*</span></label>
+          <div class="custom-select" id="jobCategorySelect">
+            <button type="button" class="custom-select-trigger placeholder">
+              <span class="custom-select-value">لطفاً یک دسته را انتخاب کنید</span>
+              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </button>
+            <div class="custom-select-menu">
+              <div class="custom-select-option" data-value="نگهبان">استخدام به عنوان نگهبان</div>
+              <div class="custom-select-option" data-value="نیروی حفاظتی و امنیتی">استخدام به عنوان نیروی حفاظتی و امنیتی</div>
+              <div class="custom-select-option" data-value="سرایدار">استخدام به عنوان سرایدار</div>
+              <div class="custom-select-option" data-value="بادیگارد یا محافظ شخصی">استخدام به عنوان بادیگارد یا محافظ شخصی</div>
+              <div class="custom-select-option" data-value="مشاغل دارای ۲ وعده غذا و محل اقامت">استخدام فقط در مشاغلی که ۲ وعده غذا و محل اقامت دارند (همه دسته‌ها بجز حفاظتی)</div>
+              <div class="custom-select-option" data-value="هر شغلی با حقوق و مزایای بهتر">هر شغلی که حقوق و مزایای بهتری دارد در تمامی دسته‌ها</div>
+            </div>
+            <input type="hidden" name="jobCategory" required>
+          </div>
+        </div>
+
+        <!-- شهر (جدید) -->
+        <div class="field">
+          <label class="label">استخدام در کدام شهر؟ <span class="req">*</span></label>
+          <div class="help">
+            هم‌اکنون در شهرهای زیر فرصت‌های شغلی موجود است.
+          </div>
+          <div class="custom-select" id="citySelect">
+            <button type="button" class="custom-select-trigger placeholder">
+              <span class="custom-select-value">لطفاً شهر مورد نظر را انتخاب کنید</span>
+              <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </button>
+            <div class="custom-select-menu">
+              <div class="custom-select-option" data-value="تهران">تهران</div>
+              <div class="custom-select-option" data-value="شمال">شمال</div>
+              <div class="custom-select-option" data-value="اصفهان">اصفهان</div>
+              <div class="custom-select-option" data-value="مشهد مقدس">مشهد مقدس</div>
+              <div class="custom-select-option" data-value="کیش">کیش</div>
+            </div>
+            <input type="hidden" name="city" required>
           </div>
         </div>
 
@@ -974,11 +1060,11 @@
               <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
             </button>
             <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="معمولی">استایل معمولی</div>
-              <div class="custom-select-option" data-value="چابک">درشت نیستم اما چابک و سریع و قد و وزن متناسب</div>
-              <div class="custom-select-option" data-value="درشت">درشت‌هیکل بدون ورزش</div>
-              <div class="custom-select-option" data-value="ورزشکار">قد بلند و ورزشکار</div>
-              <div class="custom-select-option" data-value="حرفه‌ای">ورزشکار حرفه‌ای، ظاهر بسیار نیرومند</div>
+              <div class="custom-select-option" data-value="استایل معمولی">استایل معمولی</div>
+              <div class="custom-select-option" data-value="چابک و متناسب">درشت نیستم اما چابک و سریع و قد و وزن متناسب</div>
+              <div class="custom-select-option" data-value="درشت‌هیکل">درشت‌هیکل بدون ورزش</div>
+              <div class="custom-select-option" data-value="قد بلند و ورزشکار">قد بلند و ورزشکار</div>
+              <div class="custom-select-option" data-value="ورزشکار حرفه‌ای">ورزشکار حرفه‌ای، ظاهر بسیار نیرومند</div>
             </div>
             <input type="hidden" name="body" required>
           </div>
@@ -993,10 +1079,10 @@
               <svg class="custom-select-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
             </button>
             <div class="custom-select-menu">
-              <div class="custom-select-option" data-value="دیپلم و کمتر">دیپلم و کمتر از آن</div>
-              <div class="custom-select-option" data-value="فوق دیپلم">فوق دیپلم و کاردانی</div>
+              <div class="custom-select-option" data-value="دیپلم و کمتر از آن">دیپلم و کمتر از آن</div>
+              <div class="custom-select-option" data-value="فوق دیپلم و کاردانی">فوق دیپلم و کاردانی</div>
               <div class="custom-select-option" data-value="کارشناسی">کارشناسی</div>
-              <div class="custom-select-option" data-value="ارشد و بالاتر">کارشناسی ارشد و بالاتر / دارای چند مدرک</div>
+              <div class="custom-select-option" data-value="کارشناسی ارشد و بالاتر">کارشناسی ارشد و بالاتر / دارای چند مدرک</div>
             </div>
             <input type="hidden" name="education" required>
           </div>
@@ -1032,10 +1118,10 @@
             </button>
             <div class="custom-select-menu">
               <div class="custom-select-option" data-value="فاقد گواهینامه">فاقد گواهینامه</div>
-              <div class="custom-select-option" data-value="معتبر">دارای گواهینامه معتبر رانندگی</div>
-              <div class="custom-select-option" data-value="حرفه‌ای">دارای گواهینامه + تسلط حرفه‌ای بر رانندگی، سرعت عمل و چابکی</div>
-              <div class="custom-select-option" data-value="انواع خودرو">دارای گواهینامه + سابقه رانندگی با انواع خودروهای دنده‌ای و اتوماتیک</div>
-              <div class="custom-select-option" data-value="نگهداری خودرو">دارای گواهینامه + آشنایی با نگهداری خودرو (نظافت، چکاب، آب و روغن و ...)</div>
+              <div class="custom-select-option" data-value="دارای گواهینامه معتبر">دارای گواهینامه معتبر رانندگی</div>
+              <div class="custom-select-option" data-value="تسلط حرفه‌ای بر رانندگی">دارای گواهینامه + تسلط حرفه‌ای بر رانندگی، سرعت عمل و چابکی</div>
+              <div class="custom-select-option" data-value="سابقه رانندگی با انواع خودرو">دارای گواهینامه + سابقه رانندگی با انواع خودروهای دنده‌ای و اتوماتیک</div>
+              <div class="custom-select-option" data-value="آشنایی با نگهداری خودرو">دارای گواهینامه + آشنایی با نگهداری خودرو (نظافت، چکاب، آب و روغن و ...)</div>
             </div>
             <input type="hidden" name="license" required>
           </div>
@@ -1107,8 +1193,8 @@
               </button>
               <div class="custom-select-menu">
                 <div class="custom-select-option" data-value="لوله‌کشی حرفه‌ای">لوله‌کشی حرفه‌ای</div>
-                <div class="custom-select-option" data-value="برقکاری حرفه‌ای">برقکاری حرفه‌ای یا تکنسین برق</div>
-                <div class="custom-select-option" data-value="تاسیسات مجتمع">نگهداری و سرویس حرفه‌ای تأسیسات مجتمع‌ها</div>
+                <div class="custom-select-option" data-value="برقکاری حرفه‌ای یا تکنسین برق">برقکاری حرفه‌ای یا تکنسین برق</div>
+                <div class="custom-select-option" data-value="نگهداری و سرویس تأسیسات">نگهداری و سرویس حرفه‌ای تأسیسات مجتمع‌ها</div>
               </div>
               <input type="hidden" name="proSkill">
             </div>
@@ -1142,6 +1228,7 @@
           <p>لطفاً عکس <strong>روی و پشت کارت ملی</strong> خود را بارگذاری کنید. در صورت نداشتن کارت ملی، <strong>صفحه اول و دوم شناسنامه</strong> را ارسال نمایید.</p>
         </div>
 
+        <!-- روی کارت ملی -->
         <div class="field">
           <label class="label">عکس روی کارت ملی <span class="req">*</span></label>
           <label class="upload-box" for="idFront">
@@ -1149,7 +1236,7 @@
             <div class="upload-icon">
               <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
             </div>
-            <div class="upload-label">انتخاب عکس روی کارت ملی</div>
+            <div class="upload-label">لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید</div>
             <div class="upload-hint">از گالری انتخاب کنید</div>
           </label>
           <div class="upload-preview" id="prev-idFront">
@@ -1162,6 +1249,7 @@
           <div class="loading" id="load-idFront"><div class="spinner"></div><span>در حال بارگذاری...</span></div>
         </div>
 
+        <!-- پشت کارت ملی -->
         <div class="field">
           <label class="label">عکس پشت کارت ملی <span class="req">*</span></label>
           <label class="upload-box" for="idBack">
@@ -1169,7 +1257,7 @@
             <div class="upload-icon">
               <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
             </div>
-            <div class="upload-label">انتخاب عکس پشت کارت ملی</div>
+            <div class="upload-label">لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید</div>
             <div class="upload-hint">از گالری انتخاب کنید</div>
           </label>
           <div class="upload-preview" id="prev-idBack">
@@ -1195,7 +1283,6 @@
             <div class="pay-amount-value">۱۴۵,۰۰۰ <small>تومان</small></div>
           </div>
 
-          <!-- کارت بانکی مشکی -->
           <div class="pay-card">
             <div class="pay-card-bank">
               <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
@@ -1219,6 +1306,7 @@
           <p>پس از واریز، رسید آن را در بخش زیر بارگذاری نمایید.</p>
         </div>
 
+        <!-- فایل رسید -->
         <div class="field">
           <label class="label">رسید واریز <span class="req">*</span></label>
           <label class="upload-box" for="receipt">
@@ -1226,7 +1314,7 @@
             <div class="upload-icon">
               <svg viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
             </div>
-            <div class="upload-label">انتخاب عکس رسید واریز</div>
+            <div class="upload-label">لطفاً پیامک و یا رسید واریز حاوی کد رهگیری و تاریخ و ساعت واریز را ارسال فرمایید</div>
             <div class="upload-hint">از گالری انتخاب کنید</div>
           </label>
           <div class="upload-preview" id="prev-receipt">
@@ -1252,7 +1340,7 @@
 
   </main>
 
-  <!-- ====== نویگیشن پایین ====== -->
+  <!-- نویگیشن -->
   <nav class="bottom-nav">
     <a href="index.html" class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
@@ -1272,21 +1360,44 @@
     </a>
   </nav>
 
-  <!-- ====== مودال موفقیت ====== -->
-  <div class="modal-overlay" id="successModal">
+  <!-- ====== مودال تأیید نهایی ====== -->
+  <div class="modal-overlay" id="confirmModal">
     <div class="modal">
       <div class="modal-icon">
         <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
       </div>
-      <h2>درخواست شما با موفقیت ثبت شد</h2>
-      <p>از اعتماد شما سپاسگزاریم. همکاران ما در <strong>امنیت‌گستر</strong> درخواست شما را با دقت بررسی خواهند کرد و به‌زودی با شما تماس می‌گیرند.</p>
-      <p>لطفاً شماره تماس خود را در دسترس نگه دارید.</p>
-      <div class="modal-files" id="modalFiles"></div>
-      <button class="modal-close" id="modalClose">متوجه شدم</button>
+      <h2>پیش‌نویس درخواست شما</h2>
+      <p class="modal-sub">لطفاً متن زیر را با دقت مطالعه و تأیید نمایید</p>
+      <div class="summary-text" id="summaryText"></div>
+      <label class="confirm-check" id="confirmCheckWrap">
+        <input type="checkbox" id="confirmCheckbox">
+        <span class="confirm-mark">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </span>
+        <span class="confirm-text">اطلاعات فوق را تأیید می‌کنم</span>
+      </label>
+      <div class="modal-actions">
+        <button class="modal-btn secondary" id="btnEdit">ویرایش</button>
+        <button class="modal-btn primary" id="btnConfirm" disabled>تأیید نهایی و ارسال</button>
+      </div>
     </div>
   </div>
 
-  <!-- ====== توست اخطار ====== -->
+  <!-- ====== مودال موفقیت ====== -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </div>
+      <h2>درخواست شما با موفقیت ثبت شد</h2>
+      <p class="modal-sub">از اعتماد شما سپاسگزاریم</p>
+      <div class="summary-text" id="successText" style="margin-bottom:14px;"></div>
+      <p style="font-size:var(--fs-small);color:var(--text-soft);line-height:2;margin-bottom:20px;position:relative;z-index:1;">همکاران ما در <strong style="color:var(--primary)">امنیت‌گستر</strong> درخواست شما را با دقت بررسی خواهند کرد و به‌زودی با شماره تماس اعلامی شما تماس می‌گیرند. لطفاً شماره خود را در دسترس نگه دارید.</p>
+      <button class="modal-btn primary" id="modalClose" style="width:100%;">متوجه شدم</button>
+    </div>
+  </div>
+
+  <!-- ====== توست ====== -->
   <div class="toast-overlay" id="toastOverlay">
     <div class="toast">
       <div class="toast-icon">
@@ -1307,16 +1418,18 @@
       $('#toastTitle').textContent = title;
       $('#toastText').textContent = text;
       $('#toastOverlay').classList.add('show');
+      document.body.style.overflow = 'hidden';
     }
     function hideToast() {
       $('#toastOverlay').classList.remove('show');
+      document.body.style.overflow = '';
     }
     $('#toastBtn').addEventListener('click', hideToast);
     $('#toastOverlay').addEventListener('click', (e) => {
       if (e.target.id === 'toastOverlay') hideToast();
     });
 
-    /* ===== سلکت سفارشی ===== */
+    /* ===== سلکت ===== */
     function initCustomSelect(selectId) {
       const select = document.getElementById(selectId);
       if (!select) return;
@@ -1351,7 +1464,7 @@
       $$('.custom-select').forEach(s => s.classList.remove('open'));
     });
 
-    ['militarySelect','childrenSelect','cooperationSelect','bodySelect','educationSelect','licenseSelect','skillSelect','proSkillSelect'].forEach(initCustomSelect);
+    ['militarySelect','childrenSelect','cooperationSelect','jobCategorySelect','citySelect','bodySelect','educationSelect','licenseSelect','skillSelect','proSkillSelect'].forEach(initCustomSelect);
 
     /* ===== جنسیت ===== */
     const maleSection = $('#maleSection');
@@ -1371,7 +1484,7 @@
       });
     });
 
-    /* ===== تأهل → فرزندان + نوع همکاری ===== */
+    /* ===== تأهل ===== */
     const childrenField = $('#childrenField');
     const cooperationField = $('#cooperationField');
     const childrenHidden = childrenField.querySelector('input[type="hidden"]');
@@ -1404,7 +1517,7 @@
       });
     });
 
-    /* ===== تخصص → زیرمجموعه ===== */
+    /* ===== تخصص ===== */
     const proSkillField = $('#proSkillField');
     const otherSkillField = $('#otherSkillField');
     const skillHidden = $('#skillSelect input[type="hidden"]');
@@ -1438,7 +1551,7 @@
       }
     });
 
-    /* ===== بارگذاری فایل ===== */
+    /* ===== آپلود ===== */
     function setupUpload(inputId, previewId, loadingId) {
       const input = document.getElementById(inputId);
       const preview = document.getElementById(previewId);
@@ -1472,7 +1585,82 @@
     setupUpload('idBack', 'prev-idBack', 'load-idBack');
     setupUpload('receipt', 'prev-receipt', 'load-receipt');
 
-    /* ===== ارسال ===== */
+    /* ===== ساخت متن درخواست ===== */
+    function buildSummaryText(isSuccess) {
+      const fullname = $('#fullname').value.trim();
+      const phone = $('#phone').value.trim();
+      const age = $('#age').value.trim();
+      const location = $('#location').value.trim();
+      const height = $('#height').value.trim();
+      const weight = $('#weight').value.trim();
+      const notes = $('#notes').value.trim();
+      const otherSkillText = $('#otherSkillText').value.trim();
+
+      const military = $('input[name="military"]').value;
+      const marital = $('input[name="marital"]:checked')?.value || '';
+      const children = $('input[name="children"]').value;
+      const cooperation = $('input[name="cooperation"]').value;
+      const jobCategory = $('input[name="jobCategory"]').value;
+      const city = $('input[name="city"]').value;
+      const body = $('input[name="body"]').value;
+      const education = $('input[name="education"]').value;
+      const license = $('input[name="license"]').value;
+      const manual = $('input[name="manual"]:checked')?.value || '';
+      const uniform = $('input[name="uniform"]:checked')?.value || '';
+      const equipment = $('input[name="equipment"]:checked')?.value || '';
+      const skill = $('input[name="skill"]').value;
+      const proSkill = $('input[name="proSkill"]').value;
+
+      const maritalText = marital === 'married' ? 'متأهل' : 'مجرد';
+      let familyText = '';
+      if (marital === 'married') {
+        if (children) familyText += ` و دارای ${children}`;
+        if (cooperation) familyText += ` (نوع همکاری: ${cooperation})`;
+      }
+
+      let skillText = '';
+      if (skill === 'فنی حرفه‌ای' && proSkill) {
+        skillText = `دارای تخصص فنی حرفه‌ای در زمینه ${proSkill}`;
+      } else if (skill === 'تخصص غیر فنی' && otherSkillText) {
+        skillText = `دارای تخصص غیر فنی: ${otherSkillText}`;
+      } else if (skill) {
+        skillText = skill;
+      }
+
+      const licenseText = license === 'فاقد گواهینامه' ? 'فاقد گواهینامه رانندگی' : license;
+
+      // متن درخواست
+      let requestText = '';
+      requestText += `اینجانب <span class="hl">${fullname}</span>، `;
+      requestText += `${age} ساله، ساکن <span class="hl">${location}</span>، `;
+      requestText += `دارای مدرک <span class="hl">${education}</span>، `;
+      requestText += `وضعیت نظام وظیفه: <strong>${military}</strong>، `;
+      requestText += `وضعیت تأهل: <strong>${maritalText}${familyText}</strong>، `;
+      requestText += `وضعیت تناسب اندام: <strong>${body}</strong> `;
+      if (height) requestText += `(قد ${height} سانتی‌متر`;
+      if (weight) requestText += `، وزن ${weight} کیلوگرم)`;
+      else if (height) requestText += `)`;
+      requestText += `، `;
+      requestText += `گواهینامه: <strong>${licenseText}</strong>، `;
+      if (skillText) requestText += `تخصص: <strong>${skillText}</strong>، `;
+      if (manual) requestText += `مطالعه جزوه آموزشی: <strong>${manual}</strong>، `;
+      if (uniform) requestText += `پذیرش یونیفرم: <strong>${uniform}</strong>، `;
+      if (equipment) requestText += `تعهد تجهیزات: <strong>${equipment}</strong>، `;
+      requestText += `. `;
+
+      requestText += `تقاضای <span class="hl">مشاوره کامل</span> و <span class="hl">اشتغال فوری</span> `;
+      requestText += `با حقوق و شرایط اعلام شده در اپلیکیشن `;
+      requestText += `در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را دارم. `;
+      requestText += `لطفاً لیست فرصت‌های شغلی متناسب با شرایط من را ارائه دهید `;
+      requestText += `و منتظر تماس کارشناسان شما با شماره <strong>${phone}</strong> هستم.`;
+      if (notes) {
+        requestText += `<br><br><span style="color:var(--text-soft);font-size:14px;">توضیحات تکمیلی شما: ${notes}</span>`;
+      }
+
+      return requestText;
+    }
+
+    /* ===== ارسال فرم ===== */
     $('#jobForm').addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -1499,58 +1687,96 @@
         return;
       }
 
+      // بررسی سن
+      const age = $('#age').value.trim();
+      const ageNum = parseInt(age);
+      if (!age || isNaN(ageNum) || ageNum < 17 || ageNum > 70) {
+        showToast('سن', 'لطفاً سن دقیق خود را بین ۱۷ تا ۷۰ سال وارد کنید.');
+        $('#age').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        $('#age').focus();
+        return;
+      }
+
+      // بررسی فایل‌ها
       const idFront = $('#idFront');
       const idBack = $('#idBack');
       const receipt = $('#receipt');
 
       if (!idFront.files[0]) {
-        showToast('عکس روی کارت ملی', 'لطفاً عکس روی کارت ملی خود را بارگذاری کنید.');
+        showToast('بارگذاری مدارک', 'لطفاً کارت ملی یا صفحه اول شناسنامه خود را بارگذاری کنید.');
         idFront.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       if (!idBack.files[0]) {
-        showToast('عکس پشت کارت ملی', 'لطفاً عکس پشت کارت ملی خود را بارگذاری کنید.');
+        showToast('بارگذاری مدارک', 'لطفاً پشت کارت ملی یا صفحه دوم شناسنامه خود را بارگذاری کنید.');
         idBack.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       if (!receipt.files[0]) {
-        showToast('رسید واریز', 'لطفاً عکس رسید واریز را بارگذاری کنید.');
+        showToast('رسید واریز', 'لطفاً پیامک و یا رسید واریز حاوی کد رهگیری و تاریخ و ساعت واریز را ارسال فرمایید.');
         receipt.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
-      const filesHTML = `
-        <div class="modal-files-title">
-          <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-          فایل‌های دریافتی شما
-        </div>
-        <div class="file-line">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>روی کارت ملی: ${idFront.files[0].name}</span>
-        </div>
-        <div class="file-line">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>پشت کارت ملی: ${idBack.files[0].name}</span>
-        </div>
-        <div class="file-line">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          <span>رسید واریز: ${receipt.files[0].name}</span>
-        </div>
-      `;
-      $('#modalFiles').innerHTML = filesHTML;
-      $('#successModal').classList.add('show');
+      // ساخت متن پیش‌نویس
+      $('#summaryText').innerHTML = buildSummaryText(false);
+      $('#confirmCheckbox').checked = false;
+      $('#btnConfirm').disabled = true;
+      $('#confirmModal').classList.add('show');
       document.body.style.overflow = 'hidden';
+    });
+
+    /* ===== تأیید نهایی ===== */
+    $('#confirmCheckbox').addEventListener('change', (e) => {
+      $('#btnConfirm').disabled = !e.target.checked;
+    });
+
+    $('#btnEdit').addEventListener('click', () => {
+      $('#confirmModal').classList.remove('show');
+      document.body.style.overflow = '';
+    });
+
+    $('#btnConfirm').addEventListener('click', () => {
+      // نمایش متن موفقیت
+      const fullname = $('#fullname').value.trim();
+      const phone = $('#phone').value.trim();
+      const age = $('#age').value.trim();
+      const location = $('#location').value.trim();
+      const jobCategory = $('input[name="jobCategory"]').value;
+      const city = $('input[name="city"]').value;
+
+      let successText = '';
+      successText += `اینجانب <span class="hl">${fullname}</span>، ${age} ساله، ساکن ${location}، `;
+      successText += `درخواست استخدام در زمینه <strong>${jobCategory}</strong> در <strong>${city}</strong> را با موفقیت ثبت نمودم. `;
+      successText += `منتظر تماس کارشناسان امنیت‌گستر با شماره <strong>${phone}</strong> هستم.`;
+
+      $('#successText').innerHTML = successText;
+      $('#confirmModal').classList.remove('show');
+      $('#successModal').classList.add('show');
     });
 
     $('#modalClose').addEventListener('click', () => {
       $('#successModal').classList.remove('show');
       document.body.style.overflow = '';
-    });
-    $('#successModal').addEventListener('click', (e) => {
-      if (e.target.id === 'successModal') {
-        $('#successModal').classList.remove('show');
-        document.body.style.overflow = '';
-      }
+      // ریست فرم
+      $('#jobForm').reset();
+      // ریست سلکت‌ها
+      $$('.custom-select').forEach(sel => {
+        const hidden = sel.querySelector('input[type="hidden"]');
+        const trigger = sel.querySelector('.custom-select-trigger');
+        const value = sel.querySelector('.custom-select-value');
+        if (hidden) hidden.value = '';
+        if (trigger) trigger.classList.add('placeholder');
+        if (value) {
+          const firstOpt = sel.querySelector('.custom-select-option');
+          value.textContent = value.textContent.includes('شهر') ? 'لطفاً شهر مورد نظر را انتخاب کنید' :
+                             value.textContent.includes('دسته') ? 'لطفاً یک دسته را انتخاب کنید' :
+                             'لطفاً انتخاب کنید';
+        }
+        sel.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+      });
+      // پاک کردن پیش‌نمایش‌ها
+      $$('.upload-preview').forEach(p => p.classList.remove('show'));
     });
   </script>
 
