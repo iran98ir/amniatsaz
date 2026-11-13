@@ -27,8 +27,6 @@
   --orange-deep:#A65A34;
   --shadow:0 12px 35px rgba(25,61,50,.08);
   --shadow2:0 20px 55px rgba(25,61,50,.14);
-  --shadow-3d:0 6px 0 rgba(25,61,50,.10), 0 18px 38px rgba(25,61,50,.16);
-  --shadow-3d-deep:0 8px 0 rgba(25,61,50,.14), 0 22px 48px rgba(25,61,50,.22);
 }
 
 *{
@@ -70,87 +68,76 @@ button{
 /* ============ HEADER (هم‌راستا با صفحه اصلی) ============ */
 
 .header{
-  position:sticky;
-  top:0;
+  background:var(--cream);
+  padding:16px 17px;
+  position:relative;
   z-index:100;
-  background:rgba(250,249,244,.95);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(25,61,50,.09);
 }
 
 .header-inner{
-  width:100%;
-  padding:13px 19px;
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:12px;
 }
 
-.brand-mark{
-  width:49px;
-  height:49px;
-  flex-shrink:0;
-  border-radius:16px 16px 16px 5px;
+.logo{
+  width:53px;
+  height:53px;
   background:var(--forest);
+  color:var(--lime);
   display:grid;
   place-items:center;
-  position:relative;
-  box-shadow:0 7px 16px rgba(25,61,50,.19);
-  overflow:hidden;
+  border-radius:16px 5px 16px 5px;
+  box-shadow:5px 5px 0 rgba(137,148,107,.25);
+  flex-shrink:0;
 }
 
-.brand-mark:before{
-  content:"";
-  position:absolute;
-  width:55px;
-  height:55px;
-  border:1px solid rgba(214,229,164,.28);
-  border-radius:50%;
-  transform:translate(15px,-14px);
+.logo svg{
+  width:32px;
+  height:32px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.6;
 }
 
-.brand-mark svg{
-  width:27px;
-  height:27px;
-  fill:var(--lime);
-  position:relative;
-}
-
-.brand-copy{
+.brand{
   flex:1;
   min-width:0;
 }
 
 .brand-name{
-  font-size:20px;
+  font-size:23px;
   font-weight:900;
-  color:var(--forest);
   line-height:1.3;
-}
-
-.brand-caption{
-  font-size:14px;
-  color:var(--muted);
-  font-weight:700;
-  margin-top:2px;
-}
-
-.header-index{
-  font-size:13px;
   color:var(--forest);
-  background:#E8EBDD;
-  border-radius:30px;
-  padding:7px 12px;
+  letter-spacing:-1px;
+}
+
+.brand-sub{
+  font-size:12px;
+  font-weight:600;
+  color:#7C877A;
+}
+
+.header-mark{
+  width:45px;
+  height:45px;
+  border:1px solid #D8DDCC;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--forest);
+  font-size:11px;
   font-weight:900;
-  white-space:nowrap;
+  letter-spacing:1px;
+  flex-shrink:0;
 }
 
 /* ============ MAIN ============ */
 
 .main{
   width:100%;
-  padding:19px 16px 30px;
+  padding:0 16px 30px;
   margin:0 auto;
 }
 
@@ -163,11 +150,11 @@ button{
     radial-gradient(circle at 10% 0%,rgba(200,117,75,.20),transparent 40%),
     linear-gradient(145deg,#193D32,#254E40);
   color:white;
-  border-radius:29px 29px 9px 29px;
+  border-radius:0 0 9px 0;
   padding:27px 23px 25px;
   overflow:hidden;
   box-shadow:0 17px 40px rgba(25,61,50,.20);
-  margin-bottom:28px;
+  margin:0 -16px 28px;
 }
 
 .hero:before{
@@ -1026,17 +1013,21 @@ button{
 @media(min-width:760px){
   .main{
     max-width:1050px;
-    padding:30px 30px 45px;
+    padding:0 30px 45px;
+  }
+
+  .header{
+    padding:14px 30px;
   }
 
   .header-inner{
     max-width:1050px;
     margin:auto;
-    padding:14px 30px;
   }
 
   .hero{
     padding:40px 40px 35px;
+    margin:0 -30px 28px;
   }
 
   .hero h1{
@@ -1101,6 +1092,8 @@ button{
 
   .hero{
     padding:24px 18px;
+    margin-left:-12px;
+    margin-right:-12px;
   }
 
   .hero h1{
@@ -1139,6 +1132,14 @@ button{
     font-size:16px;
     padding:17px 18px;
   }
+
+  .brand-name{
+    font-size:21px;
+  }
+
+  .brand-sub{
+    font-size:11px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -1157,19 +1158,21 @@ button{
 
 <header class="header">
   <div class="header-inner">
-    <div class="brand-mark">
+
+    <div class="logo">
       <svg viewBox="0 0 24 24">
-        <path d="M12 1 3 5v6c0 5.4 3.7 10.4 9 12 5.3-1.6 9-6.6 9-12V5l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V6.7L12 4z"/>
-        <path d="m10.8 14.8-2.3-2.3 1.4-1.4 1 1 3.3-3.3 1.4 1.4z"/>
+        <path d="M12 2 3.5 5.5v5.2c0 5.2 3.4 9.4 8.5 11.3 5.1-1.9 8.5-6.1 8.5-11.3V5.5L12 2Z"/>
+        <path d="m8.5 12 2.2 2.2 4.8-5"/>
       </svg>
     </div>
 
-    <div class="brand-copy">
+    <div class="brand">
       <div class="brand-name">امنیت‌گستر</div>
-      <div class="brand-caption">راهنمای همکاری و شرایط استخدام</div>
+      <div class="brand-sub">راهنمای همکاری و شرایط استخدام</div>
     </div>
 
-    <div class="header-index">راهنمای رسمی</div>
+    <div class="header-mark">SG / 01</div>
+
   </div>
 </header>
 
@@ -1784,4 +1787,4 @@ button{
 </script>
 
 </body>
-    </html>
+  </html>
