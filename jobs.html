@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#f6f7f9">
-<title>مشاغل | استخدام امنیت و نگهبانی</title>
+<title>استخدام امنیت | نگهبانی، سرایداری، بادیگارد</title>
 
 <style>
   :root{
@@ -18,15 +18,17 @@
     --text-soft:#4a5866;
     --border:#e6e9ee;
     --success:#2f855a;
+
     --shadow-sm:0 2px 10px rgba(22,48,79,.06);
-    --shadow-md:0 8px 26px rgba(22,48,79,.10);
-    --shadow-lg:0 14px 38px rgba(22,48,79,.16);
-    --radius:20px;
+    --shadow-md:0 10px 30px rgba(22,48,79,.12);
+    --shadow-lg:0 18px 44px rgba(22,48,79,.20);
+
+    --radius:22px;
 
     --fs-body:19px;
     --fs-small:16px;
     --fs-tiny:14px;
-    --fs-h1:27px;
+    --fs-h1:30px;
     --fs-h2:24px;
     --fs-h3:21px;
     --fs-btn:20px;
@@ -42,9 +44,13 @@
 
   body{
     font-family:'Vazirmatn',-apple-system,BlinkMacSystemFont,'Segoe UI',Tahoma,sans-serif;
-    background:var(--bg);
+    background:
+      radial-gradient(circle at 10% 0%, rgba(184,145,47,.06), transparent 40%),
+      radial-gradient(circle at 90% 100%, rgba(22,48,79,.05), transparent 45%),
+      var(--bg);
+    background-attachment:fixed;
     color:var(--text);
-    line-height:1.85;
+    line-height:1.8;
     padding-bottom:96px;
     overflow-x:hidden;
   }
@@ -55,13 +61,22 @@
     background:linear-gradient(140deg,#122741 0%,#1a365d 55%,#234a75 100%);
     color:#fff;
     padding:20px 20px 18px;
-    box-shadow:0 4px 20px rgba(22,48,79,.30);
+    box-shadow:0 6px 26px rgba(22,48,79,.35);
     border-bottom:2px solid var(--accent);
+  }
+
+  .header::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px; height:2px;
+    background:linear-gradient(90deg,transparent,var(--accent-soft),var(--accent),var(--accent-soft),transparent);
+    opacity:.7;
   }
 
   .header-inner{
     display:flex; align-items:center; gap:15px;
     max-width:640px; margin:0 auto;
+    position:relative;
   }
 
   .logo{
@@ -70,21 +85,14 @@
     border-radius:16px;
     display:flex; align-items:center; justify-content:center;
     box-shadow:0 5px 14px rgba(0,0,0,.28), inset 0 1px 2px rgba(255,255,255,.4);
+    border:1px solid rgba(255,255,255,.25);
   }
 
   .logo svg{ width:34px; height:34px; fill:#122741; }
 
   .header-text{ flex:1; min-width:0; }
-
-  .header-title{
-    font-size:var(--fs-h2); font-weight:800;
-    letter-spacing:-.4px; line-height:1.3;
-  }
-
-  .header-sub{
-    font-size:var(--fs-small); color:#c5d1e0;
-    font-weight:500; margin-top:3px;
-  }
+  .header-title{ font-size:var(--fs-h2); font-weight:800; letter-spacing:-.4px; line-height:1.3; }
+  .header-sub{ font-size:var(--fs-small); color:#c5d1e0; font-weight:500; margin-top:3px; }
 
   /* ============ محتوا ============ */
   .main{
@@ -92,201 +100,217 @@
     padding:24px 18px 12px;
   }
 
-  /* ---------- هرو ---------- */
-  .hero{
-    background:linear-gradient(155deg,#ffffff 0%,#eef2f8 100%);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:26px 24px;
-    box-shadow:var(--shadow-md);
-    margin-bottom:30px;
+  /* ============ قالب لوکس چندخطی ============ */
+  .lux-frame{
     position:relative;
-    overflow:hidden;
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-md), 0 1px 0 rgba(255,255,255,.6) inset;
+    transition:transform .25s ease, box-shadow .25s ease;
   }
 
-  .hero::before{
+  .lux-frame::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:var(--radius);
+    padding:1.5px;
+    background:linear-gradient(140deg,
+      rgba(228,200,106,.9) 0%,
+      rgba(184,145,47,.55) 20%,
+      rgba(22,48,79,.10) 45%,
+      rgba(184,145,47,.55) 75%,
+      rgba(228,200,106,.9) 100%);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    pointer-events:none;
+  }
+
+  .lux-frame::after{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:calc(var(--radius) - 6px);
+    border:1px solid rgba(184,145,47,.18);
+    pointer-events:none;
+  }
+
+  /* ============ هرو ============ */
+  .hero{
+    padding:30px 26px 28px;
+    margin-bottom:32px;
+    overflow:hidden;
+    background:linear-gradient(155deg,#ffffff 0%,#f2f5fa 100%);
+  }
+
+  .hero-inner{ position:relative; z-index:2; }
+
+  .hero-inner::before{
     content:"";
     position:absolute; left:-60px; top:-60px;
     width:180px; height:180px; border-radius:50%;
     background:radial-gradient(circle,rgba(184,145,47,.14),transparent 70%);
+    pointer-events:none;
   }
 
-  .hero::after{
+  .hero-inner::after{
     content:"";
-    position:absolute; right:-40px; bottom:-50px;
+    position:absolute; right:-40px; bottom:-60px;
     width:140px; height:140px; border-radius:50%;
-    background:radial-gradient(circle,rgba(22,48,79,.06),transparent 70%);
+    background:radial-gradient(circle,rgba(22,48,79,.07),transparent 70%);
+    pointer-events:none;
   }
 
   .hero-badge{
     display:inline-flex; align-items:center; gap:8px;
-    background:rgba(22,48,79,.07);
-    color:var(--primary);
-    font-size:var(--fs-small); font-weight:700;
-    padding:8px 16px; border-radius:50px;
-    margin-bottom:16px;
-    border:1px solid rgba(22,48,79,.12);
+    background:linear-gradient(135deg,#ffffff,#f4f0e2);
+    color:var(--success);
+    font-size:var(--fs-small); font-weight:800;
+    padding:9px 18px; border-radius:50px;
+    margin-bottom:18px;
+    border:1px solid rgba(47,133,90,.35);
+    box-shadow:0 4px 14px rgba(47,133,90,.14);
     position:relative; z-index:1;
   }
 
-  .hero-badge svg{ width:18px; height:18px; fill:var(--accent); }
+  .hero-badge .dot{
+    width:9px; height:9px; border-radius:50%;
+    background:var(--success);
+    box-shadow:0 0 0 4px rgba(47,133,90,.18);
+    animation:pulse 2s infinite;
+  }
+
+  @keyframes pulse{
+    0%,100%{ box-shadow:0 0 0 4px rgba(47,133,90,.18); }
+    50%{ box-shadow:0 0 0 7px rgba(47,133,90,.06); }
+  }
 
   .hero h1{
     font-size:var(--fs-h1);
     font-weight:800;
     color:var(--primary);
     line-height:1.55;
+    margin-bottom:14px;
     position:relative; z-index:1;
   }
 
-  .hero h1 span{ color:var(--accent); }
-
-  /* ============ کارت‌های شغل ============ */
-  .jobs{ display:flex; flex-direction:column; gap:26px; }
-
-  .job-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    box-shadow:var(--shadow-md);
-    transition:transform .2s ease, box-shadow .2s ease;
-    animation:fadeUp .5s ease both;
-  }
-
-  .job-card:nth-child(1){ animation-delay:.05s; }
-  .job-card:nth-child(2){ animation-delay:.12s; }
-  .job-card:nth-child(3){ animation-delay:.19s; }
-  .job-card:nth-child(4){ animation-delay:.26s; }
-
-  .job-card:active{
-    transform:scale(.985);
-    box-shadow:var(--shadow-lg);
-  }
-
-  .job-image-wrap{
+  .hero h1 span{
+    color:var(--accent);
     position:relative;
-    width:100%;
-    aspect-ratio:16/10;
-    overflow:hidden;
-    background:linear-gradient(145deg,#dde5f0,#c9d4e3);
+    white-space:nowrap;
   }
 
-  .job-image-wrap img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:transform .4s ease;
-  }
-
-  .job-card:active .job-image-wrap img{ transform:scale(1.04); }
-
-  .job-image-wrap::after{
+  .hero h1 span::after{
     content:"";
-    position:absolute; inset:0;
-    background:linear-gradient(180deg,transparent 55%,rgba(18,39,65,.55) 100%);
-    pointer-events:none;
+    position:absolute;
+    left:0; right:0; bottom:2px;
+    height:6px;
+    background:linear-gradient(90deg,transparent,rgba(184,145,47,.20),transparent);
+    border-radius:6px;
+    z-index:-1;
   }
 
-  .job-badge{
-    position:absolute;
-    top:14px; right:14px;
-    z-index:2;
-    background:rgba(255,255,255,.95);
-    color:var(--primary);
-    font-size:var(--fs-tiny);
+  .hero p{
+    font-size:var(--fs-body);
+    color:var(--text-soft);
+    line-height:1.95;
+    position:relative; z-index:1;
+  }
+
+  /* ============ آمار ============ */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:30px;
+  }
+
+  .stat{
+    padding:20px 8px 18px;
+    text-align:center;
+    position:relative;
+  }
+
+  .stat-num{
+    font-size:25px;
     font-weight:800;
-    padding:7px 14px;
-    border-radius:50px;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
-    display:flex; align-items:center; gap:6px;
-    backdrop-filter:blur(6px);
+    color:var(--primary);
+    line-height:1.2;
   }
 
-  .job-badge .dot{
-    width:8px; height:8px; border-radius:50%;
-    background:var(--success);
+  .stat-label{
+    font-size:var(--fs-tiny);
+    color:var(--text-soft);
+    font-weight:700;
+    margin-top:5px;
   }
 
-  .job-number{
-    position:absolute;
-    bottom:14px; left:16px;
-    z-index:2;
-    font-size:34px;
-    font-weight:900;
-    color:rgba(255,255,255,.9);
-    line-height:1;
-    text-shadow:0 2px 10px rgba(0,0,0,.3);
-    letter-spacing:-1px;
-  }
-
-  .job-content{ padding:22px 20px 24px; }
-
-  .job-title{
+  /* ============ عنوان بخش ============ */
+  .section-title{
+    display:flex; align-items:center; gap:12px;
     font-size:var(--fs-h3);
     font-weight:800;
     color:var(--primary);
-    line-height:1.5;
-    margin-bottom:6px;
-    display:flex;
-    align-items:center;
-    gap:10px;
+    margin-bottom:20px;
   }
 
-  .job-title::before{
+  .section-title::before{
     content:"";
-    width:5px; height:24px;
+    width:6px; height:28px;
     background:linear-gradient(var(--accent-soft),var(--accent));
-    border-radius:4px;
-    flex-shrink:0;
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(184,145,47,.35);
   }
 
-  .job-subtitle{
-    font-size:var(--fs-small);
-    color:var(--accent);
-    font-weight:700;
-    margin-bottom:14px;
-    padding-right:15px;
+  /* ============ کارت مشاغل ============ */
+  .jobs{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-bottom:30px;
+  }
+
+  .job-card{
+    padding:20px 16px;
+    cursor:pointer;
+    display:flex; flex-direction:column;
+    gap:13px;
+  }
+
+  .job-card:active{
+    transform:translateY(-2px) scale(.98);
+    box-shadow:var(--shadow-lg);
+  }
+
+  .job-icon{
+    width:52px; height:52px;
+    border-radius:15px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(145deg,#f4f7fc,#e2eaf4);
+    border:1px solid rgba(22,48,79,.10);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 2px 6px rgba(22,48,79,.05);
+  }
+
+  .job-icon svg{ width:28px; height:28px; fill:var(--primary); }
+
+  .job-name{
+    font-size:18px;
+    font-weight:800;
+    color:var(--text);
+    line-height:1.4;
   }
 
   .job-desc{
-    font-size:var(--fs-body);
-    color:var(--text-soft);
-    line-height:2;
-  }
-
-  .job-desc strong{
-    color:var(--text);
-    font-weight:800;
-  }
-
-  .job-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:16px;
-    padding-top:16px;
-    border-top:1px dashed var(--border);
-  }
-
-  .tag{
     font-size:var(--fs-tiny);
-    font-weight:700;
-    padding:6px 13px;
-    border-radius:50px;
-    background:rgba(22,48,79,.06);
-    color:var(--primary);
-    border:1px solid rgba(22,48,79,.10);
+    color:var(--text-soft);
+    margin-top:3px;
+    font-weight:500;
   }
 
-  .tag.gold{
-    background:rgba(184,145,47,.10);
-    color:#8a6b1a;
-    border-color:rgba(184,145,47,.25);
-  }
-
-  /* ============ دکمه ثبت درخواست ============ */
+  /* ============ دکمه ============ */
   .cta{
     display:flex;
     align-items:center;
@@ -301,12 +325,13 @@
     border:none;
     border-radius:18px;
     cursor:pointer;
-    box-shadow:0 10px 26px rgba(22,48,79,.30);
+    box-shadow:0 12px 30px rgba(22,48,79,.32), inset 0 1px 0 rgba(255,255,255,.15);
     transition:transform .18s ease, box-shadow .18s ease;
-    margin-top:30px;
+    margin-bottom:30px;
     text-decoration:none;
     position:relative;
     overflow:hidden;
+    border:1px solid rgba(228,200,106,.35);
   }
 
   .cta::before{
@@ -314,18 +339,51 @@
     position:absolute;
     top:0; left:-100%;
     width:100%; height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
-    transition:left .5s ease;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+    transition:left .6s ease;
   }
 
   .cta:active{
     transform:scale(.97);
-    box-shadow:0 5px 16px rgba(22,48,79,.26);
+    box-shadow:0 6px 18px rgba(22,48,79,.28);
   }
 
   .cta:active::before{ left:100%; }
 
   .cta svg{ width:24px; height:24px; fill:#fff; }
+
+  /* ============ امضای طراح ============ */
+  .signature{
+    text-align:center;
+    margin:34px 0 8px;
+    font-size:var(--fs-tiny);
+    font-weight:700;
+    letter-spacing:1px;
+    color:#8a94a3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .signature::before,
+  .signature::after{
+    content:"";
+    flex:1;
+    max-width:60px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(184,145,47,.5),transparent);
+  }
+
+  .signature span{
+    color:var(--primary);
+    font-weight:800;
+    padding:4px 12px;
+    border:1px solid rgba(184,145,47,.35);
+    border-radius:50px;
+    background:linear-gradient(135deg,#ffffff,#f6efd9);
+    box-shadow:0 2px 8px rgba(184,145,47,.12);
+  }
 
   /* ============ نویگیشن پایین ============ */
   .bottom-nav{
@@ -334,7 +392,7 @@
     z-index:200;
     background:#ffffff;
     border-top:1px solid var(--border);
-    box-shadow:0 -6px 26px rgba(22,48,79,.10);
+    box-shadow:0 -8px 30px rgba(22,48,79,.12);
     display:flex;
     justify-content:space-around;
     padding:10px 6px 14px;
@@ -371,6 +429,11 @@
     from{ opacity:0; transform:translateY(16px); }
     to{ opacity:1; transform:translateY(0); }
   }
+
+  .anim{ animation:fadeUp .5s ease both; }
+  .anim-2{ animation-delay:.10s; }
+  .anim-3{ animation-delay:.20s; }
+  .anim-4{ animation-delay:.30s; }
 </style>
 </head>
 
@@ -386,7 +449,7 @@
       </div>
       <div class="header-text">
         <div class="header-title">امنیت‌گستر</div>
-        <div class="header-sub">راهنمای مشاغل و شرایط استخدام</div>
+        <div class="header-sub">استخدام نیروهای امنیتی و خدماتی</div>
       </div>
     </div>
   </header>
@@ -394,126 +457,103 @@
   <!-- ====== محتوا ====== -->
   <main class="main">
 
-    <!-- هرو -->
-    <section class="hero">
-      <div class="hero-badge">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        ۴ گروه شغلی فعال
+    <!-- خوش‌آمد -->
+    <section class="hero lux-frame anim">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          پذیرش نیرو فعال است
+        </div>
+        <h1>به جمع <span>محافظان</span> ما بپیوندید</h1>
+        <p>
+          استخدام در زمینه نگهبانی، سرایداری، بادیگارد و نیروهای امنیتی.
+          فرصت‌های شغلی معتبر با شرایط مناسب در انتظار شماست.
+        </p>
       </div>
-      <h1>
-        کلیه مشاغل در <span>۴ دسته</span> اصلی ارائه می‌شوند؛ همگی با بیمه و حقوقی بالای <span>۶۰ میلیون تومان</span>. سه دسته اول شامل محل اقامت و سه وعده غذا هستند.
-      </h1>
     </section>
 
-    <!-- کارت‌های شغل -->
-    <section class="jobs">
+    <!-- آمار -->
+    <section class="stats anim anim-2">
+      <div class="stat lux-frame">
+        <div class="stat-num">۴</div>
+        <div class="stat-label">گروه شغلی</div>
+      </div>
+      <div class="stat lux-frame">
+        <div class="stat-num">۲۴/۷</div>
+        <div class="stat-label">پشتیبانی</div>
+      </div>
+      <div class="stat lux-frame">
+        <div class="stat-num">۱۰۰٪</div>
+        <div class="stat-label">معتبر</div>
+      </div>
+    </section>
 
-      <!-- ۱. بادیگارد -->
-      <article class="job-card">
-        <div class="job-image-wrap">
-          <span class="job-badge"><span class="dot"></span>درآمد ویژه</span>
-          <span class="job-number">۰۱</span>
-          <img src="1.jpg" alt="محافظ شخصی و بادیگارد" loading="lazy">
-        </div>
-        <div class="job-content">
-          <h2 class="job-title">محافظ شخصی / بادیگارد</h2>
-          <div class="job-subtitle">بالاترین سطح درآمد در میان گروه‌های شغلی</div>
-          <p class="job-desc">
-            این حرفه یکی از <strong>پردرآمدترین</strong> مشاغل حوزه امنیت است. استخدام صرفاً برای آقایان <strong>۲۰ تا ۳۵ سال</strong> انجام می‌شود که از <strong>اندام ورزشکاری، قد بلند و هیکل درشت</strong> برخوردار باشند. <strong>آراستگی ظاهری</strong> و ارائه <strong>ضامن معتبر</strong> از الزامات قطعی این جایگاه است.
-          </p>
-          <div class="job-tags">
-            <span class="tag gold">درآمد بسیار بالا</span>
-            <span class="tag">۲۰ تا ۳۵ سال</span>
-            <span class="tag">اندام ورزشکاری</span>
-            <span class="tag">ضامن معتبر</span>
-          </div>
-        </div>
-      </article>
+    <!-- مشاغل -->
+    <h2 class="section-title anim anim-2">مشاغل موجود</h2>
+    <section class="jobs anim anim-3">
 
-      <!-- ۲. نگهبان -->
-      <article class="job-card">
-        <div class="job-image-wrap">
-          <span class="job-badge"><span class="dot"></span>پذیرش فعال</span>
-          <span class="job-number">۰۲</span>
-          <img src="2.jpg" alt="نگهبان" loading="lazy">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
         </div>
-        <div class="job-content">
-          <h2 class="job-title">نگهبان</h2>
-          <div class="job-subtitle">مسئولیت سنگین، شرایط گاه دشوار</div>
-          <p class="job-desc">
-            شغل نگهبانی <strong>مسئولیت سنگین</strong> و در برخی موارد <strong>شرایط دشوار</strong> دارد. برای اتباع محترم نیز در بعضی موارد فرصت شغلی فراهم است. استخدام تنها برای <strong>افراد مجرد ۲۰ تا ۴۰ ساله</strong> صورت می‌گیرد. حوزه فعالیت شامل حفاظت از <strong>مصالح ساختمانی، پروژه‌های عمرانی، لوازم و دارایی‌های ارزشمند</strong> و پروژه‌های بدون محافظ است.
-          </p>
-          <div class="job-tags">
-            <span class="tag">افراد مجرد</span>
-            <span class="tag">۲۰ تا ۴۰ سال</span>
-            <span class="tag">حفاظت پروژه</span>
-            <span class="tag">فرصت برای اتباع</span>
-          </div>
+        <div>
+          <div class="job-name">بادیگارد</div>
+          <div class="job-desc">محافظ شخصی</div>
         </div>
-      </article>
+      </div>
 
-      <!-- ۳. سرایدار -->
-      <article class="job-card">
-        <div class="job-image-wrap">
-          <span class="job-badge"><span class="dot"></span>شرایط متنوع</span>
-          <span class="job-number">۰۳</span>
-          <img src="3.jpg" alt="سرایدار" loading="lazy">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
         </div>
-        <div class="job-content">
-          <h2 class="job-title">سرایدار</h2>
-          <div class="job-subtitle">اولویت با متأهلین، بدون محدودیت سنی</div>
-          <p class="job-desc">
-            در این گروه شغلی <strong>افراد متأهل در اولویت</strong> قرار دارند. <strong>محدودیت سنی وجود ندارد</strong> و پذیرش از <strong>۲۰ تا ۶۰ سال</strong> امکان‌پذیر است. شرایط استخدام در این دسته <strong>بسیار متنوع</strong> بوده و شما می‌توانید در زمان ثبت درخواست، شرایط مورد نظر خود را انتخاب نمایید.
-          </p>
-          <div class="job-tags">
-            <span class="tag gold">اولویت متأهل</span>
-            <span class="tag">۲۰ تا ۶۰ سال</span>
-            <span class="tag">شرایط انتخابی</span>
-          </div>
+        <div>
+          <div class="job-name">نگهبان</div>
+          <div class="job-desc">حفاظت از اماکن</div>
         </div>
-      </article>
+      </div>
 
-      <!-- ۴. نیروی امنیتی -->
-      <article class="job-card">
-        <div class="job-image-wrap">
-          <span class="job-badge"><span class="dot"></span>فقط تهران</span>
-          <span class="job-number">۰۴</span>
-          <img src="4.jpg" alt="نیروی امنیتی سیکریتی" loading="lazy">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
         </div>
-        <div class="job-content">
-          <h2 class="job-title">نیروی امنیتی / سیکریتی</h2>
-          <div class="job-subtitle">پرستیژ بالا، حقوق بالاتر</div>
-          <p class="job-desc">
-            حوزه فعالیت شامل تأمین امنیت <strong>پاساژها، پارک‌ها، اماکن ورزشی، پارکینگ‌ها، شهربازی، مراکز خرید، رستوران‌ها، گیت‌های ورودی کارخانه‌ها</strong> و موارد مشابه است. این مشاغل از <strong>پرستیژ بسیار بالایی</strong> برخوردارند و صرفاً در <strong>شهر تهران</strong> موجود می‌باشند. استخدام از <strong>۲۰ تا ۴۵ سال</strong> امکان‌پذیر است. این دسته <strong>فاقد محل اقامت و غذا</strong> بوده یا نهایتاً شیفتی است، اما <strong>حقوق بالاتری</strong> دارد؛ لذا <strong>نزدیکی به محل کار</strong> اهمیت زیادی دارد.
-          </p>
-          <div class="job-tags">
-            <span class="tag gold">پرستیژ بالا</span>
-            <span class="tag">فقط تهران</span>
-            <span class="tag">۲۰ تا ۴۵ سال</span>
-            <span class="tag">حقوق بالاتر</span>
-          </div>
+        <div>
+          <div class="job-name">سرایدار</div>
+          <div class="job-desc">امور ساختمان</div>
         </div>
-      </article>
+      </div>
+
+      <div class="job-card lux-frame">
+        <div class="job-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="job-name">نیروی امنیتی</div>
+          <div class="job-desc">حراست و کنترل</div>
+        </div>
+      </div>
 
     </section>
 
-    <!-- دکمه ثبت درخواست -->
-    <a href="request.html" class="cta">
+    <!-- دکمه راهنمای انتخاب شغل -->
+    <a href="jobs.html" class="cta anim anim-4">
       <svg viewBox="0 0 24 24">
-        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/>
+        <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
       </svg>
-      ثبت درخواست استخدام
+      راهنمای انتخاب شغل
     </a>
+
+    <!-- امضا -->
+    <div class="signature"><span>امنیت‌گستر</span></div>
 
   </main>
 
   <!-- ====== نویگیشن پایین ====== -->
   <nav class="bottom-nav">
-    <a href="index.html" class="nav-item">
+    <a href="index.html" class="nav-item active">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       <span>صفحه اصلی</span>
     </a>
-    <a href="jobs.html" class="nav-item active">
+    <a href="jobs.html" class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
       <span>مشاغل</span>
     </a>
