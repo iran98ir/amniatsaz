@@ -4,12 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#f6f7f9">
-<title>امنیت‌گستر | استخدام نیروهای امنیتی و خدماتی</title>
+<title>استخدام امنیت | نگهبانی، سرایداری، بادیگارد</title>
 
 <style>
   :root{
     --primary:#16304f;
-    --primary-dark:#0f2338;
     --primary-light:#234a75;
     --accent:#b8912f;
     --accent-soft:#e4c86a;
@@ -25,23 +24,23 @@
     --shadow-lg:0 18px 44px rgba(22,48,79,.20);
 
     --radius:22px;
-    --radius-sm:14px;
 
     --fs-body:19px;
-    --fs-small:17px;
-    --fs-tiny:15px;
-    --fs-h1:32px;
-    --fs-h2:26px;
-    --fs-h3:23px;
-    --fs-btn:21px;
-    --fs-nav:16px;
-    --fs-input:19px;
-    --fs-label:20px;
-    --fs-help:16px;
+    --fs-small:16px;
+    --fs-tiny:14px;
+    --fs-h1:30px;
+    --fs-h2:24px;
+    --fs-h3:21px;
+    --fs-btn:20px;
+    --fs-nav:15px;
   }
 
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html{font-size:var(--fs-body)}
+  *{
+    margin:0; padding:0; box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  html{ font-size:var(--fs-body); }
 
   body{
     font-family:'Vazirmatn',-apple-system,BlinkMacSystemFont,'Segoe UI',Tahoma,sans-serif;
@@ -51,604 +50,379 @@
       var(--bg);
     background-attachment:fixed;
     color:var(--text);
-    line-height:1.85;
-    padding-bottom:104px;
+    line-height:1.8;
+    padding-bottom:96px;
     overflow-x:hidden;
   }
 
-  /* ============ هدر ============ */
   .header{
-    position:sticky;top:0;z-index:100;
-    background:linear-gradient(140deg,#0f2338 0%,#16304f 55%,#234a75 100%);
+    position:sticky; top:0; z-index:100;
+    background:linear-gradient(140deg,#122741 0%,#1a365d 55%,#234a75 100%);
     color:#fff;
-    padding:22px 20px 20px;
-    box-shadow:0 6px 26px rgba(15,35,56,.40);
+    padding:20px 20px 18px;
+    box-shadow:0 6px 26px rgba(22,48,79,.35);
     border-bottom:2px solid var(--accent);
   }
+
   .header::after{
-    content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px; height:2px;
     background:linear-gradient(90deg,transparent,var(--accent-soft),var(--accent),var(--accent-soft),transparent);
     opacity:.7;
   }
+
   .header-inner{
-    display:flex;align-items:center;gap:15px;
-    max-width:720px;margin:0 auto;position:relative;
+    display:flex; align-items:center; gap:15px;
+    max-width:640px; margin:0 auto;
+    position:relative;
   }
+
   .logo{
-    width:60px;height:60px;flex-shrink:0;
+    width:58px; height:58px; flex-shrink:0;
     background:linear-gradient(145deg,var(--accent-soft),var(--accent));
-    border-radius:17px;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 5px 14px rgba(0,0,0,.30),inset 0 1px 2px rgba(255,255,255,.4);
+    border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 5px 14px rgba(0,0,0,.28), inset 0 1px 2px rgba(255,255,255,.4);
     border:1px solid rgba(255,255,255,.25);
   }
-  .logo svg{width:35px;height:35px;fill:#0f2338}
-  .header-text{flex:1;min-width:0}
-  .header-title{font-size:var(--fs-h2);font-weight:800;letter-spacing:-.4px;line-height:1.3}
-  .header-sub{font-size:var(--fs-small);color:#c5d1e0;font-weight:500;margin-top:4px}
 
-  /* ============ محتوا ============ */
-  .main{max-width:720px;margin:0 auto;padding:26px 14px 14px}
+  .logo svg{ width:34px; height:34px; fill:#122741; }
 
-  /* ============ قالب لوکس ============ */
-  .lux-frame{
-    position:relative;background:var(--card);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-md),0 1px 0 rgba(255,255,255,.6) inset;
+  .header-text{ flex:1; min-width:0; }
+  .header-title{ font-size:var(--fs-h2); font-weight:800; letter-spacing:-.4px; line-height:1.3; }
+  .header-sub{ font-size:var(--fs-small); color:#c5d1e0; font-weight:500; margin-top:3px; }
+
+  .main{
+    max-width:640px; margin:0 auto;
+    padding:24px 18px 12px;
   }
+
+  .lux-frame{
+    position:relative;
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-md), 0 1px 0 rgba(255,255,255,.6) inset;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+
   .lux-frame::before{
-    content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1.5px;
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:var(--radius);
+    padding:1.5px;
     background:linear-gradient(140deg,
       rgba(228,200,106,.9) 0%,
       rgba(184,145,47,.55) 20%,
       rgba(22,48,79,.10) 45%,
       rgba(184,145,47,.55) 75%,
       rgba(228,200,106,.9) 100%);
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;
-    pointer-events:none;z-index:3;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    pointer-events:none;
   }
+
   .lux-frame::after{
-    content:"";position:absolute;inset:6px;
+    content:"";
+    position:absolute;
+    inset:6px;
     border-radius:calc(var(--radius) - 6px);
     border:1px solid rgba(184,145,47,.18);
-    pointer-events:none;z-index:2;
+    pointer-events:none;
   }
 
-  /* ============ هرو ============ */
   .hero{
-    padding:36px 26px 32px;margin-bottom:26px;overflow:hidden;
-    background:linear-gradient(155deg,#ffffff 0%,#eef3fa 100%);
-    position:relative;
+    padding:30px 26px 28px;
+    margin-bottom:32px;
+    overflow:hidden;
+    background:linear-gradient(155deg,#ffffff 0%,#f2f5fa 100%);
   }
-  .hero-inner{position:relative;z-index:4}
 
-  /* هاله‌های تزئینی */
+  .hero-inner{ position:relative; z-index:2; }
+
   .hero-inner::before{
-    content:"";position:absolute;left:-80px;top:-80px;
-    width:240px;height:240px;border-radius:50%;
-    background:radial-gradient(circle,rgba(184,145,47,.18),transparent 70%);
+    content:"";
+    position:absolute; left:-60px; top:-60px;
+    width:180px; height:180px; border-radius:50%;
+    background:radial-gradient(circle,rgba(184,145,47,.14),transparent 70%);
     pointer-events:none;
-    animation:float 8s ease-in-out infinite;
   }
+
   .hero-inner::after{
-    content:"";position:absolute;right:-60px;bottom:-100px;
-    width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle,rgba(22,48,79,.08),transparent 70%);
+    content:"";
+    position:absolute; right:-40px; bottom:-60px;
+    width:140px; height:140px; border-radius:50%;
+    background:radial-gradient(circle,rgba(22,48,79,.07),transparent 70%);
     pointer-events:none;
-    animation:float 10s ease-in-out infinite reverse;
-  }
-  @keyframes float{
-    0%,100%{transform:translate(0,0)}
-    50%{transform:translate(15px,-15px)}
   }
 
   .hero-badge{
-    display:inline-flex;align-items:center;gap:9px;
+    display:inline-flex; align-items:center; gap:8px;
     background:linear-gradient(135deg,#ffffff,#f4f0e2);
-    color:#8a6b1a;font-size:var(--fs-small);font-weight:800;
-    padding:11px 22px;border-radius:50px;margin-bottom:20px;
-    border:1px solid rgba(184,145,47,.45);
-    box-shadow:0 4px 14px rgba(184,145,47,.20);
-    position:relative;z-index:1;
+    color:var(--success);
+    font-size:var(--fs-small); font-weight:800;
+    padding:9px 18px; border-radius:50px;
+    margin-bottom:18px;
+    border:1px solid rgba(47,133,90,.35);
+    box-shadow:0 4px 14px rgba(47,133,90,.14);
+    position:relative; z-index:1;
   }
-  .hero-badge .pulse{
-    width:10px;height:10px;border-radius:50%;
+
+  .hero-badge .dot{
+    width:9px; height:9px; border-radius:50%;
     background:var(--success);
-    box-shadow:0 0 0 4px rgba(47,133,90,.20);
+    box-shadow:0 0 0 4px rgba(47,133,90,.18);
     animation:pulse 2s infinite;
-    flex-shrink:0;
   }
+
   @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 4px rgba(47,133,90,.20)}
-    50%{box-shadow:0 0 0 8px rgba(47,133,90,.05)}
+    0%,100%{ box-shadow:0 0 0 4px rgba(47,133,90,.18); }
+    50%{ box-shadow:0 0 0 7px rgba(47,133,90,.06); }
   }
 
   .hero h1{
-    font-size:var(--fs-h1);font-weight:900;color:var(--primary);
-    line-height:1.5;margin-bottom:14px;position:relative;z-index:1;
-    letter-spacing:-.5px;
+    font-size:var(--fs-h1);
+    font-weight:800;
+    color:var(--primary);
+    line-height:1.55;
+    margin-bottom:14px;
+    position:relative; z-index:1;
   }
+
   .hero h1 span{
     color:var(--accent);
     position:relative;
     white-space:nowrap;
   }
+
   .hero h1 span::after{
-    content:"";position:absolute;left:0;right:0;bottom:4px;height:8px;
-    background:linear-gradient(90deg,transparent,rgba(228,200,106,.4),transparent);
-    border-radius:6px;z-index:-1;
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:2px;
+    height:6px;
+    background:linear-gradient(90deg,transparent,rgba(184,145,47,.20),transparent);
+    border-radius:6px;
+    z-index:-1;
   }
-  .hero-sub{
-    font-size:var(--fs-body);color:var(--text-soft);font-weight:600;
-    line-height:2;position:relative;z-index:1;
-    padding-right:18px;border-right:3px solid rgba(184,145,47,.6);
-    margin-bottom:24px;
+
+  .hero p{
+    font-size:var(--fs-body);
+    color:var(--text-soft);
+    line-height:1.95;
+    position:relative; z-index:1;
   }
-  .hero-stats{
-    display:flex;
-    gap:10px;
-    position:relative;z-index:1;
-    margin-top:22px;
-    padding-top:22px;
-    border-top:1px dashed rgba(184,145,47,.3);
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:30px;
   }
-  .hero-stat{
-    flex:1;
+
+  .stat{
+    padding:20px 8px 18px;
     text-align:center;
+    position:relative;
   }
-  .hero-stat-num{
-    font-size:24px;
-    font-weight:900;
+
+  .stat-num{
+    font-size:25px;
+    font-weight:800;
     color:var(--primary);
-    line-height:1.1;
-    letter-spacing:-.5px;
+    line-height:1.2;
   }
-  .hero-stat-num span{
-    color:var(--accent);
-    font-size:20px;
-  }
-  .hero-stat-label{
-    font-size:13px;
+
+  .stat-label{
+    font-size:var(--fs-tiny);
     color:var(--text-soft);
     font-weight:700;
     margin-top:5px;
   }
 
-  /* ============ بخش عناوین ============ */
-  .section-head{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:32px 4px 20px;
-  }
-  .section-head-icon{
-    width:44px;height:44px;flex-shrink:0;
-    border-radius:13px;
-    background:linear-gradient(145deg,var(--primary),var(--primary-dark));
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 12px rgba(22,48,79,.25);
-    border:1px solid rgba(255,255,255,.15);
-  }
-  .section-head-icon svg{
-    width:24px;height:24px;fill:#e4c86a;
-  }
-  .section-head-text{flex:1;min-width:0}
-  .section-head-title{
+  .section-title{
+    display:flex; align-items:center; gap:12px;
     font-size:var(--fs-h3);
-    font-weight:900;
+    font-weight:800;
     color:var(--primary);
-    line-height:1.3;
-    letter-spacing:-.3px;
-  }
-  .section-head-sub{
-    font-size:14px;
-    color:var(--text-soft);
-    font-weight:600;
-    margin-top:2px;
+    margin-bottom:20px;
   }
 
-  /* ============ کارت‌های خدمات ============ */
-  .services-grid{
+  .section-title::before{
+    content:"";
+    width:6px; height:28px;
+    background:linear-gradient(var(--accent-soft),var(--accent));
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(184,145,47,.35);
+  }
+
+  .jobs{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:14px;
-    margin-bottom:26px;
+    margin-bottom:30px;
   }
 
-  .service-card{
-    padding:22px 16px 20px;
+  .job-card{
+    padding:20px 16px;
     cursor:pointer;
-    transition:transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s ease;
-    position:relative;
-    overflow:hidden;
-    text-decoration:none;
-    color:inherit;
-    display:block;
-    animation:fadeUp .5s ease both;
+    display:flex; flex-direction:column;
+    gap:13px;
   }
-  .service-card:nth-child(1){animation-delay:.05s}
-  .service-card:nth-child(2){animation-delay:.10s}
-  .service-card:nth-child(3){animation-delay:.15s}
-  .service-card:nth-child(4){animation-delay:.20s}
 
-  .service-card:active{
-    transform:translateY(-3px) scale(.98);
+  .job-card:active{
+    transform:translateY(-2px) scale(.98);
     box-shadow:var(--shadow-lg);
   }
-  .service-card::before{
-    content:"";
-    position:absolute;
-    top:-30px;right:-30px;
-    width:100px;height:100px;border-radius:50%;
-    background:radial-gradient(circle,rgba(184,145,47,.10),transparent 70%);
-    pointer-events:none;
-  }
-  .service-icon{
-    width:52px;height:52px;
+
+  .job-icon{
+    width:52px; height:52px;
     border-radius:15px;
+    display:flex; align-items:center; justify-content:center;
     background:linear-gradient(145deg,#f4f7fc,#e2eaf4);
     border:1px solid rgba(22,48,79,.10);
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:14px;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.85), 0 3px 8px rgba(22,48,79,.06);
-    position:relative;
-    z-index:1;
-  }
-  .service-icon svg{
-    width:28px;height:28px;
-    fill:var(--primary);
-  }
-  .service-title{
-    font-size:19px;
-    font-weight:800;
-    color:var(--primary);
-    line-height:1.4;
-    margin-bottom:4px;
-    position:relative;
-    z-index:1;
-  }
-  .service-desc{
-    font-size:14px;
-    color:var(--text-soft);
-    font-weight:600;
-    line-height:1.7;
-    position:relative;
-    z-index:1;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 2px 6px rgba(22,48,79,.05);
   }
 
-  /* ============ بنر بزرگ CTA ============ */
-  .big-cta{
+  .job-icon svg{ width:28px; height:28px; fill:var(--primary); }
+
+  .job-name{
+    font-size:18px;
+    font-weight:800;
+    color:var(--text);
+    line-height:1.4;
+  }
+
+  .job-desc{
+    font-size:var(--fs-tiny);
+    color:var(--text-soft);
+    margin-top:3px;
+    font-weight:500;
+  }
+
+  .cta{
     display:flex;
-    align-items:center;
-    gap:16px;
-    padding:24px 22px;
-    background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
-    color:#fff;
-    border-radius:var(--radius);
-    text-decoration:none;
-    box-shadow:0 12px 30px rgba(22,48,79,.35), inset 0 1px 0 rgba(255,255,255,.15);
-    margin-bottom:26px;
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(228,200,106,.35);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .big-cta:active{
-    transform:scale(.98);
-    box-shadow:0 6px 18px rgba(22,48,79,.28);
-  }
-  .big-cta::before{
-    content:"";
-    position:absolute;
-    top:-50px;left:-50px;
-    width:200px;height:200px;border-radius:50%;
-    background:radial-gradient(circle,rgba(228,200,106,.22),transparent 70%);
-    pointer-events:none;
-  }
-  .big-cta::after{
-    content:"";
-    position:absolute;
-    top:0;left:-100%;width:100%;height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
-    animation:shine 3s ease infinite;
-    pointer-events:none;
-  }
-  @keyframes shine{
-    0%{left:-100%}
-    60%,100%{left:100%}
-  }
-  .big-cta-icon{
-    width:60px;height:60px;flex-shrink:0;
-    background:linear-gradient(145deg,var(--accent-soft),var(--accent));
-    border-radius:16px;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 5px 14px rgba(0,0,0,.30), inset 0 1px 2px rgba(255,255,255,.4);
-    border:1px solid rgba(255,255,255,.25);
-    position:relative;
-    z-index:1;
-  }
-  .big-cta-icon svg{width:32px;height:32px;fill:#0f2338}
-  .big-cta-text{flex:1;position:relative;z-index:1}
-  .big-cta-title{
-    font-size:21px;
-    font-weight:900;
-    line-height:1.35;
-    letter-spacing:-.3px;
-    margin-bottom:4px;
-  }
-  .big-cta-sub{
-    font-size:15px;
-    color:#c5d1e0;
-    font-weight:600;
-    line-height:1.5;
-  }
-  .big-cta-arrow{
-    width:34px;height:34px;flex-shrink:0;
-    border-radius:50%;
-    background:rgba(255,255,255,.12);
-    display:flex;align-items:center;justify-content:center;
-    position:relative;
-    z-index:1;
-    transition:transform .2s ease;
-  }
-  .big-cta-arrow svg{width:18px;height:18px;fill:#fff}
-  .big-cta:active .big-cta-arrow{transform:translateX(-4px)}
-
-  /* ============ چرا ما ============ */
-  .why-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-bottom:26px;
-  }
-  .why-item{
-    padding:18px 16px;
-    background:#ffffff;
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
-    box-shadow:var(--shadow-sm);
-    position:relative;
-    overflow:hidden;
-    animation:fadeUp .5s ease both;
-  }
-  .why-item:nth-child(1){animation-delay:.05s}
-  .why-item:nth-child(2){animation-delay:.10s}
-  .why-item:nth-child(3){animation-delay:.15s}
-  .why-item:nth-child(4){animation-delay:.20s}
-  .why-item::before{
-    content:"";
-    position:absolute;
-    top:0;right:0;
-    width:60px;height:60px;
-    background:radial-gradient(circle at top right,rgba(184,145,47,.10),transparent 70%);
-    pointer-events:none;
-  }
-  .why-icon{
-    width:38px;height:38px;
-    border-radius:11px;
-    background:linear-gradient(145deg,#f4f7fc,#e2eaf4);
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:10px;
-    border:1px solid rgba(22,48,79,.08);
-  }
-  .why-icon svg{width:22px;height:22px;fill:var(--primary)}
-  .why-title{
-    font-size:16px;
-    font-weight:800;
-    color:var(--primary);
-    line-height:1.4;
-    margin-bottom:3px;
-  }
-  .why-desc{
-    font-size:13px;
-    color:var(--text-soft);
-    font-weight:600;
-    line-height:1.65;
-  }
-
-  /* ============ مراحل ============ */
-  .steps{
-    margin-bottom:26px;
-    padding:24px 20px 22px;
-    background:linear-gradient(155deg,#ffffff,#f2f5fa);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-md);
-    position:relative;
-    overflow:hidden;
-  }
-  .steps::before{
-    content:"";
-    position:absolute;
-    top:-50px;left:-50px;
-    width:180px;height:180px;border-radius:50%;
-    background:radial-gradient(circle,rgba(184,145,47,.10),transparent 70%);
-    pointer-events:none;
-  }
-  .step{
-    display:flex;
-    align-items:flex-start;
-    gap:16px;
-    padding:14px 0;
-    position:relative;
-    z-index:1;
-  }
-  .step:not(:last-child)::after{
-    content:"";
-    position:absolute;
-    right:23px;
-    top:56px;
-    bottom:-6px;
-    width:2px;
-    background:linear-gradient(180deg,rgba(184,145,47,.4),rgba(184,145,47,.1));
-    border-radius:2px;
-  }
-  .step-num{
-    width:48px;height:48px;flex-shrink:0;
-    border-radius:14px;
-    background:linear-gradient(145deg,#ffffff,#eef2f8);
-    border:1.5px solid rgba(184,145,47,.35);
-    display:flex;align-items:center;justify-content:center;
-    font-size:20px;
-    font-weight:900;
-    color:var(--primary);
-    box-shadow:0 3px 10px rgba(184,145,47,.15),inset 0 1px 0 rgba(255,255,255,.8);
-    position:relative;
-    z-index:1;
-  }
-  .step-content{flex:1;min-width:0;padding-top:4px}
-  .step-title{
-    font-size:17px;
-    font-weight:800;
-    color:var(--primary);
-    line-height:1.4;
-    margin-bottom:3px;
-  }
-  .step-desc{
-    font-size:14px;
-    color:var(--text-soft);
-    font-weight:600;
-    line-height:1.7;
-  }
-
-  /* ============ بخش پایانی CTA ============ */
-  .final-cta{
-    padding:30px 24px 28px;
-    background:linear-gradient(155deg,#ffffff,#f2f5fa);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow-md);
-    text-align:center;
-    margin-bottom:26px;
-    position:relative;
-    overflow:hidden;
-    border:1px solid var(--border);
-  }
-  .final-cta::before{
-    content:"";
-    position:absolute;
-    top:-60px;left:50%;
-    transform:translateX(-50%);
-    width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle,rgba(184,145,47,.12),transparent 70%);
-    pointer-events:none;
-  }
-  .final-cta-icon{
-    width:72px;height:72px;
-    margin:0 auto 16px;
-    border-radius:20px;
-    background:linear-gradient(145deg,var(--accent-soft),var(--accent));
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 6px 20px rgba(184,145,47,.35);
-    border:1px solid rgba(255,255,255,.3);
-    position:relative;
-    z-index:1;
-  }
-  .final-cta-icon svg{width:38px;height:38px;fill:#0f2338}
-  .final-cta h3{
-    font-size:var(--fs-h2);
-    font-weight:900;
-    color:var(--primary);
-    line-height:1.45;
-    margin-bottom:10px;
-    letter-spacing:-.3px;
-    position:relative;
-    z-index:1;
-  }
-  .final-cta h3 span{color:var(--accent)}
-  .final-cta p{
-    font-size:var(--fs-small);
-    color:var(--text-soft);
-    font-weight:600;
-    line-height:1.9;
-    margin-bottom:22px;
-    position:relative;
-    z-index:1;
-  }
-  .final-cta-btn{
-    display:inline-flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
-    padding:18px 36px;
-    background:linear-gradient(135deg,var(--primary),var(--primary-light));
+    gap:12px;
+    width:100%;
+    padding:20px;
+    background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);
     color:#fff;
-    text-decoration:none;
     font-size:var(--fs-btn);
     font-weight:800;
-    border-radius:16px;
-    box-shadow:0 10px 26px rgba(22,48,79,.32), inset 0 1px 0 rgba(255,255,255,.15);
-    border:1px solid rgba(228,200,106,.35);
+    border:none;
+    border-radius:18px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(22,48,79,.32), inset 0 1px 0 rgba(255,255,255,.15);
     transition:transform .18s ease, box-shadow .18s ease;
+    margin-bottom:30px;
+    text-decoration:none;
     position:relative;
-    z-index:1;
-    letter-spacing:-.2px;
+    overflow:hidden;
+    border:1px solid rgba(228,200,106,.35);
   }
-  .final-cta-btn:active{
-    transform:scale(.97);
-    box-shadow:0 5px 16px rgba(22,48,79,.28);
-  }
-  .final-cta-btn svg{width:24px;height:24px;fill:#fff}
 
-  /* ============ امضا ============ */
-  .signature{
-    text-align:center;margin:36px 0 8px;
-    font-size:var(--fs-tiny);font-weight:700;letter-spacing:1px;color:#8a94a3;
-    display:flex;align-items:center;justify-content:center;gap:12px;
+  .cta::before{
+    content:"";
+    position:absolute;
+    top:0; left:-100%;
+    width:100%; height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+    transition:left .6s ease;
   }
-  .signature::before,.signature::after{
-    content:"";flex:1;max-width:60px;height:1px;
+
+  .cta:active{
+    transform:scale(.97);
+    box-shadow:0 6px 18px rgba(22,48,79,.28);
+  }
+
+  .cta:active::before{ left:100%; }
+
+  .cta svg{ width:24px; height:24px; fill:#fff; }
+
+  .signature{
+    text-align:center;
+    margin:34px 0 8px;
+    font-size:var(--fs-tiny);
+    font-weight:700;
+    letter-spacing:1px;
+    color:#8a94a3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+  }
+
+  .signature::before,
+  .signature::after{
+    content:"";
+    flex:1;
+    max-width:60px;
+    height:1px;
     background:linear-gradient(90deg,transparent,rgba(184,145,47,.5),transparent);
   }
+
   .signature span{
-    color:var(--primary);font-weight:800;padding:5px 14px;
-    border:1px solid rgba(184,145,47,.4);border-radius:50px;
+    color:var(--primary);
+    font-weight:800;
+    padding:4px 12px;
+    border:1px solid rgba(184,145,47,.35);
+    border-radius:50px;
     background:linear-gradient(135deg,#ffffff,#f6efd9);
     box-shadow:0 2px 8px rgba(184,145,47,.12);
   }
 
-  /* ============ نویگیشن پایین ============ */
   .bottom-nav{
-    position:fixed;bottom:0;left:0;right:0;z-index:200;
-    background:#ffffff;border-top:1px solid var(--border);
+    position:fixed;
+    bottom:0; left:0; right:0;
+    z-index:200;
+    background:#ffffff;
+    border-top:1px solid var(--border);
     box-shadow:0 -8px 30px rgba(22,48,79,.12);
-    display:flex;justify-content:space-around;
+    display:flex;
+    justify-content:space-around;
     padding:10px 6px 14px;
   }
-  .nav-item{
-    flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;
-    padding:8px 2px;color:#8a94a3;text-decoration:none;
-    font-size:var(--fs-nav);font-weight:700;border-radius:14px;
-    transition:color .18s ease,background .18s ease;
-    position:relative;
-  }
-  .nav-item svg{
-    width:27px;height:27px;fill:#8a94a3;
-    transition:fill .18s ease,transform .18s ease;
-  }
-  .nav-item.active{color:var(--primary)}
-  .nav-item.active svg{fill:var(--primary);transform:translateY(-1px)}
-  .nav-item.active::after{
-    content:"";
-    position:absolute;
-    top:0;
-    width:24px;
-    height:3px;
-    border-radius:3px;
-    background:linear-gradient(90deg,var(--accent-soft),var(--accent));
-    box-shadow:0 2px 6px rgba(184,145,47,.4);
-  }
-  .nav-item:active{background:rgba(22,48,79,.06)}
 
-  /* ============ انیمیشن ============ */
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(16px)}
-    to{opacity:1;transform:translateY(0)}
+  .nav-item{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    padding:8px 2px;
+    color:#8a94a3;
+    text-decoration:none;
+    font-size:var(--fs-nav);
+    font-weight:700;
+    border-radius:14px;
+    transition:color .18s ease, background .18s ease;
   }
-  .anim{animation:fadeUp .55s ease both}
-  .anim-2{animation-delay:.10s}
-  .anim-3{animation-delay:.20s}
-  .anim-4{animation-delay:.30s}
+
+  .nav-item svg{
+    width:26px; height:26px;
+    fill:#8a94a3;
+    transition:fill .18s ease, transform .18s ease;
+  }
+
+  .nav-item.active{ color:var(--primary); }
+  .nav-item.active svg{ fill:var(--primary); transform:translateY(-1px); }
+
+  .nav-item:active{ background:rgba(22,48,79,.06); }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(16px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .anim{ animation:fadeUp .5s ease both; }
+  .anim-2{ animation-delay:.10s; }
+  .anim-3{ animation-delay:.20s; }
+  .anim-4{ animation-delay:.30s; }
 </style>
 </head>
 
@@ -670,214 +444,97 @@
 
   <main class="main">
 
-    <!-- هرو -->
     <section class="hero lux-frame anim">
       <div class="hero-inner">
         <div class="hero-badge">
-          <span class="pulse"></span>
+          <span class="dot"></span>
           پذیرش نیرو فعال است
         </div>
         <h1>به جمع <span>محافظان</span> ما بپیوندید</h1>
-        <p class="hero-sub">
+        <p>
           استخدام در زمینه نگهبانی، سرایداری، بادیگارد و نیروهای امنیتی.
           فرصت‌های شغلی معتبر با شرایط مناسب در انتظار شماست.
         </p>
-
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-num">۴ <span>گروه</span></div>
-            <div class="hero-stat-label">شغلی فعال</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">۶۰<span>M+</span></div>
-            <div class="hero-stat-label">حداقل حقوق</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">۲۴/۷</div>
-            <div class="hero-stat-label">پشتیبانی</div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- بخش مشاغل -->
-    <div class="section-head anim-2">
-      <div class="section-head-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+    <section class="stats anim anim-2">
+      <div class="stat lux-frame">
+        <div class="stat-num">۴</div>
+        <div class="stat-label">گروه شغلی</div>
       </div>
-      <div class="section-head-text">
-        <div class="section-head-title">دسته‌های شغلی</div>
-        <div class="section-head-sub">۴ گروه شغلی فعال برای شما</div>
+      <div class="stat lux-frame">
+        <div class="stat-num">۲۴/۷</div>
+        <div class="stat-label">پشتیبانی</div>
       </div>
-    </div>
+      <div class="stat lux-frame">
+        <div class="stat-num">۱۰۰٪</div>
+        <div class="stat-label">معتبر</div>
+      </div>
+    </section>
 
-    <section class="services-grid">
+    <h2 class="section-title anim anim-2">مشاغل موجود</h2>
+    <section class="jobs anim anim-3">
 
-      <a href="jobs.html" class="service-card lux-frame">
-        <div class="service-icon">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
           <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
         </div>
-        <div class="service-title">بادیگارد</div>
-        <div class="service-desc">محافظ شخصی</div>
-      </a>
+        <div>
+          <div class="job-name">بادیگارد</div>
+          <div class="job-desc">محافظ شخصی</div>
+        </div>
+      </div>
 
-      <a href="jobs.html" class="service-card lux-frame">
-        <div class="service-icon">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
         </div>
-        <div class="service-title">نگهبان</div>
-        <div class="service-desc">حفاظت از اماکن</div>
-      </a>
+        <div>
+          <div class="job-name">نگهبان</div>
+          <div class="job-desc">حفاظت از اماکن</div>
+        </div>
+      </div>
 
-      <a href="jobs.html" class="service-card lux-frame">
-        <div class="service-icon">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
           <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
         </div>
-        <div class="service-title">سرایدار</div>
-        <div class="service-desc">امور ساختمان</div>
-      </a>
+        <div>
+          <div class="job-name">سرایدار</div>
+          <div class="job-desc">امور ساختمان</div>
+        </div>
+      </div>
 
-      <a href="jobs.html" class="service-card lux-frame">
-        <div class="service-icon">
+      <div class="job-card lux-frame">
+        <div class="job-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <div class="service-title">نیروی امنیتی</div>
-        <div class="service-desc">حراست و کنترل</div>
-      </a>
+        <div>
+          <div class="job-name">نیروی امنیتی</div>
+          <div class="job-desc">حراست و کنترل</div>
+        </div>
+      </div>
 
     </section>
 
-    <!-- بنر CTA بزرگ -->
-    <a href="jobs.html" class="big-cta anim-3">
-      <div class="big-cta-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-      </div>
-      <div class="big-cta-text">
-        <div class="big-cta-title">راهنمای انتخاب شغل</div>
-        <div class="big-cta-sub">مشاغل و شرایط هر دسته را ببینید</div>
-      </div>
-      <div class="big-cta-arrow">
-        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-      </div>
+    <a href="guide.html" class="cta anim anim-4">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+      </svg>
+      راهنمای استخدام
     </a>
-
-    <!-- چرا ما -->
-    <div class="section-head anim-3">
-      <div class="section-head-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <div class="section-head-text">
-        <div class="section-head-title">چرا امنیت‌گستر؟</div>
-        <div class="section-head-sub">مزایایی که ما را متفاوت می‌کند</div>
-      </div>
-    </div>
-
-    <section class="why-grid">
-
-      <div class="why-item">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        </div>
-        <div class="why-title">حقوق تضمینی</div>
-        <div class="why-desc">حداقل ۶۰ میلیون تومان با بیمه</div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-        </div>
-        <div class="why-title">تا ۳ شغل</div>
-        <div class="why-desc">تعهد معرفی تا ۳ فرصت شغلی</div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        </div>
-        <div class="why-title">قرارداد رسمی</div>
-        <div class="why-desc">۲ قرارداد معتبر با کارفرما</div>
-      </div>
-
-      <div class="why-item">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
-        </div>
-        <div class="why-title">پشتیبانی ۲۴/۷</div>
-        <div class="why-desc">همراه شما در تمام مراحل</div>
-      </div>
-
-    </section>
-
-    <!-- مراحل استخدام -->
-    <div class="section-head anim-3">
-      <div class="section-head-icon">
-        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-      </div>
-      <div class="section-head-text">
-        <div class="section-head-title">مراحل استخدام</div>
-        <div class="section-head-sub">در ۴ گام ساده</div>
-      </div>
-    </div>
-
-    <section class="steps anim-4">
-
-      <div class="step">
-        <div class="step-num">۱</div>
-        <div class="step-content">
-          <div class="step-title">تکمیل فرم درخواست</div>
-          <div class="step-desc">فرم را با دقت پر کرده و مدارک را بارگذاری کنید.</div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">۲</div>
-        <div class="step-content">
-          <div class="step-title">بررسی پرونده</div>
-          <div class="step-desc">کارشناسان ما درخواست شما را با دقت بررسی می‌کنند.</div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">۳</div>
-        <div class="step-content">
-          <div class="step-title">معرفی فرصت‌های شغلی</div>
-          <div class="step-desc">لیست مشاغل متناسب با شرایط شما ارائه می‌شود.</div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">۴</div>
-        <div class="step-content">
-          <div class="step-title">شروع کار</div>
-          <div class="step-desc">پس از انتخاب، قرارداد بسته و مشغول به کار می‌شوید.</div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- بخش پایانی -->
-    <section class="final-cta anim-4">
-      <div class="final-cta-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-      </div>
-      <h3>آماده‌اید <span>شروع کنید؟</span></h3>
-      <p>همین حالا فرم استخدام را تکمیل کنید و اولین قدم را به سوی شغل آینده‌تان بردارید.</p>
-      <a href="request.html" class="final-cta-btn">
-        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-        ثبت درخواست استخدام
-      </a>
-    </section>
 
     <div class="signature"><span>امنیت‌گستر</span></div>
 
   </main>
 
   <nav class="bottom-nav">
-    <a href="index.html" class="nav-item active">
+    <a href="index.html" class="nav-item">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       <span>صفحه اصلی</span>
     </a>
-    <a href="jobs.html" class="nav-item">
+    <a href="jobs.html" class="nav-item active">
       <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
       <span>مشاغل</span>
     </a>
@@ -892,4 +549,4 @@
   </nav>
 
 </body>
-</html>
+          </html>
