@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -9,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -43,19 +42,23 @@ body{
   font-family:'Vazirmatn',Tahoma,sans-serif;
   background:var(--cream);
   color:var(--ink);
-  line-height:1.9;
+  line-height:1.85;
   overflow-x:hidden;
-  padding-bottom:110px;
+  padding-bottom:105px;
 }
 
 a{
-  color:inherit;
   text-decoration:none;
+  color:inherit;
 }
 
-svg{display:block}
+svg{
+  display:block;
+}
 
-button{font-family:inherit}
+button{
+  font-family:inherit;
+}
 
 /* HEADER */
 
@@ -81,7 +84,6 @@ button{font-family:inherit}
   place-items:center;
   border-radius:16px 5px 16px 5px;
   box-shadow:5px 5px 0 rgba(137,148,107,.25);
-  flex-shrink:0;
 }
 
 .logo svg{
@@ -90,11 +92,11 @@ button{font-family:inherit}
   fill:none;
   stroke:currentColor;
   stroke-width:1.6;
-  stroke-linecap:round;
-  stroke-linejoin:round;
 }
 
-.brand{flex:1;min-width:0}
+.brand{
+  flex:1;
+}
 
 .brand-name{
   font-size:23px;
@@ -105,8 +107,8 @@ button{font-family:inherit}
 }
 
 .brand-sub{
-  font-size:13px;
-  font-weight:700;
+  font-size:12px;
+  font-weight:600;
   color:#7C877A;
 }
 
@@ -121,7 +123,6 @@ button{font-family:inherit}
   font-size:11px;
   font-weight:900;
   letter-spacing:1px;
-  flex-shrink:0;
 }
 
 /* HERO */
@@ -131,23 +132,24 @@ button{font-family:inherit}
   overflow:hidden;
   background:var(--forest);
   color:white;
-  padding:27px 21px 28px;
+  min-height:405px;
+  padding:26px 21px 23px;
   isolation:isolate;
 }
 
 .hero:before{
   content:"";
   position:absolute;
-  width:310px;
-  height:310px;
-  border:1px solid rgba(214,229,164,.17);
+  width:320px;
+  height:320px;
+  border:1px solid rgba(214,229,164,.18);
   border-radius:50%;
-  left:-150px;
-  top:40px;
+  left:-145px;
+  top:45px;
   box-shadow:
     0 0 0 28px rgba(214,229,164,.035),
-    0 0 0 58px rgba(214,229,164,.025),
-    0 0 0 90px rgba(214,229,164,.018);
+    0 0 0 57px rgba(214,229,164,.025),
+    0 0 0 87px rgba(214,229,164,.018);
   z-index:-1;
 }
 
@@ -155,11 +157,11 @@ button{font-family:inherit}
   content:"";
   position:absolute;
   right:-70px;
-  top:-100px;
-  width:250px;
-  height:250px;
+  top:-90px;
+  width:240px;
+  height:240px;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(137,148,107,.34),transparent 70%);
+  background:radial-gradient(circle,rgba(137,148,107,.32),transparent 70%);
   z-index:-1;
 }
 
@@ -167,8 +169,7 @@ button{font-family:inherit}
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:10px;
-  margin-bottom:31px;
+  margin-bottom:35px;
 }
 
 .hero-tag{
@@ -176,8 +177,8 @@ button{font-family:inherit}
   align-items:center;
   gap:9px;
   color:var(--lime);
-  font-size:14px;
-  font-weight:900;
+  font-size:13px;
+  font-weight:800;
 }
 
 .hero-tag:before{
@@ -190,36 +191,49 @@ button{font-family:inherit}
 .hero-number{
   color:#A6B7A8;
   font-size:12px;
-  font-weight:800;
-  letter-spacing:1.5px;
+  font-weight:700;
+  letter-spacing:2px;
 }
 
 .hero-kicker{
   font-size:15px;
   color:#C0D0C3;
-  font-weight:700;
-  margin-bottom:8px;
+  font-weight:600;
+  margin-bottom:7px;
 }
 
 .hero h1{
-  font-size:clamp(34px,9vw,47px);
-  line-height:1.65;
+  font-size:clamp(37px,10vw,49px);
+  line-height:1.55;
   font-weight:900;
-  letter-spacing:-1.4px;
+  letter-spacing:-1.8px;
+  max-width:550px;
 }
 
 .hero h1 .highlight{
   color:var(--lime);
-  display:inline-block;
   position:relative;
+  display:inline-block;
+}
+
+.hero h1 .highlight:after{
+  content:"";
+  position:absolute;
+  bottom:2px;
+  right:0;
+  width:100%;
+  height:8px;
+  background:rgba(214,229,164,.17);
+  z-index:-1;
 }
 
 .hero-description{
   font-size:17px;
-  line-height:2.05;
+  line-height:2;
   color:#D0DBD1;
-  margin-top:13px;
-  font-weight:500;
+  margin-top:15px;
+  max-width:560px;
+  font-weight:400;
 }
 
 .hero-bottom{
@@ -227,36 +241,34 @@ button{font-family:inherit}
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  margin-top:24px;
+  margin-top:29px;
   border-top:1px solid rgba(255,255,255,.17);
-  padding-top:17px;
+  padding-top:19px;
 }
 
 .hero-bottom-text{
-  font-size:14px;
+  font-size:13px;
   color:#C3D0C4;
 }
 
 .hero-bottom-text strong{
   color:var(--lime);
-  font-size:17px;
-  font-weight:900;
+  font-size:16px;
 }
 
 .hero-emblem{
-  width:52px;
-  height:52px;
+  width:53px;
+  height:53px;
   border:1px solid rgba(214,229,164,.45);
   transform:rotate(45deg);
   display:grid;
   place-items:center;
   border-radius:14px 4px 14px 4px;
-  flex-shrink:0;
 }
 
 .hero-emblem svg{
-  width:29px;
-  height:29px;
+  width:30px;
+  height:30px;
   transform:rotate(-45deg);
   fill:none;
   stroke:var(--lime);
@@ -266,8 +278,9 @@ button{font-family:inherit}
 /* INTRO */
 
 .intro{
-  padding:25px 18px 24px;
+  padding:23px 18px 26px;
   background:var(--paper);
+  position:relative;
 }
 
 .intro-label{
@@ -275,9 +288,9 @@ button{font-family:inherit}
   align-items:center;
   gap:10px;
   color:var(--orange);
-  font-size:14px;
+  font-size:13px;
   font-weight:900;
-  margin-bottom:8px;
+  margin-bottom:9px;
 }
 
 .intro-label:before{
@@ -288,29 +301,32 @@ button{font-family:inherit}
 }
 
 .intro h2{
-  font-size:28px;
-  line-height:1.75;
+  font-size:27px;
   font-weight:900;
   color:var(--forest);
+  line-height:1.8;
   letter-spacing:-.7px;
 }
 
-.intro h2 span{color:var(--orange)}
-
-.intro p{
-  font-size:17px;
-  color:#68746B;
-  line-height:2.1;
-  margin-top:10px;
+.intro h2 span{
+  color:var(--orange);
 }
 
-/* STATS */
+.intro p{
+  font-size:16px;
+  color:#68746B;
+  line-height:2;
+  margin-top:9px;
+}
+
+/* FEATURE STRIP */
 
 .feature-strip{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   background:#E4E8D9;
-  padding:18px 7px;
+  margin:0;
+  padding:19px 8px;
   border-top:1px solid #D8DECB;
   border-bottom:1px solid #D8DECB;
 }
@@ -321,11 +337,13 @@ button{font-family:inherit}
   border-left:1px solid #CAD3BC;
 }
 
-.feature:last-child{border-left:0}
+.feature:last-child{
+  border-left:0;
+}
 
 .feature strong{
   display:block;
-  font-size:23px;
+  font-size:22px;
   font-weight:900;
   color:var(--forest);
   line-height:1.4;
@@ -334,362 +352,319 @@ button{font-family:inherit}
 .feature span{
   display:block;
   font-size:12px;
-  font-weight:800;
+  font-weight:700;
   color:#68755F;
   margin-top:4px;
 }
 
-/* SECTION INTRO */
+/* JOB SECTION */
 
 .jobs-section{
-  padding:29px 14px 18px;
+  padding:30px 14px 25px;
   background:var(--paper);
 }
 
-.section-heading{
-  margin-bottom:21px;
+.section-top{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:22px;
 }
 
-.section-label{
-  color:var(--orange);
-  font-size:13px;
+.section-top h2{
+  font-size:27px;
   font-weight:900;
-  margin-bottom:6px;
-}
-
-.section-heading h2{
   color:var(--forest);
-  font-size:29px;
-  font-weight:900;
-  line-height:1.7;
+  line-height:1.6;
   letter-spacing:-.8px;
 }
 
-.section-heading p{
-  font-size:16px;
+.section-top p{
+  font-size:14px;
   color:#758078;
-  margin-top:4px;
-}
-
-/* JOB CARDS */
-
-.jobs{
-  display:flex;
-  flex-direction:column;
-  gap:19px;
-}
-
-.job-card{
-  position:relative;
-  background:#fff;
-  overflow:hidden;
-  border:1px solid #E5E8DE;
-  border-radius:7px 24px 7px 24px;
-  box-shadow:0 8px 24px rgba(35,58,43,.07);
-  animation:enter .55s ease both;
-}
-
-.job-card:nth-child(2){animation-delay:.07s}
-.job-card:nth-child(3){animation-delay:.14s}
-.job-card:nth-child(4){animation-delay:.21s}
-
-.job-image-wrap{
-  width:100%;
-  aspect-ratio:16/9;
-  position:relative;
-  overflow:hidden;
-  background:#DDE5D9;
-}
-
-.job-image-wrap img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.job-image-wrap:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    180deg,
-    rgba(15,35,27,.05) 25%,
-    rgba(15,35,27,.66) 100%
-  );
-}
-
-.job-image-wrap:before{
-  content:"";
-  position:absolute;
-  inset:10px;
-  border:1px solid rgba(214,229,164,.48);
-  border-radius:4px 17px 4px 17px;
-  z-index:2;
-  pointer-events:none;
-}
-
-.job-badge{
-  position:absolute;
-  top:19px;
-  right:19px;
-  z-index:3;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 14px;
-  background:rgba(250,249,244,.96);
-  color:var(--forest);
-  font-size:13px;
-  font-weight:900;
-  border-radius:4px 13px 4px 13px;
-  box-shadow:0 4px 14px rgba(0,0,0,.16);
-}
-
-.job-badge .dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--olive);
-}
-
-.job-number{
-  position:absolute;
-  left:21px;
-  bottom:17px;
-  z-index:3;
-  color:white;
-  font-size:39px;
-  font-weight:900;
-  line-height:1;
-  text-shadow:0 3px 14px rgba(0,0,0,.35);
-}
-
-.job-content{
-  padding:20px 18px 21px;
-}
-
-.job-overline{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  color:var(--orange);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.6px;
-  margin-bottom:5px;
-}
-
-.job-overline:before{
-  content:"";
-  width:19px;
-  height:2px;
-  background:var(--orange);
-}
-
-.job-title{
-  font-size:25px;
-  font-weight:900;
-  color:var(--forest);
-  line-height:1.65;
-  letter-spacing:-.5px;
-}
-
-.job-subtitle{
-  color:#78846F;
-  font-size:15px;
-  font-weight:800;
-  margin-top:1px;
-  margin-bottom:13px;
-}
-
-.job-desc{
-  color:#536057;
-  font-size:17px;
-  line-height:2.15;
   font-weight:500;
 }
 
-.job-desc strong{
+.section-counter{
+  font-size:13px;
+  color:var(--orange);
+  font-weight:900;
+  letter-spacing:2px;
+  padding-bottom:5px;
+}
+
+/* INDIVIDUAL JOBS */
+
+.job-list{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.job{
+  display:grid;
+  grid-template-columns:1fr 72px;
+  align-items:stretch;
+  min-height:145px;
+  background:white;
+  border:1px solid #E8E9DE;
+  border-radius:5px 21px 5px 21px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 5px 17px rgba(35,58,43,.045);
+  transition:transform .2s,box-shadow .2s;
+}
+
+.job:active{
+  transform:scale(.985);
+  box-shadow:var(--shadow);
+}
+
+.job-main{
+  padding:16px 16px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.job-overline{
+  font-size:11px;
+  color:var(--job);
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:3px;
+}
+
+.job h3{
+  font-size:23px;
   color:var(--forest);
   font-weight:900;
+  line-height:1.6;
 }
 
-.job-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px dashed #D7DDCE;
-}
-
-.tag{
-  display:inline-flex;
-  align-items:center;
-  padding:7px 12px;
-  background:#EDF0E7;
-  color:var(--forest);
-  border:1px solid #DCE3D3;
-  border-radius:4px 12px 4px 12px;
-  font-size:13px;
-  font-weight:800;
-}
-
-.tag.special{
-  background:#F8EDE5;
-  border-color:#EBD3C4;
-  color:#A45F3D;
-}
-
-/* DETAILS BAND */
-
-.job-note{
-  display:flex;
-  align-items:flex-start;
-  gap:11px;
-  padding:14px 13px;
-  margin-top:17px;
-  background:#F3F4EC;
-  border-right:3px solid var(--olive);
-  border-radius:3px 12px 3px 12px;
-}
-
-.job-note-icon{
-  width:29px;
-  height:29px;
-  flex-shrink:0;
-  display:grid;
-  place-items:center;
-  background:#E1E8D5;
-  border-radius:9px 3px 9px 3px;
-}
-
-.job-note-icon svg{
-  width:17px;
-  height:17px;
-  fill:none;
-  stroke:var(--forest);
-  stroke-width:1.8;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.job-note p{
-  color:#5E6A5F;
+.job p{
+  color:#78837B;
   font-size:14px;
-  line-height:1.9;
-  font-weight:600;
+  font-weight:500;
+  margin-top:1px;
 }
 
-.job-note strong{color:var(--forest);font-weight:900}
+.job-link{
+  margin-top:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  font-weight:900;
+  color:var(--job);
+}
 
-/* EMPLOYMENT PRINCIPLES */
+.job-link span:last-child{
+  font-size:19px;
+  line-height:1;
+}
 
-.principles{
-  margin:14px 14px 26px;
-  padding:22px 18px;
-  background:#E9E7D9;
-  border:1px solid #DADACA;
+.job-aside{
+  background:var(--job-bg);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
   position:relative;
-  overflow:hidden;
 }
 
-.principles:after{
+.job-aside:after{
   content:"";
   position:absolute;
-  width:160px;
-  height:160px;
-  left:-80px;
-  bottom:-100px;
+  width:72px;
+  height:72px;
+  border:1px solid var(--job);
+  opacity:.12;
+  border-radius:50%;
+}
+
+.job-aside svg{
+  width:35px;
+  height:35px;
+  fill:none;
+  stroke:var(--job);
+  stroke-width:1.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  position:relative;
+  z-index:1;
+}
+
+.job-aside small{
+  font-size:10px;
+  font-weight:900;
+  color:var(--job);
+  letter-spacing:1px;
+  position:relative;
+  z-index:1;
+}
+
+.j1{
+  --job:#587C49;
+  --job-bg:#E8EEDD;
+}
+
+.j2{
+  --job:#557D8A;
+  --job-bg:#E5EFF0;
+}
+
+.j3{
+  --job:#BA8056;
+  --job-bg:#F5EBE0;
+}
+
+.j4{
+  --job:#67734B;
+  --job-bg:#E9ECDD;
+}
+
+/* DIFFERENT VISUAL STATEMENT */
+
+.manifesto{
+  background:#E9E7D9;
+  padding:27px 19px;
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid #DADACA;
+  border-bottom:1px solid #DADACA;
+}
+
+.manifesto:after{
+  content:"";
+  position:absolute;
+  left:-35px;
+  bottom:-85px;
+  width:180px;
+  height:180px;
   border:1px solid rgba(25,61,50,.15);
   transform:rotate(45deg);
   box-shadow:0 0 0 18px rgba(25,61,50,.025);
 }
 
-.principles-label{
+.manifesto-label{
   color:var(--orange);
   font-size:13px;
   font-weight:900;
-  margin-bottom:8px;
-  position:relative;
-  z-index:1;
+  margin-bottom:9px;
 }
 
-.principles h2{
-  color:var(--forest);
-  font-size:27px;
-  line-height:1.8;
+.manifesto h2{
+  font-size:28px;
+  line-height:1.85;
   font-weight:900;
+  color:var(--forest);
+  max-width:520px;
   position:relative;
   z-index:1;
 }
 
-.principles h2 span{color:var(--orange)}
+.manifesto h2 span{
+  color:var(--orange);
+}
 
-.principles p{
-  color:#687367;
-  font-size:16px;
-  line-height:2.1;
+.manifesto p{
+  font-size:15px;
+  color:#6D7569;
+  line-height:2;
   margin-top:9px;
+  max-width:520px;
   position:relative;
   z-index:1;
 }
 
-.principle-list{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:15px;
-  position:relative;
-  z-index:1;
-}
+/* PROCESS CTA */
 
-.principle-item{
-  background:rgba(255,255,255,.62);
-  border:1px solid rgba(25,61,50,.12);
-  color:var(--forest);
-  font-size:13px;
-  font-weight:900;
-  padding:7px 12px;
-  border-radius:4px 12px 4px 12px;
-}
-
-/* GUIDE CTA */
-
-.guide-section{
-  padding:0 15px 26px;
+.application{
+  padding:30px 16px;
   background:var(--paper);
 }
 
-.guide-card{
-  display:block;
+.application-inner{
+  background:var(--forest);
+  color:white;
+  padding:25px 20px;
+  border-radius:22px 5px 22px 5px;
   position:relative;
   overflow:hidden;
-  background:var(--forest);
-  color:#fff;
-  padding:23px 19px;
-  border-radius:22px 5px 22px 5px;
-  box-shadow:0 12px 28px rgba(25,61,50,.16);
 }
 
-.guide-card:before{
+.application-inner:before{
   content:"";
   position:absolute;
-  width:180px;
-  height:180px;
+  width:200px;
+  height:200px;
   border:1px solid rgba(214,229,164,.17);
   border-radius:50%;
-  left:-90px;
-  bottom:-110px;
-  box-shadow:0 0 0 22px rgba(214,229,164,.025);
+  left:-100px;
+  bottom:-120px;
+  box-shadow:0 0 0 24px rgba(214,229,164,.025);
 }
 
-.guide-top{
+.application-label{
+  color:var(--lime);
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:9px;
+  position:relative;
+}
+
+.application h2{
+  font-size:29px;
+  font-weight:900;
+  line-height:1.8;
+  position:relative;
+  letter-spacing:-.8px;
+}
+
+.application p{
+  color:#C5D2C7;
+  font-size:15px;
+  line-height:2;
+  margin-top:8px;
+  position:relative;
+}
+
+.application-button{
   display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:space-between;
+  background:var(--lime);
+  color:var(--forest);
+  padding:15px 17px;
+  border-radius:4px 13px 4px 13px;
+  margin-top:21px;
+  font-size:17px;
+  font-weight:900;
   position:relative;
+  transition:.2s;
+}
+
+.application-button:active{
+  transform:scale(.98);
+}
+
+.application-button span:last-child{
+  font-size:23px;
+}
+
+/* GUIDE */
+
+.guide{
+  margin:0 16px;
+  background:#F1F1E8;
+  border:1px solid #DEE3D4;
+  padding:17px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border-radius:5px 17px 5px 17px;
 }
 
 .guide-icon{
@@ -698,62 +673,39 @@ button{font-family:inherit}
   flex-shrink:0;
   display:grid;
   place-items:center;
-  color:var(--lime);
-  background:rgba(214,229,164,.12);
-  border:1px solid rgba(214,229,164,.28);
+  background:#DEE7D2;
   border-radius:14px 4px 14px 4px;
 }
 
 .guide-icon svg{
-  width:26px;
-  height:26px;
-  fill:none;
-  stroke:currentColor;
+  width:25px;
+  height:25px;
+  stroke:var(--forest);
   stroke-width:1.7;
-  stroke-linecap:round;
-  stroke-linejoin:round;
+  fill:none;
 }
 
-.guide-label{
-  color:var(--lime);
-  font-size:13px;
+.guide-text{
+  flex:1;
+}
+
+.guide-text strong{
+  display:block;
+  font-size:16px;
+  color:var(--forest);
   font-weight:900;
 }
 
-.guide-title{
-  color:white;
-  font-size:24px;
-  font-weight:900;
-  line-height:1.7;
+.guide-text small{
+  display:block;
+  color:#778176;
+  font-size:12px;
   margin-top:3px;
 }
 
-.guide-description{
-  color:#D0DBD1;
-  font-size:16px;
-  line-height:2;
-  margin-top:14px;
-  position:relative;
-}
-
-.guide-action{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  background:var(--lime);
+.guide-arrow{
   color:var(--forest);
-  margin-top:19px;
-  padding:13px 15px;
-  border-radius:4px 13px 4px 13px;
-  font-size:16px;
-  font-weight:900;
-  position:relative;
-}
-
-.guide-action span:last-child{
   font-size:23px;
-  line-height:1;
 }
 
 /* SIGNATURE */
@@ -762,19 +714,11 @@ button{font-family:inherit}
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
-  padding:25px 10px 14px;
+  gap:9px;
+  padding:28px 10px 13px;
   color:#849083;
   font-size:12px;
-  font-weight:700;
-}
-
-.signature:before,
-.signature:after{
-  content:"";
-  width:28px;
-  height:1px;
-  background:#C7CEBF;
+  font-weight:600;
 }
 
 .signature strong{
@@ -782,7 +726,15 @@ button{font-family:inherit}
   font-weight:900;
 }
 
-/* BOTTOM NAV */
+.signature:before,
+.signature:after{
+  content:"";
+  width:27px;
+  height:1px;
+  background:#C7CEBF;
+}
+
+/* NAVIGATION */
 
 .bottom-nav{
   position:fixed;
@@ -824,7 +776,9 @@ button{font-family:inherit}
   stroke-linejoin:round;
 }
 
-.nav-item.active{color:var(--forest)}
+.nav-item.active{
+  color:var(--forest);
+}
 
 .nav-item.active:before{
   content:"";
@@ -836,40 +790,52 @@ button{font-family:inherit}
   border-radius:4px;
 }
 
-.nav-item.active svg{stroke-width:2.3}
-
-.nav-item:active{opacity:.7}
-
-/* ANIMATION */
-
-@keyframes enter{
-  from{opacity:0;transform:translateY(16px)}
-  to{opacity:1;transform:translateY(0)}
+.nav-item.active svg{
+  stroke-width:2.3;
 }
 
-.hero{animation:enter .5s ease both}
+.nav-item:active{
+  opacity:.7;
+}
+
+/* ANIMATIONS */
+
+@keyframes enter{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.hero{
+  animation:enter .55s ease both;
+}
+
+.intro,.feature-strip,.jobs-section,.manifesto,.application{
+  animation:enter .6s ease both;
+}
 
 @media(min-width:700px){
-  .header,.hero,.intro,.jobs-section,.guide-section{
+  .header,.hero,.intro,.jobs-section,.manifesto,.application{
     padding-right:35px;
     padding-left:35px;
   }
-
-  .jobs{
+  .hero h1{max-width:720px}
+  .job-list{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
-    align-items:start;
   }
-
-  .principles{margin-right:35px;margin-left:35px}
 }
 
 @media(max-width:360px){
-  .hero h1{font-size:33px}
-  .intro h2,.section-heading h2{font-size:25px}
-  .job-title{font-size:22px}
-  .job-desc{font-size:16px}
-  .guide-title{font-size:22px}
+  .hero h1{font-size:35px}
+  .intro h2,.section-top h2{font-size:24px}
+  .job h3{font-size:20px}
+  .application h2{font-size:26px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -882,6 +848,8 @@ button{font-family:inherit}
 </head>
 
 <body>
+
+<!-- BRAND HEADER -->
 
 <header class="header">
   <div class="header-inner">
@@ -898,37 +866,40 @@ button{font-family:inherit}
       <div class="brand-sub">سامانه جذب و همکاری نیروهای حرفه‌ای</div>
     </div>
 
-    <div class="header-mark">SG / 02</div>
+    <div class="header-mark">SG / 01</div>
 
   </div>
 </header>
+
 
 <!-- HERO -->
 
 <section class="hero">
 
   <div class="hero-top">
-    <div class="hero-tag">معرفی فرصت‌های همکاری</div>
-    <div class="hero-number">CAREER / 02</div>
+    <div class="hero-tag">درگاه فرصت‌های شغلی</div>
+    <div class="hero-number">CAREER 2026</div>
   </div>
 
-  <div class="hero-kicker">چهار مسیر متفاوت؛ چهار نوع مسئولیت</div>
+  <div class="hero-kicker">برای کسانی که مسئولیت را جدی می‌گیرند</div>
 
   <h1>
-    پیش از انتخاب،
-    <span class="highlight">جایگاه واقعی</span>
-    خودت را بشناس.
+    یک شغل انتخاب نکن؛
+    <span class="highlight">جایگاهت</span>
+    را پیدا کن.
   </h1>
 
   <p class="hero-description">
-    هر موقعیت شغلی، شرایط، مسئولیت‌ها و امتیازهای متفاوتی دارد. اینجا جزئیات چهار گروه شغلی امنیت‌گستر را با دقت بررسی کن تا بدانی کدام مسیر با شرایط و انتظارات تو هماهنگ‌تر است.
+    امنیت‌گستر، مسیر آشنایی و ثبت درخواست همکاری در حوزه‌های حفاظت، نگهبانی و خدمات را برای شما فراهم کرده است.
+    شاید فرصت بعدی، دقیقاً در تخصص شما باشد.
   </p>
 
   <div class="hero-bottom">
+
     <div class="hero-bottom-text">
-      <strong>انتخاب آگاهانه، شروع حرفه‌ای</strong>
+      <strong>چهار مسیر برای همکاری</strong>
       <br>
-      جزئیات هر موقعیت را پیش از اقدام بخوان.
+      فرصت خودت را هوشمندانه انتخاب کن.
     </div>
 
     <div class="hero-emblem">
@@ -937,26 +908,30 @@ button{font-family:inherit}
         <path d="m8.5 12 2.2 2.2 4.8-5"/>
       </svg>
     </div>
+
   </div>
 
 </section>
 
-<!-- INTRO -->
+
+<!-- INTRODUCTION -->
 
 <section class="intro">
 
-  <div class="intro-label">تصمیم با شناخت آغاز می‌شود</div>
+  <div class="intro-label">فرصت را از نزدیک ببین</div>
 
   <h2>
-    فقط عنوان شغل را نبین؛
-    <span>شرایط واقعی همکاری را بشناس.</span>
+    توانایی تو، سرمایه توست.
+    <span>در جای درست از آن استفاده کن.</span>
   </h2>
 
   <p>
-    سن، ویژگی‌های فردی، محل فعالیت، نوع مسئولیت و امکانات هر موقعیت می‌توانند در انتخاب نهایی تعیین‌کننده باشند. اطلاعات هر چهار گروه را بخوان و با دیدی روشن‌تر مسیر مناسب خودت را انتخاب کن.
+    هر موقعیت شغلی، شرایط و مسئولیت‌های خودش را دارد.
+    حوزه‌ای را انتخاب کن که با توانایی‌ها و انتظاراتت هم‌خوانی دارد؛ سپس برای شروع مسیر همکاری اقدام کن.
   </p>
 
 </section>
+
 
 <!-- FEATURES -->
 
@@ -964,298 +939,225 @@ button{font-family:inherit}
 
   <div class="feature">
     <strong>۰۴</strong>
-    <span>گروه شغلی</span>
-  </div>
-
-  <div class="feature">
-    <strong>۰۱</strong>
-    <span>انتخاب آگاهانه</span>
+    <span>حوزه شغلی</span>
   </div>
 
   <div class="feature">
     <strong>۱۰۰٪</strong>
-    <span>توجه به شرایط</span>
+    <span>فرایند مشخص</span>
+  </div>
+
+  <div class="feature">
+    <strong>۰۱</strong>
+    <span>مسیر ثبت درخواست</span>
   </div>
 
 </section>
+
 
 <!-- JOBS -->
 
 <section class="jobs-section">
 
-  <div class="section-heading">
-    <div class="section-label">CAREER OPPORTUNITIES / 01—04</div>
-    <h2>چهار مسیر پیش روی توست</h2>
-    <p>هر کارت را بخوان؛ تفاوت‌ها در جزئیات مشخص می‌شوند.</p>
+  <div class="section-top">
+    <div>
+      <h2>کدام مسیر برای توست؟</h2>
+      <p>حوزه تخصصی خودت را انتخاب کن.</p>
+    </div>
+    <div class="section-counter">01 / 04</div>
   </div>
 
-  <div class="jobs">
 
-    <!-- JOB 01 -->
+  <div class="job-list">
 
-    <article class="job-card">
+    <!-- BODYGUARD -->
 
-      <div class="job-image-wrap">
-        <span class="job-badge"><span class="dot"></span>درآمد ویژه</span>
-        <span class="job-number">۰۱</span>
-        <img src="1.jpg" alt="محافظ شخصی و بادیگارد" loading="lazy">
-      </div>
+    <a href="request.html" class="job j1">
 
-      <div class="job-content">
-
-        <div class="job-overline">PERSONAL PROTECTION / 01</div>
-
-        <h2 class="job-title">محافظ شخصی / بادیگارد</h2>
-
-        <div class="job-subtitle">جایگاهی با سطح بالای مسئولیت و الزامات ویژه</div>
-
-        <p class="job-desc">
-          حفاظت و همراهی شخصی، جایگاهی است که در آن <strong>آمادگی جسمانی، آراستگی و مسئولیت‌پذیری</strong> اهمیت ویژه‌ای دارد. این گروه شغلی از موقعیت‌های دارای درآمد بالاتر در مجموعه است و پذیرش آن با شرایط مشخص انجام می‌شود.
-          <br><br>
-          متقاضیان باید <strong>آقا و در بازه سنی ۲۰ تا ۳۵ سال</strong> باشند و از <strong>اندام ورزشکاری، قد بلند و هیکل درشت</strong> برخوردار باشند. آراستگی ظاهری و ارائه <strong>ضامن معتبر</strong> نیز از الزامات این موقعیت است.
-        </p>
-
-        <div class="job-tags">
-          <span class="tag special">درآمد ویژه</span>
-          <span class="tag">۲۰ تا ۳۵ سال</span>
-          <span class="tag">اندام ورزشکاری</span>
-          <span class="tag">ضامن معتبر</span>
-          <span class="tag">آراستگی ظاهری</span>
+      <div class="job-main">
+        <div class="job-overline">PROTECTION / 01</div>
+        <h3>بادیگارد</h3>
+        <p>حفاظت و همراهی شخصی</p>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
         </div>
-
-        <div class="job-note">
-          <div class="job-note-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 11v5m0-8h.01"/>
-            </svg>
-          </div>
-          <p>
-            <strong>نکته مهم:</strong>
-            تناسب ویژگی‌های جسمانی و آمادگی برای پذیرش مسئولیت، در بررسی این موقعیت اهمیت دارد.
-          </p>
-        </div>
-
-      </div>
-    </article>
-
-    <!-- JOB 02 -->
-
-    <article class="job-card">
-
-      <div class="job-image-wrap">
-        <span class="job-badge"><span class="dot"></span>پذیرش فعال</span>
-        <span class="job-number">۰۲</span>
-        <img src="2.jpg" alt="نگهبان و حفاظت از اماکن" loading="lazy">
       </div>
 
-      <div class="job-content">
+      <div class="job-aside">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+          <path d="M8.5 17c.7-2 2-3 3.5-3s2.8 1 3.5 3"/>
+        </svg>
+        <small>01</small>
+      </div>
 
+    </a>
+
+
+    <!-- GUARD -->
+
+    <a href="request.html" class="job j2">
+
+      <div class="job-main">
         <div class="job-overline">SITE SECURITY / 02</div>
-
-        <h2 class="job-title">نگهبان</h2>
-
-        <div class="job-subtitle">حفاظت از اموال، پروژه‌ها و دارایی‌ها</div>
-
-        <p class="job-desc">
-          نگهبانی فقط حضور در محل نیست؛ <strong>هوشیاری، نظم و مراقبت مستمر</strong> بخش جدایی‌ناپذیر این مسئولیت است. حوزه فعالیت می‌تواند شامل حفاظت از مصالح ساختمانی، پروژه‌های عمرانی، تجهیزات، لوازم و دارایی‌های ارزشمند باشد.
-          <br><br>
-          پذیرش این گروه برای <strong>افراد مجرد ۲۰ تا ۴۰ سال</strong> انجام می‌شود. در برخی موقعیت‌ها، امکان همکاری برای <strong>اتباع محترم</strong> نیز وجود دارد.
-        </p>
-
-        <div class="job-tags">
-          <span class="tag">افراد مجرد</span>
-          <span class="tag">۲۰ تا ۴۰ سال</span>
-          <span class="tag">حفاظت پروژه</span>
-          <span class="tag">مراقبت از اموال</span>
-          <span class="tag special">فرصت برای اتباع در برخی موارد</span>
+        <h3>نگهبان</h3>
+        <p>حفاظت و مراقبت از اماکن</p>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
         </div>
-
-        <div class="job-note">
-          <div class="job-note-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/>
-              <path d="m8.5 12 2.2 2.2 4.8-5"/>
-            </svg>
-          </div>
-          <p>
-            <strong>پیش از انتخاب:</strong>
-            ماهیت کار نگهبانی در بعضی پروژه‌ها دشوار است و آمادگی برای شرایط کاری متفاوت اهمیت دارد.
-          </p>
-        </div>
-
-      </div>
-    </article>
-
-    <!-- JOB 03 -->
-
-    <article class="job-card">
-
-      <div class="job-image-wrap">
-        <span class="job-badge"><span class="dot"></span>شرایط متنوع</span>
-        <span class="job-number">۰۳</span>
-        <img src="3.jpg" alt="سرایدار و رسیدگی به ساختمان" loading="lazy">
       </div>
 
-      <div class="job-content">
+      <div class="job-aside">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/>
+          <path d="M8 12h8m-4-4v8"/>
+        </svg>
+        <small>02</small>
+      </div>
 
+    </a>
+
+
+    <!-- CARETAKER -->
+
+    <a href="request.html" class="job j3">
+
+      <div class="job-main">
         <div class="job-overline">PROPERTY CARE / 03</div>
-
-        <h2 class="job-title">سرایدار</h2>
-
-        <div class="job-subtitle">رسیدگی، مراقبت و نظم امور ساختمان</div>
-
-        <p class="job-desc">
-          در موقعیت سرایداری، <strong>نظم، قابل‌اعتماد بودن و رسیدگی منظم به امور محل</strong> از ویژگی‌های مهم همکاری است. شرایط این گروه شغلی متنوع است و با توجه به نوع محل و نیاز کارفرما می‌تواند تفاوت داشته باشد.
-          <br><br>
-          در این گروه، <strong>افراد متأهل در اولویت</strong> قرار دارند. بازه پذیرش اعلام‌شده <strong>۲۰ تا ۶۰ سال</strong> است و متقاضیان می‌توانند هنگام ثبت درخواست، شرایط موردنظر خود را مشخص کنند.
-        </p>
-
-        <div class="job-tags">
-          <span class="tag special">اولویت با متأهلین</span>
-          <span class="tag">۲۰ تا ۶۰ سال</span>
-          <span class="tag">شرایط متنوع</span>
-          <span class="tag">رسیدگی به ساختمان</span>
+        <h3>سرایدار</h3>
+        <p>رسیدگی و مدیریت امور ساختمان</p>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
         </div>
-
-        <div class="job-note">
-          <div class="job-note-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="m3 11 9-8 9 8"/>
-              <path d="M5 10v10h14V10"/>
-              <path d="M9 20v-6h6v6"/>
-            </svg>
-          </div>
-          <p>
-            <strong>نکته مهم:</strong>
-            جزئیات هر موقعیت سرایداری می‌تواند متفاوت باشد؛ شرایط موردنظر خود را در فرایند درخواست مشخص کن.
-          </p>
-        </div>
-
-      </div>
-    </article>
-
-    <!-- JOB 04 -->
-
-    <article class="job-card">
-
-      <div class="job-image-wrap">
-        <span class="job-badge"><span class="dot"></span>فقط تهران</span>
-        <span class="job-number">۰۴</span>
-        <img src="4.jpg" alt="نیروی امنیتی و کنترل اماکن" loading="lazy">
       </div>
 
-      <div class="job-content">
+      <div class="job-aside">
+        <svg viewBox="0 0 24 24">
+          <path d="m3 11 9-8 9 8"/>
+          <path d="M5 10v10h14V10"/>
+          <path d="M9 20v-6h6v6"/>
+          <path d="M16 5V3h3v5"/>
+        </svg>
+        <small>03</small>
+      </div>
 
+    </a>
+
+
+    <!-- SECURITY -->
+
+    <a href="request.html" class="job j4">
+
+      <div class="job-main">
         <div class="job-overline">SECURITY OPERATIONS / 04</div>
-
-        <h2 class="job-title">نیروی امنیتی / سیکریتی</h2>
-
-        <div class="job-subtitle">حضور حرفه‌ای در محیط‌های عمومی و تجاری</div>
-
-        <p class="job-desc">
-          این گروه شامل موقعیت‌هایی در <strong>پاساژها، پارک‌ها، اماکن ورزشی، پارکینگ‌ها، شهربازی‌ها، مراکز خرید، رستوران‌ها و گیت‌های ورودی کارخانه‌ها</strong> است.
-          <br><br>
-          فعالیت این دسته صرفاً در <strong>شهر تهران</strong> انجام می‌شود و بازه سنی پذیرش <strong>۲۰ تا ۴۵ سال</strong> است. این موقعیت‌ها معمولاً فاقد محل اقامت و غذا هستند یا به‌صورت شیفتی ارائه می‌شوند؛ در مقابل، <strong>حقوق بالاتری</strong> دارند.
-        </p>
-
-        <div class="job-tags">
-          <span class="tag special">حقوق بالاتر</span>
-          <span class="tag">فقط تهران</span>
-          <span class="tag">۲۰ تا ۴۵ سال</span>
-          <span class="tag">اماکن تجاری و عمومی</span>
-          <span class="tag">امکان شیفتی</span>
+        <h3>نیروی امنیتی</h3>
+        <p>حراست، نظارت و کنترل امنیتی</p>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
         </div>
-
-        <div class="job-note">
-          <div class="job-note-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9"/>
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 3v6m0 6v6M3 12h6m6 0h6"/>
-            </svg>
-          </div>
-          <p>
-            <strong>پیش از انتخاب:</strong>
-            به دلیل نداشتن اقامت و غذا در این دسته، نزدیکی محل سکونت به محل کار اهمیت زیادی دارد.
-          </p>
-        </div>
-
       </div>
-    </article>
+
+      <div class="job-aside">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 3v6m0 6v6M3 12h6m6 0h6"/>
+        </svg>
+        <small>04</small>
+      </div>
+
+    </a>
 
   </div>
+
 </section>
 
-<!-- PRINCIPLES -->
 
-<section class="principles">
+<!-- BRAND MANIFESTO -->
 
-  <div class="principles-label">نگاه حرفه‌ای به انتخاب شغل</div>
+<section class="manifesto">
+
+  <div class="manifesto-label">معیار ما برای همکاری</div>
 
   <h2>
-    فرصت مناسب فقط با درآمد سنجیده نمی‌شود؛
-    <span>تناسب شرایط، تعیین‌کننده است.</span>
+    در حرفه امنیت،
+    <span>اعتماد</span>
+    با حرف ساخته نمی‌شود؛ با مسئولیت‌پذیری اثبات می‌شود.
   </h2>
 
   <p>
-    پیش از انتخاب نهایی، سن، شرایط فردی، محل فعالیت، نوع مسئولیت و امکانات هر موقعیت را کنار هم بررسی کن. انتخابی ارزشمند است که هم با توانایی‌های تو هماهنگ باشد و هم از تعهدات آن شناخت کافی داشته باشی.
+    تعهد، انضباط و دقت، ویژگی‌هایی هستند که یک نیروی حرفه‌ای را متمایز می‌کنند.
+    اگر این ویژگی‌ها را در خودت می‌بینی، فرصت آشنایی با مسیر همکاری را از دست نده.
   </p>
 
-  <div class="principle-list">
-    <span class="principle-item">شناخت شرایط</span>
-    <span class="principle-item">بررسی مسئولیت‌ها</span>
-    <span class="principle-item">توجه به محل فعالیت</span>
-    <span class="principle-item">انتخاب آگاهانه</span>
-  </div>
-
 </section>
 
-<!-- GUIDE CTA -->
 
-<section class="guide-section">
+<!-- APPLICATION -->
 
-  <a href="guide.html" class="guide-card">
+<section class="application">
 
-    <div class="guide-top">
+  <div class="application-inner">
 
-      <div class="guide-icon">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>
-          <path d="M12 17h.01"/>
-        </svg>
-      </div>
+    <div class="application-label">NEXT STEP / شروع همکاری</div>
 
-      <div>
-        <div class="guide-label">قدم بعدی؛ شناخت تعهدات</div>
-        <div class="guide-title">پیش از ثبت درخواست، راهنمای همکاری را بخوان.</div>
-      </div>
+    <h2>
+      فرصت‌ها منتظر تصمیم تو نمی‌مانند.
+    </h2>
 
-    </div>
-
-    <p class="guide-description">
-      شرایط شغلی را شناختی؛ حالا نوبت آشنایی با مراحل، ضوابط و تعهدات همکاری است. قبل از هر اقدامی، راهنما را کامل مطالعه کن تا با آگاهی و آمادگی وارد فرایند درخواست شوی.
+    <p>
+      اگر موقعیت شغلی متناسب با خودت را پیدا کرده‌ای، اولین قدم را بردار و درخواست همکاری‌ات را ثبت کن.
     </p>
 
-    <div class="guide-action">
-      <span>مطالعه راهنمای همکاری و شرایط استخدام</span>
+    <a href="request.html" class="application-button">
+      <span>شروع ثبت درخواست همکاری</span>
       <span>←</span>
-    </div>
+    </a>
 
-  </a>
-
-  <div class="signature">
-    هویت حرفه‌ای <strong>امنیت‌گستر</strong>
   </div>
 
 </section>
 
-<!-- BOTTOM NAV -->
+
+<!-- GUIDE -->
+
+<a href="guide.html" class="guide">
+
+  <div class="guide-icon">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>
+      <path d="M12 17h.01"/>
+    </svg>
+  </div>
+
+  <div class="guide-text">
+    <strong>قبل از اقدام، این یک نکته را بدان.</strong>
+    <small>راهنمای مراحل و شرایط ثبت درخواست</small>
+  </div>
+
+  <div class="guide-arrow">←</div>
+
+</a>
+
+
+<!-- SIGNATURE -->
+
+<div class="signature">
+  هویت حرفه‌ای <strong>امنیت‌گستر</strong>
+</div>
+
+
+<!-- BOTTOM NAVIGATION -->
 
 <nav class="bottom-nav">
 
-  <a href="index.html" class="nav-item" data-page="index.html">
+  <a href="index.html" class="nav-item active">
     <svg viewBox="0 0 24 24">
       <path d="m3 10 9-7 9 7"/>
       <path d="M5 9v11h14V9"/>
@@ -1264,7 +1166,7 @@ button{font-family:inherit}
     <span>خانه</span>
   </a>
 
-  <a href="jobs.html" class="nav-item" data-page="jobs.html">
+  <a href="jobs.html" class="nav-item">
     <svg viewBox="0 0 24 24">
       <rect x="3" y="7" width="18" height="14" rx="2"/>
       <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
@@ -1273,7 +1175,7 @@ button{font-family:inherit}
     <span>مشاغل</span>
   </a>
 
-  <a href="guide.html" class="nav-item" data-page="guide.html">
+  <a href="guide.html" class="nav-item">
     <svg viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="9"/>
       <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>
@@ -1282,7 +1184,7 @@ button{font-family:inherit}
     <span>راهنما</span>
   </a>
 
-  <a href="request.html" class="nav-item" data-page="request.html">
+  <a href="request.html" class="nav-item">
     <svg viewBox="0 0 24 24">
       <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l-2 2v-7.5A7.5 7.5 0 0 1 10.5 6H13a7 7 0 0 1 7 5.5Z"/>
       <path d="M9 12h6m-3-3v6"/>
@@ -1292,23 +1194,5 @@ button{font-family:inherit}
 
 </nav>
 
-<script>
-(function(){
-  var currentFile = window.location.pathname.split('/').pop();
-
-  if(!currentFile){
-    currentFile = 'index.html';
-  }
-
-  document.querySelectorAll('.nav-item').forEach(function(item){
-    item.classList.remove('active');
-
-    if(item.getAttribute('data-page') === currentFile){
-      item.classList.add('active');
-    }
-  });
-})();
-</script>
-
 </body>
-</html>
+  </html>
