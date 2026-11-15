@@ -441,25 +441,27 @@ button{cursor:pointer}
   transform:translateY(-50%) rotate(180deg);
 }
 
+/* ===== منوی سلکت: حالا با z-index بالا و position absolute از خود trigger ===== */
 .custom-select-menu{
   position:absolute;
   top:calc(100% + 8px);
-  left:0;right:0;
+  left:0;
+  right:0;
   background:#FFFFFF;
   border:1.5px solid rgba(137,148,107,.55);
   border-radius:13px;
   box-shadow:0 16px 40px rgba(25,61,50,.20);
-  z-index:50;
+  z-index:300;
   max-height:0;
   overflow:hidden;
   opacity:0;
   transform:translateY(-6px);
-  transition:max-height .35s cubic-bezier(.4,0,.2,1), opacity .25s ease, transform .25s ease;
+  transition:max-height .3s cubic-bezier(.4,0,.2,1), opacity .22s ease, transform .22s ease;
   pointer-events:none;
   padding:0;
 }
 .custom-select.open .custom-select-menu{
-  max-height:600px;
+  max-height:420px;
   opacity:1;
   transform:translateY(0);
   pointer-events:auto;
@@ -496,6 +498,18 @@ button{cursor:pointer}
   border-radius:50%;
   background:var(--forest);
   flex-shrink:0;
+}
+
+/* ===== والد فیلدهای داخل maleSection باید stacking context درست داشته باشن ===== */
+#maleSection{
+  position:relative;
+  z-index:1;
+}
+
+/* فیلدهایی که داخلشون سلکت هست، وقتی منو بازه باید بالا بیان */
+.field:has(.custom-select.open){
+  z-index:250;
+  position:relative;
 }
 
 .radio-group{
@@ -902,7 +916,6 @@ button{cursor:pointer}
   box-shadow:0 2px 8px rgba(200,117,75,.12);
 }
 
-/* ============ BOTTOM NAV — کپی دقیق از صفحه اصلی ============ */
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -918,7 +931,6 @@ button{cursor:pointer}
   border-top:1px solid #DDE1D5;
   box-shadow:0 -5px 25px rgba(25,61,50,.08);
 }
-
 .nav-item{
   flex:1;
   display:flex;
@@ -932,7 +944,6 @@ button{cursor:pointer}
   position:relative;
   transition:.2s;
 }
-
 .nav-item svg{
   width:25px;
   height:25px;
@@ -942,11 +953,7 @@ button{cursor:pointer}
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-
-.nav-item.active{
-  color:var(--forest);
-}
-
+.nav-item.active{color:var(--forest)}
 .nav-item.active:before{
   content:"";
   position:absolute;
@@ -956,14 +963,8 @@ button{cursor:pointer}
   background:var(--orange);
   border-radius:4px;
 }
-
-.nav-item.active svg{
-  stroke-width:2.3;
-}
-
-.nav-item:active{
-  opacity:.7;
-}
+.nav-item.active svg{stroke-width:2.3}
+.nav-item:active{opacity:.7}
 
 .modal-overlay,
 .toast-overlay{
@@ -1799,7 +1800,6 @@ button{cursor:pointer}
 
 </main>
 
-<!-- ============ BOTTOM NAV — کپی دقیق از صفحه اصلی ============ -->
 <nav class="bottom-nav">
   <a href="index.html" class="nav-item">
     <svg viewBox="0 0 24 24">
@@ -2340,7 +2340,7 @@ $$('input[type="radio"]').forEach(r => {
 
 $$('input[type="file"]').forEach(f => {
   f.addEventListener('change', () => {
-    const parentField = f.closest('field') || f.closest('.field');
+    const parentField = f.closest('.field');
     if(parentField){
       parentField.classList.remove('field-error');
       parentField.querySelectorAll('.error-msg').forEach(m => m.classList.remove('show'));
