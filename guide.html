@@ -533,6 +533,26 @@ button{cursor:pointer}
 .faq-answer br{
   line-height:2.6;
 }
+.faq-answer ul{
+  margin:8px 0 8px 0;
+  padding-right:20px;
+  list-style:none;
+}
+.faq-answer ul li{
+  position:relative;
+  padding-right:18px;
+  margin-bottom:6px;
+}
+.faq-answer ul li:before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:12px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:var(--orange);
+}
 
 /* ============ EMPTY ============ */
 .empty-state{
@@ -850,7 +870,7 @@ button{cursor:pointer}
   font-weight:900;
 }
 
-/* ============ BOTTOM NAV — کپی دقیق از صفحه اصلی ============ */
+/* ============ BOTTOM NAV ============ */
 .bottom-nav{
   position:fixed;
   bottom:0;
@@ -866,7 +886,6 @@ button{cursor:pointer}
   border-top:1px solid #DDE1D5;
   box-shadow:0 -5px 25px rgba(25,61,50,.08);
 }
-
 .nav-item{
   flex:1;
   display:flex;
@@ -880,7 +899,6 @@ button{cursor:pointer}
   position:relative;
   transition:.2s;
 }
-
 .nav-item svg{
   width:25px;
   height:25px;
@@ -890,11 +908,9 @@ button{cursor:pointer}
   stroke-linecap:round;
   stroke-linejoin:round;
 }
-
 .nav-item.active{
   color:var(--forest);
 }
-
 .nav-item.active:before{
   content:"";
   position:absolute;
@@ -904,11 +920,9 @@ button{cursor:pointer}
   background:var(--orange);
   border-radius:4px;
 }
-
 .nav-item.active svg{
   stroke-width:2.3;
 }
-
 .nav-item:active{
   opacity:.7;
 }
@@ -1044,7 +1058,7 @@ button{cursor:pointer}
   <section class="hero">
     <div class="hero-top">
       <div class="hero-label"><i></i> پیش از تصمیم‌گیری بخوانید</div>
-      <div class="hero-count">۱۹ پرسش و پاسخ</div>
+      <div class="hero-count">۲۰ پرسش و پاسخ</div>
     </div>
 
     <h1>همکاری حرفه‌ای،<br><span>با آگاهی و شفافیت آغاز می‌شود.</span></h1>
@@ -1094,32 +1108,32 @@ button{cursor:pointer}
 
   <div class="filters" id="filters">
     <button type="button" class="filter-btn active" data-filter="all">همه پرسش‌ها</button>
-    <button type="button" class="filter-btn" data-filter="money">هزینه و درآمد</button>
-    <button type="button" class="filter-btn" data-filter="employment">استخدام و قرارداد</button>
-    <button type="button" class="filter-btn" data-filter="conditions">شرایط و مدارک</button>
-    <button type="button" class="filter-btn" data-filter="process">مراحل و پیگیری</button>
-    <button type="button" class="filter-btn" data-filter="jobs">نوع مشاغل</button>
+    <button type="button" class="filter-btn" data-filter="about">درباره ما</button>
+    <button type="button" class="filter-btn" data-filter="money">حقوق و هزینه</button>
+    <button type="button" class="filter-btn" data-filter="employment">استخدام و مراحل</button>
+    <button type="button" class="filter-btn" data-filter="conditions">شرایط و امکانات</button>
+    <button type="button" class="filter-btn" data-filter="jobs">فرصت‌های شغلی</button>
   </div>
 
   <div class="section-heading">
     <h2>پرسش‌های پرتکرار</h2>
-    <span id="resultCount" aria-live="polite">۱۹ پرسش</span>
+    <span id="resultCount" aria-live="polite">۲۰ پرسش</span>
   </div>
 
   <section class="faq-list" id="faqList">
 
-    <article class="faq-card" data-category="money">
+    <article class="faq-card" data-category="about">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۱</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">هزینه و درآمد</span>
-          <span class="faq-q">هزینه کاریابی و استخدام چقدر است؟</span>
+          <span class="faq-category">درباره ما</span>
+          <span class="faq-q">درباره ما</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          هزینه استخدام مبلغ <strong>۱۵ میلیون تومان</strong> است که از حقوق ماه اول شما کسر خواهد شد.
+          ما دفتر کاریابی نیستیم؛ <strong>شرکت با ثبت رسمی و مجوز فعالیت در حوزه تأمین امنیت</strong> هستیم. مدارک و مجوزها پیش از استخدام در دسترس شما قرار می‌گیرد و قابل استعلام است. وظیفه ما حفاظت از جان و مال متقاضیان یا حفظ آرامش و امنیت است؛ با همکاری شما، عضو خانواده بزرگ امنیت گستر می‌شوید و در هر موقعیتی تحت حمایت مجموعه خواهید بود.
         </div>
       </div>
     </article>
@@ -1128,16 +1142,14 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۲</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">هزینه و مدارک</span>
-          <span class="faq-q">بجز هزینه کاریابی، چه هزینه‌های دیگری داریم؟</span>
+          <span class="faq-category">شرایط فردی</span>
+          <span class="faq-q">آیا این برای من مناسب است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          تمامی اعضا باید مدارکی همچون کپی کارت ملی، شناسنامه، مدارک احراز سکونت، عدم سوءپیشینه و عدم اعتیاد ارائه دهند. در برخی موارد خاص، نیاز به <strong>سفته ضمانت</strong> یا <strong>ضامن معتبر</strong> است که تهیه، ارسال و پرداخت هزینه‌های آن به عهده متقاضی است.
-          <br><br>
-          استعلام سوءپیشینه الزامی است و توسط ما انجام می‌گردد و هزینه آن <strong>۷۹ هزار تومان</strong> است. مدارک ارسالی شما شامل کارت ملی و شناسنامه پرینت گرفته می‌شود و با انضمام هزینه پوشه، مبلغ <strong>۱۴۰ هزار تومان</strong> باید در ابتدا پرداخت نمایید.
+          همکاری تقریباً برای هر فردی با هر سطح تحصیلات، توان جسمانی و استعداد ممکن است. شرط اصلی: <strong>نظم، مسئولیت‌پذیری، نداشتن سوءپیشینه و اعتیاد</strong> است.
         </div>
       </div>
     </article>
@@ -1146,46 +1158,51 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۳</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">استخدام و تعهدات</span>
-          <span class="faq-q">آیا تضمینی برای استخدام وجود دارد؟</span>
+          <span class="faq-category">مراحل همکاری</span>
+          <span class="faq-q">آیا همه مراحل در اپلیکیشن طی می‌شود؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          بله. پس از تشکیل پرونده، <strong>استخدام شما قطعی</strong> خواهد بود. در حال حاضر کارفرمایان بسیاری نیاز به نیروی کار دارند و روزانه موارد متعددی توسط بازاریابان مجموعه اضافه می‌شود که درج همه موارد در اپلیکیشن ممکن نیست؛ اما فرصت‌های شغلی بسیارند.
-        </div>
-      </div>
-    </article>
-
-    <article class="faq-card" data-category="money">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۴</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">حقوق و مزایا</span>
-          <span class="faq-q">آیا حقوق و مزایای دریافتی دقیقاً مشابه تبلیغات اعلام شده است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          بله. ما در امنیت‌گستر هرگز مشاغلی که حقوق کمتر از <strong>۶۰ میلیون تومان</strong> پرداخت می‌کنند ارائه نمی‌دهیم. وظیفه ما تأمین امنیت در سطح اول است و صرفاً مشاغل دارای <strong>۲ وعده غذایی</strong>، <strong>حقوق بالای ۶۰ میلیون تومان</strong> و <strong>دارای بیمه</strong> ارائه می‌گردد.
+          اپلیکیشن فقط برای آشنایی با شیوه همکاری و ثبت درخواست است؛ سایر مراحل حضوری یا تلفنی انجام می‌شود. پس از ثبت درخواست، مشاوره شغلی آغاز می‌شود؛ استعداد، علایق، اهداف، سن و سوابق شما بررسی می‌شود؛ حداکثر ظرف <strong>۱۰ روز کاری</strong> در جلسه معارفه به کارفرما معرفی می‌شوید.
         </div>
       </div>
     </article>
 
     <article class="faq-card" data-category="employment">
       <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۵</span>
+        <span class="faq-num">۰۴</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">پشتیبانی و معرفی مجدد</span>
-          <span class="faq-q">اگر کارفرما من را نخواست یا با مشکلی مواجه شدم چه باید بکنم؟</span>
+          <span class="faq-category">قطعیت استخدام</span>
+          <span class="faq-q">آیا استخدام قطعی است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          <strong>ریسک مالی با ماست، نه با شما.</strong> اگر به هر دلیلی از شغل ارائه شده توسط ما رضایت نداشتید، تا ۲ شغل دیگر — جمعاً ۳ شغل — به شما معرفی خواهد شد. اما اگر کارفرما شما را بیرون کرد، این مورد محاسبه نخواهد شد و تا ۳ شغل دیگر به شما معرفی می‌گردد.
+          ما نیاز فوری و همیشگی به نیروی انسانی داریم بنابراین پس از ثبت فرم <strong>استخدام شما قطعی است</strong> مگر اینکه خودتان منصرف شوید. پس از ثبت درخواست، مشاور اختصاصی مجموعه برای هماهنگی‌ها، مرخصی‌ها، مزایا، ترفیع، بیمه و پیگیری مسائل و حل مشکلات احتمالی همیشه کنار شماست.
+        </div>
+      </div>
+    </article>
+
+    <article class="faq-card" data-category="jobs">
+      <button class="faq-toggle" type="button" aria-expanded="false">
+        <span class="faq-num">۰۵</span>
+        <span class="faq-question-wrap">
+          <span class="faq-category">فرصت‌های شغلی</span>
+          <span class="faq-q">چه فرصت‌های شغلی از طرف شما ارائه می‌شود؟</span>
+        </span>
+        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+      </button>
+      <div class="faq-panel">
+        <div class="faq-answer">
+          <ul>
+            <li><strong>محافظ شخصی (بادیگارد)</strong></li>
+            <li><strong>محافظ امنیت اماکن عمومی (سکیوریتی)</strong></li>
+            <li><strong>دو نوع سرایدار</strong>؛ الف: حفظ، نگهداری اموال و دارایی ملکی ویلاهای خالی، ب: نظافت و رسیدگی به مجتمع‌ها و برج‌های مسکونی، تجاری</li>
+            <li><strong>نگهبان</strong>؛ حفاظت از تجهیزات و دارایی و محصولات در برابر سرقت</li>
+          </ul>
         </div>
       </div>
     </article>
@@ -1194,46 +1211,46 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۶</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">قرارداد کاری</span>
-          <span class="faq-q">آیا قرارداد کاری بسته خواهد شد؟</span>
+          <span class="faq-category">پرسنل شرکت</span>
+          <span class="faq-q">ما پرسنل شرکت امنیت گستر می‌شویم؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          بله. شما <strong>۲ قرارداد کاری معتبر</strong> که بسیار منصفانه نگارش شده است را با کارفرما و با شرکت <strong>امنیت‌گستر تهران (اوما)</strong> رسماً امضا خواهید کرد. تعهد ما به شما ارائه نهایتاً ۳ شغل با شرایط اعلامی است و کارفرما نیز معمولاً بعد از یک هفته موظف به بستن قرارداد با شما خواهد بود؛ از این بابت نگرانی نداشته باشید.
+          بله، همکاران ما روزانه با افراد سرشناس، سلبریتی‌ها و صاحبان مجتمع‌های بزرگ تجاری، مسکونی و گردشگری برای عقد قرارداد ارتباط سازنده برقرار می‌کنند و هم‌اکنون فرصت‌ها در هر چهار دسته فراوان و متنوع است. ما با کارفرمایان قرارداد تامین امنیت و یا ارائه خدمات منعقد می‌نماییم و شما به عنوان <strong>پرسنل امنیت گستر</strong> مشغول فعالیت خواهید شد. البته در خصوص سرایداری خدمات ما اندکی حدود است و بیشتر نقش معرف را خواهیم داشت.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="jobs">
+    <article class="faq-card" data-category="employment">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۷</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">نوع مشاغل و امکانات</span>
-          <span class="faq-q">چه مشاغلی ۲ وعده غذا و محل اقامت را ندارند؟</span>
+          <span class="faq-category">پس از ثبت</span>
+          <span class="faq-q">پس از ثبت درخواست چه می‌شود؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          همان‌طور که در بخش‌های دیگر ذکر شد، به‌طور کلی ۴ گروه شغلی داریم شامل <strong>نگهبانی، سرایداری، بادیگارد و نیروی خدماتی امنیتی</strong>. دسته مشاغل امنیتی به‌طور شیفتی ۲۴-۲۴ یا ۴۸-۲۴ یا شیفت کاری ۸ ساعته است و محل اقامت ندارد، یا اگر دارد برای استراحت کوتاه است نه اقامت. وعده‌های غذایی فقط در روزهای کاری ۱ وعده داده می‌شود یا داده نمی‌شود. همچنین نزدیکی به محل کار اهمیت فراوانی دارد.
+          پس از ثبت درخواست ابتدا با شما در شماره‌ای که اعلام نمودید تماس خواهیم گرفت و با مشاوره اختصاصی، جایگاه متناسب با شرایط شما ارائه می‌شود.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="process">
+    <article class="faq-card" data-category="money">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۸</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">زمان‌بندی مراحل</span>
-          <span class="faq-q">فرایند استخدام چقدر زمان می‌برد؟</span>
+          <span class="faq-category">حقوق و مزایا</span>
+          <span class="faq-q">حقوق دریافتی، بیمه و مزایا چگونه است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          به‌طور معمول نهایتاً <strong>۱۰ روز</strong> زمان خواهد برد. شما مستقیماً به استخدام کارفرما در نخواهید آمد؛ کارفرمایان جهت تأمین امنیت به ما مراجعه می‌کنند و ما شما را به‌عنوان نیرو اعزام خواهیم کرد. این دوره ۱۰ روزه جهت تکمیل و بررسی مدارک، سوءپیشینه، تشکیل پرونده، بررسی جایگاه مناسب شما و ارائه توضیحات و آموزش شغلی است.
+          حداقل حقوق <strong>۶۰ میلیون تومان</strong> است و هیچ استخدام یا فرصت شغلی با حقوق کمتر از این میزان ارائه نمی‌شود.
         </div>
       </div>
     </article>
@@ -1242,14 +1259,22 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۰۹</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">شرایط خانوادگی</span>
-          <span class="faq-q">آیا امکان استقرار با همسر و فرزندان وجود دارد؟</span>
+          <span class="faq-category">امکانات</span>
+          <span class="faq-q">محل اقامت و وعده‌های غذایی چگونه است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          فقط برای <strong>مشاغل سرایداری</strong>، بله. همان‌طور که قبلاً ذکر شد، ما در این مجموعه هر شغلی را ارائه نمی‌کنیم؛ بلکه مشاغلی که دارای شرایط بسیار مناسب باشند ارائه می‌شود. کلیه مشاغل سرایداری دارای محل اقامت برای همسر و فرزندان است و در بسیاری از موارد، مرد می‌تواند تا ۵ عصر بیرون از منزل فعالیت نماید. شرایط تمامی مشاغل یکسان نیست؛ بنابراین در بخش فرم، تمامی موارد را بررسی نمایید.
+          هیچ فرصت همکاری خارج از این شرایط ارائه نخواهد شد:
+          <br><br>
+          <strong>استخدام به عنوان محافظ شخصی:</strong> ۲ وعده غذایی و محل اقامت مشترک تأییدشده و شیک؛ ۳ تا ۴ نفر در یک سوئیت یا اتاق مرتب که کارفرمایان رسماً تامین این موارد را بر عهده دارند.
+          <br><br>
+          <strong>استخدام به عنوان سرایدار:</strong> سوئیت مجزا با رعایت حریم خصوصی و مناسب خانواده. مکان‌های ناامن خارج از شهر یا با مالک تأییدنشده به خانواده‌ها ارائه نمی‌شود؛ ممکن است به افراد مجرد ارائه شود. سرایداری باغچه و ویلای خالی از سکنه تفریحی ۱۰ میلیون تومان کمک هزینه تأمین خوراک دارد. سرایداری آپارتمان و ویلای دارای سکنه ۲ وعده غذایی دارد. نظافت راه‌پله، مشاعات، پارکینگ، انباری، حیاط و جمع‌آوری زباله جزئی از وظایف سرایدار است. فقط در دسته سرایداری امکان اقامت همسر و فرزندان فراهم است.
+          <br><br>
+          <strong>استخدام به عنوان نگهبانی:</strong> اغلب محل اقامت ضعیف‌تر؛ ساختمان‌های نیمه‌ساز و کانکس و اتاقک دارد و حفاظت از تجهیزات و مصالح وظایف نگهبان است. نگهبان شیفت شب کارخانه‌های خارج از شهرک‌های صنعتی، نگهبانی شب باغ، مزارع، کارگاه‌ها و تولیدی‌ها بیشترین درخواست‌ها است. اتباع محترم می‌توانند در این دسته فعالیت کنند. ۲ وعده غذایی بر عهده کارفرماست.
+          <br><br>
+          <strong>استخدام به عنوان سکیوریتی و حفاظت از فضای عمومی و مراکز خرید:</strong> محل اقامت ندارد؛ نزدیکی به محل کار و حضور به‌موقع اهمیت دارد. فعلاً فقط در تهران و با نیاز بالا به نیروی شیفتی. ۱ یا ۲ وعده غذایی بر عهده کارفرماست. حقوق با سرایداری یکسان است، اما پرستیژ شغلی بالاتر دارد و امور نظافت به شما سپرده نمی‌شود.
         </div>
       </div>
     </article>
@@ -1258,48 +1283,56 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۰</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">حقوق و بیمه</span>
-          <span class="faq-q">آیا حقوق و بیمه از ماه اول پرداخت خواهد شد؟</span>
+          <span class="faq-category">پرداخت حقوق</span>
+          <span class="faq-q">نحوه پرداخت حقوق و بیمه به چه صورت است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          بله. کارفرمایان فقط با شما طرف حساب نیستند؛ بلکه وقتی کاری را به ما می‌سپارند، ما نیز پیگیر مطالبات شما خواهیم بود. همه چیز در چارچوب قانون است و تعهدات کارفرمایان مکتوب شده و به امضای آن‌ها رسیده، سپس فایل آگهی آن‌ها ارائه شده است.
+          پرداخت حقوق از روز اول شروع کار است. بیمه نیز به دلیل حساسیت پذیرش مسئولیت از روز اول استخدام صادر می‌شود و پس از اقدام برای بیمه می‌توانید در محل کار حاضر شوید. شرکت تحت بیمه مسئولیت و حوادث است و در حوادث احتمالی مانند سرقت یا خطای انسانی، پوشش بیمه مناسب وجود دارد؛ وکلای مجموعه پیگیر موارد خواهند بود.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="process">
+    <article class="faq-card" data-category="money">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۱</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">مراجعه و پیگیری</span>
-          <span class="faq-q">آیا امکان مراجعه و پیگیری حضوری فرایند استخدام وجود دارد؟</span>
+          <span class="faq-category">حقوق بالاتر</span>
+          <span class="faq-q">چرا حقوق دریافتی بیشتر از حقوق وزارت کار است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          بله، بدون شک. اپلیکیشن تنها جهت سهولت طی کردن مراحل اولیه است و پس از آن حتماً متقاضی باید حضوراً مراجعه نماید. آدرس و شماره تماس پس از آنکه شما مورد تأیید قرار گرفتید و دسته شغلی مورد نظر خود را انتخاب کردید، در اختیار شما قرار خواهد گرفت تا پیش از استخدام، لیست فرصت‌های شغلی مناسب شما به شما ارائه شود و از بین موارد یکی را انتخاب نمایید و فوراً مشغول شوید.
-          <br><br>
-          اما در حال حاضر، امکان گفتگو و ارائه مشاوره به افرادی که قصد جدی برای استخدام ندارند مقدور نیست؛ زیرا همکاران ما بیشتر زمان خود را صرف شناسایی فرصت‌های شغلی جدید، ارائه خدمات بهتر، بالاتر بردن سطح حقوق و به‌روزرسانی اپلیکیشن و ... می‌نمایند.
+          رقم قراردادهای امنیت گستر تهران (اوبا) با سازمان‌ها، نهادها و ادارات دولتی و خصوصی به دلیل ماهیت شغل و پذیرش مسئولیت خطیر ممکن است بسیار بالا باشد؛ طبیعتاً مسئولیت حوادث احتمالی و انتظارات نیز متناسب با آن بالاست. تلاش ما این است با سهیم کردن نیروی انسانی در این درآمد، امنیت و آسایش واقعی کارفرما را فراهم کنیم و نیروی انسانی نیز از حقوق و مزایا راضی باشد. بنابراین حقوق‌ها با توجه به نحوه همکاری و قراردادهای پیمانکاری، بسیار بیشتر از حقوق وزارت کار است. مشاغلی مانند محافظ شخصی درآمد و رفاه بالاتری از نگهبانی دارند و این تفاوت با میزان مسئولیت طبیعی است.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="jobs">
+    <article class="faq-card" data-category="employment">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۲</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">محدوده جغرافیایی</span>
-          <span class="faq-q">آیا در سراسر کشور شغل دارید؟</span>
+          <span class="faq-category">مراحل استخدام</span>
+          <span class="faq-q">مراحل استخدام را دقیقاً شرح دهید</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          خیر. ما از طریق ارتباط نزدیک و بازاریابی حضوری و تلفنی با افراد سرشناس، سلبریتی‌ها، صاحبان مجموعه‌های بزرگ تجاری و برندهای معروف، کارفرمایان را انتخاب می‌نماییم. عموم این افراد در سه شهر بزرگ <strong>تهران، اصفهان و مشهد</strong> و همچنین <strong>شمال و کیش</strong> فرصت‌های شغلی خود را به ما می‌سپارند؛ بنابراین ما در تمامی کشور شغل نداریم.
+          <ul>
+            <li><strong>۱.</strong> مطالعه کامل این راهنما الزامی است. تعهد ما به شما همان مفاد این راهنماست و مطابق همین مطالب و تبلیغات رسانه‌ای عمل می‌کنیم. این صفحه دستورالعمل ماست و به آن پایبندیم. ارقام و مندرجات به‌روز است و اپلیکیشن آنلاین است؛ نیازی به به‌روزرسانی اپلیکیشن نیست.</li>
+            <li><strong>۲.</strong> ثبت درخواست با هر سن، مهارت و تحصیلات در اپلیکیشن ممکن است.</li>
+            <li><strong>۳.</strong> کل مراحل استخدام حداکثر ۱۰ روز کاری است؛ نه یک روز بیشتر. حداکثر تا ۵ روز بعد مشاوران تماس می‌گیرند. اگر پاسخ ندادید، شماره‌گیری پیاپی لازم نیست؛ منتظر بمانید یا شماره پشتیبانی از طریق پیامک برایتان ارسال می‌شود.</li>
+            <li><strong>۴.</strong> یک ساعت مشاوره شغلی حق قانونی شماست. علایق، شرایط و مواردی که در فرم فراموش شده را مطرح کنید.</li>
+            <li><strong>۵.</strong> لیست فرصت‌های متناسب با جزئیات دقیق ارسال می‌شود؛ سؤال‌های خود را بپرسید و جایگاه خود را انتخاب کنید.</li>
+            <li><strong>۶.</strong> قبل از اعزام به محل کار، حتماً در دفتر امنیت گستر حاضر شوید، قرارداد شغلی را امضا کنید، درخواست اولیه بیمه به تاریخ روز را امضا کنید و یک نسخه از قرارداد و دعوت‌نامه معرفی را به محل کار ببرید. اگر شغل در استان تهران باشد، فقط برای مشاغل محافظ شخصی جلسه معارفه حضوری با همراهی یکی از اعضای مجموعه برگزار می‌شود.</li>
+            <li><strong>۷.</strong> پس از استخدام و استقرار، برای مشاوره، راهنمایی یا مشکل می‌توانید با مشاوران مجموعه پیام دهید یا تماس بگیرید؛ این بخشی از خدمات است.</li>
+            <li><strong>۸.</strong> سپس یونیفرم دو دست کت‌وشلوار مناسب، یک کاور زمستانی، یک جزوه آموزشی و دو کتاب کوتاه به شما هدیه داده می‌شود.</li>
+            <li><strong>۹.</strong> اگر شغل انتخابی تأیید نشد، تا ۳ شغل مشابه ارائه می‌شود. در انتخاب دقت کنید؛ مشاغل از نظر سختی جسمانی غالباً آسان‌اند. مزایا و معایب را بسنجید و از جابه‌جایی مکرر بپرهیزید. با این حال ضمانت ما ۳ بار جابه‌جایی پس از استخدام اولیه است.</li>
+          </ul>
         </div>
       </div>
     </article>
@@ -1308,30 +1341,40 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۳</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">ماهیت و دشواری کار</span>
-          <span class="faq-q">سختی کار مشاغل چیست؟</span>
+          <span class="faq-category">شهرها</span>
+          <span class="faq-q">در چه شهرهایی فرصت شغلی موجود است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          دسته <strong>نگهبانی</strong> از جمله موارد سخت است و محل اقامت مناسب یا شیکی ندارد و همان‌طور که پیش‌تر گفته شد، اتباع محترم برای این مشاغل مناسب‌تر هستند. اما سایر دسته‌ها از جمله بادیگارد، محافظ شخصی، راننده شخصی، سرایدار، نیروی امنیتی پاساژ و اماکن عمومی، مجموعه‌های بزرگ، پارکینگ‌ها، گیت‌های ورود و خروج و ... سختی به لحاظ کار جسمانی ندارند. ساده‌ترین این دسته <strong>سرایداری</strong> است؛ اما تمامی موارد ذکر شده دارای <strong>مسئولیت بسیار سنگین</strong> خواهد بود.
+          فعلاً برای سه دسته سرایداری، بادیگارد و نگهبانی در پنج شهر <strong>تهران، اصفهان، مشهد، کیش و شهرهای شمالی</strong> فرصت‌های فراوان وجود دارد. برای حفاظت از اماکن عمومی و پاساژها فعلاً فقط در تهران شغل ارائه می‌شود.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="process">
+    <article class="faq-card" data-category="money">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۴</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">معرفی فرصت شغلی</span>
-          <span class="faq-q">چه شغلی به من ارائه می‌شود؟</span>
+          <span class="faq-category">هزینه‌ها</span>
+          <span class="faq-q">هزینه‌های استخدام چقدر است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          شما در اپلیکیشن تنها یک <strong>ثبت‌نام اولیه</strong> دارید تا ما بدانیم شما قصد جدی برای شروع فعالیت کاری دارید و در اپلیکیشن تنها دسته شغلی خود را مشخص می‌نمایید و توضیحاتی درباره ملاک‌های شغلی خود ارائه می‌دهید. اپلیکیشن فقط تا این مرحله کارآمد است؛ پس از آن ما از طریق شماره تماس اعلامی شما، لیست مشاغل و فرصت‌های شغلی را به شما اعلام می‌کنیم و هماهنگی‌های لازم برای ملاقات حضوری و شروع به کار را انجام خواهیم داد.
+          هزینه استخدام در تمام دسته‌ها، با ارائه تضمین‌های لازم برای ثبات شغلی، <strong>۱۵ میلیون تومان</strong> است که از حقوق ماه اول کسر می‌شود. هیچ پیش‌پرداختی بابت معرفی فرصت شغلی یا استخدام دریافت نمی‌شود؛ به عبارتی اگر حقوق شما ماهیانه ۶۰ میلیون تومان باشد فقط ماه اول ۴۵ میلیون تومان دریافت خواهید کرد و از ماه بعد ۶۰ میلیون تومان.
+          <br><br>
+          <strong>ریز هزینه‌ها:</strong>
+          <ul>
+            <li>۱۵ میلیون تومان هزینه استخدام؛ کسر از حقوق ماه اول.</li>
+            <li>چاپ و پرینت مدارک و قرارداد: هر صفحه ۲۵۰۰ تومان؛ شامل ۲ صفحه کارت شناسایی و ۳ صفحه قرارداد در دو نسخه، جمعاً ۸ صفحه = ۲۰ هزار تومان.</li>
+            <li>تهیه پوشه و تشکیل پرونده: ۴۵ هزار تومان.</li>
+            <li>اخذ گواهی به‌روز سوءپیشینه: ۷۹ هزار تومان.</li>
+            <li>جمع کل: ۱۴۴ هزار تومان، پرداخت هنگام ثبت درخواست.</li>
+          </ul>
+          علاوه بر موارد ذکر شده، گواهی عدم اعتیاد پس از استخدام باید اخذ شود؛ هزینه آن بر عهده متقاضی و الزامی است. یک ریال هزینه بیشتر وجود ندارد و قیمت‌ها به‌روز است.
         </div>
       </div>
     </article>
@@ -1340,14 +1383,14 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۵</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">مسئولیت متقاضی</span>
-          <span class="faq-q">مسئولیت متقاضی تا قبل از استخدام چیست؟</span>
+          <span class="faq-category">قرارداد</span>
+          <span class="faq-q">قرارداد شغلی چیست؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          مسئولیت شما محدود است. انتظار ما از شما <strong>ارائه اطلاعات درست</strong> است تا بتوانیم بر مبنای آن، بهترین فرصت‌های شغلی را به شما معرفی نماییم.
+          قراردادی استاندارد و منطبق بر قوانین کشور و منصفانه است. برخلاف بسیاری از مشاغل، بلافاصله پس از مهر و امضای طرفین یک نسخه به شما تحویل می‌شود. در آن میزان حقوق، محل اقامت، وعده‌های غذایی، سایر مزایا، تاریخ شروع بیمه تأمین اجتماعی، بیمه حوادث و بیمه مسئولیت قید و با مهر شرکت تحویل می‌شود. هیچ مفادی خارج از آنچه در اپلیکیشن آمده در قرارداد نیست و تعهدات ما عیناً در قرارداد ذکر می‌شود. تعهدات شما: مطالعه جزوه کوتاه آموزش، مسئولیت‌پذیری، انجام دلسوزانه وظایف و حضور منظم و به‌موقع. ساعات کاری ۸ ساعت است. هدف این است که فرصت شغلی و مبلغ دریافتی و مزایا برای شما ارزشمند باشد تا خودتان دلسوزانه قدردان باشید و برای حفظ رضایت کارفرما تلاش کنید.
         </div>
       </div>
     </article>
@@ -1356,48 +1399,46 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۶</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">خدمات مجموعه</span>
-          <span class="faq-q">آیا خدمات شما صرفاً به معرفی شغل ختم می‌شود؟</span>
+          <span class="faq-category">پشتیبانی</span>
+          <span class="faq-q">پشتیبانی چگونه است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          خیر. ما <strong>شرکت تأمین امنیت</strong> هستیم و خودمان تأمین‌کننده امنیت هستیم و گاهاً شما به استخدام مجموعه در خواهید آمد، نه کارفرما. وظیفه ما ارائه بهترین خدمات به کارفرمایان است؛ لذا از پذیرش افراد دارای سوءپیشینه و اعتیاد معذوریم و پیش از استخدام موارد بسیاری را درباره شما بررسی خواهیم کرد.
-          <br><br>
-          سایر خدمات ما شامل ارائه آموزش جامع مشاغل، جزوه آموزشی، دستورالعمل و وظایف شما، شامل نحوه برخورد، آداب و حفظ پرستیژ کاری مجموعه، ارائه لباس کار مناسب (عموماً کت و شلوارهای رسمی یا پالتوها و پوشش هم‌رنگ متناسب با شما با برند مجموعه یا با ذکر «نیروی سیکوریتی» یا «امنیت‌گستر»)، دست و همراهی تا محل کار و معارفه برای برخی مشاغل حساس مانند بادیگارد افراد سرشناس و ...، و حل مشکلات فیمابین شما و کارفرما خواهد بود.
+          به دلیل تعدد درخواست‌ها، پشتیبانی درون اپلیکیشن حذف شد. پشتیبانی فقط برای متقاضیانی است که فرم را پر و ارسال می‌کنند و به خانواده امنیت گستر می‌پیوندند. همکاران ما بلافاصله یا حداکثر طی ۵ روز کاری با شماره اعلامی شما تماس می‌گیرند و با احترام، هماهنگی ملاقات حضوری، مشاوره حضوری یا تلفنی را انجام می‌دهند. شماره پشتیبانی پیامکی ایتا یا واتساب و آدرس‌ها نیز اعلام می‌شود. ترجیح ما این است که به جای پاسخگویی به افراد کنجکاو، زمان خود را صرف خدمت‌رسانی و پاسخگویی به افرادی کنیم که واقعاً قصد جدی برای پیوستن به مجموعه دارند.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="jobs">
+    <article class="faq-card" data-category="conditions">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۷</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">شرایط مشاغل ویژه</span>
-          <span class="faq-q">آیا امکان محافظ شخصی یا راننده شخصی برای همه وجود دارد؟</span>
+          <span class="faq-category">یونیفرم</span>
+          <span class="faq-q">یونیفرم و پوشش کاری چگونه است؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          خیر. این دو مورد عموماً نیاز به <strong>ضامن شناخته‌شده</strong> و مستندات و سوابق شغلی یا معرف دارد و مدارکی همانند سفته و تعهدنامه را نیازمند است و پذیرش در این بخش بسیار سخت است. همچنین عموماً به ظاهر آراسته، اندام ورزشکاری، قدرت بدنی و چابکی و برخی خصوصیات اخلاقی نیازمند است و برخی کارفرمایان موارد دیگری از جمله اصالت فرد، گویش، آداب معاشرت و دوره‌دیده بودن را نیز مطالبه می‌کنند. حقوق این دسته از مشاغل بسیار بالاتر است اما برای هر کس مناسب نیست.
+          در برخی موارد موظف به استفاده از پوشش یکدست هستید؛ این پوشش جزئی از نظم مجموعه است و <strong>رایگان</strong> در اختیار شما قرار می‌گیرد. اگر تمایل به پوشش کت‌وشلوار اهدایی ندارید، در فرم اعلام کنید تا مشاغلی که نیاز به لباس یکدست ندارند ارائه شود. بیشتر مشاغل محافظ شخصی و محافظ امنیت فضای عمومی مراکز خرید نیازمند پوشش کت‌وشلوار سرمه‌ای و پیراهن سفید شیک و مرتب هستند. در غیر این صورت، دسته‌های دیگر ارائه می‌شود.
         </div>
       </div>
     </article>
 
-    <article class="faq-card" data-category="process">
+    <article class="faq-card" data-category="employment">
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۸</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">تکمیل فرم</span>
-          <span class="faq-q">فرم را چگونه پر کنیم؟</span>
+          <span class="faq-category">مشکلات کاری</span>
+          <span class="faq-q">اگر در محل کار مشکل پیش آمد چه کنیم؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          خواهشمندم در زمان پر کردن فرم <strong>دقت بسیار بالا</strong> داشته باشید، شرایط فعلی خود را ذکر کنید و اطلاعات درست و دقیق بدهید. حتماً در بخش توضیحات، <strong>ملاک‌های شغلی خود</strong> را ذکر کنید؛ معیار معرفی مشاغل بر اساس درخواست شماست.
+          اگر از شغل یا جایگاه انتخابی راضی نبودید، تا ۳ بار جایگاه‌های مشابه و متناسب ارائه می‌شود. اگر کارفرما تمایلی به حضور شما نداشت، باز هم تا ۳ بار جایگاه مناسب دیگر ارائه می‌شود؛ این موارد طبیعی است تا شما جایگاه مناسب خود را پیدا کنید و فرصت‌های شغلی بسیارند. در حوادث ضمن کار نگهبانی، محافظت از اشخاص یا حفاظت از فضای تجاری مانند سرقت، مزاحمت، درگیری، تعرض به حریم خصوصی یا مشکلات روحی ناشی از آن، اگر حقوق قانونی به شما تعلق بگیرد، مجموعه برای احیای حقوق شما تلاش می‌کند. انتظار ما این است که همواره طبق آموزش‌ها رفتار کنید و از تجهیزات به‌درستی استفاده کنید.
         </div>
       </div>
     </article>
@@ -1406,14 +1447,48 @@ button{cursor:pointer}
       <button class="faq-toggle" type="button" aria-expanded="false">
         <span class="faq-num">۱۹</span>
         <span class="faq-question-wrap">
-          <span class="faq-category">مدارک و ضمانت</span>
-          <span class="faq-q">در فرم برخی موارد ذکر شده را ندارم، مثلاً ضامن.</span>
+          <span class="faq-category">تجهیزات</span>
+          <span class="faq-q">تجهیزات چیست؟</span>
         </span>
         <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
       </button>
       <div class="faq-panel">
         <div class="faq-answer">
-          ارائه ضامن یا ضمانت برای <strong>بیش از ۹۰٪ مشاغل الزامی نیست</strong>. اگر برخی موارد را ندارید به هیچ‌وجه نگران نباشید؛ همان‌طور که گفته شد، فرصت‌های شغلی همگی <strong>حقوقی بالاتر از ۶۰ میلیون تومان</strong> دارند.
+          در برخی از معدود موارد اعضا اسپری و شوکر به عنوان تجهیزات داده خواهد شد که باید طبق آموزش‌ها به درستی از آن نگهداری نمایید و از استفاده بی‌دلیل از آن‌ها خودداری نمایید. محافظان شخصی همیشه ضامن جان افراد نیستند؛ گاهاً برای افزایش پرستیژ هنرمندان، برای حفظ حریم خصوصی و جلوگیری از ازدحام جمعیت و لمس شدن و موارد مشابه استخدام می‌شوند اما در برخی موارد برای حفظ جان خود و فرزندان در مقابل تهدیدهای احتمالی نیاز به محافظان شخصی است.
+        </div>
+      </div>
+    </article>
+
+    <article class="faq-card" data-category="employment">
+      <button class="faq-toggle" type="button" aria-expanded="false">
+        <span class="faq-num">۲۰</span>
+        <span class="faq-question-wrap">
+          <span class="faq-category">فرم درخواست</span>
+          <span class="faq-q">فرم درخواست را چگونه پر کنیم؟</span>
+        </span>
+        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+      </button>
+      <div class="faq-panel">
+        <div class="faq-answer">
+          فرم را با دقت پر کنید و از اطلاعات غلط یا غیرواقعی بپرهیزید. هر ملاکی برای جایگاه خود دارید بیان کنید؛ کارشناسان همه موارد را بررسی و نزدیک‌ترین گزینه را ارائه می‌کنند. مشاغلی مانند محافظ شخصی هنرمندان و سلبریتی‌ها متقاضیان زیادی دارد و برای همه مناسب نیست. اگر در پر کردن فرم مطمئن نبودید، نزدیک‌ترین گزینه به خواسته خود را انتخاب کنید. حتماً مبلغ هزینه پرینت را واریز و رسید را ارسال کنید تا متقاضیان واقعی از افراد کنجکاو متمایز شوند. پس از بررسی رسید، فرایند آغاز می‌شود.
+        </div>
+      </div>
+    </article>
+
+    <article class="faq-card" data-category="conditions">
+      <button class="faq-toggle" type="button" aria-expanded="false">
+        <span class="faq-num">۲۱</span>
+        <span class="faq-question-wrap">
+          <span class="faq-category">مسئولیت متقاضی</span>
+          <span class="faq-q">مسئولیت متقاضی چیست؟</span>
+        </span>
+        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
+      </button>
+      <div class="faq-panel">
+        <div class="faq-answer">
+          پیش از استخدام، مسئولیت شما بسیار محدود است: تصمیم بگیرید آیا می‌خواهید زندگی خود را با حقوق بالا و یک فرصت شغلی مناسب بسازید و اطلاعات را درست در فرم ثبت کنید.
+          <br><br>
+          پس از استخدام نیز نظم و مسئولیت‌پذیری اهمیت دارد. تعداد کمی از فرصت‌های شغلی نیاز به ضامن معتبر دارای جواز کسب یا ضامن کارمند رسمی دارد؛ اگر ضامن داشته باشید، فرصت‌های شغلی بیشتری ارائه می‌شود. اگر تحصیلات مرتبط با روابط عمومی یا علوم ارتباطات اجتماعی داشته باشید، برای مشاغل حافظ امنیت اماکن عمومی یک امتیاز مثبت است. اگر در رشته‌های ورزشی تربیت بدنی، بدنسازی، وزنه‌برداری، بوکس، تکواندو، جودو، دفاع شخصی و ورزش‌های رزمی فعالیت دارید، امکان ادامه فعالیت ورزشی ضمن کار فراهم است و به‌عنوان بادیگارد یک امتیاز مثبت محسوب می‌شود. اگر تخصص فنی لوله‌کشی، برق‌کاری یا تأسیسات داشته باشید، در مشاغل سرایداری قدرت چانه‌زنی و افزایش حقوق را بالا می‌برد. اما نکته بسیار مهم این است که هیچ‌کدام از این موارد الزامی نیست؛ بیان تمامی موارد و سوابق شما در بخش فرم، در ارائه لیست مشاغل متناسب بسیار ارزشمند است.
         </div>
       </div>
     </article>
@@ -1492,7 +1567,7 @@ button{cursor:pointer}
 
 </main>
 
-<!-- ============ BOTTOM NAV — کپی دقیق از صفحه اصلی ============ -->
+<!-- ============ BOTTOM NAV ============ -->
 <nav class="bottom-nav">
   <a href="index.html" class="nav-item">
     <svg viewBox="0 0 24 24">
@@ -1663,4 +1738,4 @@ button{cursor:pointer}
 </script>
 
 </body>
-  </html>
+      </html>
