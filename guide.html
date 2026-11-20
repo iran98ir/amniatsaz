@@ -1,54 +1,46 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F1F0E8">
-<title>راهنمای همکاری | امنیت‌گستر</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --forest:#193D32;
-  --forest2:#254E40;
-  --forest3:#315B4C;
-  --olive:#89946B;
-  --lime:#D6E5A4;
-  --paper:#FAF9F4;
-  --cream:#F1F0E8;
-  --ink:#202D27;
-  --muted:#66736B;
-  --line:#E2E4D9;
-  --orange:#C8754B;
-  --orange-soft:#F2DED3;
-  --orange-deep:#A65A34;
-  --shadow:0 12px 35px rgba(25,61,50,.08);
-  --shadow2:0 20px 55px rgba(25,61,50,.14);
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  -webkit-tap-highlight-color:transparent;
+<!DOCTYPE html>  <html lang="fa" dir="rtl">    <head>    
+<meta charset="UTF-8">    
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">    
+<meta name="theme-color" content="#F1F0E8">    
+<title>راهنمای همکاری | امنیت‌گستر</title>  <link rel="preconnect" href="https://fonts.googleapis.com">    
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">  <style>    
+:root{    
+  --forest:#193D32;    
+  --forest2:#254E40;    
+  --forest3:#315B4C;    
+  --olive:#89946B;    
+  --lime:#D6E5A4;    
+  --paper:#FAF9F4;    
+  --cream:#F1F0E8;    
+  --ink:#202D27;    
+  --muted:#66736B;    
+  --line:#E2E4D9;    
+  --orange:#C8754B;    
+  --orange-soft:#F2DED3;    
+  --orange-deep:#A65A34;    
+  --shadow:0 12px 35px rgba(25,61,50,.08);    
+  --shadow2:0 20px 55px rgba(25,61,50,.14);    
+}    *{
+box-sizing:border-box;
+margin:0;
+padding:0;
+-webkit-tap-highlight-color:transparent;
 }
 
 html{
-  scroll-behavior:smooth;
-  scroll-padding-top:92px;
+scroll-behavior:smooth;
+scroll-padding-top:92px;
 }
 
 body{
-  font-family:'Vazirmatn',Tahoma,sans-serif;
-  background:var(--cream);
-  color:var(--ink);
-  line-height:2;
-  font-size:16px;
-  padding-bottom:105px;
-  overflow-x:hidden;
+font-family:'Vazirmatn',Tahoma,sans-serif;
+background:var(--cream);
+color:var(--ink);
+line-height:2;
+font-size:16px;
+padding-bottom:105px;
+overflow-x:hidden;
 }
 
 a{color:inherit;text-decoration:none}
@@ -57,1498 +49,1586 @@ button{cursor:pointer}
 
 /* ============ HEADER ============ */
 .header{
-  background:var(--cream);
-  padding:16px 17px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid rgba(25,61,50,.06);
+background:var(--cream);
+padding:16px 17px;
+position:sticky;
+top:0;
+z-index:100;
+border-bottom:1px solid rgba(25,61,50,.06);
 }
 .header-inner{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  max-width:720px;
-  margin:auto;
+display:flex;
+align-items:center;
+gap:12px;
+max-width:720px;
+margin:auto;
 }
 .logo{
-  width:53px;
-  height:53px;
-  background:var(--forest);
-  color:var(--lime);
-  display:grid;
-  place-items:center;
-  border-radius:16px 5px 16px 5px;
-  box-shadow:5px 5px 0 rgba(137,148,107,.25);
-  flex-shrink:0;
+width:53px;
+height:53px;
+background:var(--forest);
+color:var(--lime);
+display:grid;
+place-items:center;
+border-radius:16px 5px 16px 5px;
+box-shadow:5px 5px 0 rgba(137,148,107,.25);
+flex-shrink:0;
 }
 .logo svg{
-  width:32px;
-  height:32px;
-  fill:none;
-  stroke:currentColor;
-  stroke-width:1.6;
+width:32px;
+height:32px;
+fill:none;
+stroke:currentColor;
+stroke-width:1.6;
 }
 .brand{
-  flex:1;
-  min-width:0;
+flex:1;
+min-width:0;
 }
 .brand-name{
-  font-size:23px;
-  font-weight:900;
-  line-height:1.3;
-  color:var(--forest);
-  letter-spacing:-1px;
+font-size:23px;
+font-weight:900;
+line-height:1.3;
+color:var(--forest);
+letter-spacing:-1px;
 }
 .brand-sub{
-  font-size:12px;
-  font-weight:600;
-  color:#7C877A;
+font-size:12px;
+font-weight:600;
+color:#7C877A;
 }
 .header-mark{
-  width:45px;
-  height:45px;
-  border:1px solid #D8DDCC;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:var(--forest);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1px;
-  flex-shrink:0;
+width:45px;
+height:45px;
+border:1px solid #D8DDCC;
+border-radius:50%;
+display:grid;
+place-items:center;
+color:var(--forest);
+font-size:11px;
+font-weight:900;
+letter-spacing:1px;
+flex-shrink:0;
 }
 
 /* ============ MAIN ============ */
 .main{
-  width:100%;
-  max-width:720px;
-  padding:19px 16px 30px;
-  margin:0 auto;
+width:100%;
+max-width:720px;
+padding:19px 16px 30px;
+margin:0 auto;
 }
 
 /* ============ HERO ============ */
 .hero{
-  position:relative;
-  background:
-    radial-gradient(circle at 90% 100%,rgba(137,148,107,.25),transparent 38%),
-    radial-gradient(circle at 10% 0%,rgba(200,117,75,.20),transparent 40%),
-    linear-gradient(145deg,#193D32,#254E40);
-  color:white;
-  border-radius:29px 29px 9px 29px;
-  padding:27px 23px 25px;
-  overflow:hidden;
-  box-shadow:0 17px 40px rgba(25,61,50,.20);
-  margin-bottom:28px;
+position:relative;
+background:
+radial-gradient(circle at 90% 100%,rgba(137,148,107,.25),transparent 38%),
+radial-gradient(circle at 10% 0%,rgba(200,117,75,.20),transparent 40%),
+linear-gradient(145deg,#193D32,#254E40);
+color:white;
+border-radius:29px 29px 9px 29px;
+padding:27px 23px 25px;
+overflow:hidden;
+box-shadow:0 17px 40px rgba(25,61,50,.20);
+margin-bottom:28px;
 }
 .hero:before{
-  content:"";
-  position:absolute;
-  width:270px;
-  height:270px;
-  border:1px solid rgba(214,229,164,.15);
-  border-radius:50%;
-  left:-105px;
-  top:-125px;
-  box-shadow:
-    0 0 0 23px rgba(214,229,164,.025),
-    0 0 0 48px rgba(214,229,164,.025);
+content:"";
+position:absolute;
+width:270px;
+height:270px;
+border:1px solid rgba(214,229,164,.15);
+border-radius:50%;
+left:-105px;
+top:-125px;
+box-shadow:
+0 0 0 23px rgba(214,229,164,.025),
+0 0 0 48px rgba(214,229,164,.025);
 }
 .hero:after{
-  content:"";
-  position:absolute;
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(214,229,164,.16),transparent 70%);
-  right:-90px;
-  bottom:-95px;
+content:"";
+position:absolute;
+width:190px;
+height:190px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(214,229,164,.16),transparent 70%);
+right:-90px;
+bottom:-95px;
 }
 .hero-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  position:relative;
-  z-index:2;
-  margin-bottom:22px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+position:relative;
+z-index:2;
+margin-bottom:22px;
 }
 .hero-label{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  color:var(--lime);
-  font-size:14px;
-  font-weight:900;
+display:flex;
+align-items:center;
+gap:9px;
+color:var(--lime);
+font-size:14px;
+font-weight:900;
 }
 .hero-label i{
-  width:8px;
-  height:8px;
-  background:var(--lime);
-  border-radius:50%;
-  box-shadow:0 0 0 5px rgba(214,229,164,.12);
-  flex-shrink:0;
+width:8px;
+height:8px;
+background:var(--lime);
+border-radius:50%;
+box-shadow:0 0 0 5px rgba(214,229,164,.12);
+flex-shrink:0;
 }
 .hero-count{
-  font-size:13px;
-  font-weight:900;
-  color:rgba(255,255,255,.9);
-  border:1px solid rgba(255,255,255,.23);
-  background:rgba(255,255,255,.06);
-  padding:6px 11px;
-  border-radius:30px;
-  white-space:nowrap;
+font-size:13px;
+font-weight:900;
+color:rgba(255,255,255,.9);
+border:1px solid rgba(255,255,255,.23);
+background:rgba(255,255,255,.06);
+padding:6px 11px;
+border-radius:30px;
+white-space:nowrap;
 }
 .hero h1{
-  position:relative;
-  z-index:2;
-  font-size:clamp(28px,7.4vw,40px);
-  line-height:1.6;
-  font-weight:900;
-  letter-spacing:-1px;
+position:relative;
+z-index:2;
+font-size:clamp(28px,7.4vw,40px);
+line-height:1.6;
+font-weight:900;
+letter-spacing:-1px;
 }
 .hero h1 span{
-  color:var(--lime);
-  display:inline-block;
+color:var(--lime);
 }
 .hero-description{
-  position:relative;
-  z-index:2;
-  color:rgba(255,255,255,.87);
-  font-size:16px;
-  line-height:2.15;
-  margin-top:13px;
-  font-weight:500;
+position:relative;
+z-index:2;
+color:rgba(255,255,255,.87);
+font-size:16px;
+line-height:2.15;
+margin-top:13px;
+font-weight:500;
 }
 .hero-bottom{
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  margin-top:21px;
-  padding-top:16px;
-  border-top:1px solid rgba(255,255,255,.15);
-  color:var(--lime);
-  font-size:14.5px;
-  font-weight:900;
-  line-height:1.9;
+position:relative;
+z-index:2;
+display:flex;
+align-items:flex-start;
+gap:10px;
+margin-top:21px;
+padding-top:16px;
+border-top:1px solid rgba(255,255,255,.15);
+color:var(--lime);
+font-size:14.5px;
+font-weight:900;
+line-height:1.9;
 }
 .hero-bottom svg{
-  width:21px;
-  height:21px;
-  fill:var(--lime);
-  flex-shrink:0;
-  margin-top:4px;
+width:21px;
+height:21px;
+fill:var(--lime);
+flex-shrink:0;
+margin-top:4px;
 }
 
 /* ============ INTRO ============ */
 .intro{
-  display:flex;
-  align-items:flex-start;
-  gap:13px;
-  margin:0 3px 22px;
+display:flex;
+align-items:flex-start;
+gap:13px;
+margin:0 3px 22px;
 }
 .intro-symbol{
-  width:48px;
-  height:48px;
-  flex-shrink:0;
-  background:#E3E7D8;
-  border-radius:15px 15px 15px 5px;
-  display:grid;
-  place-items:center;
-  box-shadow:0 4px 0 rgba(25,61,50,.06), 0 8px 16px rgba(25,61,50,.08);
+width:48px;
+height:48px;
+flex-shrink:0;
+background:#E3E7D8;
+border-radius:15px 15px 15px 5px;
+display:grid;
+place-items:center;
+box-shadow:0 4px 0 rgba(25,61,50,.06), 0 8px 16px rgba(25,61,50,.08);
 }
 .intro-symbol svg{
-  width:23px;
-  height:23px;
-  fill:var(--forest);
+width:23px;
+height:23px;
+fill:var(--forest);
 }
 .intro-text strong{
-  display:block;
-  color:var(--forest);
-  font-size:19px;
-  font-weight:900;
-  line-height:1.6;
+display:block;
+color:var(--forest);
+font-size:19px;
+font-weight:900;
+line-height:1.6;
 }
 .intro-text p{
-  color:var(--muted);
-  font-size:15px;
-  line-height:2;
-  margin-top:4px;
+color:var(--muted);
+font-size:15px;
+line-height:2;
+margin-top:4px;
 }
 
 /* ============ SEARCH ============ */
 .search-box{
-  position:relative;
-  margin-bottom:24px;
+position:relative;
+margin-bottom:24px;
 }
 .search-box svg{
-  position:absolute;
-  right:18px;
-  top:50%;
-  transform:translateY(-50%);
-  width:23px;
-  height:23px;
-  fill:#849087;
-  pointer-events:none;
+position:absolute;
+right:18px;
+top:50%;
+transform:translateY(-50%);
+width:23px;
+height:23px;
+fill:#849087;
+pointer-events:none;
 }
 .search-input{
-  width:100%;
-  height:62px;
-  border:1px solid #DDE2D7;
-  outline:none;
-  border-radius:18px;
-  background:var(--paper);
-  padding:0 53px 0 17px;
-  font-size:16px;
-  color:var(--ink);
-  font-weight:600;
-  box-shadow:0 4px 0 rgba(25,61,50,.04), 0 10px 24px rgba(25,61,50,.06);
-  transition:border-color .2s,box-shadow .2s;
+width:100%;
+height:62px;
+border:1px solid #DDE2D7;
+outline:none;
+border-radius:18px;
+background:var(--paper);
+padding:0 53px 0 17px;
+font-size:16px;
+color:var(--ink);
+font-weight:600;
+box-shadow:0 4px 0 rgba(25,61,50,.04), 0 10px 24px rgba(25,61,50,.06);
+transition:border-color .2s,box-shadow .2s;
 }
 .search-input::placeholder{
-  color:#89948B;
-  font-weight:600;
+color:#89948B;
+font-weight:600;
 }
 .search-input:focus{
-  border-color:var(--olive);
-  box-shadow:0 0 0 4px rgba(137,148,107,.13), 0 10px 24px rgba(25,61,50,.06);
+border-color:var(--olive);
+box-shadow:0 0 0 4px rgba(137,148,107,.13), 0 10px 24px rgba(25,61,50,.06);
 }
 
 /* ============ FILTERS ============ */
 .filter-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:0 2px 13px;
-  gap:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:0 2px 13px;
+gap:10px;
 }
 .filter-title strong{
-  font-size:17px;
-  font-weight:900;
-  color:var(--forest);
+font-size:17px;
+font-weight:900;
+color:var(--forest);
 }
 .filter-title span{
-  font-size:13px;
-  color:var(--muted);
-  font-weight:700;
+font-size:13px;
+color:var(--muted);
+font-weight:700;
 }
 .filters{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  padding:3px 1px 14px;
-  scrollbar-width:none;
-  margin-bottom:13px;
-  -webkit-overflow-scrolling:touch;
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:3px 1px 14px;
+scrollbar-width:none;
+margin-bottom:13px;
+-webkit-overflow-scrolling:touch;
 }
 .filters::-webkit-scrollbar{
-  display:none;
+display:none;
 }
 .filter-btn{
-  flex-shrink:0;
-  border:1px solid #DDE2D7;
-  background:rgba(250,249,244,.95);
-  color:#657168;
-  border-radius:30px;
-  padding:11px 17px;
-  font-size:14px;
-  font-weight:900;
-  white-space:nowrap;
-  box-shadow:0 3px 0 rgba(25,61,50,.04);
-  transition:background .2s,color .2s,border-color .2s,transform .15s,box-shadow .2s;
+flex-shrink:0;
+border:1px solid #DDE2D7;
+background:rgba(250,249,244,.95);
+color:#657168;
+border-radius:30px;
+padding:11px 17px;
+font-size:14px;
+font-weight:900;
+white-space:nowrap;
+box-shadow:0 3px 0 rgba(25,61,50,.04);
+transition:background .2s,color .2s,border-color .2s,transform .15s,box-shadow .2s;
 }
 .filter-btn.active{
-  background:var(--forest);
-  color:var(--lime);
-  border-color:var(--forest);
-  box-shadow:0 4px 0 rgba(25,61,50,.18), 0 8px 18px rgba(25,61,50,.15);
+background:var(--forest);
+color:var(--lime);
+border-color:var(--forest);
+box-shadow:0 4px 0 rgba(25,61,50,.18), 0 8px 18px rgba(25,61,50,.15);
 }
 .filter-btn:active{
-  transform:translateY(2px);
+transform:translateY(2px);
 }
 
 /* ============ SECTION HEADING ============ */
 .section-heading{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin:14px 2px 15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+margin:14px 2px 15px;
 }
 .section-heading h2{
-  font-size:21px;
-  color:var(--forest);
-  font-weight:900;
+font-size:21px;
+color:var(--forest);
+font-weight:900;
 }
 .section-heading span{
-  font-size:13px;
-  color:var(--forest);
-  background:#E5E9DC;
-  padding:6px 12px;
-  border-radius:30px;
-  font-weight:900;
-  white-space:nowrap;
+font-size:13px;
+color:var(--forest);
+background:#E5E9DC;
+padding:6px 12px;
+border-radius:30px;
+font-weight:900;
+white-space:nowrap;
 }
 
 /* ============ FAQ 3D CARDS ============ */
 .faq-list{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+display:flex;
+flex-direction:column;
+gap:14px;
 }
 .faq-card{
-  position:relative;
-  background:var(--paper);
-  border:1px solid #E3E5DC;
-  border-radius:20px 20px 20px 8px;
-  overflow:hidden;
-  box-shadow:
-    0 5px 0 #E0E3D6,
-    0 10px 22px rgba(25,61,50,.07);
-  transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .22s;
-  will-change:transform;
+position:relative;
+background:var(--paper);
+border:1px solid #E3E5DC;
+border-radius:20px 20px 20px 8px;
+overflow:hidden;
+box-shadow:
+0 5px 0 #E0E3D6,
+0 10px 22px rgba(25,61,50,.07);
+transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .22s;
+will-change:transform;
 }
 .faq-card:hover{
-  transform:translateY(-2px);
-  box-shadow:
-    0 7px 0 #E0E3D6,
-    0 16px 30px rgba(25,61,50,.10);
+transform:translateY(-2px);
+box-shadow:
+0 7px 0 #E0E3D6,
+0 16px 30px rgba(25,61,50,.10);
 }
 .faq-card.open{
-  border-color:#AAB59A;
-  box-shadow:
-    0 7px 0 #D5DBC6,
-    0 20px 40px rgba(25,61,50,.14);
+border-color:#AAB59A;
+box-shadow:
+0 7px 0 #D5DBC6,
+0 20px 40px rgba(25,61,50,.14);
 }
 .faq-card[hidden]{
-  display:none!important;
+display:none!important;
 }
 .faq-toggle{
-  display:flex;
-  width:100%;
-  min-height:88px;
-  align-items:center;
-  gap:13px;
-  border:0;
-  background:transparent;
-  text-align:right;
-  padding:16px;
-  color:var(--ink);
+display:flex;
+width:100%;
+min-height:88px;
+align-items:center;
+gap:13px;
+border:0;
+background:transparent;
+text-align:right;
+padding:16px;
+color:var(--ink);
 }
 .faq-num{
-  width:46px;
-  height:46px;
-  flex-shrink:0;
-  display:grid;
-  place-items:center;
-  border-radius:15px 15px 15px 5px;
-  background:linear-gradient(145deg,#EEF1E4,#E1E6D3);
-  color:var(--forest);
-  font-size:15px;
-  font-weight:900;
-  box-shadow:inset 0 -2px 0 rgba(25,61,50,.06), 0 3px 6px rgba(25,61,50,.05);
-  transition:background .25s,color .25s,box-shadow .25s;
+width:46px;
+height:46px;
+flex-shrink:0;
+display:grid;
+place-items:center;
+border-radius:15px 15px 15px 5px;
+background:linear-gradient(145deg,#EEF1E4,#E1E6D3);
+color:var(--forest);
+font-size:15px;
+font-weight:900;
+box-shadow:inset 0 -2px 0 rgba(25,61,50,.06), 0 3px 6px rgba(25,61,50,.05);
+transition:background .25s,color .25s,box-shadow .25s;
 }
 .faq-card.open .faq-num{
-  background:linear-gradient(145deg,#234A3C,#193D32);
-  color:var(--lime);
-  box-shadow:inset 0 -2px 0 rgba(0,0,0,.15), 0 5px 12px rgba(25,61,50,.25);
+background:linear-gradient(145deg,#234A3C,#193D32);
+color:var(--lime);
+box-shadow:inset 0 -2px 0 rgba(0,0,0,.15), 0 5px 12px rgba(25,61,50,.25);
 }
 .faq-question-wrap{
-  flex:1;
-  min-width:0;
+flex:1;
+min-width:0;
 }
 .faq-category{
-  display:inline-block;
-  font-size:12.5px;
-  color:var(--orange-deep);
-  background:var(--orange-soft);
-  font-weight:900;
-  margin-bottom:6px;
-  padding:3px 10px;
-  border-radius:20px;
-  letter-spacing:.2px;
+display:inline-block;
+font-size:12.5px;
+color:var(--orange-deep);
+background:var(--orange-soft);
+font-weight:900;
+margin-bottom:6px;
+padding:3px 10px;
+border-radius:20px;
+letter-spacing:.2px;
 }
 .faq-q{
-  display:block;
-  font-size:16.5px;
-  font-weight:900;
-  line-height:1.85;
-  color:var(--forest);
+display:block;
+font-size:16.5px;
+font-weight:900;
+line-height:1.85;
+color:var(--forest);
 }
 .faq-chevron{
-  width:38px;
-  height:38px;
-  flex-shrink:0;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  background:#F0F1E9;
-  box-shadow:inset 0 -2px 0 rgba(25,61,50,.05);
-  transition:transform .3s cubic-bezier(.2,.7,.3,1), background .25s, box-shadow .25s;
+width:38px;
+height:38px;
+flex-shrink:0;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:#F0F1E9;
+box-shadow:inset 0 -2px 0 rgba(25,61,50,.05);
+transition:transform .3s cubic-bezier(.2,.7,.3,1), background .25s, box-shadow .25s;
 }
 .faq-chevron svg{
-  width:20px;
-  height:20px;
-  fill:#667568;
+width:20px;
+height:20px;
+fill:#667568;
 }
 .faq-card.open .faq-chevron{
-  transform:rotate(180deg);
-  background:#DDE5D1;
-  box-shadow:inset 0 -2px 0 rgba(25,61,50,.08);
+transform:rotate(180deg);
+background:#DDE5D1;
+box-shadow:inset 0 -2px 0 rgba(25,61,50,.08);
 }
 .faq-card.open .faq-chevron svg{
-  fill:var(--forest);
+fill:var(--forest);
 }
 .faq-panel{
-  display:none;
+display:none;
 }
 .faq-card.open .faq-panel{
-  display:block;
-  animation:panelIn .32s cubic-bezier(.2,.7,.3,1);
+display:block;
+animation:panelIn .32s cubic-bezier(.2,.7,.3,1);
 }
 @keyframes panelIn{
-  from{opacity:0; transform:translateY(-6px);}
-  to{opacity:1; transform:translateY(0);}
+from{opacity:0; transform:translateY(-6px);}
+to{opacity:1; transform:translateY(0);}
 }
 .faq-answer{
-  border-top:1px solid #E8E9E1;
-  margin:0 16px;
-  padding:17px 0 22px;
-  color:#4A564E;
-  font-size:15.5px;
-  line-height:2.25;
-  font-weight:500;
+border-top:1px solid #E8E9E1;
+margin:0 16px;
+padding:17px 0 22px;
+color:#4A564E;
+font-size:15.5px;
+line-height:2.25;
+font-weight:500;
 }
 .faq-answer strong{
-  color:var(--forest);
-  font-weight:900;
-  background:linear-gradient(transparent 60%, rgba(214,229,164,.55) 60%);
-  padding:0 2px;
+color:var(--forest);
+font-weight:900;
+background:linear-gradient(transparent 60%, rgba(214,229,164,.55) 60%);
+padding:0 2px;
 }
 .faq-answer p+p{
-  margin-top:10px;
+margin-top:10px;
 }
 .faq-answer br{
-  line-height:2.6;
+line-height:2.6;
 }
 .faq-answer ul{
-  margin:8px 0 8px 0;
-  padding-right:20px;
-  list-style:none;
+margin:8px 0 8px 0;
+padding-right:20px;
+list-style:none;
 }
 .faq-answer ul li{
-  position:relative;
-  padding-right:18px;
-  margin-bottom:6px;
+position:relative;
+padding-right:18px;
+margin-bottom:6px;
 }
 .faq-answer ul li:before{
-  content:"";
-  position:absolute;
-  right:0;
-  top:12px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--orange);
+content:"";
+position:absolute;
+right:0;
+top:12px;
+width:8px;
+height:8px;
+border-radius:50%;
+background:var(--orange);
 }
 
 /* ============ EMPTY ============ */
 .empty-state{
-  display:none;
-  text-align:center;
-  background:var(--paper);
-  border:1px dashed #C8D0C1;
-  border-radius:20px;
-  padding:32px 18px;
-  color:var(--muted);
-  font-size:15px;
-  line-height:2;
+display:none;
+text-align:center;
+background:var(--paper);
+border:1px dashed #C8D0C1;
+border-radius:20px;
+padding:32px 18px;
+color:var(--muted);
+font-size:15px;
+line-height:2;
 }
 .empty-state.show{
-  display:block;
+display:block;
 }
 .empty-state strong{
-  display:block;
-  color:var(--forest);
-  font-size:19px;
-  margin-bottom:8px;
-  font-weight:900;
+display:block;
+color:var(--forest);
+font-size:19px;
+margin-bottom:8px;
+font-weight:900;
 }
 .clear-search{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:16px;
-  border:0;
-  border-radius:13px;
-  background:var(--forest);
-  color:var(--lime);
-  padding:12px 20px;
-  font-size:14px;
-  font-weight:900;
-  box-shadow:0 4px 0 rgba(25,61,50,.2), 0 10px 22px rgba(25,61,50,.18);
-  transition:transform .15s;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+margin-top:16px;
+border:0;
+border-radius:13px;
+background:var(--forest);
+color:var(--lime);
+padding:12px 20px;
+font-size:14px;
+font-weight:900;
+box-shadow:0 4px 0 rgba(25,61,50,.2), 0 10px 22px rgba(25,61,50,.18);
+transition:transform .15s;
 }
 .clear-search:active{
-  transform:translateY(3px);
-  box-shadow:0 1px 0 rgba(25,61,50,.2), 0 4px 10px rgba(25,61,50,.18);
+transform:translateY(3px);
+box-shadow:0 1px 0 rgba(25,61,50,.2), 0 4px 10px rgba(25,61,50,.18);
 }
 
 /* ============ BRAND NOTE ============ */
 .brand-note{
-  position:relative;
-  overflow:hidden;
-  margin-top:30px;
-  padding:24px 21px;
-  border-radius:9px 24px 24px 24px;
-  background:linear-gradient(145deg,#E7EBDD,#DEE4D2);
-  border:1px solid #D9E0D0;
-  box-shadow:0 5px 0 #CDD5BE, 0 14px 30px rgba(25,61,50,.08);
+position:relative;
+overflow:hidden;
+margin-top:30px;
+padding:24px 21px;
+border-radius:9px 24px 24px 24px;
+background:linear-gradient(145deg,#E7EBDD,#DEE4D2);
+border:1px solid #D9E0D0;
+box-shadow:0 5px 0 #CDD5BE, 0 14px 30px rgba(25,61,50,.08);
 }
 .brand-note:after{
-  content:"";
-  position:absolute;
-  width:120px;
-  height:120px;
-  left:-40px;
-  bottom:-55px;
-  border:1px solid rgba(25,61,50,.12);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 14px rgba(25,61,50,.025),
-    0 0 0 28px rgba(25,61,50,.025);
+content:"";
+position:absolute;
+width:120px;
+height:120px;
+left:-40px;
+bottom:-55px;
+border:1px solid rgba(25,61,50,.12);
+border-radius:50%;
+box-shadow:
+0 0 0 14px rgba(25,61,50,.025),
+0 0 0 28px rgba(25,61,50,.025);
 }
 .note-top{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  color:var(--forest);
-  font-size:17px;
-  font-weight:900;
-  position:relative;
-  z-index:1;
+display:flex;
+align-items:center;
+gap:11px;
+color:var(--forest);
+font-size:17px;
+font-weight:900;
+position:relative;
+z-index:1;
 }
 .note-top svg{
-  width:23px;
-  height:23px;
-  fill:var(--forest);
-  flex-shrink:0;
+width:23px;
+height:23px;
+fill:var(--forest);
+flex-shrink:0;
 }
 .brand-note p{
-  position:relative;
-  z-index:1;
-  margin-top:10px;
-  font-size:15px;
-  color:#4E5C50;
-  line-height:2.2;
-  font-weight:500;
+position:relative;
+z-index:1;
+margin-top:10px;
+font-size:15px;
+color:#4E5C50;
+line-height:2.2;
+font-weight:500;
 }
 
 /* ============ FINAL CTA ============ */
 .final-cta{
-  position:relative;
-  margin-top:26px;
-  padding:30px 24px 26px;
-  border-radius:26px 26px 9px 26px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(200,117,75,.28),transparent 45%),
-    radial-gradient(circle at 0% 100%,rgba(214,229,164,.18),transparent 45%),
-    linear-gradient(150deg,#193D32,#254E40 70%);
-  color:white;
-  overflow:hidden;
-  box-shadow:
-    0 8px 0 #0F2A22,
-    0 24px 55px rgba(25,61,50,.35);
+position:relative;
+margin-top:26px;
+padding:30px 24px 26px;
+border-radius:26px 26px 9px 26px;
+background:
+radial-gradient(circle at 100% 0%,rgba(200,117,75,.28),transparent 45%),
+radial-gradient(circle at 0% 100%,rgba(214,229,164,.18),transparent 45%),
+linear-gradient(150deg,#193D32,#254E40 70%);
+color:white;
+overflow:hidden;
+box-shadow:
+0 8px 0 #0F2A22,
+0 24px 55px rgba(25,61,50,.35);
 }
 .final-cta:before{
-  content:"";
-  position:absolute;
-  width:200px;
-  height:200px;
-  left:-70px;
-  top:-90px;
-  border:1px solid rgba(214,229,164,.18);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 18px rgba(214,229,164,.035),
-    0 0 0 38px rgba(214,229,164,.025);
+content:"";
+position:absolute;
+width:200px;
+height:200px;
+left:-70px;
+top:-90px;
+border:1px solid rgba(214,229,164,.18);
+border-radius:50%;
+box-shadow:
+0 0 0 18px rgba(214,229,164,.035),
+0 0 0 38px rgba(214,229,164,.025);
 }
 .final-cta:after{
-  content:"";
-  position:absolute;
-  width:140px;
-  height:140px;
-  right:-50px;
-  bottom:-60px;
-  border:1px solid rgba(200,117,75,.35);
-  border-radius:50%;
-  box-shadow:0 0 0 14px rgba(200,117,75,.06);
+content:"";
+position:absolute;
+width:140px;
+height:140px;
+right:-50px;
+bottom:-60px;
+border:1px solid rgba(200,117,75,.35);
+border-radius:50%;
+box-shadow:0 0 0 14px rgba(200,117,75,.06);
 }
 .cta-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  color:var(--lime);
-  font-size:14px;
-  font-weight:900;
-  position:relative;
-  z-index:2;
-  background:rgba(214,229,164,.10);
-  border:1px solid rgba(214,229,164,.30);
-  padding:6px 13px;
-  border-radius:30px;
+display:inline-flex;
+align-items:center;
+gap:8px;
+color:var(--lime);
+font-size:14px;
+font-weight:900;
+position:relative;
+z-index:2;
+background:rgba(214,229,164,.10);
+border:1px solid rgba(214,229,164,.30);
+padding:6px 13px;
+border-radius:30px;
 }
 .cta-kicker svg{
-  width:16px;
-  height:16px;
-  fill:var(--lime);
+width:16px;
+height:16px;
+fill:var(--lime);
 }
 .final-cta h2{
-  font-size:clamp(23px,5.6vw,29px);
-  font-weight:900;
-  line-height:1.7;
-  margin-top:16px;
-  position:relative;
-  z-index:2;
-  letter-spacing:-.4px;
+font-size:clamp(23px,5.6vw,29px);
+font-weight:900;
+line-height:1.7;
+margin-top:16px;
+position:relative;
+z-index:2;
+letter-spacing:-.4px;
 }
 .final-cta h2 em{
-  font-style:normal;
-  color:var(--orange);
-  text-shadow:0 2px 0 rgba(0,0,0,.15);
-  background:linear-gradient(transparent 62%, rgba(200,117,75,.35) 62%);
-  padding:0 3px;
+font-style:normal;
+color:var(--orange);
+text-shadow:0 2px 0 rgba(0,0,0,.15);
+background:linear-gradient(transparent 62%, rgba(200,117,75,.35) 62%);
+padding:0 3px;
 }
 .final-cta p{
-  color:rgba(255,255,255,.85);
-  font-size:15.5px;
-  line-height:2.15;
-  margin-top:12px;
-  position:relative;
-  z-index:2;
-  font-weight:500;
+color:rgba(255,255,255,.85);
+font-size:15.5px;
+line-height:2.15;
+margin-top:12px;
+position:relative;
+z-index:2;
+font-weight:500;
 }
 .cta-benefits{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
-  position:relative;
-  z-index:2;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:18px;
+position:relative;
+z-index:2;
 }
 .cta-benefits span{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  font-size:13px;
-  font-weight:900;
-  color:var(--lime);
-  background:rgba(214,229,164,.12);
-  border:1px solid rgba(214,229,164,.25);
-  padding:7px 12px;
-  border-radius:30px;
+display:inline-flex;
+align-items:center;
+gap:6px;
+font-size:13px;
+font-weight:900;
+color:var(--lime);
+background:rgba(214,229,164,.12);
+border:1px solid rgba(214,229,164,.25);
+padding:7px 12px;
+border-radius:30px;
 }
 .cta-benefits svg{
-  width:14px;
-  height:14px;
-  fill:var(--lime);
-  flex-shrink:0;
+width:14px;
+height:14px;
+fill:var(--lime);
+flex-shrink:0;
 }
 .cta-button{
-  margin-top:22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  width:100%;
-  background:linear-gradient(145deg,#E3EFB5,#D0E198);
-  color:var(--forest);
-  border-radius:17px;
-  padding:19px 22px;
-  font-size:17px;
-  font-weight:900;
-  position:relative;
-  z-index:2;
-  box-shadow:
-    0 6px 0 #AEC180,
-    0 16px 32px rgba(0,0,0,.28);
-  transition:transform .12s ease, box-shadow .18s;
-  letter-spacing:-.2px;
+margin-top:22px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+width:100%;
+background:linear-gradient(145deg,#E3EFB5,#D0E198);
+color:var(--forest);
+border-radius:17px;
+padding:19px 22px;
+font-size:17px;
+font-weight:900;
+position:relative;
+z-index:2;
+box-shadow:
+0 6px 0 #AEC180,
+0 16px 32px rgba(0,0,0,.28);
+transition:transform .12s ease, box-shadow .18s;
+letter-spacing:-.2px;
 }
 .cta-button:hover{
-  transform:translateY(-2px);
-  box-shadow:
-    0 8px 0 #AEC180,
-    0 20px 38px rgba(0,0,0,.30);
+transform:translateY(-2px);
+box-shadow:
+0 8px 0 #AEC180,
+0 20px 38px rgba(0,0,0,.30);
 }
 .cta-button:active{
-  transform:translateY(4px);
-  box-shadow:
-    0 2px 0 #AEC180,
-    0 8px 18px rgba(0,0,0,.25);
+transform:translateY(4px);
+box-shadow:
+0 2px 0 #AEC180,
+0 8px 18px rgba(0,0,0,.25);
 }
 .cta-button .cta-label{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-  text-align:right;
+display:flex;
+flex-direction:column;
+gap:3px;
+text-align:right;
 }
 .cta-button .cta-label small{
-  font-size:12px;
-  font-weight:700;
-  color:rgba(25,61,50,.7);
+font-size:12px;
+font-weight:700;
+color:rgba(25,61,50,.7);
 }
 .cta-button .cta-arrow{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:var(--forest);
-  display:grid;
-  place-items:center;
-  flex-shrink:0;
-  box-shadow:inset 0 -2px 0 rgba(0,0,0,.2);
+width:44px;
+height:44px;
+border-radius:50%;
+background:var(--forest);
+display:grid;
+place-items:center;
+flex-shrink:0;
+box-shadow:inset 0 -2px 0 rgba(0,0,0,.2);
 }
 .cta-button .cta-arrow svg{
-  width:22px;
-  height:22px;
-  fill:var(--lime);
+width:22px;
+height:22px;
+fill:var(--lime);
 }
 .cta-trust{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  margin-top:18px;
-  color:rgba(255,255,255,.7);
-  font-size:13px;
-  font-weight:700;
-  position:relative;
-  z-index:2;
-  text-align:center;
-  line-height:1.7;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+margin-top:18px;
+color:rgba(255,255,255,.7);
+font-size:13px;
+font-weight:700;
+position:relative;
+z-index:2;
+text-align:center;
+line-height:1.7;
 }
 .cta-trust svg{
-  width:16px;
-  height:16px;
-  fill:var(--lime);
-  flex-shrink:0;
+width:16px;
+height:16px;
+fill:var(--lime);
+flex-shrink:0;
 }
 
 /* ============ SIGNATURE ============ */
 .signature{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:11px;
-  margin:31px 0 10px;
-  color:#8A9488;
-  font-size:13px;
-  font-weight:700;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-wrap:wrap;
+gap:11px;
+margin:31px 0 10px;
+color:#8A9488;
+font-size:13px;
+font-weight:700;
 }
 .signature:before,
 .signature:after{
-  content:"";
-  width:27px;
-  height:1px;
-  background:#C8CEC0;
+content:"";
+width:27px;
+height:1px;
+background:#C8CEC0;
 }
 .signature-mark{
-  display:flex;
-  align-items:center;
-  gap:7px;
+display:flex;
+align-items:center;
+gap:7px;
 }
 .signature-mark svg{
-  width:19px;
-  height:19px;
-  fill:var(--forest);
+width:19px;
+height:19px;
+fill:var(--forest);
 }
 .signature-mark b{
-  color:var(--forest);
-  font-weight:900;
+color:var(--forest);
+font-weight:900;
 }
 
 /* ============ BOTTOM NAV ============ */
 .bottom-nav{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:100;
-  display:flex;
-  justify-content:space-around;
-  padding:9px 7px calc(9px + env(safe-area-inset-bottom));
-  background:rgba(250,249,244,.97);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  border-top:1px solid #DDE1D5;
-  box-shadow:0 -5px 25px rgba(25,61,50,.08);
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+z-index:100;
+display:flex;
+justify-content:space-around;
+padding:9px 7px calc(9px + env(safe-area-inset-bottom));
+background:rgba(250,249,244,.97);
+backdrop-filter:blur(16px);
+-webkit-backdrop-filter:blur(16px);
+border-top:1px solid #DDE1D5;
+box-shadow:0 -5px 25px rgba(25,61,50,.08);
 }
 .nav-item{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:4px;
-  padding:6px 2px;
-  color:#929A8D;
-  font-size:12px;
-  font-weight:800;
-  position:relative;
-  transition:.2s;
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+padding:6px 2px;
+color:#929A8D;
+font-size:12px;
+font-weight:800;
+position:relative;
+transition:.2s;
 }
 .nav-item svg{
-  width:25px;
-  height:25px;
-  stroke:currentColor;
-  fill:none;
-  stroke-width:1.7;
-  stroke-linecap:round;
-  stroke-linejoin:round;
+width:25px;
+height:25px;
+stroke:currentColor;
+fill:none;
+stroke-width:1.7;
+stroke-linecap:round;
+stroke-linejoin:round;
 }
 .nav-item.active{
-  color:var(--forest);
+color:var(--forest);
 }
 .nav-item.active:before{
-  content:"";
-  position:absolute;
-  top:-10px;
-  width:28px;
-  height:3px;
-  background:var(--orange);
-  border-radius:4px;
+content:"";
+position:absolute;
+top:-10px;
+width:28px;
+height:3px;
+background:var(--orange);
+border-radius:4px;
 }
 .nav-item.active svg{
-  stroke-width:2.3;
+stroke-width:2.3;
 }
 .nav-item:active{
-  opacity:.7;
+opacity:.7;
 }
 
 /* ============ DESKTOP ============ */
 @media(min-width:760px){
-  .main{
-    max-width:1050px;
-    padding:30px 30px 45px;
-  }
-  .header{
-    padding:14px 30px;
-  }
-  .header-inner{
-    max-width:1050px;
-  }
-  .hero{
-    padding:40px 40px 35px;
-  }
-  .hero h1{
-    font-size:42px;
-    max-width:720px;
-  }
-  .hero-description{
-    font-size:17px;
-    max-width:720px;
-  }
-  .faq-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-  }
-  .faq-card{
-    align-self:start;
-  }
-  .faq-toggle{
-    min-height:96px;
-  }
-  .faq-q{
-    font-size:17px;
-  }
-  .faq-answer{
-    font-size:16px;
-  }
-  .final-cta{
-    padding:42px 40px 36px;
-  }
-  .cta-button{
-    max-width:460px;
-  }
-  .cta-trust{
-    justify-content:flex-start;
-  }
+.main{
+max-width:1050px;
+padding:30px 30px 45px;
+}
+.header{
+padding:14px 30px;
+}
+.header-inner{
+max-width:1050px;
+}
+.hero{
+padding:40px 40px 35px;
+}
+.hero h1{
+font-size:42px;
+max-width:720px;
+}
+.hero-description{
+font-size:17px;
+max-width:720px;
+}
+.faq-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+.faq-card{
+align-self:start;
+}
+.faq-toggle{
+min-height:96px;
+}
+.faq-q{
+font-size:17px;
+}
+.faq-answer{
+font-size:16px;
+}
+.final-cta{
+padding:42px 40px 36px;
+}
+.cta-button{
+max-width:460px;
+}
+.cta-trust{
+justify-content:flex-start;
+}
 }
 
 @media(max-width:380px){
-  .main{
-    padding-left:12px;
-    padding-right:12px;
-  }
-  .hero{
-    padding:24px 18px;
-  }
-  .hero h1{
-    font-size:27px;
-  }
-  .hero-count{
-    font-size:12px;
-    padding:5px 9px;
-  }
-  .faq-toggle{
-    gap:10px;
-    padding:13px;
-  }
-  .faq-q{
-    font-size:15.5px;
-  }
-  .faq-num{
-    width:40px;
-    height:40px;
-    font-size:14px;
-  }
-  .faq-answer{
-    font-size:15px;
-  }
-  .final-cta h2{
-    font-size:22px;
-  }
-  .cta-button{
-    font-size:16px;
-    padding:17px 18px;
-  }
-  .brand-name{
-    font-size:21px;
-  }
-  .brand-sub{
-    font-size:11px;
-  }
+.main{
+padding-left:12px;
+padding-right:12px;
+}
+.hero{
+padding:24px 18px;
+}
+.hero h1{
+font-size:27px;
+}
+.hero-count{
+font-size:12px;
+padding:5px 9px;
+}
+.faq-toggle{
+gap:10px;
+padding:13px;
+}
+.faq-q{
+font-size:15.5px;
+}
+.faq-num{
+width:40px;
+height:40px;
+font-size:14px;
+}
+.faq-answer{
+font-size:15px;
+}
+.final-cta h2{
+font-size:22px;
+}
+.cta-button{
+font-size:16px;
+padding:17px 18px;
+}
+.brand-name{
+font-size:21px;
+}
+.brand-sub{
+font-size:11px;
+}
 }
 
 @media(prefers-reduced-motion:reduce){
-  *,
-  *:before,
-  *:after{
-    scroll-behavior:auto!important;
-    transition:none!important;
-    animation:none!important;
-  }
+*,
+*:before,
+*:after{
+scroll-behavior:auto!important;
+transition:none!important;
+animation:none!important;
 }
-</style>
-</head>
+}
+</style>  </head>  <body>  <header class="header">
 
-<body>
+  <div class="header-inner">    
+    <div class="logo">    
+      <svg viewBox="0 0 24 24">    
+        <path d="M12 2 3.5 5.5v5.2c0 5.2 3.4 9.4 8.5 11.3 5.1-1.9 8.5-6.1 8.5-11.3V5.5L12 2Z"/>    
+        <path d="m8.5 12 2.2 2.2 4.8-5"/>    
+      </svg>    
+    </div>    
+    <div class="brand">    
+      <div class="brand-name">امنیت‌گستر</div>    
+      <div class="brand-sub">راهنمای همکاری و شرایط استخدام</div>    
+    </div>    
+    <div class="header-mark">SG / 01</div>    
+  </div>    
+</header>  <main class="main">    <section class="hero">    
+    <div class="hero-top">    
+      <div class="hero-label"><i></i> پیش از تصمیم‌گیری بخوانید</div>    
+      <div class="hero-count">۲۰ پرسش و پاسخ</div>    
+    </div>  <h1>همکاری حرفه‌ای،<br><span>با آگاهی و شفافیت آغاز می‌شود.</span></h1>    <p class="hero-description">    
+  هزینه‌ها، درآمد، مدارک، مراحل استخدام و تعهدات مجموعه را با دقت مرور کنید. اینجا پاسخ پرسش‌هایی را می‌خوانید که پیش از شروع همکاری باید بدانید.    
+</p>    <div class="hero-bottom">    
+  <svg viewBox="0 0 24 24">    
+    <path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm-1 14-4-4 1.4-1.4 2.6 2.6 5.6-5.6L18 9z"/>    
+  </svg>    
+  پیش از ثبت درخواست، این راهنما را کامل مطالعه کنید.    
+</div>    </section>    <div class="intro">    
+    <div class="intro-symbol">    
+      <svg viewBox="0 0 24 24">    
+        <path d="M4 3h16v2H4zm0 5h16v2H4zm0 5h10v2H4zm0 5h10v2H4zm13-2 3 3-3 3v-2h-3v-2h3z"/>    
+      </svg>    
+    </div>    
+    <div class="intro-text">    
+      <strong>پاسخ پرسش‌های مهم شما</strong>    
+      <p>موضوع موردنظرتان را انتخاب کنید یا کلمه‌ای مانند حقوق، هزینه، قرارداد یا مدارک را جست‌وجو کنید.</p>    
+    </div>    
+  </div>    <div class="search-box">    
+    <svg viewBox="0 0 24 24">    
+      <path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/>    
+    </svg>    
+    <input    
+      class="search-input"    
+      id="faqSearch"    
+      type="search"    
+      placeholder="جست‌وجو در پرسش‌ها..."    
+      autocomplete="off"    
+      aria-label="جست‌وجو در پرسش‌های راهنما"    
+    >    
+  </div>    <div class="filter-title">    
+    <strong>موضوع موردنظر شما</strong>    
+    <span>دسته‌بندی پرسش‌ها</span>    
+  </div>    <div class="filters" id="filters">    
+    <button type="button" class="filter-btn active" data-filter="all">همه پرسش‌ها</button>    
+    <button type="button" class="filter-btn" data-filter="about">درباره ما</button>    
+    <button type="button" class="filter-btn" data-filter="money">حقوق و هزینه</button>    
+    <button type="button" class="filter-btn" data-filter="employment">استخدام و مراحل</button>    
+    <button type="button" class="filter-btn" data-filter="conditions">شرایط و امکانات</button>    
+    <button type="button" class="filter-btn" data-filter="jobs">فرصت‌های شغلی</button>    
+  </div>    <div class="section-heading">    
+    <h2>پرسش‌های پرتکرار</h2>    
+    <span id="resultCount" aria-live="polite">۲۰ پرسش</span>    
+  </div>    <section class="faq-list" id="faqList">  <article class="faq-card" data-category="about">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۱</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">درباره ما</span>    
+      <span class="faq-q">درباره ما</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      ما دفتر کاریابی نیستیم؛ <strong>شرکت با ثبت رسمی و مجوز فعالیت در حوزه تأمین امنیت</strong> هستیم. مدارک و مجوزها پیش از استخدام در دسترس شما قرار می‌گیرد و قابل استعلام است. وظیفه ما حفاظت از جان و مال متقاضیان یا حفظ آرامش و امنیت است؛ با همکاری شما، عضو خانواده بزرگ امنیت گستر می‌شوید و در هر موقعیتی تحت حمایت مجموعه خواهید بود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="conditions">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۲</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">شرایط فردی</span>    
+      <span class="faq-q">آیا این برای من مناسب است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      همکاری تقریباً برای هر فردی با هر سطح تحصیلات، توان جسمانی و استعداد ممکن است. شرط اصلی: <strong>نظم، مسئولیت‌پذیری، نداشتن سوءپیشینه و اعتیاد</strong> است.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۳</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">مراحل همکاری</span>    
+      <span class="faq-q">آیا همه مراحل در اپلیکیشن طی می‌شود؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      اپلیکیشن فقط برای آشنایی با شیوه همکاری و ثبت درخواست است؛ سایر مراحل حضوری یا تلفنی انجام می‌شود. پس از ثبت درخواست، مشاوره شغلی آغاز می‌شود؛ استعداد، علایق، اهداف، سن و سوابق شما بررسی می‌شود؛ حداکثر ظرف <strong>۱۰ روز کاری</strong> در جلسه معارفه به کارفرما معرفی می‌شوید.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۴</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">قطعیت استخدام</span>    
+      <span class="faq-q">آیا استخدام قطعی است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      ما نیاز فوری و همیشگی به نیروی انسانی داریم بنابراین پس از ثبت فرم <strong>استخدام شما قطعی است</strong> مگر اینکه خودتان منصرف شوید. پس از ثبت درخواست، مشاور اختصاصی مجموعه برای هماهنگی‌ها، مرخصی‌ها، مزایا، ترفیع، بیمه و پیگیری مسائل و حل مشکلات احتمالی همیشه کنار شماست.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="jobs">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۵</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">فرصت‌های شغلی</span>    
+      <span class="faq-q">چه فرصت‌های شغلی از طرف شما ارائه می‌شود؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      <ul>    
+        <li><strong>محافظ شخصی (بادیگارد)</strong></li>    
+        <li><strong>محافظ امنیت اماکن عمومی (سکیوریتی)</strong></li>    
+        <li><strong>دو نوع سرایدار</strong>؛ الف: حفظ، نگهداری اموال و دارایی ملکی ویلاهای خالی، ب: نظافت و رسیدگی به مجتمع‌ها و برج‌های مسکونی، تجاری</li>    
+        <li><strong>نگهبان</strong>؛ حفاظت از تجهیزات و دارایی و محصولات در برابر سرقت</li>    
+      </ul>    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۶</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">پرسنل شرکت</span>    
+      <span class="faq-q">ما پرسنل شرکت امنیت گستر می‌شویم؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      بله، همکاران ما روزانه با افراد سرشناس، سلبریتی‌ها و صاحبان مجتمع‌های بزرگ تجاری، مسکونی و گردشگری برای عقد قرارداد ارتباط سازنده برقرار می‌کنند و هم‌اکنون فرصت‌ها در هر چهار دسته فراوان و متنوع است. ما با کارفرمایان قرارداد تامین امنیت و یا ارائه خدمات منعقد می‌نماییم و شما به عنوان <strong>پرسنل امنیت گستر</strong> مشغول فعالیت خواهید شد. البته در خصوص سرایداری خدمات ما اندکی حدود است و بیشتر نقش معرف را خواهیم داشت.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۷</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">پس از ثبت</span>    
+      <span class="faq-q">پس از ثبت درخواست چه می‌شود؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      پس از ثبت درخواست ابتدا با شما در شماره‌ای که اعلام نمودید تماس خواهیم گرفت و با مشاوره اختصاصی، جایگاه متناسب با شرایط شما ارائه می‌شود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="money">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۸</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">حقوق و مزایا</span>    
+      <span class="faq-q">حقوق دریافتی، بیمه و مزایا چگونه است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      حداقل حقوق <strong>۶۰ میلیون تومان</strong> است و هیچ استخدام یا فرصت شغلی با حقوق کمتر از این میزان ارائه نمی‌شود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="conditions">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۰۹</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">امکانات</span>    
+      <span class="faq-q">محل اقامت و وعده‌های غذایی چگونه است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      هیچ فرصت همکاری خارج از این شرایط ارائه نخواهد شد:    
+      <br><br>    
+      <strong>استخدام به عنوان محافظ شخصی:</strong> ۲ وعده غذایی و محل اقامت مشترک تأییدشده و شیک؛ ۳ تا ۴ نفر در یک سوئیت یا اتاق مرتب که کارفرمایان رسماً تامین این موارد را بر عهده دارند.    
+      <br><br>    
+      <strong>استخدام به عنوان سرایدار:</strong> سوئیت مجزا با رعایت حریم خصوصی و مناسب خانواده. مکان‌های ناامن خارج از شهر یا با مالک تأییدنشده به خانواده‌ها ارائه نمی‌شود؛ ممکن است به افراد مجرد ارائه شود. سرایداری باغچه و ویلای خالی از سکنه تفریحی ۱۰ میلیون تومان کمک هزینه تأمین خوراک دارد. سرایداری آپارتمان و ویلای دارای سکنه ۲ وعده غذایی دارد. نظافت راه‌پله، مشاعات، پارکینگ، انباری، حیاط و جمع‌آوری زباله جزئی از وظایف سرایدار است. فقط در دسته سرایداری امکان اقامت همسر و فرزندان فراهم است.    
+      <br><br>    
+      <strong>استخدام به عنوان نگهبانی:</strong> اغلب محل اقامت ضعیف‌تر؛ ساختمان‌های نیمه‌ساز و کانکس و اتاقک دارد و حفاظت از تجهیزات و مصالح وظایف نگهبان است. نگهبان شیفت شب کارخانه‌های خارج از شهرک‌های صنعتی، نگهبانی شب باغ، مزارع، کارگاه‌ها و تولیدی‌ها بیشترین درخواست‌ها است. اتباع محترم می‌توانند در این دسته فعالیت کنند. ۲ وعده غذایی بر عهده کارفرماست.    
+      <br><br>    
+      <strong>استخدام به عنوان سکیوریتی و حفاظت از فضای عمومی و مراکز خرید:</strong> محل اقامت ندارد؛ نزدیکی به محل کار و حضور به‌موقع اهمیت دارد. فعلاً فقط در تهران و با نیاز بالا به نیروی شیفتی. ۱ یا ۲ وعده غذایی بر عهده کارفرماست. حقوق با سرایداری یکسان است، اما پرستیژ شغلی بالاتر دارد و امور نظافت به شما سپرده نمی‌شود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="money">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۰</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">پرداخت حقوق</span>    
+      <span class="faq-q">نحوه پرداخت حقوق و بیمه به چه صورت است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      پرداخت حقوق از روز اول شروع کار است. بیمه نیز به دلیل حساسیت پذیرش مسئولیت از روز اول استخدام صادر می‌شود و پس از اقدام برای بیمه می‌توانید در محل کار حاضر شوید. شرکت تحت بیمه مسئولیت و حوادث است و در حوادث احتمالی مانند سرقت یا خطای انسانی، پوشش بیمه مناسب وجود دارد؛ وکلای مجموعه پیگیر موارد خواهند بود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="money">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۱</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">حقوق بالاتر</span>    
+      <span class="faq-q">چرا حقوق دریافتی بیشتر از حقوق وزارت کار است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      رقم قراردادهای امنیت گستر تهران (اوبا) با سازمان‌ها، نهادها و ادارات دولتی و خصوصی به دلیل ماهیت شغل و پذیرش مسئولیت خطیر ممکن است بسیار بالا باشد؛ طبیعتاً مسئولیت حوادث احتمالی و انتظارات نیز متناسب با آن بالاست. تلاش ما این است با سهیم کردن نیروی انسانی در این درآمد، امنیت و آسایش واقعی کارفرما را فراهم کنیم و نیروی انسانی نیز از حقوق و مزایا راضی باشد. بنابراین حقوق‌ها با توجه به نحوه همکاری و قراردادهای پیمانکاری، بسیار بیشتر از حقوق وزارت کار است. مشاغلی مانند محافظ شخصی درآمد و رفاه بالاتری از نگهبانی دارند و این تفاوت با میزان مسئولیت طبیعی است.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۲</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">مراحل استخدام</span>    
+      <span class="faq-q">مراحل استخدام را دقیقاً شرح دهید</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      <ul>    
+        <li><strong>۱.</strong> مطالعه کامل این راهنما الزامی است. تعهد ما به شما همان مفاد این راهنماست و مطابق همین مطالب و تبلیغات رسانه‌ای عمل می‌کنیم. این صفحه دستورالعمل ماست و به آن پایبندیم. ارقام و مندرجات به‌روز است و اپلیکیشن آنلاین است؛ نیازی به به‌روزرسانی اپلیکیشن نیست.</li>    
+        <li><strong>۲.</strong> ثبت درخواست با هر سن، مهارت و تحصیلات در اپلیکیشن ممکن است.</li>    
+        <li><strong>۳.</strong> کل مراحل استخدام حداکثر ۱۰ روز کاری است؛ نه یک روز بیشتر. حداکثر تا ۵ روز بعد مشاوران تماس می‌گیرند. اگر پاسخ ندادید، شماره‌گیری پیاپی لازم نیست؛ منتظر بمانید یا شماره پشتیبانی از طریق پیامک برایتان ارسال می‌شود.</li>    
+        <li><strong>۴.</strong> یک ساعت مشاوره شغلی حق قانونی شماست. علایق، شرایط و مواردی که در فرم فراموش شده را مطرح کنید.</li>    
+        <li><strong>۵.</strong> لیست فرصت‌های متناسب با جزئیات دقیق ارسال می‌شود؛ سؤال‌های خود را بپرسید و جایگاه خود را انتخاب کنید.</li>    
+        <li><strong>۶.</strong> قبل از اعزام به محل کار، حتماً در دفتر امنیت گستر حاضر شوید، قرارداد شغلی را امضا کنید، درخواست اولیه بیمه به تاریخ روز را امضا کنید و یک نسخه از قرارداد و دعوت‌نامه معرفی را به محل کار ببرید. اگر شغل در استان تهران باشد، فقط برای مشاغل محافظ شخصی جلسه معارفه حضوری با همراهی یکی از اعضای مجموعه برگزار می‌شود.</li>    
+        <li><strong>۷.</strong> پس از استخدام و استقرار، برای مشاوره، راهنمایی یا مشکل می‌توانید با مشاوران مجموعه پیام دهید یا تماس بگیرید؛ این بخشی از خدمات است.</li>    
+        <li><strong>۸.</strong> سپس یونیفرم دو دست کت‌وشلوار مناسب، یک کاور زمستانی، یک جزوه آموزشی و دو کتاب کوتاه به شما هدیه داده می‌شود.</li>    
+        <li><strong>۹.</strong> اگر شغل انتخابی تأیید نشد، تا ۳ شغل مشابه ارائه می‌شود. در انتخاب دقت کنید؛ مشاغل از نظر سختی جسمانی غالباً آسان‌اند. مزایا و معایب را بسنجید و از جابه‌جایی مکرر بپرهیزید. با این حال ضمانت ما ۳ بار جابه‌جایی پس از استخدام اولیه است.</li>    
+      </ul>    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="jobs">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۳</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">شهرها</span>    
+      <span class="faq-q">در چه شهرهایی فرصت شغلی موجود است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      فعلاً برای سه دسته سرایداری، بادیگارد و نگهبانی در پنج شهر <strong>تهران، اصفهان، مشهد، کیش و شهرهای شمالی</strong> فرصت‌های فراوان وجود دارد. برای حفاظت از اماکن عمومی و پاساژها فعلاً فقط در تهران شغل ارائه می‌شود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="money">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۴</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">هزینه‌ها</span>    
+      <span class="faq-q">هزینه‌های استخدام چقدر است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      هزینه استخدام در تمام دسته‌ها، با ارائه تضمین‌های لازم برای ثبات شغلی، <strong>۱۵ میلیون تومان</strong> است که از حقوق ماه اول کسر می‌شود. هیچ پیش‌پرداختی بابت معرفی فرصت شغلی یا استخدام دریافت نمی‌شود؛ به عبارتی اگر حقوق شما ماهیانه ۶۰ میلیون تومان باشد فقط ماه اول ۴۵ میلیون تومان دریافت خواهید کرد و از ماه بعد ۶۰ میلیون تومان.    
+      <br><br>    
+      <strong>ریز هزینه‌ها:</strong>    
+      <ul>    
+        <li>۱۵ میلیون تومان هزینه استخدام؛ کسر از حقوق ماه اول.</li>    
+        <li>چاپ و پرینت مدارک و قرارداد: هر صفحه ۲۵۰۰ تومان؛ شامل ۲ صفحه کارت شناسایی و ۳ صفحه قرارداد در دو نسخه، جمعاً ۸ صفحه = ۲۰ هزار تومان.</li>    
+        <li>تهیه پوشه و تشکیل پرونده: ۴۵ هزار تومان.</li>    
+        <li>اخذ گواهی به‌روز سوءپیشینه: ۷۹ هزار تومان.</li>    
+        <li>جمع کل: ۱۴۴ هزار تومان، پرداخت هنگام ثبت درخواست.</li>    
+      </ul>    
+      علاوه بر موارد ذکر شده، گواهی عدم اعتیاد پس از استخدام باید اخذ شود؛ هزینه آن بر عهده متقاضی و الزامی است. یک ریال هزینه بیشتر وجود ندارد و قیمت‌ها به‌روز است.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="conditions">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۵</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">قرارداد</span>    
+      <span class="faq-q">قرارداد شغلی چیست؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      قراردادی استاندارد و منطبق بر قوانین کشور و منصفانه است. برخلاف بسیاری از مشاغل، بلافاصله پس از مهر و امضای طرفین یک نسخه به شما تحویل می‌شود. در آن میزان حقوق، محل اقامت، وعده‌های غذایی، سایر مزایا، تاریخ شروع بیمه تأمین اجتماعی، بیمه حوادث و بیمه مسئولیت قید و با مهر شرکت تحویل می‌شود. هیچ مفادی خارج از آنچه در اپلیکیشن آمده در قرارداد نیست و تعهدات ما عیناً در قرارداد ذکر می‌شود. تعهدات شما: مطالعه جزوه کوتاه آموزش، مسئولیت‌پذیری، انجام دلسوزانه وظایف و حضور منظم و به‌موقع. ساعات کاری ۸ ساعت است. هدف این است که فرصت شغلی و مبلغ دریافتی و مزایا برای شما ارزشمند باشد تا خودتان دلسوزانه قدردان باشید و برای حفظ رضایت کارفرما تلاش کنید.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۶</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">پشتیبانی</span>    
+      <span class="faq-q">پشتیبانی چگونه است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      به دلیل تعدد درخواست‌ها، پشتیبانی درون اپلیکیشن حذف شد. پشتیبانی فقط برای متقاضیانی است که فرم را پر و ارسال می‌کنند و به خانواده امنیت گستر می‌پیوندند. همکاران ما بلافاصله یا حداکثر طی ۵ روز کاری با شماره اعلامی شما تماس می‌گیرند و با احترام، هماهنگی ملاقات حضوری، مشاوره حضوری یا تلفنی را انجام می‌دهند. شماره پشتیبانی پیامکی ایتا یا واتساب و آدرس‌ها نیز اعلام می‌شود. ترجیح ما این است که به جای پاسخگویی به افراد کنجکاو، زمان خود را صرف خدمت‌رسانی و پاسخگویی به افرادی کنیم که واقعاً قصد جدی برای پیوستن به مجموعه دارند.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="conditions">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۷</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">یونیفرم</span>    
+      <span class="faq-q">یونیفرم و پوشش کاری چگونه است؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      در برخی موارد موظف به استفاده از پوشش یکدست هستید؛ این پوشش جزئی از نظم مجموعه است و <strong>رایگان</strong> در اختیار شما قرار می‌گیرد. اگر تمایل به پوشش کت‌وشلوار اهدایی ندارید، در فرم اعلام کنید تا مشاغلی که نیاز به لباس یکدست ندارند ارائه شود. بیشتر مشاغل محافظ شخصی و محافظ امنیت فضای عمومی مراکز خرید نیازمند پوشش کت‌وشلوار سرمه‌ای و پیراهن سفید شیک و مرتب هستند. در غیر این صورت، دسته‌های دیگر ارائه می‌شود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۸</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">مشکلات کاری</span>    
+      <span class="faq-q">اگر در محل کار مشکل پیش آمد چه کنیم؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      اگر از شغل یا جایگاه انتخابی راضی نبودید، تا ۳ بار جایگاه‌های مشابه و متناسب ارائه می‌شود. اگر کارفرما تمایلی به حضور شما نداشت، باز هم تا ۳ بار جایگاه مناسب دیگر ارائه می‌شود؛ این موارد طبیعی است تا شما جایگاه مناسب خود را پیدا کنید و فرصت‌های شغلی بسیارند. در حوادث ضمن کار نگهبانی، محافظت از اشخاص یا حفاظت از فضای تجاری مانند سرقت، مزاحمت، درگیری، تعرض به حریم خصوصی یا مشکلات روحی ناشی از آن، اگر حقوق قانونی به شما تعلق بگیرد، مجموعه برای احیای حقوق شما تلاش می‌کند. انتظار ما این است که همواره طبق آموزش‌ها رفتار کنید و از تجهیزات به‌درستی استفاده کنید.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="conditions">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۱۹</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">تجهیزات</span>    
+      <span class="faq-q">تجهیزات چیست؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      در برخی از معدود موارد اعضا اسپری و شوکر به عنوان تجهیزات داده خواهد شد که باید طبق آموزش‌ها به درستی از آن نگهداری نمایید و از استفاده بی‌دلیل از آن‌ها خودداری نمایید. محافظان شخصی همیشه ضامن جان افراد نیستند؛ گاهاً برای افزایش پرستیژ هنرمندان، برای حفظ حریم خصوصی و جلوگیری از ازدحام جمعیت و لمس شدن و موارد مشابه استخدام می‌شوند اما در برخی موارد برای حفظ جان خود و فرزندان در مقابل تهدیدهای احتمالی نیاز به محافظان شخصی است.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="employment">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۲۰</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">فرم درخواست</span>    
+      <span class="faq-q">فرم درخواست را چگونه پر کنیم؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      فرم را با دقت پر کنید و از اطلاعات غلط یا غیرواقعی بپرهیزید. هر ملاکی برای جایگاه خود دارید بیان کنید؛ کارشناسان همه موارد را بررسی و نزدیک‌ترین گزینه را ارائه می‌کنند. مشاغلی مانند محافظ شخصی هنرمندان و سلبریتی‌ها متقاضیان زیادی دارد و برای همه مناسب نیست. اگر در پر کردن فرم مطمئن نبودید، نزدیک‌ترین گزینه به خواسته خود را انتخاب کنید. حتماً مبلغ هزینه پرینت را واریز و رسید را ارسال کنید تا متقاضیان واقعی از افراد کنجکاو متمایز شوند. پس از بررسی رسید، فرایند آغاز می‌شود.    
+    </div>    
+  </div>    
+</article>    <article class="faq-card" data-category="conditions">    
+  <button class="faq-toggle" type="button" aria-expanded="false">    
+    <span class="faq-num">۲۱</span>    
+    <span class="faq-question-wrap">    
+      <span class="faq-category">مسئولیت متقاضی</span>    
+      <span class="faq-q">مسئولیت متقاضی چیست؟</span>    
+    </span>    
+    <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>    
+  </button>    
+  <div class="faq-panel">    
+    <div class="faq-answer">    
+      پیش از استخدام، مسئولیت شما بسیار محدود است: تصمیم بگیرید آیا می‌خواهید زندگی خود را با حقوق بالا و یک فرصت شغلی مناسب بسازید و اطلاعات را درست در فرم ثبت کنید.    
+      <br><br>    
+      پس از استخدام نیز نظم و مسئولیت‌پذیری اهمیت دارد. تعداد کمی از فرصت‌های شغلی نیاز به ضامن معتبر دارای جواز کسب یا ضامن کارمند رسمی دارد؛ اگر ضامن داشته باشید، فرصت‌های شغلی بیشتری ارائه می‌شود. اگر تحصیلات مرتبط با روابط عمومی یا علوم ارتباطات اجتماعی داشته باشید، برای مشاغل حافظ امنیت اماکن عمومی یک امتیاز مثبت است. اگر در رشته‌های ورزشی تربیت بدنی، بدنسازی، وزنه‌برداری، بوکس، تکواندو، جودو، دفاع شخصی و ورزش‌های رزمی فعالیت دارید، امکان ادامه فعالیت ورزشی ضمن کار فراهم است و به‌عنوان بادیگارد یک امتیاز مثبت محسوب می‌شود. اگر تخصص فنی لوله‌کشی، برق‌کاری یا تأسیسات داشته باشید، در مشاغل سرایداری قدرت چانه‌زنی و افزایش حقوق را بالا می‌برد. اما نکته بسیار مهم این است که هیچ‌کدام از این موارد الزامی نیست؛ بیان تمامی موارد و سوابق شما در بخش فرم، در ارائه لیست مشاغل متناسب بسیار ارزشمند است.    
+    </div>    
+  </div>    
+</article>    </section>    <div class="empty-state" id="emptyState">    
+    <strong>پرسشی پیدا نشد!</strong>    
+    عبارت دیگری جست‌وجو کنید یا دسته‌بندی را روی «همه پرسش‌ها» قرار دهید.    
+    <br>    
+    <button type="button" class="clear-search" id="clearSearch">پاک کردن جست‌وجو و فیلتر</button>    
+  </div>    <section class="brand-note">    
+    <div class="note-top">    
+      <svg viewBox="0 0 24 24">    
+        <path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V7.7L12 5z"/>    
+      </svg>    
+      یک نکته مهم از امنیت‌گستر    
+    </div>    
+    <p>    
+      شرایط همه فرصت‌های شغلی یکسان نیست. پیش از انتخاب نهایی، جزئیات همان موقعیت شغلی، تعهدات، مدارک و مزایای آن را بررسی کنید و تنها بر اساس اطلاعات دقیق و مورد تأیید خود تصمیم بگیرید.    
+    </p>    
+  </section>    <section class="final-cta">    
+    <div class="cta-kicker">    
+      <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>    
+      جای شما هنوز خالیه    
+    </div>    
+    <h2>همین حالا مسیر شغلی‌ات را <em>قطعی</em> کن — نه بعداً!</h2>    
+    <p>    
+      سال‌ها منتظر ماندی که یک فرصت درست و حسابی پیدا شود. امروز، همین‌جا، با یک ثبت درخواست کوتاه، پرونده‌ات را باز کن و در صف اولین فرصت‌های شغلی با حقوق بالای ۶۰ میلیون تومان قرار بگیر.    
+    </p>  <div class="cta-benefits">    
+  <span>    
+    <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>    
+    حقوق تضمینی بالای ۶۰ میلیون    
+  </span>    
+  <span>    
+    <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>    
+    بیمه و ۲ وعده غذا    
+  </span>    
+  <span>    
+    <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>    
+    تعهد کتبی و رسمی    
+  </span>    
+</div>    <a class="cta-button" href="https://iran98ir.github.io/amniatsaz/request.html">    
+  <span class="cta-label">    
+    ثبت درخواست استخدام    
+    <small>فقط ۲ دقیقه — بدون هزینه اولیه</small>    
+  </span>    
+  <span class="cta-arrow">    
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg>    
+  </span>    
+</a>    <div class="cta-trust">    
+  <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.4 3.7 10.4 9 12 5.3-1.6 9-6.6 9-12V5l-9-4z"/></svg>    
+  اطلاعاتت نزد ما محفوظه؛ بدون تعهد، بدون فشار، فقط یک قدم حرفه‌ای به سمت آینده.    
+</div>    </section>    <div class="signature">    
+    <div class="signature-mark">    
+      <svg viewBox="0 0 24 24">    
+        <path d="M12 1 3 5v6c0 5.4 3.7 10.4 9 12 5.3-1.6 9-6.6 9-12V5l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V6.7L12 4z"/>    
+      </svg>    
+      <b>امنیت‌گستر</b>    
+    </div>    
+    <span>اعتماد، مسئولیت، حرفه‌ای‌گری</span>    
+  </div>  </main>  <!-- ============ BOTTOM NAV ============ -->  <nav class="bottom-nav">    
+  <a href="index.html" class="nav-item">    
+    <svg viewBox="0 0 24 24">    
+      <path d="m3 10 9-7 9 7"/>    
+      <path d="M5 9v11h14V9"/>    
+      <path d="M9 20v-6h6v6"/>    
+    </svg>    
+    <span>خانه</span>    
+  </a>    <a href="jobs.html" class="nav-item">    
+    <svg viewBox="0 0 24 24">    
+      <rect x="3" y="7" width="18" height="14" rx="2"/>    
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>    
+      <path d="M3 12h18"/>    
+    </svg>    
+    <span>مشاغل</span>    
+  </a>    <a href="guide.html" class="nav-item active">    
+    <svg viewBox="0 0 24 24">    
+      <circle cx="12" cy="12" r="9"/>    
+      <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>    
+      <path d="M12 17h.01"/>    
+    </svg>    
+    <span>راهنما</span>    
+  </a>    <a href="request.html" class="nav-item">    
+    <svg viewBox="0 0 24 24">    
+      <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l-2 2v-7.5A7.5 7.5 0 0 1 10.5 6H13a7 7 0 0 1 7 5.5Z"/>    
+      <path d="M9 12h6m-3-3v6"/>    
+    </svg>    
+    <span>درخواست</span>    
+  </a>    
+</nav>  <script>    
+(function(){    
+  'use strict';    const cards = Array.from(document.querySelectorAll('.faq-card'));
+const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+const searchInput = document.getElementById('faqSearch');
+const resultCount = document.getElementById('resultCount');
+const emptyState = document.getElementById('emptyState');
+const clearSearch = document.getElementById('clearSearch');
 
-<header class="header">
-  <div class="header-inner">
-    <div class="logo">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2 3.5 5.5v5.2c0 5.2 3.4 9.4 8.5 11.3 5.1-1.9 8.5-6.1 8.5-11.3V5.5L12 2Z"/>
-        <path d="m8.5 12 2.2 2.2 4.8-5"/>
-      </svg>
-    </div>
-    <div class="brand">
-      <div class="brand-name">امنیت‌گستر</div>
-      <div class="brand-sub">راهنمای همکاری و شرایط استخدام</div>
-    </div>
-    <div class="header-mark">SG / 01</div>
-  </div>
-</header>
+let activeFilter = 'all';
 
-<main class="main">
+function toPersianNumber(value){
+return String(value).replace(/\d/g,function(number){
+return '۰۱۲۳۴۵۶۷۸۹'[Number(number)];
+});
+}
 
-  <section class="hero">
-    <div class="hero-top">
-      <div class="hero-label"><i></i> پیش از تصمیم‌گیری بخوانید</div>
-      <div class="hero-count">۲۰ پرسش و پاسخ</div>
-    </div>
+function normalizeText(value){
+return String(value || '')
+.replace(/[يى]/g,'ی')
+.replace(/ك/g,'ک')
+.replace(/ۀ/g,'ه')
+.replace(/ة/g,'ه')
+.replace(/[\u064B-\u065F\u0670]/g,'')
+.replace(/[۰-۹]/g,function(number){
+return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(number));
+})
+.replace(/[٠-٩]/g,function(number){
+return String('٠١٢٣٤٥٦٧٨٩'.indexOf(number));
+})
+.replace(/[\u200c\u200e\u200f]/g,' ')
+.replace(/[ـ،؛؟!.,:()[]{}«»"']/g,' ')
+.replace(/\s+/g,' ')
+.toLowerCase()
+.trim();
+}
 
-    <h1>همکاری <span class="hero-highlight">حرفه‌ای</span>،<br><span class="hero-line2">با آگاهی و شفافیت آغاز می‌شود.</span></h1>
+function closeCard(card){
+card.classList.remove('open');
+card.querySelector('.faq-toggle').setAttribute('aria-expanded','false');
+}
 
-    <p class="hero-description">
-      هزینه‌ها، درآمد، مدارک، مراحل استخدام و تعهدات مجموعه را با دقت مرور کنید. اینجا پاسخ پرسش‌هایی را می‌خوانید که پیش از شروع همکاری باید بدانید.
-    </p>
+function closeAll(){
+cards.forEach(closeCard);
+}
 
-    <div class="hero-bottom">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm-1 14-4-4 1.4-1.4 2.6 2.6 5.6-5.6L18 9z"/>
-      </svg>
-      پیش از ثبت درخواست، این راهنما را کامل مطالعه کنید.
-    </div>
-  </section>
+cards.forEach(function(card){
+const button = card.querySelector('.faq-toggle');
 
-  <div class="intro">
-    <div class="intro-symbol">
-      <svg viewBox="0 0 24 24">
-        <path d="M4 3h16v2H4zm0 5h16v2H4zm0 5h10v2H4zm0 5h10v2H4zm13-2 3 3-3 3v-2h-3v-2h3z"/>
-      </svg>
-    </div>
-    <div class="intro-text">
-      <strong>پاسخ پرسش‌های مهم شما</strong>
-      <p>موضوع موردنظرتان را انتخاب کنید یا کلمه‌ای مانند حقوق، هزینه، قرارداد یا مدارک را جست‌وجو کنید.</p>
-    </div>
-  </div>
+button.addEventListener('click',function(){    
+  const wasOpen = card.classList.contains('open');    
 
-  <div class="search-box">
-    <svg viewBox="0 0 24 24">
-      <path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-5 0A4.5 4.5 0 1 1 10.5 5a4.5 4.5 0 0 1 0 9z"/>
-    </svg>
-    <input
-      class="search-input"
-      id="faqSearch"
-      type="search"
-      placeholder="جست‌وجو در پرسش‌ها..."
-      autocomplete="off"
-      aria-label="جست‌وجو در پرسش‌های راهنما"
-    >
-  </div>
+  closeAll();    
 
-  <div class="filter-title">
-    <strong>موضوع موردنظر شما</strong>
-    <span>دسته‌بندی پرسش‌ها</span>
-  </div>
+  if(!wasOpen){    
+    card.classList.add('open');    
+    button.setAttribute('aria-expanded','true');    
+  }    
+});
 
-  <div class="filters" id="filters">
-    <button type="button" class="filter-btn active" data-filter="all">همه پرسش‌ها</button>
-    <button type="button" class="filter-btn" data-filter="about">درباره ما</button>
-    <button type="button" class="filter-btn" data-filter="money">حقوق و هزینه</button>
-    <button type="button" class="filter-btn" data-filter="employment">استخدام و مراحل</button>
-    <button type="button" class="filter-btn" data-filter="conditions">شرایط و امکانات</button>
-    <button type="button" class="filter-btn" data-filter="jobs">فرصت‌های شغلی</button>
-  </div>
+});
 
-  <div class="section-heading">
-    <h2>پرسش‌های پرتکرار</h2>
-    <span id="resultCount" aria-live="polite">۲۰ پرسش</span>
-  </div>
+function updateResults(){
+const query = normalizeText(searchInput.value);
+let visible = 0;
 
-  <section class="faq-list" id="faqList">
+cards.forEach(function(card){    
+  const category = card.dataset.category;    
+  const content = normalizeText(card.innerText);    
 
-    <article class="faq-card" data-category="about">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۱</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">درباره ما</span>
-          <span class="faq-q">درباره ما</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          ما دفتر کاریابی نیستیم؛ <strong>شرکت با ثبت رسمی و مجوز فعالیت در حوزه تأمین امنیت</strong> هستیم. مدارک و مجوزها پیش از استخدام در دسترس شما قرار می‌گیرد و قابل استعلام است. وظیفه ما حفاظت از جان و مال متقاضیان یا حفظ آرامش و امنیت است؛ با همکاری شما، عضو خانواده بزرگ امنیت گستر می‌شوید و در هر موقعیتی تحت حمایت مجموعه خواهید بود.
-        </div>
-      </div>
-    </article>
+  const matchesCategory =    
+    activeFilter === 'all' || category === activeFilter;    
 
-    <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۲</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">شرایط فردی</span>
-          <span class="faq-q">آیا این برای من مناسب است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          همکاری تقریباً برای هر فردی با هر سطح تحصیلات، توان جسمانی و استعداد ممکن است. شرط اصلی: <strong>نظم، مسئولیت‌پذیری، نداشتن سوءپیشینه و اعتیاد</strong> است.
-        </div>
-      </div>
-    </article>
+  const matchesSearch =    
+    !query || content.includes(query);    
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۳</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">مراحل همکاری</span>
-          <span class="faq-q">آیا همه مراحل در اپلیکیشن طی می‌شود؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          اپلیکیشن فقط برای آشنایی با شیوه همکاری و ثبت درخواست است؛ سایر مراحل حضوری یا تلفنی انجام می‌شود. پس از ثبت درخواست، مشاوره شغلی آغاز می‌شود؛ استعداد، علایق، اهداف، سن و سوابق شما بررسی می‌شود؛ حداکثر ظرف <strong>۱۰ روز کاری</strong> در جلسه معارفه به کارفرما معرفی می‌شوید.
-        </div>
-      </div>
-    </article>
+  const show = matchesCategory && matchesSearch;    
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۴</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">قطعیت استخدام</span>
-          <span class="faq-q">آیا استخدام قطعی است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          ما نیاز فوری و همیشگی به نیروی انسانی داریم بنابراین پس از ثبت فرم <strong>استخدام شما قطعی است</strong> مگر اینکه خودتان منصرف شوید. پس از ثبت درخواست، مشاور اختصاصی مجموعه برای هماهنگی‌ها، مرخصی‌ها، مزایا، ترفیع، بیمه و پیگیری مسائل و حل مشکلات احتمالی همیشه کنار شماست.
-        </div>
-      </div>
-    </article>
+  card.hidden = !show;    
 
-    <article class="faq-card" data-category="jobs">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۵</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">فرصت‌های شغلی</span>
-          <span class="faq-q">چه فرصت‌های شغلی از طرف شما ارائه می‌شود؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          <ul>
-            <li><strong>محافظ شخصی (بادیگارد)</strong></li>
-            <li><strong>محافظ امنیت اماکن عمومی (سکیوریتی)</strong></li>
-            <li><strong>دو نوع سرایدار</strong>؛ الف: حفظ، نگهداری اموال و دارایی ملکی ویلاهای خالی، ب: نظافت و رسیدگی به مجتمع‌ها و برج‌های مسکونی، تجاری</li>
-            <li><strong>نگهبان</strong>؛ حفاظت از تجهیزات و دارایی و محصولات در برابر سرقت</li>
-          </ul>
-        </div>
-      </div>
-    </article>
+  if(!show){    
+    closeCard(card);    
+  }else{    
+    visible++;    
+  }    
+});    
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۶</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">پرسنل شرکت</span>
-          <span class="faq-q">ما پرسنل شرکت امنیت گستر می‌شویم؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          بله، همکاران ما روزانه با افراد سرشناس، سلبریتی‌ها و صاحبان مجتمع‌های بزرگ تجاری، مسکونی و گردشگری برای عقد قرارداد ارتباط سازنده برقرار می‌کنند و هم‌اکنون فرصت‌ها در هر چهار دسته فراوان و متنوع است. ما با کارفرمایان قرارداد تامین امنیت و یا ارائه خدمات منعقد می‌نماییم و شما به عنوان <strong>پرسنل امنیت گستر</strong> مشغول فعالیت خواهید شد. البته در خصوص سرایداری خدمات ما اندکی حدود است و بیشتر نقش معرف را خواهیم داشت.
-        </div>
-      </div>
-    </article>
+resultCount.textContent = toPersianNumber(visible) + ' پرسش';    
+emptyState.classList.toggle('show',visible === 0);
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۷</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">پس از ثبت</span>
-          <span class="faq-q">پس از ثبت درخواست چه می‌شود؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          پس از ثبت درخواست ابتدا با شما در شماره‌ای که اعلام نمودید تماس خواهیم گرفت و با مشاوره اختصاصی، جایگاه متناسب با شرایط شما ارائه می‌شود.
-        </div>
-      </div>
-    </article>
+}
 
-    <article class="faq-card" data-category="money">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۸</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">حقوق و مزایا</span>
-          <span class="faq-q">حقوق دریافتی، بیمه و مزایا چگونه است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          حداقل حقوق <strong>۶۰ میلیون تومان</strong> است و هیچ استخدام یا فرصت شغلی با حقوق کمتر از این میزان ارائه نمی‌شود.
-        </div>
-      </div>
-    </article>
+filterButtons.forEach(function(button){
+button.addEventListener('click',function(){
+activeFilter = button.dataset.filter;
 
-    <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۰۹</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">امکانات</span>
-          <span class="faq-q">محل اقامت و وعده‌های غذایی چگونه است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          هیچ فرصت همکاری خارج از این شرایط ارائه نخواهد شد:
-          <br><br>
-          <strong>استخدام به عنوان محافظ شخصی:</strong> ۲ وعده غذایی و محل اقامت مشترک تأییدشده و شیک؛ ۳ تا ۴ نفر در یک سوئیت یا اتاق مرتب که کارفرمایان رسماً تامین این موارد را بر عهده دارند.
-          <br><br>
-          <strong>استخدام به عنوان سرایدار:</strong> سوئیت مجزا با رعایت حریم خصوصی و مناسب خانواده. مکان‌های ناامن خارج از شهر یا با مالک تأییدنشده به خانواده‌ها ارائه نمی‌شود؛ ممکن است به افراد مجرد ارائه شود. سرایداری باغچه و ویلای خالی از سکنه تفریحی ۱۰ میلیون تومان کمک هزینه تأمین خوراک دارد. سرایداری آپارتمان و ویلای دارای سکنه ۲ وعده غذایی دارد. نظافت راه‌پله، مشاعات، پارکینگ، انباری، حیاط و جمع‌آوری زباله جزئی از وظایف سرایدار است. فقط در دسته سرایداری امکان اقامت همسر و فرزندان فراهم است.
-          <br><br>
-          <strong>استخدام به عنوان نگهبانی:</strong> اغلب محل اقامت ضعیف‌تر؛ ساختمان‌های نیمه‌ساز و کانکس و اتاقک دارد و حفاظت از تجهیزات و مصالح وظایف نگهبان است. نگهبان شیفت شب کارخانه‌های خارج از شهرک‌های صنعتی، نگهبانی شب باغ، مزارع، کارگاه‌ها و تولیدی‌ها بیشترین درخواست‌ها است. اتباع محترم می‌توانند در این دسته فعالیت کنند. ۲ وعده غذایی بر عهده کارفرماست.
-          <br><br>
-          <strong>استخدام به عنوان سکیوریتی و حفاظت از فضای عمومی و مراکز خرید:</strong> محل اقامت ندارد؛ نزدیکی به محل کار و حضور به‌موقع اهمیت دارد. فعلاً فقط در تهران و با نیاز بالا به نیروی شیفتی. ۱ یا ۲ وعده غذایی بر عهده کارفرماست. حقوق با سرایداری یکسان است، اما پرستیژ شغلی بالاتر دارد و امور نظافت به شما سپرده نمی‌شود.
-        </div>
-      </div>
-    </article>
+filterButtons.forEach(function(item){    
+    const selected = item === button;    
+    item.classList.toggle('active',selected);    
+    item.setAttribute('aria-pressed',selected ? 'true' : 'false');    
+  });    
 
-    <article class="faq-card" data-category="money">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۰</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">پرداخت حقوق</span>
-          <span class="faq-q">نحوه پرداخت حقوق و بیمه به چه صورت است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          پرداخت حقوق از روز اول شروع کار است. بیمه نیز به دلیل حساسیت پذیرش مسئولیت از روز اول استخدام صادر می‌شود و پس از اقدام برای بیمه می‌توانید در محل کار حاضر شوید. شرکت تحت بیمه مسئولیت و حوادث است و در حوادث احتمالی مانند سرقت یا خطای انسانی، پوشش بیمه مناسب وجود دارد؛ وکلای مجموعه پیگیر موارد خواهند بود.
-        </div>
-      </div>
-    </article>
+  updateResults();    
+});    
 
-    <article class="faq-card" data-category="money">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۱</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">حقوق بالاتر</span>
-          <span class="faq-q">چرا حقوق دریافتی بیشتر از حقوق وزارت کار است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          رقم قراردادهای امنیت گستر تهران (اوبا) با سازمان‌ها، نهادها و ادارات دولتی و خصوصی به دلیل ماهیت شغل و پذیرش مسئولیت خطیر ممکن است بسیار بالا باشد؛ طبیعتاً مسئولیت حوادث احتمالی و انتظارات نیز متناسب با آن بالاست. تلاش ما این است با سهیم کردن نیروی انسانی در این درآمد، امنیت و آسایش واقعی کارفرما را فراهم کنیم و نیروی انسانی نیز از حقوق و مزایا راضی باشد. بنابراین حقوق‌ها با توجه به نحوه همکاری و قراردادهای پیمانکاری، بسیار بیشتر از حقوق وزارت کار است. مشاغلی مانند محافظ شخصی درآمد و رفاه بالاتری از نگهبانی دارند و این تفاوت با میزان مسئولیت طبیعی است.
-        </div>
-      </div>
-    </article>
+button.setAttribute(    
+  'aria-pressed',    
+  button.classList.contains('active') ? 'true' : 'false'    
+);
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۲</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">مراحل استخدام</span>
-          <span class="faq-q">مراحل استخدام را دقیقاً شرح دهید</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          <ul>
-            <li><strong>۱.</strong> مطالعه کامل این راهنما الزامی است. تعهد ما به شما همان مفاد این راهنماست و مطابق همین مطالب و تبلیغات رسانه‌ای عمل می‌کنیم. این صفحه دستورالعمل ماست و به آن پایبندیم. ارقام و مندرجات به‌روز است و اپلیکیشن آنلاین است؛ نیازی به به‌روزرسانی اپلیکیشن نیست.</li>
-            <li><strong>۲.</strong> ثبت درخواست با هر سن، مهارت و تحصیلات در اپلیکیشن ممکن است.</li>
-            <li><strong>۳.</strong> کل مراحل استخدام حداکثر ۱۰ روز کاری است؛ نه یک روز بیشتر. حداکثر تا ۵ روز بعد مشاوران تماس می‌گیرند. اگر پاسخ ندادید، شماره‌گیری پیاپی لازم نیست؛ منتظر بمانید یا شماره پشتیبانی از طریق پیامک برایتان ارسال می‌شود.</li>
-            <li><strong>۴.</strong> یک ساعت مشاوره شغلی حق قانونی شماست. علایق، شرایط و مواردی که در فرم فراموش شده را مطرح کنید.</li>
-            <li><strong>۵.</strong> لیست فرصت‌های متناسب با جزئیات دقیق ارسال می‌شود؛ سؤال‌های خود را بپرسید و جایگاه خود را انتخاب کنید.</li>
-            <li><strong>۶.</strong> قبل از اعزام به محل کار، حتماً در دفتر امنیت گستر حاضر شوید، قرارداد شغلی را امضا کنید، درخواست اولیه بیمه به تاریخ روز را امضا کنید و یک نسخه از قرارداد و دعوت‌نامه معرفی را به محل کار ببرید. اگر شغل در استان تهران باشد، فقط برای مشاغل محافظ شخصی جلسه معارفه حضوری با همراهی یکی از اعضای مجموعه برگزار می‌شود.</li>
-            <li><strong>۷.</strong> پس از استخدام و استقرار، برای مشاوره، راهنمایی یا مشکل می‌توانید با مشاوران مجموعه پیام دهید یا تماس بگیرید؛ این بخشی از خدمات است.</li>
-            <li><strong>۸.</strong> سپس یونیفرم دو دست کت‌وشلوار مناسب، یک کاور زمستانی، یک جزوه آموزشی و دو کتاب کوتاه به شما هدیه داده می‌شود.</li>
-            <li><strong>۹.</strong> اگر شغل انتخابی تأیید نشد، تا ۳ شغل مشابه ارائه می‌شود. در انتخاب دقت کنید؛ مشاغل از نظر سختی جسمانی غالباً آسان‌اند. مزایا و معایب را بسنجید و از جابه‌جایی مکرر بپرهیزید. با این حال ضمانت ما ۳ بار جابه‌جایی پس از استخدام اولیه است.</li>
-          </ul>
-        </div>
-      </div>
-    </article>
+});
 
-    <article class="faq-card" data-category="jobs">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۳</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">شهرها</span>
-          <span class="faq-q">در چه شهرهایی فرصت شغلی موجود است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          فعلاً برای سه دسته سرایداری، بادیگارد و نگهبانی در پنج شهر <strong>تهران، اصفهان، مشهد، کیش و شهرهای شمالی</strong> فرصت‌های فراوان وجود دارد. برای حفاظت از اماکن عمومی و پاساژها فعلاً فقط در تهران شغل ارائه می‌شود.
-        </div>
-      </div>
-    </article>
+searchInput.addEventListener('input',updateResults);
 
-    <article class="faq-card" data-category="money">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۴</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">هزینه‌ها</span>
-          <span class="faq-q">هزینه‌های استخدام چقدر است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          هزینه استخدام در تمام دسته‌ها، با ارائه تضمین‌های لازم برای ثبات شغلی، <strong>۱۵ میلیون تومان</strong> است که از حقوق ماه اول کسر می‌شود. هیچ پیش‌پرداختی بابت معرفی فرصت شغلی یا استخدام دریافت نمی‌شود؛ به عبارتی اگر حقوق شما ماهیانه ۶۰ میلیون تومان باشد فقط ماه اول ۴۵ میلیون تومان دریافت خواهید کرد و از ماه بعد ۶۰ میلیون تومان.
-          <br><br>
-          <strong>ریز هزینه‌ها:</strong>
-          <ul>
-            <li>۱۵ میلیون تومان هزینه استخدام؛ کسر از حقوق ماه اول.</li>
-            <li>چاپ و پرینت مدارک و قرارداد: هر صفحه ۲۵۰۰ تومان؛ شامل ۲ صفحه کارت شناسایی و ۳ صفحه قرارداد در دو نسخه، جمعاً ۸ صفحه = ۲۰ هزار تومان.</li>
-            <li>تهیه پوشه و تشکیل پرونده: ۴۵ هزار تومان.</li>
-            <li>اخذ گواهی به‌روز سوءپیشینه: ۷۹ هزار تومان.</li>
-            <li>جمع کل: ۱۴۴ هزار تومان، پرداخت هنگام ثبت درخواست.</li>
-          </ul>
-          علاوه بر موارد ذکر شده، گواهی عدم اعتیاد پس از استخدام باید اخذ شود؛ هزینه آن بر عهده متقاضی و الزامی است. یک ریال هزینه بیشتر وجود ندارد و قیمت‌ها به‌روز است.
-        </div>
-      </div>
-    </article>
+clearSearch.addEventListener('click',function(){
+searchInput.value = '';
+activeFilter = 'all';
 
-    <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۵</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">قرارداد</span>
-          <span class="faq-q">قرارداد شغلی چیست؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          قراردادی استاندارد و منطبق بر قوانین کشور و منصفانه است. برخلاف بسیاری از مشاغل، بلافاصله پس از مهر و امضای طرفین یک نسخه به شما تحویل می‌شود. در آن میزان حقوق، محل اقامت، وعده‌های غذایی، سایر مزایا، تاریخ شروع بیمه تأمین اجتماعی، بیمه حوادث و بیمه مسئولیت قید و با مهر شرکت تحویل می‌شود. هیچ مفادی خارج از آنچه در اپلیکیشن آمده در قرارداد نیست و تعهدات ما عیناً در قرارداد ذکر می‌شود. تعهدات شما: مطالعه جزوه کوتاه آموزش، مسئولیت‌پذیری، انجام دلسوزانه وظایف و حضور منظم و به‌موقع. ساعات کاری ۸ ساعت است. هدف این است که فرصت شغلی و مبلغ دریافتی و مزایا برای شما ارزشمند باشد تا خودتان دلسوزانه قدردان باشید و برای حفظ رضایت کارفرما تلاش کنید.
-        </div>
-      </div>
-    </article>
+filterButtons.forEach(function(button){    
+  const selected = button.dataset.filter === 'all';    
+  button.classList.toggle('active',selected);    
+  button.setAttribute('aria-pressed',selected ? 'true' : 'false');    
+});    
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۶</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">پشتیبانی</span>
-          <span class="faq-q">پشتیبانی چگونه است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          به دلیل تعدد درخواست‌ها، پشتیبانی درون اپلیکیشن حذف شد. پشتیبانی فقط برای متقاضیانی است که فرم را پر و ارسال می‌کنند و به خانواده امنیت گستر می‌پیوندند. همکاران ما بلافاصله یا حداکثر طی ۵ روز کاری با شماره اعلامی شما تماس می‌گیرند و با احترام، هماهنگی ملاقات حضوری، مشاوره حضوری یا تلفنی را انجام می‌دهند. شماره پشتیبانی پیامکی ایتا یا واتساب و آدرس‌ها نیز اعلام می‌شود. ترجیح ما این است که به جای پاسخگویی به افراد کنجکاو، زمان خود را صرف خدمت‌رسانی و پاسخگویی به افرادی کنیم که واقعاً قصد جدی برای پیوستن به مجموعه دارند.
-        </div>
-      </div>
-    </article>
+closeAll();    
+updateResults();    
+searchInput.focus();
 
-    <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۷</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">یونیفرم</span>
-          <span class="faq-q">یونیفرم و پوشش کاری چگونه است؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          در برخی موارد موظف به استفاده از پوشش یکدست هستید؛ این پوشش جزئی از نظم مجموعه است و <strong>رایگان</strong> در اختیار شما قرار می‌گیرد. اگر تمایل به پوشش کت‌وشلوار اهدایی ندارید، در فرم اعلام کنید تا مشاغلی که نیاز به لباس یکدست ندارند ارائه شود. بیشتر مشاغل محافظ شخصی و محافظ امنیت فضای عمومی مراکز خرید نیازمند پوشش کت‌وشلوار سرمه‌ای و پیراهن سفید شیک و مرتب هستند. در غیر این صورت، دسته‌های دیگر ارائه می‌شود.
-        </div>
-      </div>
-    </article>
+});
 
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۸</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">مشکلات کاری</span>
-          <span class="faq-q">اگر در محل کار مشکل پیش آمد چه کنیم؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          اگر از شغل یا جایگاه انتخابی راضی نبودید، تا ۳ بار جایگاه‌های مشابه و متناسب ارائه می‌شود. اگر کارفرما تمایلی به حضور شما نداشت، باز هم تا ۳ بار جایگاه مناسب دیگر ارائه می‌شود؛ این موارد طبیعی است تا شما جایگاه مناسب خود را پیدا کنید و فرصت‌های شغلی بسیارند. در حوادث ضمن کار نگهبانی، محافظت از اشخاص یا حفاظت از فضای تجاری مانند سرقت، مزاحمت، درگیری، تعرض به حریم خصوصی یا مشکلات روحی ناشی از آن، اگر حقوق قانونی به شما تعلق بگیرد، مجموعه برای احیای حقوق شما تلاش می‌کند. انتظار ما این است که همواره طبق آموزش‌ها رفتار کنید و از تجهیزات به‌درستی استفاده کنید.
-        </div>
-      </div>
-    </article>
-
-    <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۱۹</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">تجهیزات</span>
-          <span class="faq-q">تجهیزات چیست؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          در برخی از معدود موارد اعضا اسپری و شوکر به عنوان تجهیزات داده خواهد شد که باید طبق آموزش‌ها به درستی از آن نگهداری نمایید و از استفاده بی‌دلیل از آن‌ها خودداری نمایید. محافظان شخصی همیشه ضامن جان افراد نیستند؛ گاهاً برای افزایش پرستیژ هنرمندان، برای حفظ حریم خصوصی و جلوگیری از ازدحام جمعیت و لمس شدن و موارد مشابه استخدام می‌شوند اما در برخی موارد برای حفظ جان خود و فرزندان در مقابل تهدیدهای احتمالی نیاز به محافظان شخصی است.
-        </div>
-      </div>
-    </article>
-
-    <article class="faq-card" data-category="employment">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۲۰</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">فرم درخواست</span>
-          <span class="faq-q">فرم درخواست را چگونه پر کنیم؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          فرم را با دقت پر کنید و از اطلاعات غلط یا غیرواقعی بپرهیزید. هر ملاکی برای جایگاه خود دارید بیان کنید؛ کارشناسان همه موارد را بررسی و نزدیک‌ترین گزینه را ارائه می‌کنند. مشاغلی مانند محافظ شخصی هنرمندان و سلبریتی‌ها متقاضیان زیادی دارد و برای همه مناسب نیست. اگر در پر کردن فرم مطمئن نبودید، نزدیک‌ترین گزینه به خواسته خود را انتخاب کنید. حتماً مبلغ هزینه پرینت را واریز و رسید را ارسال کنید تا متقاضیان واقعی از افراد کنجکاو متمایز شوند. پس از بررسی رسید، فرایند آغاز می‌شود.
-        </div>
-      </div>
-    </article>
-
-    <article class="faq-card" data-category="conditions">
-      <button class="faq-toggle" type="button" aria-expanded="false">
-        <span class="faq-num">۲۱</span>
-        <span class="faq-question-wrap">
-          <span class="faq-category">مسئولیت متقاضی</span>
-          <span class="faq-q">مسئولیت متقاضی چیست؟</span>
-        </span>
-        <span class="faq-chevron"><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5z"/></svg></span>
-      </button>
-      <div class="faq-panel">
-        <div class="faq-answer">
-          پیش از استخدام، مسئولیت شما بسیار محدود است: تصمیم بگیرید آیا می‌خواهید زندگی خود را با حقوق بالا و یک فرصت شغلی مناسب بسازید و اطلاعات را درست در فرم ثبت کنید.
-          <br><br>
-          پس از استخدام نیز نظم و مسئولیت‌پذیری اهمیت دارد. تعداد کمی از فرصت‌های شغلی نیاز به ضامن معتبر دارای جواز کسب یا ضامن کارمند رسمی دارد؛ اگر ضامن داشته باشید، فرصت‌های شغلی بیشتری ارائه می‌شود. اگر تحصیلات مرتبط با روابط عمومی یا علوم ارتباطات اجتماعی داشته باشید، برای مشاغل حافظ امنیت اماکن عمومی یک امتیاز مثبت است. اگر در رشته‌های ورزشی تربیت بدنی، بدنسازی، وزنه‌برداری، بوکس، تکواندو، جودو، دفاع شخصی و ورزش‌های رزمی فعالیت دارید، امکان ادامه فعالیت ورزشی ضمن کار فراهم است و به‌عنوان بادیگارد یک امتیاز مثبت محسوب می‌شود. اگر تخصص فنی لوله‌کشی، برق‌کاری یا تأسیسات داشته باشید، در مشاغل سرایداری قدرت چانه‌زنی و افزایش حقوق را بالا می‌برد. اما نکته بسیار مهم این است که هیچ‌کدام از این موارد الزامی نیست؛ بیان تمامی موارد و سوابق شما در بخش فرم، در ارائه لیست مشاغل متناسب بسیار ارزشمند است.
-        </div>
-      </div>
-    </article>
-
-  </section>
-
-  <div class="empty-state" id="emptyState">
-    <strong>پرسشی پیدا نشد!</strong>
-    عبارت دیگری جست‌وجو کنید یا دسته‌بندی را روی «همه پرسش‌ها» قرار دهید.
-    <br>
-    <button type="button" class="clear-search" id="clearSearch">پاک کردن جست‌وجو و فیلتر</button>
-  </div>
-
-  <section class="brand-note">
-    <div class="note-top">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2 3 6v5c0 5.5 3.8 10.4 9 12 5.2-1.6 9-6.5 9-12V6l-9-4zm0 3 6 2.7V11c0 3.8-2.4 7.5-6 8.8-3.6-1.3-6-5-6-8.8V7.7L12 5z"/>
-      </svg>
-      یک نکته مهم از امنیت‌گستر
-    </div>
-    <p>
-      شرایط همه فرصت‌های شغلی یکسان نیست. پیش از انتخاب نهایی، جزئیات همان موقعیت شغلی، تعهدات، مدارک و مزایای آن را بررسی کنید و تنها بر اساس اطلاعات دقیق و مورد تأیید خود تصمیم بگیرید.
-    </p>
-  </section>
-
-  <section class="final-cta">
-    <div class="cta-kicker">
-      <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg>
-      جای شما هنوز خالیه
-    </div>
-    <h2>همین حالا مسیر شغلی‌ات را <em>قطعی</em> کن — نه بعداً!</h2>
-    <p>
-      سال‌ها منتظر ماندی که یک فرصت درست و حسابی پیدا شود. امروز، همین‌جا، با یک ثبت درخواست کوتاه، پرونده‌ات را باز کن و در صف اولین فرصت‌های شغلی با حقوق بالای ۶۰ میلیون تومان قرار بگیر.
-    </p>
-
-    <div class="cta-benefits">
-      <span>
-        <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-        حقوق تضمینی بالای ۶۰ میلیون
-      </span>
-      <span>
-        <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-        بیمه و ۲ وعده غذا
-      </span>
-      <span>
-        <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
-        تعهد کتبی و رسمی
-      </span>
-    </div>
-
-    <a class="cta-button" href="https://iran98ir.github.io/amniatsaz/request.html">
-      <span class="cta-label">
-        ثبت درخواست استخدام
-        <small>فقط ۲ دقیقه — بدون هزینه اولیه</small>
-      </span>
-      <span class="cta-arrow">
-        <svg viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg>
-      </span>
-    </a>
-
-    <div class="cta-trust">
-      <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.4 3.7 10.4 9 12 5.3-1.6 9-6.6 9-12V5
+updateResults();
+})();
+</script>  </body>
+  </html>
