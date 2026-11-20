@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -9,6 +10,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Animate.css | GitHub: animate-css/animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<!-- AOS | GitHub: michalsnik/aos -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 <style>
 :root{
@@ -203,7 +210,7 @@ button{
 }
 
 .hero h1{
-  font-size:clamp(30px,8.5vw,49px);
+  font-size:clamp(37px,10vw,49px);
   line-height:1.55;
   font-weight:900;
   letter-spacing:-1.8px;
@@ -832,7 +839,7 @@ button{
 }
 
 @media(max-width:360px){
-  .hero h1{font-size:29px}
+  .hero h1{font-size:35px}
   .intro h2,.section-top h2{font-size:24px}
   .job h3{font-size:20px}
   .application h2{font-size:26px}
@@ -840,6 +847,14 @@ button{
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  *,
+  *:before,
+  *:after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
 }
 </style>
 </head>
@@ -1193,283 +1208,220 @@ button{
 
 </nav>
 
-<!-- GSAP LIBRARY -->
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+<!-- ANIMATION LIBRARIES -->
+
+<!-- Animate.css official GitHub repository:
+     https://github.com/animate-css/animate.css
+     Used for the staged hero entrance with its ready-made animation presets. -->
+
+<!-- AOS official GitHub repository:
+     https://github.com/michalsnik/aos
+     Used for the scroll-triggered entrance effects throughout the page. -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  if (
-    !window.gsap ||
-    !window.ScrollTrigger ||
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
-    return;
-  }
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.config({
-    nullTargetWarn: false
-  });
-
-  /* HERO INTRO TIMELINE */
+  /* ==========================================
+     HERO: STAGED ENTRANCE
+     Ready-made Animate.css animation presets
+     ========================================== */
 
   const hero = document.querySelector(".hero");
 
-  if (hero) {
+  if (hero && !reduceMotion) {
 
-    const heroTimeline = gsap.timeline({
-      defaults: {
-        ease: "power4.out"
-      }
-    });
-
-    const firstLine = hero.querySelector(".hero-line-one");
-    const firstWord = hero.querySelector(".hero-word:not(.hero-target-word)");
     const targetWord = hero.querySelector(".hero-target-word");
+    const firstWord = hero.querySelector(".hero-line-one .hero-word:not(.hero-target-word)");
     const restText = hero.querySelector(".hero-rest");
     const secondLine = hero.querySelector(".hero-line-two-text");
 
-    const heroElements = [
-      hero.querySelector(".hero-top"),
-      hero.querySelector(".hero-kicker"),
-      hero.querySelector(".hero-description"),
-      hero.querySelector(".hero-bottom")
-    ];
+    const heroTop = hero.querySelector(".hero-top");
+    const heroKicker = hero.querySelector(".hero-kicker");
+    const heroDescription = hero.querySelector(".hero-description");
+    const heroBottom = hero.querySelector(".hero-bottom");
 
-    gsap.set([
-      firstWord,
-      targetWord,
-      restText,
-      secondLine,
-      ...heroElements
-    ], {
-      autoAlpha: 0
-    });
+    const animate = function (element, preset) {
+      if (!element) return;
 
-    gsap.set(targetWord, {
-      y: 35,
-      scale: .82,
-      filter: "blur(12px)",
-      transformOrigin: "right center"
-    });
+      element.classList.add(
+        "animate__animated",
+        "animate__" + preset
+      );
 
-    gsap.set([firstWord, restText], {
-      y: 20,
-      filter: "blur(7px)"
-    });
+      element.addEventListener("animationend", function () {
+        element.classList.remove(
+          "animate__animated",
+          "animate__" + preset
+        );
+      }, { once:true });
+    };
 
-    gsap.set(secondLine, {
-      y: 25,
-      filter: "blur(9px)"
-    });
+    /*
+      مرحله اول:
+      تنها کلمه «شغل» وارد صحنه می‌شود.
+    */
 
-    gsap.set(heroElements, {
-      y: 22,
-      filter: "blur(6px)"
-    });
+    animate(targetWord, "zoomIn");
 
-    /* 1. کلمه شغل */
+    /*
+      مرحله دوم:
+      ادامه سطر اول با افکت آماده FadeInUp.
+    */
 
-    heroTimeline.to(targetWord, {
-      autoAlpha: 1,
-      y: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      duration: .85,
-      ease: "back.out(1.5)"
-    });
+    window.setTimeout(function () {
+      animate(firstWord, "fadeInUp");
+      animate(restText, "fadeInUp");
+    }, 850);
 
-    /* 2. باقی سطر اول */
+    /*
+      مرحله سوم:
+      سطر دوم تیتر وارد می‌شود.
+    */
 
-    heroTimeline.to([firstWord, restText], {
-      autoAlpha: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: .7,
-      stagger: .12,
-      ease: "power3.out"
-    }, "-=.18");
+    window.setTimeout(function () {
+      animate(secondLine, "fadeInUp");
+    }, 1650);
 
-    /* 3. سطر دوم */
+    /*
+      مرحله چهارم:
+      پس از کامل شدن تیتر، سایر محتویات هرو
+      به ترتیب و با افکت‌های آماده ظاهر می‌شوند.
+    */
 
-    heroTimeline.to(secondLine, {
-      autoAlpha: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: .85,
-      ease: "power4.out"
-    }, "+=.12");
+    window.setTimeout(function () {
+      animate(heroTop, "fadeInDown");
+    }, 2250);
 
-    /* 4. سایر محتوای هرو */
+    window.setTimeout(function () {
+      animate(heroKicker, "fadeInUp");
+    }, 2400);
 
-    heroTimeline.to(heroElements, {
-      autoAlpha: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: .75,
-      stagger: .13,
-      ease: "power3.out"
-    }, "+=.12");
+    window.setTimeout(function () {
+      animate(heroDescription, "fadeInUp");
+    }, 2550);
+
+    window.setTimeout(function () {
+      animate(heroBottom, "fadeInUp");
+    }, 2700);
   }
 
 
-  /* SCROLL REVEALS */
+  /* ==========================================
+     SCROLL REVEAL
+     AOS ready-made animation presets
+     ========================================== */
 
-  function createReveal(elements, options = {}) {
+  if (window.AOS && !reduceMotion) {
 
-    const targets = gsap.utils.toArray(elements);
+    const reveal = function (
+      selector,
+      animation,
+      duration,
+      delay
+    ) {
+      document.querySelectorAll(selector).forEach(function (element, index) {
 
-    if (!targets.length) return;
+        element.setAttribute("data-aos", animation);
+        element.setAttribute("data-aos-duration", duration || "900");
+        element.setAttribute("data-aos-delay", (delay || 0) + (index * 90));
+        element.setAttribute("data-aos-easing", "ease-out-cubic");
+        element.setAttribute("data-aos-once", "true");
+        element.setAttribute("data-aos-anchor-placement", "top-bottom");
 
-    gsap.set(targets, {
-      autoAlpha: 0,
-      y: options.y ?? 32,
-      scale: options.scale ?? .985,
-      filter: options.blur ? "blur(8px)" : "blur(0px)"
-    });
+      });
+    };
 
-    ScrollTrigger.batch(targets, {
-      start: options.start || "top 88%",
+
+    /* INTRODUCTION */
+
+    reveal(".intro-label", "fade-right", 850, 0);
+    reveal(".intro h2", "fade-up", 1000, 100);
+    reveal(".intro p", "fade-up", 1000, 180);
+
+
+    /* FEATURE STRIP */
+
+    reveal(".feature", "zoom-in", 950, 0);
+
+
+    /* JOB SECTION HEADING */
+
+    reveal(".section-top h2", "fade-right", 900, 0);
+    reveal(".section-top p", "fade-up", 900, 100);
+    reveal(".section-counter", "fade-left", 900, 120);
+
+
+    /* JOB CARDS */
+
+    reveal(".job", "fade-up", 1050, 80);
+
+
+    /* MANIFESTO */
+
+    reveal(".manifesto-label", "fade-right", 900, 0);
+    reveal(".manifesto h2", "fade-up", 1050, 100);
+    reveal(".manifesto p", "fade-up", 1000, 180);
+
+
+    /* APPLICATION CARD */
+
+    reveal(".application-label", "fade-right", 900, 0);
+    reveal(".application h2", "fade-up", 1050, 90);
+    reveal(".application p", "fade-up", 1000, 170);
+    reveal(".application-button", "zoom-in", 950, 240);
+
+
+    /* GUIDE CARD */
+
+    reveal(".guide-icon", "zoom-in", 900, 0);
+    reveal(".guide-text", "fade-right", 950, 100);
+    reveal(".guide-arrow", "fade-left", 900, 180);
+
+
+    /* SIGNATURE */
+
+    reveal(".signature", "fade-up", 1100, 0);
+
+
+    /* INITIALIZE AOS */
+
+    AOS.init({
+      offset: 75,
+      delay: 0,
+      duration: 950,
+      easing: "ease-out-cubic",
       once: true,
-      interval: .08,
-      batchMax: options.batchMax || 8,
-
-      onEnter: batch => {
-        gsap.to(batch, {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          filter: "blur(0px)",
-          duration: options.duration || .95,
-          stagger: options.stagger || .12,
-          ease: options.ease || "power3.out",
-          overwrite: true,
-          onComplete: function () {
-            batch.forEach(element => {
-              gsap.set(element, {
-                clearProps: "transform,filter"
-              });
-            });
-          }
-        });
-      }
+      mirror: false,
+      anchorPlacement: "top-bottom",
+      disableMutationObserver: false,
+      debounceDelay: 50,
+      throttleDelay: 99
     });
-  }
 
 
-  /* INTRO */
+    /* UPDATE POSITIONS AFTER FONTS AND PAGE LOAD */
 
-  createReveal([
-    ".intro-label",
-    ".intro h2",
-    ".intro p"
-  ], {
-    stagger: .14,
-    duration: 1,
-    blur: true
-  });
-
-
-  /* FEATURE NUMBERS */
-
-  createReveal(".feature", {
-    stagger: .16,
-    duration: 1.05,
-    scale: .94,
-    y: 28,
-    blur: true
-  });
-
-
-  /* JOB SECTION HEADING */
-
-  createReveal(".section-top > div", {
-    stagger: .15,
-    duration: .9,
-    y: 24,
-    blur: true
-  });
-
-
-  /* JOB CARDS */
-
-  createReveal(".job", {
-    stagger: .16,
-    duration: 1.05,
-    y: 38,
-    scale: .97,
-    blur: true,
-    batchMax: 4
-  });
-
-
-  /* MANIFESTO */
-
-  createReveal([
-    ".manifesto-label",
-    ".manifesto h2",
-    ".manifesto p"
-  ], {
-    stagger: .17,
-    duration: 1.05,
-    y: 30,
-    blur: true
-  });
-
-
-  /* APPLICATION CARD CONTENT */
-
-  createReveal([
-    ".application-label",
-    ".application h2",
-    ".application p",
-    ".application-button"
-  ], {
-    stagger: .15,
-    duration: 1,
-    y: 28,
-    blur: true
-  });
-
-
-  /* GUIDE CARD */
-
-  createReveal(".guide", {
-    duration: 1.05,
-    y: 35,
-    scale: .97,
-    blur: true
-  });
-
-
-  /* SIGNATURE */
-
-  createReveal(".signature", {
-    duration: 1.1,
-    y: 20,
-    scale: 1,
-    blur: true
-  });
-
-
-  /* REFRESH AFTER FONTS AND PAGE LOAD */
-
-  window.addEventListener("load", function () {
-    ScrollTrigger.refresh();
-  });
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () {
-      ScrollTrigger.refresh();
+    window.addEventListener("load", function () {
+      AOS.refreshHard();
     });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(function () {
+        AOS.refreshHard();
+      });
+    }
+
   }
 
 });
 </script>
 
 </body>
-          </html>
+</html>
