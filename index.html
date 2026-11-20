@@ -203,11 +203,23 @@ button{
 }
 
 .hero h1{
-  font-size:clamp(37px,10vw,49px);
+  font-size:clamp(30px,8.5vw,49px);
   line-height:1.55;
   font-weight:900;
   letter-spacing:-1.8px;
   max-width:550px;
+}
+
+.hero-line{
+  display:block;
+  white-space:nowrap;
+  overflow:visible;
+}
+
+.hero-word,
+.hero-rest,
+.hero-line-two-text{
+  display:inline-block;
 }
 
 .hero h1 .highlight{
@@ -805,110 +817,7 @@ button{
   opacity:.7;
 }
 
-/* ============================================================
-   LUXURY ANIMATIONS (GitHub-inspired)
-   - Word Mask Reveal for "شغل"
-   - Staggered Blur Reveal for title & hero content
-   - Scroll-driven Blur + Rise for all sections
-   ============================================================ */
-
-/* 1. Mask Reveal for the key word */
-.lux-mask-wrap {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: bottom;
-  padding: 0 2px;
-}
-
-.lux-mask-text {
-  display: inline-block;
-  transform: translateY(115%) rotate(2deg);
-  opacity: 0;
-  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1),
-              opacity 0.8s ease;
-  will-change: transform, opacity;
-}
-
-.lux-mask-text.is-visible {
-  transform: translateY(0) rotate(0);
-  opacity: 1;
-}
-
-/* 2. Staggered Blur Reveal for title parts */
-.lux-blur-line {
-  display: block;
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(18px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, filter, transform;
-}
-
-.lux-blur-line.is-visible {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
-}
-
-/* 3. Hero content fade + rise */
-.lux-hero-content {
-  opacity: 0;
-  filter: blur(6px);
-  transform: translateY(20px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, filter, transform;
-}
-
-.lux-hero-content.is-visible {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
-}
-
-/* 4. Scroll-driven Staggered Blur Reveal for all sections */
-.lux-scroll {
-  opacity: 0;
-  filter: blur(10px);
-  transform: translateY(40px) scale(0.985);
-  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 1s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, filter, transform;
-}
-
-.lux-scroll.is-visible {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0) scale(1);
-}
-
-/* Stagger children inside sections */
-.lux-stagger > * {
-  opacity: 0;
-  filter: blur(8px);
-  transform: translateY(30px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, filter, transform;
-}
-
-.lux-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
-.lux-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
-.lux-stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
-.lux-stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
-.lux-stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
-.lux-stagger.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
-
-.lux-stagger.is-visible > * {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
-}
+/* RESPONSIVE */
 
 @media(min-width:700px){
   .header,.hero,.intro,.jobs-section,.manifesto,.application{
@@ -923,22 +832,14 @@ button{
 }
 
 @media(max-width:360px){
-  .hero h1{font-size:35px}
+  .hero h1{font-size:29px}
   .intro h2,.section-top h2{font-size:24px}
   .job h3{font-size:20px}
   .application h2{font-size:26px}
 }
 
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{
-    animation:none!important;
-    transition:none!important;
-  }
-  .lux-mask-text,.lux-blur-line,.lux-hero-content,.lux-scroll,.lux-stagger > *{
-    opacity:1!important;
-    filter:none!important;
-    transform:none!important;
-  }
+  html{scroll-behavior:auto}
 }
 </style>
 </head>
@@ -977,20 +878,23 @@ button{
     <div class="hero-number">CAREER 2026</div>
   </div>
 
-  <div class="hero-kicker lux-hero-content" data-delay="0">برای کسانی که مسئولیت را جدی می‌گیرند</div>
+  <div class="hero-kicker">برای کسانی که مسئولیت را جدی می‌گیرند</div>
 
-  <h1>
-    <span class="lux-blur-line" data-delay="0">یک <span class="lux-mask-wrap"><span class="highlight lux-mask-text" id="keyWord">شغل</span></span> انتخاب نکن؛</span>
-    <span class="lux-blur-line" data-delay="250">جایگاهت</span>
-    <span class="lux-blur-line" data-delay="500">را پیدا کن.</span>
+  <h1 class="hero-title">
+    <span class="hero-line hero-line-one">
+      <span class="hero-word">یک </span><span class="hero-word hero-target-word">شغل</span><span class="hero-rest"> انتخاب نکن؛</span>
+    </span>
+    <span class="hero-line hero-line-two">
+      <span class="hero-line-two-text">جایگاهت را پیدا کن.</span>
+    </span>
   </h1>
 
-  <p class="hero-description lux-hero-content" data-delay="750">
+  <p class="hero-description">
     امنیت‌گستر، مسیر آشنایی و ثبت درخواست همکاری در حوزه‌های حفاظت، نگهبانی و خدمات را برای شما فراهم کرده است.
     شاید فرصت بعدی، دقیقاً در تخصص شما باشد.
   </p>
 
-  <div class="hero-bottom lux-hero-content" data-delay="950">
+  <div class="hero-bottom">
 
     <div class="hero-bottom-text">
       <strong>چهار مسیر برای همکاری</strong>
@@ -1012,19 +916,42 @@ button{
 
 <!-- INTRODUCTION -->
 
-<section class="intro lux-stagger">
+<section class="intro">
+
   <div class="intro-label">فرصت را از نزدیک ببین</div>
-  <h2>توانایی تو، سرمایه توست. <span>در جای درست از آن استفاده کن.</span></h2>
-  <p>هر موقعیت شغلی، شرایط و مسئولیت‌های خودش را دارد. حوزه‌ای را انتخاب کن که با توانایی‌ها و انتظاراتت هم‌خوانی دارد؛ سپس برای شروع مسیر همکاری اقدام کن.</p>
+
+  <h2>
+    توانایی تو، سرمایه توست.
+    <span>در جای درست از آن استفاده کن.</span>
+  </h2>
+
+  <p>
+    هر موقعیت شغلی، شرایط و مسئولیت‌های خودش را دارد.
+    حوزه‌ای را انتخاب کن که با توانایی‌ها و انتظاراتت هم‌خوانی دارد؛ سپس برای شروع مسیر همکاری اقدام کن.
+  </p>
+
 </section>
 
 
 <!-- FEATURES -->
 
-<section class="feature-strip lux-stagger">
-  <div class="feature"><strong>۰۴</strong><span>حوزه شغلی</span></div>
-  <div class="feature"><strong>۱۰۰٪</strong><span>فرایند مشخص</span></div>
-  <div class="feature"><strong>۰۱</strong><span>مسیر ثبت درخواست</span></div>
+<section class="feature-strip">
+
+  <div class="feature">
+    <strong>۰۴</strong>
+    <span>حوزه شغلی</span>
+  </div>
+
+  <div class="feature">
+    <strong>۱۰۰٪</strong>
+    <span>فرایند مشخص</span>
+  </div>
+
+  <div class="feature">
+    <strong>۰۱</strong>
+    <span>مسیر ثبت درخواست</span>
+  </div>
+
 </section>
 
 
@@ -1032,7 +959,7 @@ button{
 
 <section class="jobs-section">
 
-  <div class="section-top lux-stagger">
+  <div class="section-top">
     <div>
       <h2>کدام مسیر برای توست؟</h2>
       <p>حوزه تخصصی خودت را انتخاب کن.</p>
@@ -1040,58 +967,112 @@ button{
     <div class="section-counter">01 / 04</div>
   </div>
 
-  <div class="job-list lux-stagger">
+
+  <div class="job-list">
+
+    <!-- BODYGUARD -->
+
     <div class="job j1">
+
       <div class="job-main">
         <div class="job-overline">PROTECTION / 01</div>
         <h3>بادیگارد</h3>
         <p>حفاظت و همراهی شخصی</p>
-        <div class="job-link"><span>بررسی و ثبت درخواست</span><span>←</span></div>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
+        </div>
       </div>
+
       <div class="job-aside">
-        <svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/><circle cx="12" cy="10" r="2.5"/><path d="M8.5 17c.7-2 2-3 3.5-3s2.8 1 3.5 3"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+          <path d="M8.5 17c.7-2 2-3 3.5-3s2.8 1 3.5 3"/>
+        </svg>
         <small>01</small>
       </div>
+
     </div>
 
+
+    <!-- GUARD -->
+
     <div class="job j2">
+
       <div class="job-main">
         <div class="job-overline">SITE SECURITY / 02</div>
         <h3>نگهبان</h3>
         <p>حفاظت و مراقبت از اماکن</p>
-        <div class="job-link"><span>بررسی و ثبت درخواست</span><span>←</span></div>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
+        </div>
       </div>
+
       <div class="job-aside">
-        <svg viewBox="0 0 24 24"><path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/><path d="M8 12h8m-4-4v8"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2 4 5.5v5c0 5.2 3.3 9.5 8 11.5 4.7-2 8-6.3 8-11.5v-5L12 2Z"/>
+          <path d="M8 12h8m-4-4v8"/>
+        </svg>
         <small>02</small>
       </div>
+
     </div>
 
+
+    <!-- CARETAKER -->
+
     <div class="job j3">
+
       <div class="job-main">
         <div class="job-overline">PROPERTY CARE / 03</div>
         <h3>سرایدار</h3>
         <p>رسیدگی و مدیریت امور ساختمان</p>
-        <div class="job-link"><span>بررسی و ثبت درخواست</span><span>←</span></div>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
+        </div>
       </div>
+
       <div class="job-aside">
-        <svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/><path d="M16 5V3h3v5"/></svg>
+        <svg viewBox="0 0 24 24">
+          <path d="m3 11 9-8 9 8"/>
+          <path d="M5 10v10h14V10"/>
+          <path d="M9 20v-6h6v6"/>
+          <path d="M16 5V3h3v5"/>
+        </svg>
         <small>03</small>
       </div>
+
     </div>
 
+
+    <!-- SECURITY -->
+
     <div class="job j4">
+
       <div class="job-main">
         <div class="job-overline">SECURITY OPERATIONS / 04</div>
         <h3>نیروی امنیتی</h3>
         <p>حراست، نظارت و کنترل امنیتی</p>
-        <div class="job-link"><span>بررسی و ثبت درخواست</span><span>←</span></div>
+        <div class="job-link">
+          <span>بررسی و ثبت درخواست</span>
+          <span>←</span>
+        </div>
       </div>
+
       <div class="job-aside">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6m0 6v6M3 12h6m6 0h6"/></svg>
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 3v6m0 6v6M3 12h6m6 0h6"/>
+        </svg>
         <small>04</small>
       </div>
+
     </div>
+
   </div>
 
 </section>
@@ -1099,136 +1080,396 @@ button{
 
 <!-- BRAND MANIFESTO -->
 
-<section class="manifesto lux-stagger">
+<section class="manifesto">
+
   <div class="manifesto-label">معیار ما برای همکاری</div>
-  <h2>در حرفه امنیت، <span>اعتماد</span> با حرف ساخته نمی‌شود؛ با مسئولیت‌پذیری اثبات می‌شود.</h2>
-  <p>تعهد، انضباط و دقت، ویژگی‌هایی هستند که یک نیروی حرفه‌ای را متمایز می‌کنند. اگر این ویژگی‌ها را در خودت می‌بینی، فرصت آشنایی با مسیر همکاری را از دست نده.</p>
+
+  <h2>
+    در حرفه امنیت،
+    <span>اعتماد</span>
+    با حرف ساخته نمی‌شود؛ با مسئولیت‌پذیری اثبات می‌شود.
+  </h2>
+
+  <p>
+    تعهد، انضباط و دقت، ویژگی‌هایی هستند که یک نیروی حرفه‌ای را متمایز می‌کنند.
+    اگر این ویژگی‌ها را در خودت می‌بینی، فرصت آشنایی با مسیر همکاری را از دست نده.
+  </p>
+
 </section>
 
 
 <!-- JOBS CALL TO ACTION -->
 
 <section class="application">
-  <div class="application-inner lux-scroll">
+
+  <div class="application-inner">
+
     <div class="application-label">BEFORE YOU APPLY / پیش از ثبت درخواست</div>
-    <h2>اول جایگاهت را بشناس؛ بعد تصمیم بگیر.</h2>
-    <p>فرصت‌های شغلی، شرایط و مسئولیت‌های هر موقعیت و تعهدات امنیت‌گستر را با دقت بررسی کن. انتخاب آگاهانه، نخستین قدم یک همکاری حرفه‌ای است.</p>
+
+    <h2>
+      اول جایگاهت را بشناس؛ بعد تصمیم بگیر.
+    </h2>
+
+    <p>
+      فرصت‌های شغلی، شرایط و مسئولیت‌های هر موقعیت و تعهدات امنیت‌گستر را با دقت بررسی کن. انتخاب آگاهانه، نخستین قدم یک همکاری حرفه‌ای است.
+    </p>
+
     <a href="jobs.html" class="application-button">
       <span>مشاهده فرصت‌های شغلی و شرایط همکاری</span>
       <span>←</span>
     </a>
+
   </div>
+
 </section>
 
 
 <!-- SECOND JOBS LINK -->
 
-<a href="jobs.html" class="guide lux-scroll">
+<a href="jobs.html" class="guide">
+
   <div class="guide-icon">
-    <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 6h13M8 9h8m-8 3h8"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/>
+      <path d="M4 6h13M8 9h8m-8 3h8"/>
+    </svg>
   </div>
+
   <div class="guide-text">
     <strong>پیش از انتخاب، همه‌چیز را بدان.</strong>
     <small>جزئیات فرصت‌ها و تعهدات همکاری را در صفحه مشاغل بخوان.</small>
   </div>
+
   <div class="guide-arrow">←</div>
+
 </a>
 
 
 <!-- SIGNATURE -->
 
-<div class="signature lux-scroll">
+<div class="signature">
   هویت حرفه‌ای <strong>امنیت‌گستر</strong>
 </div>
 
 
 <!-- BOTTOM NAVIGATION -->
 
-<nav class="bottom-nav lux-scroll">
+<nav class="bottom-nav">
+
   <a href="index.html" class="nav-item active">
-    <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="m3 10 9-7 9 7"/>
+      <path d="M5 9v11h14V9"/>
+      <path d="M9 20v-6h6v6"/>
+    </svg>
     <span>خانه</span>
   </a>
+
   <a href="jobs.html" class="nav-item">
-    <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+    <svg viewBox="0 0 24 24">
+      <rect x="3" y="7" width="18" height="14" rx="2"/>
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      <path d="M3 12h18"/>
+    </svg>
     <span>مشاغل</span>
   </a>
+
   <a href="guide.html" class="nav-item">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/><path d="M12 17h.01"/></svg>
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M9.5 9a2.5 2.5 0 1 1 4.4 1.6c-1 .9-1.9 1.3-1.9 2.9"/>
+      <path d="M12 17h.01"/>
+    </svg>
     <span>راهنما</span>
   </a>
+
   <a href="request.html" class="nav-item">
-    <svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l-2 2v-7.5A7.5 7.5 0 0 1 10.5 6H13a7 7 0 0 1 7 5.5Z"/><path d="M9 12h6m-3-3v6"/></svg>
+    <svg viewBox="0 0 24 24">
+      <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l-2 2v-7.5A7.5 7.5 0 0 1 10.5 6H13a7 7 0 0 1 7 5.5Z"/>
+      <path d="M9 12h6m-3-3v6"/>
+    </svg>
     <span>درخواست</span>
   </a>
+
 </nav>
 
+<!-- GSAP LIBRARY -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-  // ============ 1. HERO ANIMATION SEQUENCE ============
-  // Order: key word "شغل" first, then title lines, then hero content
-
-  // Step 1: Reveal "شغل" with mask
-  const keyWord = document.getElementById("keyWord");
-  if (keyWord) {
-    setTimeout(() => {
-      keyWord.classList.add("is-visible");
-    }, 250);
+  if (
+    !window.gsap ||
+    !window.ScrollTrigger ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    return;
   }
 
-  // Step 2: Reveal title lines with staggered blur (after key word)
-  const titleLines = document.querySelectorAll(".lux-blur-line");
-  titleLines.forEach((line) => {
-    const delay = parseInt(line.dataset.delay || 0);
-    setTimeout(() => {
-      line.classList.add("is-visible");
-    }, 600 + delay);
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.config({
+    nullTargetWarn: false
   });
 
-  // Step 3: Reveal hero content (description, bottom, kicker)
-  const heroContents = document.querySelectorAll(".lux-hero-content");
-  heroContents.forEach((el) => {
-    const delay = parseInt(el.dataset.delay || 0);
-    setTimeout(() => {
-      el.classList.add("is-visible");
-    }, 600 + delay);
-  });
+  /* HERO INTRO TIMELINE */
 
-  // Also reveal the top bar elements smoothly
-  const heroTop = document.querySelectorAll(".hero-tag, .hero-number");
-  heroTop.forEach((el, i) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(8px)";
-    el.style.transition = `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${i * 120}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${i * 120}ms`;
-    setTimeout(() => {
-      el.style.opacity = "1";
-      el.style.transform = "translateY(0)";
-    }, 50);
-  });
+  const hero = document.querySelector(".hero");
 
+  if (hero) {
 
-  // ============ 2. SCROLL-DRIVEN STAGGERED BLUR REVEAL ============
-  // Applies to .lux-scroll and .lux-stagger elements
-
-  const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        scrollObserver.unobserve(entry.target);
+    const heroTimeline = gsap.timeline({
+      defaults: {
+        ease: "power4.out"
       }
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: "0px 0px -60px 0px"
+
+    const firstLine = hero.querySelector(".hero-line-one");
+    const firstWord = hero.querySelector(".hero-word:not(.hero-target-word)");
+    const targetWord = hero.querySelector(".hero-target-word");
+    const restText = hero.querySelector(".hero-rest");
+    const secondLine = hero.querySelector(".hero-line-two-text");
+
+    const heroElements = [
+      hero.querySelector(".hero-top"),
+      hero.querySelector(".hero-kicker"),
+      hero.querySelector(".hero-description"),
+      hero.querySelector(".hero-bottom")
+    ];
+
+    gsap.set([
+      firstWord,
+      targetWord,
+      restText,
+      secondLine,
+      ...heroElements
+    ], {
+      autoAlpha: 0
+    });
+
+    gsap.set(targetWord, {
+      y: 35,
+      scale: .82,
+      filter: "blur(12px)",
+      transformOrigin: "right center"
+    });
+
+    gsap.set([firstWord, restText], {
+      y: 20,
+      filter: "blur(7px)"
+    });
+
+    gsap.set(secondLine, {
+      y: 25,
+      filter: "blur(9px)"
+    });
+
+    gsap.set(heroElements, {
+      y: 22,
+      filter: "blur(6px)"
+    });
+
+    /* 1. کلمه شغل */
+
+    heroTimeline.to(targetWord, {
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      duration: .85,
+      ease: "back.out(1.5)"
+    });
+
+    /* 2. باقی سطر اول */
+
+    heroTimeline.to([firstWord, restText], {
+      autoAlpha: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: .7,
+      stagger: .12,
+      ease: "power3.out"
+    }, "-=.18");
+
+    /* 3. سطر دوم */
+
+    heroTimeline.to(secondLine, {
+      autoAlpha: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: .85,
+      ease: "power4.out"
+    }, "+=.12");
+
+    /* 4. سایر محتوای هرو */
+
+    heroTimeline.to(heroElements, {
+      autoAlpha: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: .75,
+      stagger: .13,
+      ease: "power3.out"
+    }, "+=.12");
+  }
+
+
+  /* SCROLL REVEALS */
+
+  function createReveal(elements, options = {}) {
+
+    const targets = gsap.utils.toArray(elements);
+
+    if (!targets.length) return;
+
+    gsap.set(targets, {
+      autoAlpha: 0,
+      y: options.y ?? 32,
+      scale: options.scale ?? .985,
+      filter: options.blur ? "blur(8px)" : "blur(0px)"
+    });
+
+    ScrollTrigger.batch(targets, {
+      start: options.start || "top 88%",
+      once: true,
+      interval: .08,
+      batchMax: options.batchMax || 8,
+
+      onEnter: batch => {
+        gsap.to(batch, {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration: options.duration || .95,
+          stagger: options.stagger || .12,
+          ease: options.ease || "power3.out",
+          overwrite: true,
+          onComplete: function () {
+            batch.forEach(element => {
+              gsap.set(element, {
+                clearProps: "transform,filter"
+              });
+            });
+          }
+        });
+      }
+    });
+  }
+
+
+  /* INTRO */
+
+  createReveal([
+    ".intro-label",
+    ".intro h2",
+    ".intro p"
+  ], {
+    stagger: .14,
+    duration: 1,
+    blur: true
   });
 
-  document.querySelectorAll(".lux-scroll, .lux-stagger").forEach((el) => {
-    scrollObserver.observe(el);
+
+  /* FEATURE NUMBERS */
+
+  createReveal(".feature", {
+    stagger: .16,
+    duration: 1.05,
+    scale: .94,
+    y: 28,
+    blur: true
   });
+
+
+  /* JOB SECTION HEADING */
+
+  createReveal(".section-top > div", {
+    stagger: .15,
+    duration: .9,
+    y: 24,
+    blur: true
+  });
+
+
+  /* JOB CARDS */
+
+  createReveal(".job", {
+    stagger: .16,
+    duration: 1.05,
+    y: 38,
+    scale: .97,
+    blur: true,
+    batchMax: 4
+  });
+
+
+  /* MANIFESTO */
+
+  createReveal([
+    ".manifesto-label",
+    ".manifesto h2",
+    ".manifesto p"
+  ], {
+    stagger: .17,
+    duration: 1.05,
+    y: 30,
+    blur: true
+  });
+
+
+  /* APPLICATION CARD CONTENT */
+
+  createReveal([
+    ".application-label",
+    ".application h2",
+    ".application p",
+    ".application-button"
+  ], {
+    stagger: .15,
+    duration: 1,
+    y: 28,
+    blur: true
+  });
+
+
+  /* GUIDE CARD */
+
+  createReveal(".guide", {
+    duration: 1.05,
+    y: 35,
+    scale: .97,
+    blur: true
+  });
+
+
+  /* SIGNATURE */
+
+  createReveal(".signature", {
+    duration: 1.1,
+    y: 20,
+    scale: 1,
+    blur: true
+  });
+
+
+  /* REFRESH AFTER FONTS AND PAGE LOAD */
+
+  window.addEventListener("load", function () {
+    ScrollTrigger.refresh();
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      ScrollTrigger.refresh();
+    });
+  }
 
 });
 </script>
 
 </body>
-  </html>
+          </html>
