@@ -10,6 +10,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<!-- Animate.css: انیمیشن آماده تیتر هرو -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<!-- AOS: انیمیشن آماده هنگام اسکرول -->
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
 <style>
 :root{
   --forest:#193D32;
@@ -213,6 +219,24 @@ button{font-family:inherit}
   position:relative;
 }
 
+/* توالی تیتر؛ فقط پس از آماده‌شدن کتابخانه فعال می‌شود */
+
+.hero-sequence-ready .hero-first-prefix,
+.hero-sequence-ready .hero-rest{
+  opacity:0;
+}
+
+.hero-sequence-ready .hero-top,
+.hero-sequence-ready .hero-kicker,
+.hero-sequence-ready .hero-description,
+.hero-sequence-ready .hero-bottom{
+  opacity:0;
+}
+
+.hero-first-word{
+  display:inline-block;
+}
+
 .hero-description{
   font-size:17px;
   line-height:2.05;
@@ -385,12 +409,7 @@ button{font-family:inherit}
   border:1px solid #E5E8DE;
   border-radius:7px 24px 7px 24px;
   box-shadow:0 8px 24px rgba(35,58,43,.07);
-  animation:enter .55s ease both;
 }
-
-.job-card:nth-child(2){animation-delay:.07s}
-.job-card:nth-child(3){animation-delay:.14s}
-.job-card:nth-child(4){animation-delay:.21s}
 
 .job-image-wrap{
   width:100%;
@@ -839,15 +858,6 @@ button{font-family:inherit}
 
 .nav-item:active{opacity:.7}
 
-/* ANIMATION */
-
-@keyframes enter{
-  from{opacity:0;transform:translateY(16px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.hero{animation:enter .5s ease both}
-
 @media(min-width:700px){
   .header,.hero,.intro,.jobs-section,.guide-section{
     padding-right:35px;
@@ -875,6 +885,15 @@ button{font-family:inherit}
   *,*:before,*:after{
     animation:none!important;
     transition:none!important;
+  }
+
+  .hero-sequence-ready .hero-first-prefix,
+  .hero-sequence-ready .hero-rest,
+  .hero-sequence-ready .hero-top,
+  .hero-sequence-ready .hero-kicker,
+  .hero-sequence-ready .hero-description,
+  .hero-sequence-ready .hero-bottom{
+    opacity:1!important;
   }
 }
 </style>
@@ -914,9 +933,9 @@ button{font-family:inherit}
   <div class="hero-kicker">چهار مسیر متفاوت؛ چهار نوع مسئولیت</div>
 
   <h1>
-    پیش از انتخاب،
+    <span class="hero-first-prefix">پیش از </span><span class="hero-first-word">انتخاب</span><span class="hero-rest">،
     <span class="highlight">جایگاه واقعی</span>
-    خودت را بشناس.
+    خودت را بشناس.</span>
   </h1>
 
   <p class="hero-description">
@@ -1293,8 +1312,15 @@ button{font-family:inherit}
 
 </nav>
 
+<!-- AOS LIBRARY -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
 <script>
 (function(){
+
+  /* تشخیص صفحه فعال در منوی پایین؛ بدون تغییر عملکرد قبلی */
+
   var currentFile = window.location.pathname.split('/').pop();
 
   if(!currentFile){
@@ -1308,8 +1334,171 @@ button{font-family:inherit}
       item.classList.add('active');
     }
   });
+
+
+  /* جلوگیری از اجرای انیمیشن در حالت کاهش حرکت سیستم */
+
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(reduceMotion){
+    return;
+  }
+
+
+  /* انیمیشن مرحله‌ای هرو با افکت‌های آماده Animate.css */
+
+  var hero = document.querySelector('.hero');
+
+  var firstWord = document.querySelector('.hero-first-word');
+  var firstPrefix = document.querySelector('.hero-first-prefix');
+  var restOfTitle = document.querySelector('.hero-rest');
+
+  var heroTop = document.querySelector('.hero-top');
+  var heroKicker = document.querySelector('.hero-kicker');
+  var heroDescription = document.querySelector('.hero-description');
+  var heroBottom = document.querySelector('.hero-bottom');
+
+  var animateStylesheet = document.querySelector(
+    'link[href*="animate.min.css"]'
+  );
+
+  var animateReady = animateStylesheet && animateStylesheet.sheet;
+
+  if(hero && animateReady){
+
+    hero.classList.add('hero-sequence-ready');
+
+    function playAnimate(element, effect){
+      if(!element) return;
+
+      element.classList.add(
+        'animate__animated',
+        'animate__' + effect
+      );
+    }
+
+    /* مرحله اول: فقط کلمه انتخاب */
+
+    playAnimate(firstWord,'fadeInUp');
+
+    /* مرحله دوم: باقی تیتر، با حفظ رنگ کلمه برجسته */
+
+    window.setTimeout(function(){
+      playAnimate(firstPrefix,'fadeIn');
+      playAnimate(restOfTitle,'fadeIn');
+    },750);
+
+    /* مرحله سوم: سایر اجزای هرو */
+
+    window.setTimeout(function(){
+      playAnimate(heroTop,'fadeInUp');
+    },1450);
+
+    window.setTimeout(function(){
+      playAnimate(heroKicker,'fadeInUp');
+    },1600);
+
+    window.setTimeout(function(){
+      playAnimate(heroDescription,'fadeInUp');
+    },1750);
+
+    window.setTimeout(function(){
+      playAnimate(heroBottom,'fadeInUp');
+    },1900);
+
+  }
+
+
+  /* انیمیشن محتوای پایین هرو با افکت‌های آماده AOS */
+
+  var aosStylesheet = document.querySelector(
+    'link[href*="aos.css"]'
+  );
+
+  var aosReady = aosStylesheet &&
+    aosStylesheet.sheet &&
+    typeof window.AOS !== 'undefined';
+
+  if(aosReady){
+
+    function setAOS(selector,effect,delay,duration){
+      document.querySelectorAll(selector).forEach(function(element,index){
+
+        element.setAttribute('data-aos',effect);
+
+        element.setAttribute(
+          'data-aos-delay',
+          String(delay ? delay * index : 0)
+        );
+
+        element.setAttribute(
+          'data-aos-duration',
+          String(duration || 850)
+        );
+
+        element.setAttribute(
+          'data-aos-easing',
+          'ease-out-cubic'
+        );
+
+        element.setAttribute(
+          'data-aos-once',
+          'true'
+        );
+
+        element.setAttribute(
+          'data-aos-anchor-placement',
+          'top-bottom'
+        );
+
+      });
+    }
+
+    /* معرفی صفحه */
+
+    setAOS('.intro','fade-up',0,900);
+
+    /* آمار و شاخص‌ها */
+
+    setAOS('.feature','zoom-in',120,800);
+
+    /* عنوان بخش مشاغل */
+
+    setAOS('.section-heading','fade-up',0,850);
+
+    /* کارت‌های مشاغل */
+
+    setAOS('.job-card','fade-up',130,950);
+
+    /* بخش اصول همکاری */
+
+    setAOS('.principles','fade-up',0,950);
+
+    /* راهنمای همکاری */
+
+    setAOS('.guide-card','zoom-in-up',0,950);
+
+    /* امضای انتهای صفحه */
+
+    setAOS('.signature','fade-up',0,800);
+
+
+    /* راه‌اندازی کتابخانه با تنظیمات هماهنگ با صفحه اصلی */
+
+    AOS.init({
+      offset:80,
+      duration:850,
+      easing:'ease-out-cubic',
+      once:true,
+      mirror:false,
+      anchorPlacement:'top-bottom'
+    });
+
+  }
+
 })();
 </script>
 
 </body>
-</html>
+  </html>
