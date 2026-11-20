@@ -55,6 +55,40 @@ a{color:inherit;text-decoration:none}
 button,input{font-family:inherit;font-size:inherit}
 button{cursor:pointer}
 
+/* ============ ANIMATIONS (همخوان با صفحه اصلی) ============ */
+@keyframes enter{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* انیمیشن اختصاصی کلمه highlight هرو: اول این، بعد بقیه */
+@keyframes heroWord{
+  0%{
+    opacity:0;
+    transform:translateY(18px) scale(.92);
+    filter:blur(4px);
+  }
+  60%{
+    opacity:1;
+    filter:blur(0);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+  }
+}
+
+@keyframes heroRest{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes heroFade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
 /* ============ HEADER ============ */
 .header{
   background:var(--cream);
@@ -140,6 +174,9 @@ button{cursor:pointer}
   overflow:hidden;
   box-shadow:0 17px 40px rgba(25,61,50,.20);
   margin-bottom:28px;
+
+  /* ورود کل هرو مثل صفحه اصلی */
+  animation:enter .5s ease both;
 }
 .hero:before{
   content:"";
@@ -206,9 +243,18 @@ button{cursor:pointer}
   line-height:1.6;
   font-weight:900;
   letter-spacing:-1px;
+
+  /* تیتر هرو بعد از کلمه highlight وارد می‌شود */
+  animation:heroRest .55s cubic-bezier(.2,.7,.3,1) both;
+  animation-delay:.45s;
 }
 .hero h1 span{
   color:var(--lime);
+  display:inline-block;
+
+  /* کلمه highlight اول انیمیشن می‌شود */
+  animation:heroWord .75s cubic-bezier(.2,.7,.3,1) both;
+  animation-delay:.1s;
 }
 .hero-description{
   position:relative;
@@ -218,6 +264,9 @@ button{cursor:pointer}
   line-height:2.15;
   margin-top:13px;
   font-weight:500;
+
+  animation:heroFade .55s cubic-bezier(.2,.7,.3,1) both;
+  animation-delay:.75s;
 }
 .hero-bottom{
   position:relative;
@@ -232,6 +281,9 @@ button{cursor:pointer}
   font-size:14.5px;
   font-weight:900;
   line-height:1.9;
+
+  animation:heroFade .55s cubic-bezier(.2,.7,.3,1) both;
+  animation-delay:1s;
 }
 .hero-bottom svg{
   width:21px;
@@ -247,6 +299,9 @@ button{cursor:pointer}
   align-items:flex-start;
   gap:13px;
   margin:0 3px 22px;
+
+  animation:enter .55s ease both;
+  animation-delay:1.15s;
 }
 .intro-symbol{
   width:48px;
@@ -281,6 +336,9 @@ button{cursor:pointer}
 .search-box{
   position:relative;
   margin-bottom:24px;
+
+  animation:enter .55s ease both;
+  animation-delay:1.3s;
 }
 .search-box svg{
   position:absolute;
@@ -322,6 +380,9 @@ button{cursor:pointer}
   align-items:center;
   margin:0 2px 13px;
   gap:10px;
+
+  animation:enter .55s ease both;
+  animation-delay:1.4s;
 }
 .filter-title strong{
   font-size:17px;
@@ -341,6 +402,9 @@ button{cursor:pointer}
   scrollbar-width:none;
   margin-bottom:13px;
   -webkit-overflow-scrolling:touch;
+
+  animation:enter .55s ease both;
+  animation-delay:1.5s;
 }
 .filters::-webkit-scrollbar{
   display:none;
@@ -375,6 +439,9 @@ button{cursor:pointer}
   justify-content:space-between;
   gap:10px;
   margin:14px 2px 15px;
+
+  animation:enter .55s ease both;
+  animation-delay:1.6s;
 }
 .section-heading h2{
   font-size:21px;
@@ -408,7 +475,32 @@ button{cursor:pointer}
     0 10px 22px rgba(25,61,50,.07);
   transition:transform .22s cubic-bezier(.2,.7,.3,1), box-shadow .22s, border-color .22s;
   will-change:transform;
+
+  /* ورود پله‌ای کارت‌ها مثل صفحه اصلی */
+  animation:enter .55s ease both;
 }
+.faq-card:nth-child(1){animation-delay:1.7s}
+.faq-card:nth-child(2){animation-delay:1.75s}
+.faq-card:nth-child(3){animation-delay:1.8s}
+.faq-card:nth-child(4){animation-delay:1.85s}
+.faq-card:nth-child(5){animation-delay:1.9s}
+.faq-card:nth-child(6){animation-delay:1.95s}
+.faq-card:nth-child(7){animation-delay:2.0s}
+.faq-card:nth-child(8){animation-delay:2.05s}
+.faq-card:nth-child(9){animation-delay:2.1s}
+.faq-card:nth-child(10){animation-delay:2.15s}
+.faq-card:nth-child(11){animation-delay:2.2s}
+.faq-card:nth-child(12){animation-delay:2.25s}
+.faq-card:nth-child(13){animation-delay:2.3s}
+.faq-card:nth-child(14){animation-delay:2.35s}
+.faq-card:nth-child(15){animation-delay:2.4s}
+.faq-card:nth-child(16){animation-delay:2.45s}
+.faq-card:nth-child(17){animation-delay:2.5s}
+.faq-card:nth-child(18){animation-delay:2.55s}
+.faq-card:nth-child(19){animation-delay:2.6s}
+.faq-card:nth-child(20){animation-delay:2.65s}
+.faq-card:nth-child(21){animation-delay:2.7s}
+
 .faq-card:hover{
   transform:translateY(-2px);
   box-shadow:
@@ -606,6 +698,9 @@ button{cursor:pointer}
   background:linear-gradient(145deg,#E7EBDD,#DEE4D2);
   border:1px solid #D9E0D0;
   box-shadow:0 5px 0 #CDD5BE, 0 14px 30px rgba(25,61,50,.08);
+
+  animation:enter .55s ease both;
+  animation-delay:2.75s;
 }
 .brand-note:after{
   content:"";
@@ -661,6 +756,9 @@ button{cursor:pointer}
   box-shadow:
     0 8px 0 #0F2A22,
     0 24px 55px rgba(25,61,50,.35);
+
+  animation:enter .55s ease both;
+  animation-delay:2.85s;
 }
 .final-cta:before{
   content:"";
@@ -847,6 +945,9 @@ button{cursor:pointer}
   color:#8A9488;
   font-size:13px;
   font-weight:700;
+
+  animation:enter .55s ease both;
+  animation-delay:2.95s;
 }
 .signature:before,
 .signature:after{
@@ -1738,4 +1839,4 @@ button{cursor:pointer}
 </script>
 
 </body>
-      </html>
+        </html>
