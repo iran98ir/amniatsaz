@@ -805,92 +805,108 @@ button{
   opacity:.7;
 }
 
-/* ANIMATIONS (BASE) */
+/* ============================================================
+   LUXURY ANIMATIONS (GitHub-inspired)
+   - Word Mask Reveal for "شغل"
+   - Staggered Blur Reveal for title & hero content
+   - Scroll-driven Blur + Rise for all sections
+   ============================================================ */
 
-@keyframes enter{
-  from{
-    opacity:0;
-    transform:translateY(18px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* === LUXURY ANIMATIONS (INSPIRED BY GITHUB PATTERNS) === */
-
-/* 1. Staggered Blur Reveal for Scroll Elements (from transitions.dev pattern) [citation:7][citation:12] */
-.lux-scroll-item {
-  opacity: 0;
-  transform: translateY(28px);
-  filter: blur(4px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-              filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform, filter;
-}
-
-.lux-scroll-item.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-/* Stagger delays for child elements inside sections */
-.lux-scroll-item .job:nth-child(1) { transition-delay: 0s; }
-.lux-scroll-item .job:nth-child(2) { transition-delay: 0.08s; }
-.lux-scroll-item .job:nth-child(3) { transition-delay: 0.16s; }
-.lux-scroll-item .job:nth-child(4) { transition-delay: 0.24s; }
-
-.lux-scroll-item .feature:nth-child(1) { transition-delay: 0s; }
-.lux-scroll-item .feature:nth-child(2) { transition-delay: 0.1s; }
-.lux-scroll-item .feature:nth-child(3) { transition-delay: 0.2s; }
-
-/* 2. Mask Reveal for the Key Word (Job Title) */
+/* 1. Mask Reveal for the key word */
 .lux-mask-wrap {
   overflow: hidden;
   display: inline-block;
   vertical-align: bottom;
+  padding: 0 2px;
 }
 
 .lux-mask-text {
   display: inline-block;
-  transform: translateY(110%);
-  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
+  transform: translateY(115%) rotate(2deg);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.19, 1, 0.22, 1),
+              opacity 0.8s ease;
+  will-change: transform, opacity;
 }
 
 .lux-mask-text.is-visible {
-  transform: translateY(0);
+  transform: translateY(0) rotate(0);
+  opacity: 1;
 }
 
-/* 3. Staggered Fade-Up for Hero Title Parts (Non-highlight) */
-.lux-hero-line {
+/* 2. Staggered Blur Reveal for title parts */
+.lux-blur-line {
   display: block;
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  filter: blur(8px);
+  transform: translateY(18px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
 }
 
-.lux-hero-line.is-visible {
+.lux-blur-line.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
-/* 4. Hero Content Fade-Up */
+/* 3. Hero content fade + rise */
 .lux-hero-content {
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  filter: blur(6px);
+  transform: translateY(20px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
 }
 
 .lux-hero-content.is-visible {
   opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* 4. Scroll-driven Staggered Blur Reveal for all sections */
+.lux-scroll {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(40px) scale(0.985);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+.lux-scroll.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger children inside sections */
+.lux-stagger > * {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(30px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              filter 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+.lux-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.lux-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+.lux-stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
+.lux-stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
+.lux-stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
+.lux-stagger.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
+
+.lux-stagger.is-visible > * {
+  opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
@@ -918,10 +934,10 @@ button{
     animation:none!important;
     transition:none!important;
   }
-  .lux-scroll-item,.lux-mask-text,.lux-hero-line,.lux-hero-content{
+  .lux-mask-text,.lux-blur-line,.lux-hero-content,.lux-scroll,.lux-stagger > *{
     opacity:1!important;
-    transform:none!important;
     filter:none!important;
+    transform:none!important;
   }
 }
 </style>
@@ -961,20 +977,20 @@ button{
     <div class="hero-number">CAREER 2026</div>
   </div>
 
-  <div class="hero-kicker">برای کسانی که مسئولیت را جدی می‌گیرند</div>
+  <div class="hero-kicker lux-hero-content" data-delay="0">برای کسانی که مسئولیت را جدی می‌گیرند</div>
 
   <h1>
-    <span class="lux-hero-line" data-delay="0">یک شغل انتخاب نکن؛</span>
-    <span class="highlight">جایگاهت</span>
-    <span class="lux-hero-line" data-delay="150">را پیدا کن.</span>
+    <span class="lux-blur-line" data-delay="0">یک <span class="lux-mask-wrap"><span class="highlight lux-mask-text" id="keyWord">شغل</span></span> انتخاب نکن؛</span>
+    <span class="lux-blur-line" data-delay="250">جایگاهت</span>
+    <span class="lux-blur-line" data-delay="500">را پیدا کن.</span>
   </h1>
 
-  <p class="hero-description lux-hero-content" data-delay="350">
+  <p class="hero-description lux-hero-content" data-delay="750">
     امنیت‌گستر، مسیر آشنایی و ثبت درخواست همکاری در حوزه‌های حفاظت، نگهبانی و خدمات را برای شما فراهم کرده است.
     شاید فرصت بعدی، دقیقاً در تخصص شما باشد.
   </p>
 
-  <div class="hero-bottom lux-hero-content" data-delay="450">
+  <div class="hero-bottom lux-hero-content" data-delay="950">
 
     <div class="hero-bottom-text">
       <strong>چهار مسیر برای همکاری</strong>
@@ -996,19 +1012,19 @@ button{
 
 <!-- INTRODUCTION -->
 
-<section class="intro">
-  <div class="intro-label lux-scroll-item">فرصت را از نزدیک ببین</div>
-  <h2 class="lux-scroll-item">توانایی تو، سرمایه توست. <span>در جای درست از آن استفاده کن.</span></h2>
-  <p class="lux-scroll-item">هر موقعیت شغلی، شرایط و مسئولیت‌های خودش را دارد. حوزه‌ای را انتخاب کن که با توانایی‌ها و انتظاراتت هم‌خوانی دارد؛ سپس برای شروع مسیر همکاری اقدام کن.</p>
+<section class="intro lux-stagger">
+  <div class="intro-label">فرصت را از نزدیک ببین</div>
+  <h2>توانایی تو، سرمایه توست. <span>در جای درست از آن استفاده کن.</span></h2>
+  <p>هر موقعیت شغلی، شرایط و مسئولیت‌های خودش را دارد. حوزه‌ای را انتخاب کن که با توانایی‌ها و انتظاراتت هم‌خوانی دارد؛ سپس برای شروع مسیر همکاری اقدام کن.</p>
 </section>
 
 
 <!-- FEATURES -->
 
-<section class="feature-strip">
-  <div class="feature lux-scroll-item"><strong>۰۴</strong><span>حوزه شغلی</span></div>
-  <div class="feature lux-scroll-item"><strong>۱۰۰٪</strong><span>فرایند مشخص</span></div>
-  <div class="feature lux-scroll-item"><strong>۰۱</strong><span>مسیر ثبت درخواست</span></div>
+<section class="feature-strip lux-stagger">
+  <div class="feature"><strong>۰۴</strong><span>حوزه شغلی</span></div>
+  <div class="feature"><strong>۱۰۰٪</strong><span>فرایند مشخص</span></div>
+  <div class="feature"><strong>۰۱</strong><span>مسیر ثبت درخواست</span></div>
 </section>
 
 
@@ -1016,16 +1032,16 @@ button{
 
 <section class="jobs-section">
 
-  <div class="section-top">
+  <div class="section-top lux-stagger">
     <div>
-      <h2 class="lux-scroll-item">کدام مسیر برای توست؟</h2>
-      <p class="lux-scroll-item">حوزه تخصصی خودت را انتخاب کن.</p>
+      <h2>کدام مسیر برای توست؟</h2>
+      <p>حوزه تخصصی خودت را انتخاب کن.</p>
     </div>
-    <div class="section-counter lux-scroll-item">01 / 04</div>
+    <div class="section-counter">01 / 04</div>
   </div>
 
-  <div class="job-list">
-    <div class="job j1 lux-scroll-item">
+  <div class="job-list lux-stagger">
+    <div class="job j1">
       <div class="job-main">
         <div class="job-overline">PROTECTION / 01</div>
         <h3>بادیگارد</h3>
@@ -1038,7 +1054,7 @@ button{
       </div>
     </div>
 
-    <div class="job j2 lux-scroll-item">
+    <div class="job j2">
       <div class="job-main">
         <div class="job-overline">SITE SECURITY / 02</div>
         <h3>نگهبان</h3>
@@ -1051,7 +1067,7 @@ button{
       </div>
     </div>
 
-    <div class="job j3 lux-scroll-item">
+    <div class="job j3">
       <div class="job-main">
         <div class="job-overline">PROPERTY CARE / 03</div>
         <h3>سرایدار</h3>
@@ -1064,7 +1080,7 @@ button{
       </div>
     </div>
 
-    <div class="job j4 lux-scroll-item">
+    <div class="job j4">
       <div class="job-main">
         <div class="job-overline">SECURITY OPERATIONS / 04</div>
         <h3>نیروی امنیتی</h3>
@@ -1083,17 +1099,17 @@ button{
 
 <!-- BRAND MANIFESTO -->
 
-<section class="manifesto">
-  <div class="manifesto-label lux-scroll-item">معیار ما برای همکاری</div>
-  <h2 class="lux-scroll-item">در حرفه امنیت، <span>اعتماد</span> با حرف ساخته نمی‌شود؛ با مسئولیت‌پذیری اثبات می‌شود.</h2>
-  <p class="lux-scroll-item">تعهد، انضباط و دقت، ویژگی‌هایی هستند که یک نیروی حرفه‌ای را متمایز می‌کنند. اگر این ویژگی‌ها را در خودت می‌بینی، فرصت آشنایی با مسیر همکاری را از دست نده.</p>
+<section class="manifesto lux-stagger">
+  <div class="manifesto-label">معیار ما برای همکاری</div>
+  <h2>در حرفه امنیت، <span>اعتماد</span> با حرف ساخته نمی‌شود؛ با مسئولیت‌پذیری اثبات می‌شود.</h2>
+  <p>تعهد، انضباط و دقت، ویژگی‌هایی هستند که یک نیروی حرفه‌ای را متمایز می‌کنند. اگر این ویژگی‌ها را در خودت می‌بینی، فرصت آشنایی با مسیر همکاری را از دست نده.</p>
 </section>
 
 
 <!-- JOBS CALL TO ACTION -->
 
 <section class="application">
-  <div class="application-inner lux-scroll-item">
+  <div class="application-inner lux-scroll">
     <div class="application-label">BEFORE YOU APPLY / پیش از ثبت درخواست</div>
     <h2>اول جایگاهت را بشناس؛ بعد تصمیم بگیر.</h2>
     <p>فرصت‌های شغلی، شرایط و مسئولیت‌های هر موقعیت و تعهدات امنیت‌گستر را با دقت بررسی کن. انتخاب آگاهانه، نخستین قدم یک همکاری حرفه‌ای است.</p>
@@ -1107,7 +1123,7 @@ button{
 
 <!-- SECOND JOBS LINK -->
 
-<a href="jobs.html" class="guide lux-scroll-item">
+<a href="jobs.html" class="guide lux-scroll">
   <div class="guide-icon">
     <svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 6h13M8 9h8m-8 3h8"/></svg>
   </div>
@@ -1121,14 +1137,14 @@ button{
 
 <!-- SIGNATURE -->
 
-<div class="signature lux-scroll-item">
+<div class="signature lux-scroll">
   هویت حرفه‌ای <strong>امنیت‌گستر</strong>
 </div>
 
 
 <!-- BOTTOM NAVIGATION -->
 
-<nav class="bottom-nav lux-scroll-item">
+<nav class="bottom-nav lux-scroll">
   <a href="index.html" class="nav-item active">
     <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg>
     <span>خانه</span>
@@ -1149,47 +1165,42 @@ button{
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // --- 1. HERO ANIMATION SEQUENCE ---
-  // Step 1: Reveal the key word (highlight) using Mask Reveal
-  const highlightWord = document.querySelector(".hero h1 .highlight");
-  if (highlightWord) {
-    const wrapper = document.createElement("span");
-    wrapper.className = "lux-mask-wrap";
-    highlightWord.parentNode.insertBefore(wrapper, highlightWord);
-    wrapper.appendChild(highlightWord);
-    highlightWord.classList.add("lux-mask-text");
-    
-    // Start the word animation after a tiny delay
+
+  // ============ 1. HERO ANIMATION SEQUENCE ============
+  // Order: key word "شغل" first, then title lines, then hero content
+
+  // Step 1: Reveal "شغل" with mask
+  const keyWord = document.getElementById("keyWord");
+  if (keyWord) {
     setTimeout(() => {
-      highlightWord.classList.add("is-visible");
-    }, 200);
+      keyWord.classList.add("is-visible");
+    }, 250);
   }
 
-  // Step 2: Reveal the rest of the title lines with stagger
-  const heroTitleLines = document.querySelectorAll(".hero h1 .lux-hero-line");
-  heroTitleLines.forEach((line, index) => {
-    const delay = 200 + 400 + (index * 150); // Start after word, then stagger
+  // Step 2: Reveal title lines with staggered blur (after key word)
+  const titleLines = document.querySelectorAll(".lux-blur-line");
+  titleLines.forEach((line) => {
+    const delay = parseInt(line.dataset.delay || 0);
     setTimeout(() => {
       line.classList.add("is-visible");
-    }, delay);
+    }, 600 + delay);
   });
 
-  // Step 3: Reveal the rest of the hero content (description, bottom)
-  const heroContents = document.querySelectorAll(".hero .lux-hero-content");
-  heroContents.forEach((el, index) => {
-    // Calculate delay based on data-delay or a default
-    const customDelay = el.dataset.delay ? parseInt(el.dataset.delay) : (600 + index * 150);
+  // Step 3: Reveal hero content (description, bottom, kicker)
+  const heroContents = document.querySelectorAll(".lux-hero-content");
+  heroContents.forEach((el) => {
+    const delay = parseInt(el.dataset.delay || 0);
     setTimeout(() => {
       el.classList.add("is-visible");
-    }, customDelay);
+    }, 600 + delay);
   });
 
-  // Also reveal the top bar (tag and number) smoothly
-  const heroTopElements = document.querySelectorAll(".hero-tag, .hero-number, .hero-kicker");
-  heroTopElements.forEach((el, index) => {
+  // Also reveal the top bar elements smoothly
+  const heroTop = document.querySelectorAll(".hero-tag, .hero-number");
+  heroTop.forEach((el, i) => {
     el.style.opacity = "0";
-    el.style.transform = "translateY(10px)";
-    el.style.transition = `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 100}ms, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 100}ms`;
+    el.style.transform = "translateY(8px)";
+    el.style.transition = `opacity 0.7s cubic-bezier(0.22,1,0.36,1) ${i * 120}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${i * 120}ms`;
     setTimeout(() => {
       el.style.opacity = "1";
       el.style.transform = "translateY(0)";
@@ -1197,26 +1208,27 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
 
-  // --- 2. SCROLL ANIMATION (All Sections) ---
-  // Observe every element with class 'lux-scroll-item'
-  const scrollItems = document.querySelectorAll(".lux-scroll-item");
-  
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  // ============ 2. SCROLL-DRIVEN STAGGERED BLUR REVEAL ============
+  // Applies to .lux-scroll and .lux-stagger elements
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("is-visible");
-        // Optional: stop observing once revealed for performance
-        observer.unobserve(entry.target);
+        scrollObserver.unobserve(entry.target);
       }
     });
   }, {
     threshold: 0.12,
-    rootMargin: "0px 0px -40px 0px"
+    rootMargin: "0px 0px -60px 0px"
   });
 
-  scrollItems.forEach(el => observer.observe(el));
+  document.querySelectorAll(".lux-scroll, .lux-stagger").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
 });
 </script>
 
 </body>
-      </html>
+  </html>
