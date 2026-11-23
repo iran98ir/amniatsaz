@@ -441,7 +441,6 @@ button{cursor:pointer}
   transform:translateY(-50%) rotate(180deg);
 }
 
-/* ===== منوی سلکت: حالا با z-index بالا و position absolute از خود trigger ===== */
 .custom-select-menu{
   position:absolute;
   top:calc(100% + 8px);
@@ -500,13 +499,11 @@ button{cursor:pointer}
   flex-shrink:0;
 }
 
-/* ===== والد فیلدهای داخل maleSection باید stacking context درست داشته باشن ===== */
 #maleSection{
   position:relative;
   z-index:1;
 }
 
-/* فیلدهایی که داخلشون سلکت هست، وقتی منو بازه باید بالا بیان */
 .field:has(.custom-select.open){
   z-index:250;
   position:relative;
@@ -1311,7 +1308,7 @@ button{cursor:pointer}
       <span class="note-ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></span>
       چرا این هزینه اصلاً به ضررت نیست؟
     </div>
-    <p>هزینهٔ <strong>۱۵ میلیون تومان</strong> فقط از حقوق ماه اول کسر می‌شود. یعنی اگر حقوقت ۶۰ میلیون تومان باشد، ماه اول <strong>۴۵ میلیون</strong> دستت را می‌گیرد. ریسکی برای تو وجود ندارد.</p>
+    <p>هزینهٔ <strong>۱۵ میلیون تومان</strong> فقط از حقوق ماه اول کسر می‌شود. یعنی اگر حقوقت ۹۵ میلیون تومان باشد، ماه اول <strong>۸۰ میلیون</strong> دستت را می‌گیرد. ریسکی برای تو وجود ندارد.</p>
   </div>
 
   <div class="note note-soft">
@@ -2350,4 +2347,4 @@ $$('input[type="file"]').forEach(f => {
 </script>
 
 </body>
-</html>
+  </html>
